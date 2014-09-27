@@ -1,15 +1,13 @@
 //
-//  ViewController.h
-//  CouponTracker
+//  CTServices.h
+//  CTServices
 //
 //  Created by Balazs Ilsinszki on 27/09/14.
 //  Copyright (c) 2014 Balazs Ilsinszki. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@interface ViewController : UIViewController
-
+@interface CTServices : NSObject
 
 @end
-

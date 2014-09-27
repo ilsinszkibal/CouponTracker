@@ -7,74 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6BC6213619D3502000597D4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6213519D3502000597D4D /* main.m */; };
-		6BC6213919D3502000597D4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6213819D3502000597D4D /* AppDelegate.m */; };
-		6BC6213C19D3502000597D4D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6213B19D3502000597D4D /* ViewController.m */; };
-		6BC6213F19D3502000597D4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BC6213D19D3502000597D4D /* Main.storyboard */; };
-		6BC6214119D3502000597D4D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BC6214019D3502000597D4D /* Images.xcassets */; };
-		6BC6214419D3502000597D4D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BC6214219D3502000597D4D /* LaunchScreen.xib */; };
-		6BC6215019D3502000597D4D /* CouponTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6214F19D3502000597D4D /* CouponTrackerTests.m */; };
-		6BC6218419D3506200597D4D /* libCouponServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC6217F19D3503F00597D4D /* libCouponServices.a */; };
+		6B77A87419D6C5AE00FC0978 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A87319D6C5AE00FC0978 /* main.m */; };
+		6B77A87719D6C5AE00FC0978 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A87619D6C5AE00FC0978 /* AppDelegate.m */; };
+		6B77A87A19D6C5AE00FC0978 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A87919D6C5AE00FC0978 /* ViewController.m */; };
+		6B77A87D19D6C5AE00FC0978 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B77A87B19D6C5AE00FC0978 /* Main.storyboard */; };
+		6B77A87F19D6C5AE00FC0978 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B77A87E19D6C5AE00FC0978 /* Images.xcassets */; };
+		6B77A88219D6C5AE00FC0978 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B77A88019D6C5AE00FC0978 /* LaunchScreen.xib */; };
+		6B77A88E19D6C5AE00FC0978 /* CouponTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A88D19D6C5AE00FC0978 /* CouponTrackerTests.m */; };
+		6B77A8E219D6CAB500FC0978 /* libCTCommonUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77A8E119D6CAB500FC0978 /* libCTCommonUI.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6BC6214A19D3502000597D4D /* PBXContainerItemProxy */ = {
+		6B77A88819D6C5AE00FC0978 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6BC6212819D3502000597D4D /* Project object */;
+			containerPortal = 6B77A86619D6C5AE00FC0978 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6BC6212F19D3502000597D4D;
+			remoteGlobalIDString = 6B77A86D19D6C5AE00FC0978;
 			remoteInfo = CouponTracker;
-		};
-		6BC6217E19D3503F00597D4D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6BC6217919D3503E00597D4D /* CouponServices.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6BC6216219D3503D00597D4D;
-			remoteInfo = CouponServices;
-		};
-		6BC6218019D3503F00597D4D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6BC6217919D3503E00597D4D /* CouponServices.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6BC6216D19D3503E00597D4D;
-			remoteInfo = CouponServicesTests;
-		};
-		6BC6218219D3505D00597D4D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6BC6217919D3503E00597D4D /* CouponServices.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6BC6216119D3503D00597D4D;
-			remoteInfo = CouponServices;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6BC6213019D3502000597D4D /* CouponTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CouponTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6BC6213419D3502000597D4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6BC6213519D3502000597D4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6BC6213719D3502000597D4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		6BC6213819D3502000597D4D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6BC6213A19D3502000597D4D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6BC6213B19D3502000597D4D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		6BC6213E19D3502000597D4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6BC6214019D3502000597D4D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6BC6214319D3502000597D4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		6BC6214919D3502000597D4D /* CouponTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CouponTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6BC6214E19D3502000597D4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6BC6214F19D3502000597D4D /* CouponTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CouponTrackerTests.m; sourceTree = "<group>"; };
-		6BC6217919D3503E00597D4D /* CouponServices.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CouponServices.xcodeproj; path = CouponTracker/Projects/CouponServices/CouponServices.xcodeproj; sourceTree = "<group>"; };
+		6B77A86E19D6C5AE00FC0978 /* CouponTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CouponTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B77A87219D6C5AE00FC0978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B77A87319D6C5AE00FC0978 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6B77A87519D6C5AE00FC0978 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6B77A87619D6C5AE00FC0978 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6B77A87819D6C5AE00FC0978 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6B77A87919D6C5AE00FC0978 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6B77A87C19D6C5AE00FC0978 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6B77A87E19D6C5AE00FC0978 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6B77A88119D6C5AE00FC0978 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		6B77A88719D6C5AE00FC0978 /* CouponTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CouponTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B77A88C19D6C5AE00FC0978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B77A88D19D6C5AE00FC0978 /* CouponTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CouponTrackerTests.m; sourceTree = "<group>"; };
+		6B77A8E119D6CAB500FC0978 /* libCTCommonUI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCTCommonUI.a; path = "../CTCommonUI/build/Debug-iphoneos/libCTCommonUI.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6BC6212D19D3502000597D4D /* Frameworks */ = {
+		6B77A86B19D6C5AE00FC0978 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BC6218419D3506200597D4D /* libCouponServices.a in Frameworks */,
+				6B77A8E219D6CAB500FC0978 /* libCTCommonUI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6BC6214619D3502000597D4D /* Frameworks */ = {
+		6B77A88419D6C5AE00FC0978 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -84,133 +63,131 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6BC6212719D3502000597D4D = {
+		6B77A86519D6C5AE00FC0978 = {
 			isa = PBXGroup;
 			children = (
-				6BC6217919D3503E00597D4D /* CouponServices.xcodeproj */,
-				6BC6213219D3502000597D4D /* CouponTracker */,
-				6BC6214C19D3502000597D4D /* CouponTrackerTests */,
-				6BC6213119D3502000597D4D /* Products */,
+				6B77A8E919D6CC0B00FC0978 /* framework */,
+				6B77A87019D6C5AE00FC0978 /* CouponTracker */,
+				6B77A88A19D6C5AE00FC0978 /* CouponTrackerTests */,
+				6B77A86F19D6C5AE00FC0978 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		6BC6213119D3502000597D4D /* Products */ = {
+		6B77A86F19D6C5AE00FC0978 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6BC6213019D3502000597D4D /* CouponTracker.app */,
-				6BC6214919D3502000597D4D /* CouponTrackerTests.xctest */,
+				6B77A86E19D6C5AE00FC0978 /* CouponTracker.app */,
+				6B77A88719D6C5AE00FC0978 /* CouponTrackerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6BC6213219D3502000597D4D /* CouponTracker */ = {
+		6B77A87019D6C5AE00FC0978 /* CouponTracker */ = {
 			isa = PBXGroup;
 			children = (
-				6BC6213719D3502000597D4D /* AppDelegate.h */,
-				6BC6213819D3502000597D4D /* AppDelegate.m */,
-				6BC6213A19D3502000597D4D /* ViewController.h */,
-				6BC6213B19D3502000597D4D /* ViewController.m */,
-				6BC6213D19D3502000597D4D /* Main.storyboard */,
-				6BC6214019D3502000597D4D /* Images.xcassets */,
-				6BC6214219D3502000597D4D /* LaunchScreen.xib */,
-				6BC6213319D3502000597D4D /* Supporting Files */,
+				6B77A87519D6C5AE00FC0978 /* AppDelegate.h */,
+				6B77A87619D6C5AE00FC0978 /* AppDelegate.m */,
+				6B77A87819D6C5AE00FC0978 /* ViewController.h */,
+				6B77A87919D6C5AE00FC0978 /* ViewController.m */,
+				6B77A87B19D6C5AE00FC0978 /* Main.storyboard */,
+				6B77A87E19D6C5AE00FC0978 /* Images.xcassets */,
+				6B77A88019D6C5AE00FC0978 /* LaunchScreen.xib */,
+				6B77A87119D6C5AE00FC0978 /* Supporting Files */,
 			);
 			path = CouponTracker;
 			sourceTree = "<group>";
 		};
-		6BC6213319D3502000597D4D /* Supporting Files */ = {
+		6B77A87119D6C5AE00FC0978 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6BC6213419D3502000597D4D /* Info.plist */,
-				6BC6213519D3502000597D4D /* main.m */,
+				6B77A87219D6C5AE00FC0978 /* Info.plist */,
+				6B77A87319D6C5AE00FC0978 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6BC6214C19D3502000597D4D /* CouponTrackerTests */ = {
+		6B77A88A19D6C5AE00FC0978 /* CouponTrackerTests */ = {
 			isa = PBXGroup;
 			children = (
-				6BC6214F19D3502000597D4D /* CouponTrackerTests.m */,
-				6BC6214D19D3502000597D4D /* Supporting Files */,
+				6B77A88D19D6C5AE00FC0978 /* CouponTrackerTests.m */,
+				6B77A88B19D6C5AE00FC0978 /* Supporting Files */,
 			);
 			path = CouponTrackerTests;
 			sourceTree = "<group>";
 		};
-		6BC6214D19D3502000597D4D /* Supporting Files */ = {
+		6B77A88B19D6C5AE00FC0978 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6BC6214E19D3502000597D4D /* Info.plist */,
+				6B77A88C19D6C5AE00FC0978 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6BC6217A19D3503E00597D4D /* Products */ = {
+		6B77A8E919D6CC0B00FC0978 /* framework */ = {
 			isa = PBXGroup;
 			children = (
-				6BC6217F19D3503F00597D4D /* libCouponServices.a */,
-				6BC6218119D3503F00597D4D /* CouponServicesTests.xctest */,
+				6B77A8E119D6CAB500FC0978 /* libCTCommonUI.a */,
 			);
-			name = Products;
+			name = framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6BC6212F19D3502000597D4D /* CouponTracker */ = {
+		6B77A86D19D6C5AE00FC0978 /* CouponTracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6BC6215319D3502000597D4D /* Build configuration list for PBXNativeTarget "CouponTracker" */;
+			buildConfigurationList = 6B77A89119D6C5AE00FC0978 /* Build configuration list for PBXNativeTarget "CouponTracker" */;
 			buildPhases = (
-				6BC6212C19D3502000597D4D /* Sources */,
-				6BC6212D19D3502000597D4D /* Frameworks */,
-				6BC6212E19D3502000597D4D /* Resources */,
+				6B77A86A19D6C5AE00FC0978 /* Sources */,
+				6B77A86B19D6C5AE00FC0978 /* Frameworks */,
+				6B77A86C19D6C5AE00FC0978 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6BC6218319D3505D00597D4D /* PBXTargetDependency */,
 			);
 			name = CouponTracker;
 			productName = CouponTracker;
-			productReference = 6BC6213019D3502000597D4D /* CouponTracker.app */;
+			productReference = 6B77A86E19D6C5AE00FC0978 /* CouponTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6BC6214819D3502000597D4D /* CouponTrackerTests */ = {
+		6B77A88619D6C5AE00FC0978 /* CouponTrackerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6BC6215619D3502000597D4D /* Build configuration list for PBXNativeTarget "CouponTrackerTests" */;
+			buildConfigurationList = 6B77A89419D6C5AE00FC0978 /* Build configuration list for PBXNativeTarget "CouponTrackerTests" */;
 			buildPhases = (
-				6BC6214519D3502000597D4D /* Sources */,
-				6BC6214619D3502000597D4D /* Frameworks */,
-				6BC6214719D3502000597D4D /* Resources */,
+				6B77A88319D6C5AE00FC0978 /* Sources */,
+				6B77A88419D6C5AE00FC0978 /* Frameworks */,
+				6B77A88519D6C5AE00FC0978 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6BC6214B19D3502000597D4D /* PBXTargetDependency */,
+				6B77A88919D6C5AE00FC0978 /* PBXTargetDependency */,
 			);
 			name = CouponTrackerTests;
 			productName = CouponTrackerTests;
-			productReference = 6BC6214919D3502000597D4D /* CouponTrackerTests.xctest */;
+			productReference = 6B77A88719D6C5AE00FC0978 /* CouponTrackerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6BC6212819D3502000597D4D /* Project object */ = {
+		6B77A86619D6C5AE00FC0978 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Balazs Ilsinszki";
 				TargetAttributes = {
-					6BC6212F19D3502000597D4D = {
+					6B77A86D19D6C5AE00FC0978 = {
 						CreatedOnToolsVersion = 6.0;
 					};
-					6BC6214819D3502000597D4D = {
+					6B77A88619D6C5AE00FC0978 = {
 						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 6BC6212F19D3502000597D4D;
+						TestTargetID = 6B77A86D19D6C5AE00FC0978;
 					};
 				};
 			};
-			buildConfigurationList = 6BC6212B19D3502000597D4D /* Build configuration list for PBXProject "CouponTracker" */;
+			buildConfigurationList = 6B77A86919D6C5AE00FC0978 /* Build configuration list for PBXProject "CouponTracker" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -218,52 +195,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 6BC6212719D3502000597D4D;
-			productRefGroup = 6BC6213119D3502000597D4D /* Products */;
+			mainGroup = 6B77A86519D6C5AE00FC0978;
+			productRefGroup = 6B77A86F19D6C5AE00FC0978 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 6BC6217A19D3503E00597D4D /* Products */;
-					ProjectRef = 6BC6217919D3503E00597D4D /* CouponServices.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
-				6BC6212F19D3502000597D4D /* CouponTracker */,
-				6BC6214819D3502000597D4D /* CouponTrackerTests */,
+				6B77A86D19D6C5AE00FC0978 /* CouponTracker */,
+				6B77A88619D6C5AE00FC0978 /* CouponTrackerTests */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		6BC6217F19D3503F00597D4D /* libCouponServices.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libCouponServices.a;
-			remoteRef = 6BC6217E19D3503F00597D4D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6BC6218119D3503F00597D4D /* CouponServicesTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CouponServicesTests.xctest;
-			remoteRef = 6BC6218019D3503F00597D4D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
-		6BC6212E19D3502000597D4D /* Resources */ = {
+		6B77A86C19D6C5AE00FC0978 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BC6213F19D3502000597D4D /* Main.storyboard in Resources */,
-				6BC6214419D3502000597D4D /* LaunchScreen.xib in Resources */,
-				6BC6214119D3502000597D4D /* Images.xcassets in Resources */,
+				6B77A87D19D6C5AE00FC0978 /* Main.storyboard in Resources */,
+				6B77A88219D6C5AE00FC0978 /* LaunchScreen.xib in Resources */,
+				6B77A87F19D6C5AE00FC0978 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6BC6214719D3502000597D4D /* Resources */ = {
+		6B77A88519D6C5AE00FC0978 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -273,52 +227,47 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6BC6212C19D3502000597D4D /* Sources */ = {
+		6B77A86A19D6C5AE00FC0978 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BC6213C19D3502000597D4D /* ViewController.m in Sources */,
-				6BC6213919D3502000597D4D /* AppDelegate.m in Sources */,
-				6BC6213619D3502000597D4D /* main.m in Sources */,
+				6B77A87A19D6C5AE00FC0978 /* ViewController.m in Sources */,
+				6B77A87719D6C5AE00FC0978 /* AppDelegate.m in Sources */,
+				6B77A87419D6C5AE00FC0978 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6BC6214519D3502000597D4D /* Sources */ = {
+		6B77A88319D6C5AE00FC0978 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BC6215019D3502000597D4D /* CouponTrackerTests.m in Sources */,
+				6B77A88E19D6C5AE00FC0978 /* CouponTrackerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6BC6214B19D3502000597D4D /* PBXTargetDependency */ = {
+		6B77A88919D6C5AE00FC0978 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6BC6212F19D3502000597D4D /* CouponTracker */;
-			targetProxy = 6BC6214A19D3502000597D4D /* PBXContainerItemProxy */;
-		};
-		6BC6218319D3505D00597D4D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CouponServices;
-			targetProxy = 6BC6218219D3505D00597D4D /* PBXContainerItemProxy */;
+			target = 6B77A86D19D6C5AE00FC0978 /* CouponTracker */;
+			targetProxy = 6B77A88819D6C5AE00FC0978 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6BC6213D19D3502000597D4D /* Main.storyboard */ = {
+		6B77A87B19D6C5AE00FC0978 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6BC6213E19D3502000597D4D /* Base */,
+				6B77A87C19D6C5AE00FC0978 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		6BC6214219D3502000597D4D /* LaunchScreen.xib */ = {
+		6B77A88019D6C5AE00FC0978 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6BC6214319D3502000597D4D /* Base */,
+				6B77A88119D6C5AE00FC0978 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -326,7 +275,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		6BC6215119D3502000597D4D /* Debug */ = {
+		6B77A88F19D6C5AE00FC0978 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -368,7 +317,7 @@
 			};
 			name = Debug;
 		};
-		6BC6215219D3502000597D4D /* Release */ = {
+		6B77A89019D6C5AE00FC0978 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -404,41 +353,47 @@
 			};
 			name = Release;
 		};
-		6BC6215419D3502000597D4D /* Debug */ = {
+		6B77A89219D6C5AE00FC0978 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Projects/CouponServices/build/Debug-iphoneos/**";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../**";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/**",
+					"$(SRCROOT)/../**",
 				);
 				INFOPLIST_FILE = CouponTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Projects/CouponTrackerServices/build/Debug-iphoneos/**";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../**",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		6BC6215519D3502000597D4D /* Release */ = {
+		6B77A89319D6C5AE00FC0978 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Projects/CouponServices/build/Debug-iphoneos/**";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../**";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/**",
+					"$(SRCROOT)/../**",
 				);
 				INFOPLIST_FILE = CouponTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Projects/CouponTrackerServices/build/Debug-iphoneos/**";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../**",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
-		6BC6215719D3502000597D4D /* Debug */ = {
+		6B77A89519D6C5AE00FC0978 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -457,7 +412,7 @@
 			};
 			name = Debug;
 		};
-		6BC6215819D3502000597D4D /* Release */ = {
+		6B77A89619D6C5AE00FC0978 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -475,34 +430,32 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6BC6212B19D3502000597D4D /* Build configuration list for PBXProject "CouponTracker" */ = {
+		6B77A86919D6C5AE00FC0978 /* Build configuration list for PBXProject "CouponTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6BC6215119D3502000597D4D /* Debug */,
-				6BC6215219D3502000597D4D /* Release */,
+				6B77A88F19D6C5AE00FC0978 /* Debug */,
+				6B77A89019D6C5AE00FC0978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6BC6215319D3502000597D4D /* Build configuration list for PBXNativeTarget "CouponTracker" */ = {
+		6B77A89119D6C5AE00FC0978 /* Build configuration list for PBXNativeTarget "CouponTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6BC6215419D3502000597D4D /* Debug */,
-				6BC6215519D3502000597D4D /* Release */,
+				6B77A89219D6C5AE00FC0978 /* Debug */,
+				6B77A89319D6C5AE00FC0978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-		6BC6215619D3502000597D4D /* Build configuration list for PBXNativeTarget "CouponTrackerTests" */ = {
+		6B77A89419D6C5AE00FC0978 /* Build configuration list for PBXNativeTarget "CouponTrackerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6BC6215719D3502000597D4D /* Debug */,
-				6BC6215819D3502000597D4D /* Release */,
+				6B77A89519D6C5AE00FC0978 /* Debug */,
+				6B77A89619D6C5AE00FC0978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 6BC6212819D3502000597D4D /* Project object */;
+	rootObject = 6B77A86619D6C5AE00FC0978 /* Project object */;
 }

@@ -1,15 +1,13 @@
 //
-//  ViewController.h
-//  CouponTracker
+//  CTUtils.m
+//  CTUtils
 //
 //  Created by Balazs Ilsinszki on 27/09/14.
 //  Copyright (c) 2014 Balazs Ilsinszki. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "CTUtils.h"
 
-@interface ViewController : UIViewController
-
+@implementation CTUtils
 
 @end
-

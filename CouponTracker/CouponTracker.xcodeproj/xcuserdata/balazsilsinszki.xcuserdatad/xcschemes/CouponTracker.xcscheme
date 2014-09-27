@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6BC6212F19D3502000597D4D"
+               BlueprintIdentifier = "6B77A86D19D6C5AE00FC0978"
                BuildableName = "CouponTracker.app"
                BlueprintName = "CouponTracker"
                ReferencedContainer = "container:CouponTracker.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6BC6214819D3502000597D4D"
+               BlueprintIdentifier = "6B77A88619D6C5AE00FC0978"
                BuildableName = "CouponTrackerTests.xctest"
                BlueprintName = "CouponTrackerTests"
                ReferencedContainer = "container:CouponTracker.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6BC6214819D3502000597D4D"
+               BlueprintIdentifier = "6B77A88619D6C5AE00FC0978"
                BuildableName = "CouponTrackerTests.xctest"
                BlueprintName = "CouponTrackerTests"
                ReferencedContainer = "container:CouponTracker.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6BC6212F19D3502000597D4D"
+            BlueprintIdentifier = "6B77A86D19D6C5AE00FC0978"
             BuildableName = "CouponTracker.app"
             BlueprintName = "CouponTracker"
             ReferencedContainer = "container:CouponTracker.xcodeproj">
@@ -75,7 +75,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6BC6212F19D3502000597D4D"
+            BlueprintIdentifier = "6B77A86D19D6C5AE00FC0978"
             BuildableName = "CouponTracker.app"
             BlueprintName = "CouponTracker"
             ReferencedContainer = "container:CouponTracker.xcodeproj">
@@ -93,7 +93,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6BC6212F19D3502000597D4D"
+            BlueprintIdentifier = "6B77A86D19D6C5AE00FC0978"
             BuildableName = "CouponTracker.app"
             BlueprintName = "CouponTracker"
             ReferencedContainer = "container:CouponTracker.xcodeproj">

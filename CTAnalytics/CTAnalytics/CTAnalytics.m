@@ -1,15 +1,13 @@
 //
-//  ViewController.h
-//  CouponTracker
+//  CTAnalytics.m
+//  CTAnalytics
 //
 //  Created by Balazs Ilsinszki on 27/09/14.
 //  Copyright (c) 2014 Balazs Ilsinszki. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "CTAnalytics.h"
 
-@interface ViewController : UIViewController
-
+@implementation CTAnalytics
 
 @end
-
