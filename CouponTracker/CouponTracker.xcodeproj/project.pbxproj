@@ -15,6 +15,9 @@
 		6B77A88219D6C5AE00FC0978 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B77A88019D6C5AE00FC0978 /* LaunchScreen.xib */; };
 		6B77A88E19D6C5AE00FC0978 /* CouponTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A88D19D6C5AE00FC0978 /* CouponTrackerTests.m */; };
 		6B77A8E219D6CAB500FC0978 /* libCTCommonUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77A8E119D6CAB500FC0978 /* libCTCommonUI.a */; };
+		BD3BBB3B19D703760006DE0F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB3A19D703760006DE0F /* CoreData.framework */; };
+		BD3BBB4019D703990006DE0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB3F19D703990006DE0F /* SystemConfiguration.framework */; };
+		BD3BBB4219D703E30006DE0F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB4119D703E30006DE0F /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +27,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6B77A86D19D6C5AE00FC0978;
 			remoteInfo = CouponTracker;
+		};
+		BD3BBA6619D700070006DE0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBA0819D700070006DE0F /* CTCommonUI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B77A8C619D6C9E200FC0978;
+			remoteInfo = CTCommonUI;
+		};
+		BD3BBA6819D700070006DE0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBA0819D700070006DE0F /* CTCommonUI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B77A8D119D6C9E200FC0978;
+			remoteInfo = CTCommonUITests;
+		};
+		BD3BBA8219D700330006DE0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBA0819D700070006DE0F /* CTCommonUI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B77A8C519D6C9E200FC0978;
+			remoteInfo = CTCommonUI;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -42,6 +66,11 @@
 		6B77A88C19D6C5AE00FC0978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B77A88D19D6C5AE00FC0978 /* CouponTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CouponTrackerTests.m; sourceTree = "<group>"; };
 		6B77A8E119D6CAB500FC0978 /* libCTCommonUI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCTCommonUI.a; path = "../CTCommonUI/build/Debug-iphoneos/libCTCommonUI.a"; sourceTree = "<group>"; };
+		BD3BBA0819D700070006DE0F /* CTCommonUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTCommonUI.xcodeproj; path = ../CTCommonUI/CTCommonUI.xcodeproj; sourceTree = "<group>"; };
+		BD3BBB3A19D703760006DE0F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		BD3BBB3D19D703880006DE0F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		BD3BBB3F19D703990006DE0F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BD3BBB4119D703E30006DE0F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +78,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD3BBB4219D703E30006DE0F /* MobileCoreServices.framework in Frameworks */,
+				BD3BBB4019D703990006DE0F /* SystemConfiguration.framework in Frameworks */,
+				BD3BBB3B19D703760006DE0F /* CoreData.framework in Frameworks */,
 				6B77A8E219D6CAB500FC0978 /* libCTCommonUI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +102,7 @@
 				6B77A87019D6C5AE00FC0978 /* CouponTracker */,
 				6B77A88A19D6C5AE00FC0978 /* CouponTrackerTests */,
 				6B77A86F19D6C5AE00FC0978 /* Products */,
+				BD3BBA0819D700070006DE0F /* CTCommonUI.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,9 +159,22 @@
 		6B77A8E919D6CC0B00FC0978 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				BD3BBB4119D703E30006DE0F /* MobileCoreServices.framework */,
+				BD3BBB3F19D703990006DE0F /* SystemConfiguration.framework */,
+				BD3BBB3D19D703880006DE0F /* Security.framework */,
+				BD3BBB3A19D703760006DE0F /* CoreData.framework */,
 				6B77A8E119D6CAB500FC0978 /* libCTCommonUI.a */,
 			);
 			name = framework;
+			sourceTree = "<group>";
+		};
+		BD3BBA0919D700070006DE0F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD3BBA6719D700070006DE0F /* libCTCommonUI.a */,
+				BD3BBA6919D700070006DE0F /* CTCommonUITests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +191,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				BD3BBA8319D700330006DE0F /* PBXTargetDependency */,
 			);
 			name = CouponTracker;
 			productName = CouponTracker;
@@ -175,6 +222,7 @@
 		6B77A86619D6C5AE00FC0978 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = CT;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Balazs Ilsinszki";
 				TargetAttributes = {
@@ -198,6 +246,12 @@
 			mainGroup = 6B77A86519D6C5AE00FC0978;
 			productRefGroup = 6B77A86F19D6C5AE00FC0978 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BD3BBA0919D700070006DE0F /* Products */;
+					ProjectRef = BD3BBA0819D700070006DE0F /* CTCommonUI.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				6B77A86D19D6C5AE00FC0978 /* CouponTracker */,
@@ -205,6 +259,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BD3BBA6719D700070006DE0F /* libCTCommonUI.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCTCommonUI.a;
+			remoteRef = BD3BBA6619D700070006DE0F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BD3BBA6919D700070006DE0F /* CTCommonUITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CTCommonUITests.xctest;
+			remoteRef = BD3BBA6819D700070006DE0F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6B77A86C19D6C5AE00FC0978 /* Resources */ = {
@@ -252,6 +323,11 @@
 			isa = PBXTargetDependency;
 			target = 6B77A86D19D6C5AE00FC0978 /* CouponTracker */;
 			targetProxy = 6B77A88819D6C5AE00FC0978 /* PBXContainerItemProxy */;
+		};
+		BD3BBA8319D700330006DE0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CTCommonUI;
+			targetProxy = BD3BBA8219D700330006DE0F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -368,6 +444,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../**",
+					"/Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CTServices/build/Debug-iphoneos",
+					"$(PROJECT_DIR)",
+					"/Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CTAnalytics/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/CouponTracker-acwfmdgdbdhriieqrdcaxmyadjae/Build/Products/Debug-iphoneos",
+					"/Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CTData/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -388,6 +473,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../**",
+					"/Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CTServices/build/Debug-iphoneos",
+					"$(PROJECT_DIR)",
+					"/Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CTAnalytics/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/CouponTracker-acwfmdgdbdhriieqrdcaxmyadjae/Build/Products/Debug-iphoneos",
+					"/Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CTData/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -446,6 +540,7 @@
 				6B77A89319D6C5AE00FC0978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6B77A89419D6C5AE00FC0978 /* Build configuration list for PBXNativeTarget "CouponTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +549,7 @@
 				6B77A89619D6C5AE00FC0978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

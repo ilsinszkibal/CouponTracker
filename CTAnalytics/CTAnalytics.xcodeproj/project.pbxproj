@@ -12,6 +12,30 @@
 		6B77A8DE19D6CA1300FC0978 /* libCTData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77A8DD19D6CA1300FC0978 /* libCTData.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BD3BBAA419D7009F0006DE0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBA9F19D7009F0006DE0F /* CTData.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B77A82A19D6C50900FC0978;
+			remoteInfo = CTData;
+		};
+		BD3BBAA619D7009F0006DE0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBA9F19D7009F0006DE0F /* CTData.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B77A83519D6C50900FC0978;
+			remoteInfo = CTDataTests;
+		};
+		BD3BBAC219D700CD0006DE0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBA9F19D7009F0006DE0F /* CTData.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B77A82919D6C50900FC0978;
+			remoteInfo = CTData;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		6B77A84819D6C51600FC0978 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -32,6 +56,7 @@
 		6B77A85519D6C51600FC0978 /* CTAnalyticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CTAnalyticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B77A85819D6C51600FC0978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B77A8DD19D6CA1300FC0978 /* libCTData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCTData.a; path = "../CTData/build/Debug-iphoneos/libCTData.a"; sourceTree = "<group>"; };
+		BD3BBA9F19D7009F0006DE0F /* CTData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTData.xcodeproj; path = /Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CouponTracker/../CTData/CTData.xcodeproj; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +81,7 @@
 		6B77A84119D6C51600FC0978 = {
 			isa = PBXGroup;
 			children = (
+				BD3BBA9F19D7009F0006DE0F /* CTData.xcodeproj */,
 				6B77A8E419D6CB9400FC0978 /* framework */,
 				6B77A84C19D6C51600FC0978 /* CTAnalytics */,
 				6B77A85619D6C51600FC0978 /* CTAnalyticsTests */,
@@ -105,6 +131,15 @@
 			name = framework;
 			sourceTree = "<group>";
 		};
+		BD3BBAA019D7009F0006DE0F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD3BBAA519D7009F0006DE0F /* libCTData.a */,
+				BD3BBAA719D7009F0006DE0F /* CTDataTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,6 +154,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				BD3BBAC319D700CD0006DE0F /* PBXTargetDependency */,
 			);
 			name = CTAnalytics;
 			productName = CTAnalytics;
@@ -169,6 +205,12 @@
 			mainGroup = 6B77A84119D6C51600FC0978;
 			productRefGroup = 6B77A84B19D6C51600FC0978 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BD3BBAA019D7009F0006DE0F /* Products */;
+					ProjectRef = BD3BBA9F19D7009F0006DE0F /* CTData.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				6B77A84919D6C51600FC0978 /* CTAnalytics */,
@@ -176,6 +218,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BD3BBAA519D7009F0006DE0F /* libCTData.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCTData.a;
+			remoteRef = BD3BBAA419D7009F0006DE0F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BD3BBAA719D7009F0006DE0F /* CTDataTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CTDataTests.xctest;
+			remoteRef = BD3BBAA619D7009F0006DE0F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6B77A85319D6C51600FC0978 /* Resources */ = {
@@ -204,6 +263,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BD3BBAC319D700CD0006DE0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CTData;
+			targetProxy = BD3BBAC219D700CD0006DE0F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6B77A85919D6C51600FC0978 /* Debug */ = {
@@ -367,6 +434,7 @@
 				6B77A85D19D6C51600FC0978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6B77A85E19D6C51600FC0978 /* Build configuration list for PBXNativeTarget "CTAnalyticsTests" */ = {
 			isa = XCConfigurationList;
@@ -375,6 +443,7 @@
 				6B77A86019D6C51600FC0978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

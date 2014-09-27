@@ -7,10 +7,9 @@
 //
 
 #import "CTBaseManager.h"
-#import <RestKit.h>
 
 @interface CTNetworkingManager : CTBaseManager
 
-- (RKObjectRequestOperation*)getCards:(void(^)(NSArray* cards, NSError* error))completion;
+- (NSOperation*)getCards:(void(^)(NSArray* cards, NSError* error))completion;
 
 @end

@@ -22,6 +22,30 @@
 		BD3BB9F019D6F0160006DE0F /* Model_PrintedCard.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9E219D6F0160006DE0F /* Model_PrintedCard.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BD3BBA8919D700610006DE0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBA8419D700610006DE0F /* CTUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B77A80A19D6C4FA00FC0978;
+			remoteInfo = CTUtils;
+		};
+		BD3BBA8B19D700610006DE0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBA8419D700610006DE0F /* CTUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B77A81519D6C4FA00FC0978;
+			remoteInfo = CTUtilsTests;
+		};
+		BD3BBAC019D700C60006DE0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBA8419D700610006DE0F /* CTUtils.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B77A80919D6C4FA00FC0978;
+			remoteInfo = CTUtils;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		6B77A82819D6C50900FC0978 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -63,6 +87,7 @@
 		BD3BB9E219D6F0160006DE0F /* Model_PrintedCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model_PrintedCard.m; sourceTree = "<group>"; };
 		BD3BB9E519D6F0160006DE0F /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		BD3BB9F219D6F02B0006DE0F /* Model_BaseEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model_BaseEntity.h; sourceTree = "<group>"; };
+		BD3BBA8419D700610006DE0F /* CTUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTUtils.xcodeproj; path = /Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CouponTracker/../CTUtils/CTUtils.xcodeproj; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +112,7 @@
 		6B77A82119D6C50900FC0978 = {
 			isa = PBXGroup;
 			children = (
+				BD3BBA8419D700610006DE0F /* CTUtils.xcodeproj */,
 				6B77A8E319D6CB8600FC0978 /* framework */,
 				6B77A82C19D6C50900FC0978 /* CTData */,
 				6B77A83619D6C50900FC0978 /* CTDataTests */,
@@ -165,6 +191,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		BD3BBA8519D700610006DE0F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD3BBA8A19D700610006DE0F /* libCTUtils.a */,
+				BD3BBA8C19D700610006DE0F /* CTUtilsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -179,6 +214,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				BD3BBAC119D700C60006DE0F /* PBXTargetDependency */,
 			);
 			name = CTData;
 			productName = CTData;
@@ -229,6 +265,12 @@
 			mainGroup = 6B77A82119D6C50900FC0978;
 			productRefGroup = 6B77A82B19D6C50900FC0978 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BD3BBA8519D700610006DE0F /* Products */;
+					ProjectRef = BD3BBA8419D700610006DE0F /* CTUtils.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				6B77A82919D6C50900FC0978 /* CTData */,
@@ -236,6 +278,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BD3BBA8A19D700610006DE0F /* libCTUtils.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCTUtils.a;
+			remoteRef = BD3BBA8919D700610006DE0F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BD3BBA8C19D700610006DE0F /* CTUtilsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CTUtilsTests.xctest;
+			remoteRef = BD3BBA8B19D700610006DE0F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6B77A83319D6C50900FC0978 /* Resources */ = {
@@ -274,6 +333,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BD3BBAC119D700C60006DE0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CTUtils;
+			targetProxy = BD3BBAC019D700C60006DE0F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6B77A83919D6C50900FC0978 /* Debug */ = {

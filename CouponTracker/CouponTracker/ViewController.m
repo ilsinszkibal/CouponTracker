@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     [[CTNetworkingManager sharedManager] getCards:^(NSArray *cards, NSError *error) {
         if (error) {
             NSLog(@"GetCards error: %@", error);

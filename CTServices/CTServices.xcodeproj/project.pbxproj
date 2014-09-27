@@ -14,6 +14,30 @@
 		BD3BB9F919D6F22E0006DE0F /* CTNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9F819D6F22E0006DE0F /* CTNetworkingManager.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BD3BBA9B19D700930006DE0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBA9619D700930006DE0F /* CTAnalytics.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B77A84A19D6C51600FC0978;
+			remoteInfo = CTAnalytics;
+		};
+		BD3BBA9D19D700930006DE0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBA9619D700930006DE0F /* CTAnalytics.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B77A85519D6C51600FC0978;
+			remoteInfo = CTAnalyticsTests;
+		};
+		BD3BBAC419D700D30006DE0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBA9619D700930006DE0F /* CTAnalytics.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B77A84919D6C51600FC0978;
+			remoteInfo = CTAnalytics;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		6B77A8A419D6C9BF00FC0978 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -38,6 +62,7 @@
 		BD3BB9F519D6F1E30006DE0F /* CTBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTBaseManager.m; sourceTree = "<group>"; };
 		BD3BB9F719D6F22E0006DE0F /* CTNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNetworkingManager.h; sourceTree = "<group>"; };
 		BD3BB9F819D6F22E0006DE0F /* CTNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTNetworkingManager.m; sourceTree = "<group>"; };
+		BD3BBA9619D700930006DE0F /* CTAnalytics.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTAnalytics.xcodeproj; path = /Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CouponTracker/../CTAnalytics/CTAnalytics.xcodeproj; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +87,7 @@
 		6B77A89D19D6C9BF00FC0978 = {
 			isa = PBXGroup;
 			children = (
+				BD3BBA9619D700930006DE0F /* CTAnalytics.xcodeproj */,
 				6B77A8E519D6CBA100FC0978 /* framework */,
 				6B77A8A819D6C9BF00FC0978 /* CTServices */,
 				6B77A8B219D6C9C000FC0978 /* CTServicesTests */,
@@ -123,6 +149,15 @@
 			name = Networking;
 			sourceTree = "<group>";
 		};
+		BD3BBA9719D700930006DE0F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD3BBA9C19D700930006DE0F /* libCTAnalytics.a */,
+				BD3BBA9E19D700930006DE0F /* CTAnalyticsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +172,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				BD3BBAC519D700D30006DE0F /* PBXTargetDependency */,
 			);
 			name = CTServices;
 			productName = CTServices;
@@ -187,6 +223,12 @@
 			mainGroup = 6B77A89D19D6C9BF00FC0978;
 			productRefGroup = 6B77A8A719D6C9BF00FC0978 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BD3BBA9719D700930006DE0F /* Products */;
+					ProjectRef = BD3BBA9619D700930006DE0F /* CTAnalytics.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				6B77A8A519D6C9BF00FC0978 /* CTServices */,
@@ -194,6 +236,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BD3BBA9C19D700930006DE0F /* libCTAnalytics.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCTAnalytics.a;
+			remoteRef = BD3BBA9B19D700930006DE0F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BD3BBA9E19D700930006DE0F /* CTAnalyticsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CTAnalyticsTests.xctest;
+			remoteRef = BD3BBA9D19D700930006DE0F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6B77A8AF19D6C9C000FC0978 /* Resources */ = {
@@ -224,6 +283,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BD3BBAC519D700D30006DE0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CTAnalytics;
+			targetProxy = BD3BBAC419D700D30006DE0F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6B77A8B519D6C9C000FC0978 /* Debug */ = {

@@ -8,6 +8,7 @@
 
 #import "CTNetworkingManager.h"
 #import "Model.h"
+#import <RestKit.h>
 
 @implementation CTNetworkingManager
 
@@ -47,7 +48,7 @@
 - (RKObjectMapping*)cardMapping {
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[Model_PrintedCard class]];
     [mapping addAttributeMappingsFromArray:@[@"id", @"createdAt", @"updatedAt", @"deleted", @"code"]];
-    [mapping addRelationshipMappingWithSourceKeyPath:@"template" mapping:self.templateMapping];
+    //[mapping addRelationshipMappingWithSourceKeyPath:@"template" mapping:self.templateMapping];
     return mapping;
 }
 

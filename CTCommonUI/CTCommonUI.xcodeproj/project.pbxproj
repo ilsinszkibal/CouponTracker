@@ -12,6 +12,30 @@
 		6B77A8E719D6CBC100FC0978 /* libCTServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77A8E619D6CBC100FC0978 /* libCTServices.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BD3BBA9219D700870006DE0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBA8D19D700870006DE0F /* CTServices.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B77A8A619D6C9BF00FC0978;
+			remoteInfo = CTServices;
+		};
+		BD3BBA9419D700870006DE0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBA8D19D700870006DE0F /* CTServices.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B77A8B119D6C9C000FC0978;
+			remoteInfo = CTServicesTests;
+		};
+		BD3BBAC619D700D90006DE0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBA8D19D700870006DE0F /* CTServices.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B77A8A519D6C9BF00FC0978;
+			remoteInfo = CTServices;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		6B77A8C419D6C9E200FC0978 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -32,6 +56,7 @@
 		6B77A8D119D6C9E200FC0978 /* CTCommonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CTCommonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B77A8D419D6C9E200FC0978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B77A8E619D6CBC100FC0978 /* libCTServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCTServices.a; path = "../CTServices/build/Debug-iphoneos/libCTServices.a"; sourceTree = "<group>"; };
+		BD3BBA8D19D700870006DE0F /* CTServices.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTServices.xcodeproj; path = /Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CouponTracker/../CTServices/CTServices.xcodeproj; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +81,7 @@
 		6B77A8BD19D6C9E200FC0978 = {
 			isa = PBXGroup;
 			children = (
+				BD3BBA8D19D700870006DE0F /* CTServices.xcodeproj */,
 				6B77A8E819D6CBC600FC0978 /* framework */,
 				6B77A8C819D6C9E200FC0978 /* CTCommonUI */,
 				6B77A8D219D6C9E200FC0978 /* CTCommonUITests */,
@@ -105,6 +131,15 @@
 			name = framework;
 			sourceTree = "<group>";
 		};
+		BD3BBA8E19D700870006DE0F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD3BBA9319D700870006DE0F /* libCTServices.a */,
+				BD3BBA9519D700870006DE0F /* CTServicesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,6 +154,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				BD3BBAC719D700D90006DE0F /* PBXTargetDependency */,
 			);
 			name = CTCommonUI;
 			productName = CTCommonUI;
@@ -169,6 +205,12 @@
 			mainGroup = 6B77A8BD19D6C9E200FC0978;
 			productRefGroup = 6B77A8C719D6C9E200FC0978 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BD3BBA8E19D700870006DE0F /* Products */;
+					ProjectRef = BD3BBA8D19D700870006DE0F /* CTServices.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				6B77A8C519D6C9E200FC0978 /* CTCommonUI */,
@@ -176,6 +218,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BD3BBA9319D700870006DE0F /* libCTServices.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCTServices.a;
+			remoteRef = BD3BBA9219D700870006DE0F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BD3BBA9519D700870006DE0F /* CTServicesTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CTServicesTests.xctest;
+			remoteRef = BD3BBA9419D700870006DE0F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6B77A8CF19D6C9E200FC0978 /* Resources */ = {
@@ -204,6 +263,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BD3BBAC719D700D90006DE0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CTServices;
+			targetProxy = BD3BBAC619D700D90006DE0F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6B77A8D519D6C9E200FC0978 /* Debug */ = {
@@ -361,6 +428,7 @@
 				6B77A8D919D6C9E200FC0978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6B77A8DA19D6C9E200FC0978 /* Build configuration list for PBXNativeTarget "CTCommonUITests" */ = {
 			isa = XCConfigurationList;
@@ -369,6 +437,7 @@
 				6B77A8DC19D6C9E200FC0978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
