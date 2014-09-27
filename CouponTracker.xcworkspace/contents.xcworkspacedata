@@ -4,4 +4,7 @@
    <FileRef
       location = "group:CouponTracker/CouponTracker.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
 </Workspace>

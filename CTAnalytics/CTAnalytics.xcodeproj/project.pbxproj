@@ -13,26 +13,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BD3BBAA419D7009F0006DE0F /* PBXContainerItemProxy */ = {
+		6BCB424D19D718C20091E870 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BD3BBA9F19D7009F0006DE0F /* CTData.xcodeproj */;
+			containerPortal = 6BCB424719D718C20091E870 /* CTData.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6B77A82A19D6C50900FC0978;
 			remoteInfo = CTData;
 		};
-		BD3BBAA619D7009F0006DE0F /* PBXContainerItemProxy */ = {
+		6BCB424F19D718C20091E870 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BD3BBA9F19D7009F0006DE0F /* CTData.xcodeproj */;
+			containerPortal = 6BCB424719D718C20091E870 /* CTData.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6B77A83519D6C50900FC0978;
 			remoteInfo = CTDataTests;
-		};
-		BD3BBAC219D700CD0006DE0F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BD3BBA9F19D7009F0006DE0F /* CTData.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6B77A82919D6C50900FC0978;
-			remoteInfo = CTData;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -56,7 +49,7 @@
 		6B77A85519D6C51600FC0978 /* CTAnalyticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CTAnalyticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B77A85819D6C51600FC0978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B77A8DD19D6CA1300FC0978 /* libCTData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCTData.a; path = "../CTData/build/Debug-iphoneos/libCTData.a"; sourceTree = "<group>"; };
-		BD3BBA9F19D7009F0006DE0F /* CTData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTData.xcodeproj; path = /Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CouponTracker/../CTData/CTData.xcodeproj; sourceTree = "<absolute>"; };
+		6BCB424719D718C20091E870 /* CTData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTData.xcodeproj; path = ../CTData/CTData.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +74,7 @@
 		6B77A84119D6C51600FC0978 = {
 			isa = PBXGroup;
 			children = (
-				BD3BBA9F19D7009F0006DE0F /* CTData.xcodeproj */,
+				6BCB424719D718C20091E870 /* CTData.xcodeproj */,
 				6B77A8E419D6CB9400FC0978 /* framework */,
 				6B77A84C19D6C51600FC0978 /* CTAnalytics */,
 				6B77A85619D6C51600FC0978 /* CTAnalyticsTests */,
@@ -131,11 +124,11 @@
 			name = framework;
 			sourceTree = "<group>";
 		};
-		BD3BBAA019D7009F0006DE0F /* Products */ = {
+		6BCB424819D718C20091E870 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BD3BBAA519D7009F0006DE0F /* libCTData.a */,
-				BD3BBAA719D7009F0006DE0F /* CTDataTests.xctest */,
+				6BCB424E19D718C20091E870 /* libCTData.a */,
+				6BCB425019D718C20091E870 /* CTDataTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,7 +147,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				BD3BBAC319D700CD0006DE0F /* PBXTargetDependency */,
 			);
 			name = CTAnalytics;
 			productName = CTAnalytics;
@@ -207,8 +199,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = BD3BBAA019D7009F0006DE0F /* Products */;
-					ProjectRef = BD3BBA9F19D7009F0006DE0F /* CTData.xcodeproj */;
+					ProductGroup = 6BCB424819D718C20091E870 /* Products */;
+					ProjectRef = 6BCB424719D718C20091E870 /* CTData.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -220,18 +212,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		BD3BBAA519D7009F0006DE0F /* libCTData.a */ = {
+		6BCB424E19D718C20091E870 /* libCTData.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libCTData.a;
-			remoteRef = BD3BBAA419D7009F0006DE0F /* PBXContainerItemProxy */;
+			remoteRef = 6BCB424D19D718C20091E870 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		BD3BBAA719D7009F0006DE0F /* CTDataTests.xctest */ = {
+		6BCB425019D718C20091E870 /* CTDataTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = CTDataTests.xctest;
-			remoteRef = BD3BBAA619D7009F0006DE0F /* PBXContainerItemProxy */;
+			remoteRef = 6BCB424F19D718C20091E870 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -263,14 +255,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		BD3BBAC319D700CD0006DE0F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CTData;
-			targetProxy = BD3BBAC219D700CD0006DE0F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6B77A85919D6C51600FC0978 /* Debug */ = {
