@@ -20,6 +20,7 @@
 		BD3BB9ED19D6F0160006DE0F /* Model_Installation.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9DC19D6F0160006DE0F /* Model_Installation.m */; };
 		BD3BB9EE19D6F0160006DE0F /* Model_Language.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9DE19D6F0160006DE0F /* Model_Language.m */; };
 		BD3BB9F019D6F0160006DE0F /* Model_PrintedCard.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9E219D6F0160006DE0F /* Model_PrintedCard.m */; };
+		BD6FF02219D71036001F50D5 /* CTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6FF02119D71036001F50D5 /* CTUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,8 @@
 		BD3BB9E519D6F0160006DE0F /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		BD3BB9F219D6F02B0006DE0F /* Model_BaseEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model_BaseEntity.h; sourceTree = "<group>"; };
 		BD3BBA8419D700610006DE0F /* CTUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTUtils.xcodeproj; path = /Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CouponTracker/../CTUtils/CTUtils.xcodeproj; sourceTree = "<absolute>"; };
+		BD6FF02019D71036001F50D5 /* CTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTUser.h; sourceTree = "<group>"; };
+		BD6FF02119D71036001F50D5 /* CTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +138,8 @@
 				6B77A82D19D6C50900FC0978 /* CTData.h */,
 				6B77A82F19D6C50900FC0978 /* CTData.m */,
 				BD3BB9CD19D6EFF80006DE0F /* Model */,
+				BD6FF02019D71036001F50D5 /* CTUser.h */,
+				BD6FF02119D71036001F50D5 /* CTUser.m */,
 			);
 			path = CTData;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B77A83019D6C50900FC0978 /* CTData.m in Sources */,
+				BD6FF02219D71036001F50D5 /* CTUser.m in Sources */,
 				BD3BB9E919D6F0160006DE0F /* Model_CardTemplate.m in Sources */,
 				BD3BB9E819D6F0160006DE0F /* Model_CardRead.m in Sources */,
 				BD3BB9EC19D6F0160006DE0F /* Model_Image.m in Sources */,

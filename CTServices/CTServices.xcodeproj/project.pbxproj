@@ -12,6 +12,7 @@
 		6B77A8E019D6CA5100FC0978 /* libCTAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77A8DF19D6CA5100FC0978 /* libCTAnalytics.a */; };
 		BD3BB9F619D6F1E30006DE0F /* CTBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9F519D6F1E30006DE0F /* CTBaseManager.m */; };
 		BD3BB9F919D6F22E0006DE0F /* CTNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9F819D6F22E0006DE0F /* CTNetworkingManager.m */; };
+		BD6FF02819D710D5001F50D5 /* CTUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6FF02719D710D5001F50D5 /* CTUserManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		BD3BB9F719D6F22E0006DE0F /* CTNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNetworkingManager.h; sourceTree = "<group>"; };
 		BD3BB9F819D6F22E0006DE0F /* CTNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTNetworkingManager.m; sourceTree = "<group>"; };
 		BD3BBA9619D700930006DE0F /* CTAnalytics.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTAnalytics.xcodeproj; path = /Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CouponTracker/../CTAnalytics/CTAnalytics.xcodeproj; sourceTree = "<absolute>"; };
+		BD6FF02619D710D5001F50D5 /* CTUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTUserManager.h; sourceTree = "<group>"; };
+		BD6FF02719D710D5001F50D5 /* CTUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTUserManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,7 @@
 		6B77A8A819D6C9BF00FC0978 /* CTServices */ = {
 			isa = PBXGroup;
 			children = (
+				BD6FF02419D710C7001F50D5 /* User */,
 				6B77A8A919D6C9BF00FC0978 /* CTServices.h */,
 				6B77A8AB19D6C9BF00FC0978 /* CTServices.m */,
 				BD3BB9F419D6F1E30006DE0F /* CTBaseManager.h */,
@@ -156,6 +160,15 @@
 				BD3BBA9E19D700930006DE0F /* CTAnalyticsTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		BD6FF02419D710C7001F50D5 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				BD6FF02619D710D5001F50D5 /* CTUserManager.h */,
+				BD6FF02719D710D5001F50D5 /* CTUserManager.m */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +285,7 @@
 				BD3BB9F619D6F1E30006DE0F /* CTBaseManager.m in Sources */,
 				BD3BB9F919D6F22E0006DE0F /* CTNetworkingManager.m in Sources */,
 				6B77A8AC19D6C9BF00FC0978 /* CTServices.m in Sources */,
+				BD6FF02819D710D5001F50D5 /* CTUserManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

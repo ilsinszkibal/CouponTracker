@@ -13,6 +13,11 @@
 @implementation CTNetworkingManager
 
 - (void)setUp {
+    RKObjectManager* manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://coupontracker.org.149-5-47-148.sg511.servergrove.com/api/v1/"]];
+    [RKObjectManager setSharedManager:manager];
+    
+    RKLogSetAppLoggingLevel(RKLogLevelInfo);
+    
     [self addRequestDescriptor:self.cardRequestDescriptor];
     [self addResponseDescriptors:self.cardResponseDescriptors];
 }
@@ -41,21 +46,23 @@
 }
 
 - (RKObjectMapping*)templateMapping {
-    //TODO
-    return nil;
+    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[Model_CardTemplate class]];
+    [mapping addAttributeMappingsFromArray:@[@"id", @"createdAt", @"updatedAt", @"deleted", @"name"]];
+//    [mapping addRelationshipMappingWithSourceKeyPath:@"type" mapping:self.typeMapping];
+    return mapping;
 }
 
 - (RKObjectMapping*)cardMapping {
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[Model_PrintedCard class]];
     [mapping addAttributeMappingsFromArray:@[@"id", @"createdAt", @"updatedAt", @"deleted", @"code"]];
-    //[mapping addRelationshipMappingWithSourceKeyPath:@"template" mapping:self.templateMapping];
+    [mapping addRelationshipMappingWithSourceKeyPath:@"template" mapping:self.templateMapping];
     return mapping;
 }
 
 - (NSArray*)cardResponseDescriptors {
-    RKResponseDescriptor *allResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.cardMapping method:RKRequestMethodGET|RKRequestMethodPOST pathPattern:@"cards" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    RKResponseDescriptor *allResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.cardMapping method:RKRequestMethodGET|RKRequestMethodPOST pathPattern:@"cards.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
-    RKResponseDescriptor *singleResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.cardMapping method:RKRequestMethodGET|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE pathPattern:@"card/:id" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    RKResponseDescriptor *singleResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.cardMapping method:RKRequestMethodGET|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE pathPattern:@"cards/:id.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
     return @[allResponseDescriptor, singleResponseDescriptor];
 }
@@ -66,7 +73,7 @@
 
 - (RKObjectRequestOperation*)getCards:(void(^)(NSArray* cards, NSError* error))completion {
     NSDictionary* parameters = @{@"fields": @" ,template.cardType.localizations.name,template.cardType.localizations.language.name"};
-    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:@"cards" parameters:parameters];
+    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:@"cards.json" parameters:parameters];
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         if (completion) completion(mappingResult.array, nil);
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {

@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "CTNetworkingManager.h"
+#import "CTUserManager.h"
+#import "CTUser.h"
 
 @interface ViewController ()
 
@@ -23,6 +25,19 @@
             NSLog(@"GetCards error: %@", error);
         } else {
             NSLog(@"GetCards success");
+        }
+    }];
+    
+    CTOauth2User* user = [[CTOauth2User alloc] init];
+    user.name = @"Teveli László";
+    user.email = @"tevelee@gmail.com";
+    user.username = @"teve";
+    user.password = @"password";
+    [[CTUserManager sharedManager] loginUser:user completion:^(CTOauth2User *user, NSError *error) {
+        if (error) {
+            NSLog(@"Login error: %@", error);
+        } else {
+            NSLog(@"Login success");
         }
     }];
 }
