@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "CTNetworkingManager.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [[CTNetworkingManager sharedManager] getCards:^(NSArray *cards, NSError *error) {
+        if (error) {
+            NSLog(@"GetCards error: %@", error);
+        } else {
+            NSLog(@"GetCards success");
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -10,6 +10,16 @@
 		6B77A82E19D6C50900FC0978 /* CTData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6B77A82D19D6C50900FC0978 /* CTData.h */; };
 		6B77A83019D6C50900FC0978 /* CTData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A82F19D6C50900FC0978 /* CTData.m */; };
 		6B77A89C19D6C6AB00FC0978 /* libCTUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77A89B19D6C6AB00FC0978 /* libCTUtils.a */; };
+		BD3BB9E619D6F0160006DE0F /* Model_BaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9CE19D6F0160006DE0F /* Model_BaseEntity.m */; };
+		BD3BB9E719D6F0160006DE0F /* Model_CardContent.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9D019D6F0160006DE0F /* Model_CardContent.m */; };
+		BD3BB9E819D6F0160006DE0F /* Model_CardRead.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9D219D6F0160006DE0F /* Model_CardRead.m */; };
+		BD3BB9E919D6F0160006DE0F /* Model_CardTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9D419D6F0160006DE0F /* Model_CardTemplate.m */; };
+		BD3BB9EA19D6F0160006DE0F /* Model_CardType.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9D619D6F0160006DE0F /* Model_CardType.m */; };
+		BD3BB9EB19D6F0160006DE0F /* Model_CardTypeLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9D819D6F0160006DE0F /* Model_CardTypeLocalization.m */; };
+		BD3BB9EC19D6F0160006DE0F /* Model_Image.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9DA19D6F0160006DE0F /* Model_Image.m */; };
+		BD3BB9ED19D6F0160006DE0F /* Model_Installation.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9DC19D6F0160006DE0F /* Model_Installation.m */; };
+		BD3BB9EE19D6F0160006DE0F /* Model_Language.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9DE19D6F0160006DE0F /* Model_Language.m */; };
+		BD3BB9F019D6F0160006DE0F /* Model_PrintedCard.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9E219D6F0160006DE0F /* Model_PrintedCard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +42,27 @@
 		6B77A83519D6C50900FC0978 /* CTDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CTDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B77A83819D6C50900FC0978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B77A89B19D6C6AB00FC0978 /* libCTUtils.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCTUtils.a; path = "../CTUtils/build/Debug-iphoneos/libCTUtils.a"; sourceTree = "<group>"; };
+		BD3BB9CE19D6F0160006DE0F /* Model_BaseEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model_BaseEntity.m; sourceTree = "<group>"; };
+		BD3BB9CF19D6F0160006DE0F /* Model_CardContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model_CardContent.h; sourceTree = "<group>"; };
+		BD3BB9D019D6F0160006DE0F /* Model_CardContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model_CardContent.m; sourceTree = "<group>"; };
+		BD3BB9D119D6F0160006DE0F /* Model_CardRead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model_CardRead.h; sourceTree = "<group>"; };
+		BD3BB9D219D6F0160006DE0F /* Model_CardRead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model_CardRead.m; sourceTree = "<group>"; };
+		BD3BB9D319D6F0160006DE0F /* Model_CardTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model_CardTemplate.h; sourceTree = "<group>"; };
+		BD3BB9D419D6F0160006DE0F /* Model_CardTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model_CardTemplate.m; sourceTree = "<group>"; };
+		BD3BB9D519D6F0160006DE0F /* Model_CardType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model_CardType.h; sourceTree = "<group>"; };
+		BD3BB9D619D6F0160006DE0F /* Model_CardType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model_CardType.m; sourceTree = "<group>"; };
+		BD3BB9D719D6F0160006DE0F /* Model_CardTypeLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model_CardTypeLocalization.h; sourceTree = "<group>"; };
+		BD3BB9D819D6F0160006DE0F /* Model_CardTypeLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model_CardTypeLocalization.m; sourceTree = "<group>"; };
+		BD3BB9D919D6F0160006DE0F /* Model_Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model_Image.h; sourceTree = "<group>"; };
+		BD3BB9DA19D6F0160006DE0F /* Model_Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model_Image.m; sourceTree = "<group>"; };
+		BD3BB9DB19D6F0160006DE0F /* Model_Installation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model_Installation.h; sourceTree = "<group>"; };
+		BD3BB9DC19D6F0160006DE0F /* Model_Installation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model_Installation.m; sourceTree = "<group>"; };
+		BD3BB9DD19D6F0160006DE0F /* Model_Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model_Language.h; sourceTree = "<group>"; };
+		BD3BB9DE19D6F0160006DE0F /* Model_Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model_Language.m; sourceTree = "<group>"; };
+		BD3BB9E119D6F0160006DE0F /* Model_PrintedCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model_PrintedCard.h; sourceTree = "<group>"; };
+		BD3BB9E219D6F0160006DE0F /* Model_PrintedCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model_PrintedCard.m; sourceTree = "<group>"; };
+		BD3BB9E519D6F0160006DE0F /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		BD3BB9F219D6F02B0006DE0F /* Model_BaseEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model_BaseEntity.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +108,7 @@
 			children = (
 				6B77A82D19D6C50900FC0978 /* CTData.h */,
 				6B77A82F19D6C50900FC0978 /* CTData.m */,
+				BD3BB9CD19D6EFF80006DE0F /* Model */,
 			);
 			path = CTData;
 			sourceTree = "<group>";
@@ -103,6 +135,34 @@
 				6B77A89B19D6C6AB00FC0978 /* libCTUtils.a */,
 			);
 			name = framework;
+			sourceTree = "<group>";
+		};
+		BD3BB9CD19D6EFF80006DE0F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD3BB9F219D6F02B0006DE0F /* Model_BaseEntity.h */,
+				BD3BB9CE19D6F0160006DE0F /* Model_BaseEntity.m */,
+				BD3BB9CF19D6F0160006DE0F /* Model_CardContent.h */,
+				BD3BB9D019D6F0160006DE0F /* Model_CardContent.m */,
+				BD3BB9D119D6F0160006DE0F /* Model_CardRead.h */,
+				BD3BB9D219D6F0160006DE0F /* Model_CardRead.m */,
+				BD3BB9D319D6F0160006DE0F /* Model_CardTemplate.h */,
+				BD3BB9D419D6F0160006DE0F /* Model_CardTemplate.m */,
+				BD3BB9D519D6F0160006DE0F /* Model_CardType.h */,
+				BD3BB9D619D6F0160006DE0F /* Model_CardType.m */,
+				BD3BB9D719D6F0160006DE0F /* Model_CardTypeLocalization.h */,
+				BD3BB9D819D6F0160006DE0F /* Model_CardTypeLocalization.m */,
+				BD3BB9D919D6F0160006DE0F /* Model_Image.h */,
+				BD3BB9DA19D6F0160006DE0F /* Model_Image.m */,
+				BD3BB9DB19D6F0160006DE0F /* Model_Installation.h */,
+				BD3BB9DC19D6F0160006DE0F /* Model_Installation.m */,
+				BD3BB9DD19D6F0160006DE0F /* Model_Language.h */,
+				BD3BB9DE19D6F0160006DE0F /* Model_Language.m */,
+				BD3BB9E119D6F0160006DE0F /* Model_PrintedCard.h */,
+				BD3BB9E219D6F0160006DE0F /* Model_PrintedCard.m */,
+				BD3BB9E519D6F0160006DE0F /* Model.h */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +253,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B77A83019D6C50900FC0978 /* CTData.m in Sources */,
+				BD3BB9E919D6F0160006DE0F /* Model_CardTemplate.m in Sources */,
+				BD3BB9E819D6F0160006DE0F /* Model_CardRead.m in Sources */,
+				BD3BB9EC19D6F0160006DE0F /* Model_Image.m in Sources */,
+				BD3BB9E719D6F0160006DE0F /* Model_CardContent.m in Sources */,
+				BD3BB9F019D6F0160006DE0F /* Model_PrintedCard.m in Sources */,
+				BD3BB9EE19D6F0160006DE0F /* Model_Language.m in Sources */,
+				BD3BB9ED19D6F0160006DE0F /* Model_Installation.m in Sources */,
+				BD3BB9E619D6F0160006DE0F /* Model_BaseEntity.m in Sources */,
+				BD3BB9EA19D6F0160006DE0F /* Model_CardType.m in Sources */,
+				BD3BB9EB19D6F0160006DE0F /* Model_CardTypeLocalization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +431,7 @@
 				6B77A83D19D6C50900FC0978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6B77A83E19D6C50900FC0978 /* Build configuration list for PBXNativeTarget "CTDataTests" */ = {
 			isa = XCConfigurationList;
@@ -369,6 +440,7 @@
 				6B77A84019D6C50900FC0978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

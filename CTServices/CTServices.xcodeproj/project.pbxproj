@@ -10,6 +10,8 @@
 		6B77A8AA19D6C9BF00FC0978 /* CTServices.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6B77A8A919D6C9BF00FC0978 /* CTServices.h */; };
 		6B77A8AC19D6C9BF00FC0978 /* CTServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A8AB19D6C9BF00FC0978 /* CTServices.m */; };
 		6B77A8E019D6CA5100FC0978 /* libCTAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77A8DF19D6CA5100FC0978 /* libCTAnalytics.a */; };
+		BD3BB9F619D6F1E30006DE0F /* CTBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9F519D6F1E30006DE0F /* CTBaseManager.m */; };
+		BD3BB9F919D6F22E0006DE0F /* CTNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9F819D6F22E0006DE0F /* CTNetworkingManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +34,10 @@
 		6B77A8B119D6C9C000FC0978 /* CTServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CTServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B77A8B419D6C9C000FC0978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B77A8DF19D6CA5100FC0978 /* libCTAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCTAnalytics.a; path = "../CTAnalytics/build/Debug-iphoneos/libCTAnalytics.a"; sourceTree = "<group>"; };
+		BD3BB9F419D6F1E30006DE0F /* CTBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTBaseManager.h; sourceTree = "<group>"; };
+		BD3BB9F519D6F1E30006DE0F /* CTBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTBaseManager.m; sourceTree = "<group>"; };
+		BD3BB9F719D6F22E0006DE0F /* CTNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNetworkingManager.h; sourceTree = "<group>"; };
+		BD3BB9F819D6F22E0006DE0F /* CTNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTNetworkingManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,9 @@
 			children = (
 				6B77A8A919D6C9BF00FC0978 /* CTServices.h */,
 				6B77A8AB19D6C9BF00FC0978 /* CTServices.m */,
+				BD3BB9F419D6F1E30006DE0F /* CTBaseManager.h */,
+				BD3BB9F519D6F1E30006DE0F /* CTBaseManager.m */,
+				BD3BB9F319D6F1B10006DE0F /* Networking */,
 			);
 			path = CTServices;
 			sourceTree = "<group>";
@@ -103,6 +112,15 @@
 				6B77A8DF19D6CA5100FC0978 /* libCTAnalytics.a */,
 			);
 			name = framework;
+			sourceTree = "<group>";
+		};
+		BD3BB9F319D6F1B10006DE0F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BD3BB9F719D6F22E0006DE0F /* CTNetworkingManager.h */,
+				BD3BB9F819D6F22E0006DE0F /* CTNetworkingManager.m */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +210,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD3BB9F619D6F1E30006DE0F /* CTBaseManager.m in Sources */,
+				BD3BB9F919D6F22E0006DE0F /* CTNetworkingManager.m in Sources */,
 				6B77A8AC19D6C9BF00FC0978 /* CTServices.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +389,7 @@
 				6B77A8B919D6C9C000FC0978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6B77A8BA19D6C9C000FC0978 /* Build configuration list for PBXNativeTarget "CTServicesTests" */ = {
 			isa = XCConfigurationList;
@@ -377,6 +398,7 @@
 				6B77A8BC19D6C9C000FC0978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
