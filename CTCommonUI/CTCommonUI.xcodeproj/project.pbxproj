@@ -15,6 +15,7 @@
 		6B77A8CC19D6C9E200FC0978 /* CTCommonUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A8CB19D6C9E200FC0978 /* CTCommonUI.m */; };
 		6B77A8E719D6CBC100FC0978 /* libCTServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77A8E619D6CBC100FC0978 /* libCTServices.a */; };
 		BD7228BC19E165A800EA93A9 /* CTTwoStateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7228BB19E165A800EA93A9 /* CTTwoStateButton.m */; };
+		BD7228C319E194A900EA93A9 /* CTValidTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7228C219E194A900EA93A9 /* CTValidTextField.m */; };
 		BD7AB1CB19E14A91000D88AB /* CardDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB19519E14A91000D88AB /* CardDrawing.m */; };
 		BD7AB1CC19E14A91000D88AB /* CouponDrawingData.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB19819E14A91000D88AB /* CouponDrawingData.m */; };
 		BD7AB1CD19E14A91000D88AB /* CouponDrawingBaseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB19C19E14A91000D88AB /* CouponDrawingBaseLayer.m */; };
@@ -86,6 +87,8 @@
 		6BCB423319D7188C0091E870 /* CTServices.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTServices.xcodeproj; path = ../CTServices/CTServices.xcodeproj; sourceTree = "<group>"; };
 		BD7228BA19E165A800EA93A9 /* CTTwoStateButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTTwoStateButton.h; sourceTree = "<group>"; };
 		BD7228BB19E165A800EA93A9 /* CTTwoStateButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTTwoStateButton.m; sourceTree = "<group>"; };
+		BD7228C119E194A900EA93A9 /* CTValidTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTValidTextField.h; sourceTree = "<group>"; };
+		BD7228C219E194A900EA93A9 /* CTValidTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTValidTextField.m; sourceTree = "<group>"; };
 		BD7AB19419E14A91000D88AB /* CardDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawing.h; sourceTree = "<group>"; };
 		BD7AB19519E14A91000D88AB /* CardDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawing.m; sourceTree = "<group>"; };
 		BD7AB19719E14A91000D88AB /* CouponDrawingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDrawingData.h; sourceTree = "<group>"; };
@@ -387,6 +390,8 @@
 			children = (
 				BD7228BA19E165A800EA93A9 /* CTTwoStateButton.h */,
 				BD7228BB19E165A800EA93A9 /* CTTwoStateButton.m */,
+				BD7228C119E194A900EA93A9 /* CTValidTextField.h */,
+				BD7228C219E194A900EA93A9 /* CTValidTextField.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -531,6 +536,7 @@
 				6B5056D219E14BCB006939CC /* CTMainViewController_Common.m in Sources */,
 				6B5056D619E14C92006939CC /* CTMyTemplatesViewController_Common.m in Sources */,
 				BD7AB1D119E14A91000D88AB /* CouponDrawingTextLayer.m in Sources */,
+				BD7228C319E194A900EA93A9 /* CTValidTextField.m in Sources */,
 				BD7AB1DA19E14A91000D88AB /* CardDrawingEditTextPresentView.m in Sources */,
 				6B5056E119E14D1E006939CC /* CTNewTemplateViewController_Common.m in Sources */,
 				BD7AB1DB19E14A91000D88AB /* CardDrawingPresentView.m in Sources */,

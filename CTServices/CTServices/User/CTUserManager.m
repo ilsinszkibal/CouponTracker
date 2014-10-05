@@ -189,11 +189,11 @@
 
 - (CCValidator*)passwordValidator {
     CCIncludingCondition* includingCondition = [CCIncludingCondition condition];
-    //    [includingCondition includePart:CCIncludingPartNumeric minimum:2];
-    //    [includingCondition includePart:CCIncludingPartUppercaseLetter minimum:1];
-    //    [includingCondition includePart:CCIncludingPartAlphanumeric minimum:5];
-    //    [includingCondition excludePart:CCIncludingPartWhitespace];
-    //    [includingCondition excludePhrases:[NSSet setWithArray:@[@"pass", @"asd", @"qwe", @"123"]]];
+//    [includingCondition includePart:CCIncludingPartNumeric minimum:2];
+//    [includingCondition includePart:CCIncludingPartUppercaseLetter minimum:1];
+//    [includingCondition includePart:CCIncludingPartAlphanumeric minimum:5];
+//    [includingCondition excludePart:CCIncludingPartWhitespace];
+//    [includingCondition excludePhrases:[NSSet setWithArray:@[@"pass", @"asd", @"qwe", @"123"]]];
     return [CCValidator validatorWithConditions:@[[CCLengthCondition conditionWithMinLength:6], includingCondition]];
 }
 
