@@ -10,6 +10,8 @@
 #import <AFOAuth2Client.h>
 #import <RestKit.h>
 #import "CTUser.h"
+#import "CCValidationManager.h"
+#import <ReactiveCocoa/RACEXTScope.h>
 
 @interface CTUserManager ()
 
@@ -54,7 +56,7 @@
    [self setCurrentUser:nil];
 }
 
-- (void)loginUser:(CTOauth2User*)user completion:(void(^)(CTOauth2User* user, NSError* error))block {
+- (void)loginUser:(CTUser*)user completion:(void(^)(CTUser* user, NSError* error))block {
    [self.client authenticateUsingOAuthWithPath:@"/oauth/v2/token" username:user.username password:user.password scope:@"email" success:^(AFOAuthCredential *credential) {
        NSLog(@"Successful login");
        [user setLoggedIn:YES];
@@ -116,5 +118,87 @@
    //TODO: call server...
 }
 
-                   
+
+- (RACSignal*)logoutSignal {
+    @weakify(self);
+    RACSignal* signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        @strongify(self);
+        self.currentUser = nil;
+        [subscriber sendNext:nil];
+        [subscriber sendCompleted];
+        return nil;
+    }];
+    [signal setName:@"log out"];
+    return signal;
+}
+
+- (RACSignal*)loginSignalWithUser:(CTUser*)user {
+    @weakify(self);
+    RACSignal* signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [self loginUser:user completion:^(CTUser *user, NSError *error) {
+            @strongify(self);
+            if (error) {
+                [subscriber sendError:error];
+            } else {
+                self.currentUser = user;
+                [subscriber sendNext:user];
+                [subscriber sendCompleted];
+            }
+        }];
+        return nil;
+    }];
+    [signal setName:@"log in"];
+    return signal;
+}
+
+- (RACSignal*)signupSignalWithUser:(CTUser*)user {
+    RACSignal* signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [self signupUser:user completion:^(CTUser *user, NSError *error) {
+            if (error) {
+                [subscriber sendError:error];
+            } else {
+                [subscriber sendNext:user];
+                [subscriber sendCompleted];
+            }
+        }];
+        return nil;
+    }];
+    [signal setName:@"sign up"];
+    return signal;
+}
+
+- (RACSignal*)passwordResetSignalForEmail:(NSString*)email {
+    RACSignal* signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [self requestPasswordResetForEmail:email completion:^(BOOL succeed, NSError *error) {
+            if (error) {
+                [subscriber sendError:error];
+            } else {
+                [subscriber sendNext:@(succeed)];
+                [subscriber sendCompleted];
+            }
+        }];
+        return nil;
+    }];
+    [signal setName:@"password reset"];
+    return signal;
+}
+
+- (CCValidator*)usernameValidator {
+    return [CCValidator validatorWithConditions:@[[CCLengthCondition conditionWithMinLength:4]]];//TODO unique condition
+}
+
+- (CCValidator*)passwordValidator {
+    CCIncludingCondition* includingCondition = [CCIncludingCondition condition];
+    //    [includingCondition includePart:CCIncludingPartNumeric minimum:2];
+    //    [includingCondition includePart:CCIncludingPartUppercaseLetter minimum:1];
+    //    [includingCondition includePart:CCIncludingPartAlphanumeric minimum:5];
+    //    [includingCondition excludePart:CCIncludingPartWhitespace];
+    //    [includingCondition excludePhrases:[NSSet setWithArray:@[@"pass", @"asd", @"qwe", @"123"]]];
+    return [CCValidator validatorWithConditions:@[[CCLengthCondition conditionWithMinLength:6], includingCondition]];
+}
+
+- (CCValidator*)emailValidator {
+    return [CCValidator validatorWithConditions:@[[CCEmailCondition condition]]];
+}
+
 @end

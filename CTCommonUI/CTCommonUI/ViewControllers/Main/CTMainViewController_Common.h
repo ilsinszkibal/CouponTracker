@@ -13,5 +13,6 @@
 @interface CTMainViewController_Common : CTViewController
 
 - (void) showMyTemplates:(CTMyTemplatesViewController_Common*) myTemplates;
+- (IBAction)loginButtonPressed:(id)sender;
 
 @end

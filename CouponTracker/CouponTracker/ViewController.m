@@ -33,7 +33,7 @@
     user.email = @"tevelee@gmail.com";
     user.username = @"teve";
     user.password = @"password";
-    [[CTUserManager sharedManager] loginUser:user completion:^(CTOauth2User *user, NSError *error) {
+    [[CTUserManager sharedManager] loginUser:user completion:^(CTUser *user, NSError *error) {
         if (error) {
             NSLog(@"Login error: %@", error);
         } else {

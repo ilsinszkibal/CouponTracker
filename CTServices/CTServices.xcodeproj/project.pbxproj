@@ -10,9 +10,29 @@
 		6B77A8AA19D6C9BF00FC0978 /* CTServices.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6B77A8A919D6C9BF00FC0978 /* CTServices.h */; };
 		6B77A8AC19D6C9BF00FC0978 /* CTServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A8AB19D6C9BF00FC0978 /* CTServices.m */; };
 		6B77A8E019D6CA5100FC0978 /* libCTAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77A8DF19D6CA5100FC0978 /* libCTAnalytics.a */; };
-		BD3BB9F619D6F1E30006DE0F /* CTBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9F519D6F1E30006DE0F /* CTBaseManager.m */; };
-		BD3BB9F919D6F22E0006DE0F /* CTNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9F819D6F22E0006DE0F /* CTNetworkingManager.m */; };
-		BD6FF02819D710D5001F50D5 /* CTUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6FF02719D710D5001F50D5 /* CTUserManager.m */; };
+		BD7AB23D19E14ECB000D88AB /* CTBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB20819E14ECB000D88AB /* CTBaseManager.m */; };
+		BD7AB23F19E14ECB000D88AB /* CTUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB20E19E14ECB000D88AB /* CTUserManager.m */; };
+		BD7AB24019E14ECB000D88AB /* CCValidationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB21119E14ECB000D88AB /* CCValidationManager.m */; };
+		BD7AB24119E14ECB000D88AB /* CCAlphanumericCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB21419E14ECB000D88AB /* CCAlphanumericCondition.m */; };
+		BD7AB24219E14ECB000D88AB /* CCEmailCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB21719E14ECB000D88AB /* CCEmailCondition.m */; };
+		BD7AB24319E14ECB000D88AB /* CCIncludingCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB21919E14ECB000D88AB /* CCIncludingCondition.m */; };
+		BD7AB24419E14ECB000D88AB /* CCLengthCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB21B19E14ECB000D88AB /* CCLengthCondition.m */; };
+		BD7AB24519E14ECB000D88AB /* CCMatchingCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB21D19E14ECB000D88AB /* CCMatchingCondition.m */; };
+		BD7AB24619E14ECB000D88AB /* CCNumericCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB21F19E14ECB000D88AB /* CCNumericCondition.m */; };
+		BD7AB24719E14ECB000D88AB /* CCRegexCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB22119E14ECB000D88AB /* CCRegexCondition.m */; };
+		BD7AB24819E14ECB000D88AB /* CCRequiredCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB22319E14ECB000D88AB /* CCRequiredCondition.m */; };
+		BD7AB24919E14ECB000D88AB /* CCUniqueCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB22519E14ECB000D88AB /* CCUniqueCondition.m */; };
+		BD7AB24A19E14ECB000D88AB /* CCUrlCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB22719E14ECB000D88AB /* CCUrlCondition.m */; };
+		BD7AB24B19E14ECB000D88AB /* CCValidationCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB22919E14ECB000D88AB /* CCValidationCondition.m */; };
+		BD7AB24C19E14ECB000D88AB /* CCFormValdator.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB22C19E14ECB000D88AB /* CCFormValdator.m */; };
+		BD7AB24D19E14ECB000D88AB /* CCArrayValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB22F19E14ECB000D88AB /* CCArrayValidator.m */; };
+		BD7AB24E19E14ECB000D88AB /* CCDataValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB23119E14ECB000D88AB /* CCDataValidator.m */; };
+		BD7AB24F19E14ECB000D88AB /* CCDateValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB23319E14ECB000D88AB /* CCDateValidator.m */; };
+		BD7AB25019E14ECB000D88AB /* CCDictionaryValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB23519E14ECB000D88AB /* CCDictionaryValidator.m */; };
+		BD7AB25119E14ECB000D88AB /* CCNumberValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB23719E14ECB000D88AB /* CCNumberValidator.m */; };
+		BD7AB25219E14ECB000D88AB /* CCStringValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB23919E14ECB000D88AB /* CCStringValidator.m */; };
+		BD7AB25319E14ECB000D88AB /* CCValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB23B19E14ECB000D88AB /* CCValidator.m */; };
+		BD7AB25B19E15247000D88AB /* CTNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB25A19E15247000D88AB /* CTNetworkingManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,12 +73,54 @@
 		6B77A8B419D6C9C000FC0978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B77A8DF19D6CA5100FC0978 /* libCTAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCTAnalytics.a; path = "../CTAnalytics/build/Debug-iphoneos/libCTAnalytics.a"; sourceTree = "<group>"; };
 		6BCB423D19D718B10091E870 /* CTAnalytics.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTAnalytics.xcodeproj; path = ../CTAnalytics/CTAnalytics.xcodeproj; sourceTree = "<group>"; };
-		BD3BB9F419D6F1E30006DE0F /* CTBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTBaseManager.h; sourceTree = "<group>"; };
-		BD3BB9F519D6F1E30006DE0F /* CTBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTBaseManager.m; sourceTree = "<group>"; };
-		BD3BB9F719D6F22E0006DE0F /* CTNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNetworkingManager.h; sourceTree = "<group>"; };
-		BD3BB9F819D6F22E0006DE0F /* CTNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTNetworkingManager.m; sourceTree = "<group>"; };
-		BD6FF02619D710D5001F50D5 /* CTUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTUserManager.h; sourceTree = "<group>"; };
-		BD6FF02719D710D5001F50D5 /* CTUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTUserManager.m; sourceTree = "<group>"; };
+		BD7AB20719E14ECB000D88AB /* CTBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTBaseManager.h; sourceTree = "<group>"; };
+		BD7AB20819E14ECB000D88AB /* CTBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTBaseManager.m; sourceTree = "<group>"; };
+		BD7AB20D19E14ECB000D88AB /* CTUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTUserManager.h; sourceTree = "<group>"; };
+		BD7AB20E19E14ECB000D88AB /* CTUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTUserManager.m; sourceTree = "<group>"; };
+		BD7AB21019E14ECB000D88AB /* CCValidationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValidationManager.h; sourceTree = "<group>"; };
+		BD7AB21119E14ECB000D88AB /* CCValidationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValidationManager.m; sourceTree = "<group>"; };
+		BD7AB21319E14ECB000D88AB /* CCAlphanumericCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAlphanumericCondition.h; sourceTree = "<group>"; };
+		BD7AB21419E14ECB000D88AB /* CCAlphanumericCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAlphanumericCondition.m; sourceTree = "<group>"; };
+		BD7AB21519E14ECB000D88AB /* CCConditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCConditions.h; sourceTree = "<group>"; };
+		BD7AB21619E14ECB000D88AB /* CCEmailCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEmailCondition.h; sourceTree = "<group>"; };
+		BD7AB21719E14ECB000D88AB /* CCEmailCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEmailCondition.m; sourceTree = "<group>"; };
+		BD7AB21819E14ECB000D88AB /* CCIncludingCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCIncludingCondition.h; sourceTree = "<group>"; };
+		BD7AB21919E14ECB000D88AB /* CCIncludingCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCIncludingCondition.m; sourceTree = "<group>"; };
+		BD7AB21A19E14ECB000D88AB /* CCLengthCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLengthCondition.h; sourceTree = "<group>"; };
+		BD7AB21B19E14ECB000D88AB /* CCLengthCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLengthCondition.m; sourceTree = "<group>"; };
+		BD7AB21C19E14ECB000D88AB /* CCMatchingCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMatchingCondition.h; sourceTree = "<group>"; };
+		BD7AB21D19E14ECB000D88AB /* CCMatchingCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMatchingCondition.m; sourceTree = "<group>"; };
+		BD7AB21E19E14ECB000D88AB /* CCNumericCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNumericCondition.h; sourceTree = "<group>"; };
+		BD7AB21F19E14ECB000D88AB /* CCNumericCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNumericCondition.m; sourceTree = "<group>"; };
+		BD7AB22019E14ECB000D88AB /* CCRegexCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRegexCondition.h; sourceTree = "<group>"; };
+		BD7AB22119E14ECB000D88AB /* CCRegexCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRegexCondition.m; sourceTree = "<group>"; };
+		BD7AB22219E14ECB000D88AB /* CCRequiredCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRequiredCondition.h; sourceTree = "<group>"; };
+		BD7AB22319E14ECB000D88AB /* CCRequiredCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRequiredCondition.m; sourceTree = "<group>"; };
+		BD7AB22419E14ECB000D88AB /* CCUniqueCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCUniqueCondition.h; sourceTree = "<group>"; };
+		BD7AB22519E14ECB000D88AB /* CCUniqueCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCUniqueCondition.m; sourceTree = "<group>"; };
+		BD7AB22619E14ECB000D88AB /* CCUrlCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCUrlCondition.h; sourceTree = "<group>"; };
+		BD7AB22719E14ECB000D88AB /* CCUrlCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCUrlCondition.m; sourceTree = "<group>"; };
+		BD7AB22819E14ECB000D88AB /* CCValidationCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValidationCondition.h; sourceTree = "<group>"; };
+		BD7AB22919E14ECB000D88AB /* CCValidationCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValidationCondition.m; sourceTree = "<group>"; };
+		BD7AB22B19E14ECB000D88AB /* CCFormValdator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormValdator.h; sourceTree = "<group>"; };
+		BD7AB22C19E14ECB000D88AB /* CCFormValdator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValdator.m; sourceTree = "<group>"; };
+		BD7AB22E19E14ECB000D88AB /* CCArrayValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCArrayValidator.h; sourceTree = "<group>"; };
+		BD7AB22F19E14ECB000D88AB /* CCArrayValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCArrayValidator.m; sourceTree = "<group>"; };
+		BD7AB23019E14ECB000D88AB /* CCDataValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDataValidator.h; sourceTree = "<group>"; };
+		BD7AB23119E14ECB000D88AB /* CCDataValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDataValidator.m; sourceTree = "<group>"; };
+		BD7AB23219E14ECB000D88AB /* CCDateValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDateValidator.h; sourceTree = "<group>"; };
+		BD7AB23319E14ECB000D88AB /* CCDateValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDateValidator.m; sourceTree = "<group>"; };
+		BD7AB23419E14ECB000D88AB /* CCDictionaryValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDictionaryValidator.h; sourceTree = "<group>"; };
+		BD7AB23519E14ECB000D88AB /* CCDictionaryValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDictionaryValidator.m; sourceTree = "<group>"; };
+		BD7AB23619E14ECB000D88AB /* CCNumberValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNumberValidator.h; sourceTree = "<group>"; };
+		BD7AB23719E14ECB000D88AB /* CCNumberValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNumberValidator.m; sourceTree = "<group>"; };
+		BD7AB23819E14ECB000D88AB /* CCStringValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCStringValidator.h; sourceTree = "<group>"; };
+		BD7AB23919E14ECB000D88AB /* CCStringValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCStringValidator.m; sourceTree = "<group>"; };
+		BD7AB23A19E14ECB000D88AB /* CCValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValidator.h; sourceTree = "<group>"; };
+		BD7AB23B19E14ECB000D88AB /* CCValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValidator.m; sourceTree = "<group>"; };
+		BD7AB23C19E14ECB000D88AB /* CCValidators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValidators.h; sourceTree = "<group>"; };
+		BD7AB25919E15247000D88AB /* CTNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNetworkingManager.h; sourceTree = "<group>"; };
+		BD7AB25A19E15247000D88AB /* CTNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTNetworkingManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,12 +165,13 @@
 		6B77A8A819D6C9BF00FC0978 /* CTServices */ = {
 			isa = PBXGroup;
 			children = (
-				BD6FF02419D710C7001F50D5 /* User */,
+				BD7AB25819E15247000D88AB /* Networking */,
 				6B77A8A919D6C9BF00FC0978 /* CTServices.h */,
 				6B77A8AB19D6C9BF00FC0978 /* CTServices.m */,
-				BD3BB9F419D6F1E30006DE0F /* CTBaseManager.h */,
-				BD3BB9F519D6F1E30006DE0F /* CTBaseManager.m */,
-				BD3BB9F319D6F1B10006DE0F /* Networking */,
+				BD7AB20719E14ECB000D88AB /* CTBaseManager.h */,
+				BD7AB20819E14ECB000D88AB /* CTBaseManager.m */,
+				BD7AB20C19E14ECB000D88AB /* User */,
+				BD7AB20F19E14ECB000D88AB /* Validation */,
 			);
 			path = CTServices;
 			sourceTree = "<group>";
@@ -146,22 +209,95 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BD3BB9F319D6F1B10006DE0F /* Networking */ = {
+		BD7AB20C19E14ECB000D88AB /* User */ = {
 			isa = PBXGroup;
 			children = (
-				BD3BB9F719D6F22E0006DE0F /* CTNetworkingManager.h */,
-				BD3BB9F819D6F22E0006DE0F /* CTNetworkingManager.m */,
+				BD7AB20D19E14ECB000D88AB /* CTUserManager.h */,
+				BD7AB20E19E14ECB000D88AB /* CTUserManager.m */,
 			);
-			name = Networking;
+			path = User;
 			sourceTree = "<group>";
 		};
-		BD6FF02419D710C7001F50D5 /* User */ = {
+		BD7AB20F19E14ECB000D88AB /* Validation */ = {
 			isa = PBXGroup;
 			children = (
-				BD6FF02619D710D5001F50D5 /* CTUserManager.h */,
-				BD6FF02719D710D5001F50D5 /* CTUserManager.m */,
+				BD7AB21019E14ECB000D88AB /* CCValidationManager.h */,
+				BD7AB21119E14ECB000D88AB /* CCValidationManager.m */,
+				BD7AB21219E14ECB000D88AB /* Conditions */,
+				BD7AB22A19E14ECB000D88AB /* Form */,
+				BD7AB22D19E14ECB000D88AB /* Validators */,
 			);
-			name = User;
+			path = Validation;
+			sourceTree = "<group>";
+		};
+		BD7AB21219E14ECB000D88AB /* Conditions */ = {
+			isa = PBXGroup;
+			children = (
+				BD7AB21319E14ECB000D88AB /* CCAlphanumericCondition.h */,
+				BD7AB21419E14ECB000D88AB /* CCAlphanumericCondition.m */,
+				BD7AB21519E14ECB000D88AB /* CCConditions.h */,
+				BD7AB21619E14ECB000D88AB /* CCEmailCondition.h */,
+				BD7AB21719E14ECB000D88AB /* CCEmailCondition.m */,
+				BD7AB21819E14ECB000D88AB /* CCIncludingCondition.h */,
+				BD7AB21919E14ECB000D88AB /* CCIncludingCondition.m */,
+				BD7AB21A19E14ECB000D88AB /* CCLengthCondition.h */,
+				BD7AB21B19E14ECB000D88AB /* CCLengthCondition.m */,
+				BD7AB21C19E14ECB000D88AB /* CCMatchingCondition.h */,
+				BD7AB21D19E14ECB000D88AB /* CCMatchingCondition.m */,
+				BD7AB21E19E14ECB000D88AB /* CCNumericCondition.h */,
+				BD7AB21F19E14ECB000D88AB /* CCNumericCondition.m */,
+				BD7AB22019E14ECB000D88AB /* CCRegexCondition.h */,
+				BD7AB22119E14ECB000D88AB /* CCRegexCondition.m */,
+				BD7AB22219E14ECB000D88AB /* CCRequiredCondition.h */,
+				BD7AB22319E14ECB000D88AB /* CCRequiredCondition.m */,
+				BD7AB22419E14ECB000D88AB /* CCUniqueCondition.h */,
+				BD7AB22519E14ECB000D88AB /* CCUniqueCondition.m */,
+				BD7AB22619E14ECB000D88AB /* CCUrlCondition.h */,
+				BD7AB22719E14ECB000D88AB /* CCUrlCondition.m */,
+				BD7AB22819E14ECB000D88AB /* CCValidationCondition.h */,
+				BD7AB22919E14ECB000D88AB /* CCValidationCondition.m */,
+			);
+			path = Conditions;
+			sourceTree = "<group>";
+		};
+		BD7AB22A19E14ECB000D88AB /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				BD7AB22B19E14ECB000D88AB /* CCFormValdator.h */,
+				BD7AB22C19E14ECB000D88AB /* CCFormValdator.m */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		BD7AB22D19E14ECB000D88AB /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				BD7AB22E19E14ECB000D88AB /* CCArrayValidator.h */,
+				BD7AB22F19E14ECB000D88AB /* CCArrayValidator.m */,
+				BD7AB23019E14ECB000D88AB /* CCDataValidator.h */,
+				BD7AB23119E14ECB000D88AB /* CCDataValidator.m */,
+				BD7AB23219E14ECB000D88AB /* CCDateValidator.h */,
+				BD7AB23319E14ECB000D88AB /* CCDateValidator.m */,
+				BD7AB23419E14ECB000D88AB /* CCDictionaryValidator.h */,
+				BD7AB23519E14ECB000D88AB /* CCDictionaryValidator.m */,
+				BD7AB23619E14ECB000D88AB /* CCNumberValidator.h */,
+				BD7AB23719E14ECB000D88AB /* CCNumberValidator.m */,
+				BD7AB23819E14ECB000D88AB /* CCStringValidator.h */,
+				BD7AB23919E14ECB000D88AB /* CCStringValidator.m */,
+				BD7AB23A19E14ECB000D88AB /* CCValidator.h */,
+				BD7AB23B19E14ECB000D88AB /* CCValidator.m */,
+				BD7AB23C19E14ECB000D88AB /* CCValidators.h */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
+		BD7AB25819E15247000D88AB /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BD7AB25919E15247000D88AB /* CTNetworkingManager.h */,
+				BD7AB25A19E15247000D88AB /* CTNetworkingManager.m */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,10 +410,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD3BB9F619D6F1E30006DE0F /* CTBaseManager.m in Sources */,
-				BD3BB9F919D6F22E0006DE0F /* CTNetworkingManager.m in Sources */,
+				BD7AB23F19E14ECB000D88AB /* CTUserManager.m in Sources */,
+				BD7AB24519E14ECB000D88AB /* CCMatchingCondition.m in Sources */,
+				BD7AB24B19E14ECB000D88AB /* CCValidationCondition.m in Sources */,
+				BD7AB24319E14ECB000D88AB /* CCIncludingCondition.m in Sources */,
+				BD7AB25319E14ECB000D88AB /* CCValidator.m in Sources */,
+				BD7AB24D19E14ECB000D88AB /* CCArrayValidator.m in Sources */,
+				BD7AB24819E14ECB000D88AB /* CCRequiredCondition.m in Sources */,
+				BD7AB24219E14ECB000D88AB /* CCEmailCondition.m in Sources */,
+				BD7AB25019E14ECB000D88AB /* CCDictionaryValidator.m in Sources */,
+				BD7AB25219E14ECB000D88AB /* CCStringValidator.m in Sources */,
 				6B77A8AC19D6C9BF00FC0978 /* CTServices.m in Sources */,
-				BD6FF02819D710D5001F50D5 /* CTUserManager.m in Sources */,
+				BD7AB24119E14ECB000D88AB /* CCAlphanumericCondition.m in Sources */,
+				BD7AB24C19E14ECB000D88AB /* CCFormValdator.m in Sources */,
+				BD7AB24419E14ECB000D88AB /* CCLengthCondition.m in Sources */,
+				BD7AB24019E14ECB000D88AB /* CCValidationManager.m in Sources */,
+				BD7AB24A19E14ECB000D88AB /* CCUrlCondition.m in Sources */,
+				BD7AB24919E14ECB000D88AB /* CCUniqueCondition.m in Sources */,
+				BD7AB25119E14ECB000D88AB /* CCNumberValidator.m in Sources */,
+				BD7AB23D19E14ECB000D88AB /* CTBaseManager.m in Sources */,
+				BD7AB24619E14ECB000D88AB /* CCNumericCondition.m in Sources */,
+				BD7AB24E19E14ECB000D88AB /* CCDataValidator.m in Sources */,
+				BD7AB24F19E14ECB000D88AB /* CCDateValidator.m in Sources */,
+				BD7AB24719E14ECB000D88AB /* CCRegexCondition.m in Sources */,
+				BD7AB25B19E15247000D88AB /* CTNetworkingManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

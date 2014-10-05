@@ -17,9 +17,8 @@
 
 @implementation CTMainViewController_Common
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (IBAction)loginButtonPressed:(id)sender {
+    [self showLogin];
 }
 
 - (void)didReceiveMemoryWarning {
