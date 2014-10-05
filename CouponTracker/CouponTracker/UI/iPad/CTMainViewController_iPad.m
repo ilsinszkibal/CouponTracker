@@ -10,9 +10,12 @@
 
 #import "CTMyTemplatesViewController_iPad.h"
 
-@interface CTMainViewController_iPad ()
-
-@property (nonatomic, weak) UIButton* showMyTemplatesButton;
+@interface CTMainViewController_iPad () {
+    
+    UIButton* _showMyTemplatesButton;
+    UIButton* _loginButton;
+    
+}
 
 @end
 
@@ -28,6 +31,12 @@
     [_showMyTemplatesButton addTarget:self action:@selector(showMyTemplatesAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_showMyTemplatesButton];
     
+    _loginButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [_loginButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [_loginButton setTitle:@"Login" forState:UIControlStateNormal];
+    [_loginButton addTarget:self action:@selector(loginButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_loginButton];
+    
     [self.view setBackgroundColor:[UIColor orangeColor] ];
 }
 
@@ -35,7 +44,8 @@
 {
     [super viewDidLayoutSubviews];
     
-    [_showMyTemplatesButton setFrame:CGRectMake(200, 400, 150, 40)];
+    [_showMyTemplatesButton setFrame:CGRectMake(200, 400, 150, 44) ];
+    [_loginButton setFrame:CGRectMake(200, 450, 150, 44) ];
     
 }
 
@@ -50,6 +60,11 @@
 {
     CTMyTemplatesViewController_iPad* myTemplates = [[CTMyTemplatesViewController_iPad alloc] init];
     [self showMyTemplates:myTemplates];
+}
+
+- (void) loginButtonAction:(UIButton*) button
+{
+    [self showLogin];
 }
 
 @end
