@@ -25,18 +25,22 @@
     
 }
 
+@property (nonatomic, weak) UIViewController<CouponDrawerManagerImagePickerDelegate>* imagePickerDelegate;
+
 @end
 
 @implementation CouponCardDrawerManager
 
 #pragma mark - Init
 
-- (id) initWithPresentView:(CardDrawingPresentView*) presentView withLayerView:(CardDrawingLayerView*) layerView withOperationView:(CardDrawingOperationView*) operationView
+- (id) initWithPresentView:(CardDrawingPresentView*) presentView withLayerView:(CardDrawingLayerView*) layerView withOperationView:(CardDrawingOperationView*) operationView imagePickerDelegate:(UIViewController<CouponDrawerManagerImagePickerDelegate>*) imagePickerDelegate
 {
     
     self = [super init];
     
     if ( self ) {
+        
+        _imagePickerDelegate = imagePickerDelegate;
         
         _cardDrawing = [[CardDrawing alloc] init];
         _drawingData = [[CouponDrawingData alloc] initWithMaxNbOfLayers:6];
@@ -151,6 +155,11 @@
 {
     [_drawingData setState:CouponDrawingStatePresent];
     [self updateSubViewStates];
+}
+
+- (void) presentImagePicker:(UIImagePickerController*) imagePicker
+{
+    [_imagePickerDelegate presentImagePicker:imagePicker];
 }
 
 #pragma mark - Public

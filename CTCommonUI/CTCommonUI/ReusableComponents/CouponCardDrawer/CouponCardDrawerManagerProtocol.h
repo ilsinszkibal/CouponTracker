@@ -23,4 +23,7 @@
 
 - (void) resetPresenting;
 
+//Present imageViewController
+- (void) presentImagePicker:(UIImagePickerController*) imagePicker;
+
 @end

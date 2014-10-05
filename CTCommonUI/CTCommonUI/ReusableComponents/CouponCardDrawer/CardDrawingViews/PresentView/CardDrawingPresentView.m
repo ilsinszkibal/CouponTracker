@@ -30,23 +30,27 @@
 
 #pragma mark - View lifeCycle
 
-- (void) awakeFromNib
+- (id) init
 {
-    [super awakeFromNib];
+    self = [super init];
     
-    _imageView = [[UIImageView alloc] init];
-    [self addSubview:_imageView];
+    if ( self )
+    {
+        _imageView = [[UIImageView alloc] init];
+        [self addSubview:_imageView];
     
-    _editBoxPresentView = [[CardDrawingEditBoxPresentView alloc] init];
-    [_editBoxPresentView setEditProtocol:self];
-    [_editBoxPresentView setHidden:YES];
-    [self addSubview:_editBoxPresentView];
+        _editBoxPresentView = [[CardDrawingEditBoxPresentView alloc] init];
+        [_editBoxPresentView setEditProtocol:self];
+        [_editBoxPresentView setHidden:YES];
+        [self addSubview:_editBoxPresentView];
     
-    _editTextPresentView = [[CardDrawingEditTextPresentView alloc] init];
-    [_editTextPresentView setEditProtocol:self];
-    [_editTextPresentView setHidden:YES];
-    [self addSubview:_editTextPresentView];
+        _editTextPresentView = [[CardDrawingEditTextPresentView alloc] init];
+        [_editTextPresentView setEditProtocol:self];
+        [_editTextPresentView setHidden:YES];
+        [self addSubview:_editTextPresentView];
+    }
     
+    return self;
 }
 
 - (void) layoutSubviews

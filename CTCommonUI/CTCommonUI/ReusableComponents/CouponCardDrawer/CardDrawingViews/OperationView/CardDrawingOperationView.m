@@ -36,38 +36,43 @@
 
 #pragma mark - View lifecycle
 
-- (void) awakeFromNib
+- (id) init
 {
-    [super awakeFromNib];
+    self = [super init];
     
-    _titleLabel = [[UILabel alloc] init];
-    [self addSubview:_titleLabel];
+    if ( self )
+    {
     
-    _showCardButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_showCardButton addTarget:self action:@selector(showCardAction:) forControlEvents:UIControlEventTouchUpInside];
-    [_showCardButton setTitle:@"Show card" forState:UIControlStateNormal];
-    [self addSubview:_showCardButton];
+        _titleLabel = [[UILabel alloc] init];
+        [self addSubview:_titleLabel];
     
-    _operationAddView = [[CardDrawingOperationAddView alloc] init];
-    [_operationAddView setHidden:YES];
-    [_operationAddView setAddDelegate:self];
-    [self addSubview:_operationAddView];
+        _showCardButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        [_showCardButton addTarget:self action:@selector(showCardAction:) forControlEvents:UIControlEventTouchUpInside];
+        [_showCardButton setTitle:@"Show card" forState:UIControlStateNormal];
+        [self addSubview:_showCardButton];
     
-    _operationRectView = [[CardDrawingOperationRectEditView alloc] init];
-    [_operationRectView setHidden:YES];
-    [_operationRectView setEditDelegate:self];
-    [self addSubview:_operationRectView];
+        _operationAddView = [[CardDrawingOperationAddView alloc] init];
+        [_operationAddView setHidden:YES];
+        [_operationAddView setAddDelegate:self];
+        [self addSubview:_operationAddView];
     
-    _operationTextView = [[CardDrawingOperationTextEditView alloc] init];
-    [_operationTextView setHidden:YES];
-    [_operationTextView setEditDelegate:self];
-    [self addSubview:_operationTextView];
+        _operationRectView = [[CardDrawingOperationRectEditView alloc] init];
+        [_operationRectView setHidden:YES];
+        [_operationRectView setEditDelegate:self];
+        [self addSubview:_operationRectView];
     
-    _operationImageView = [[CardDrawingOperationImageEditView alloc] init];
-    [_operationImageView setHidden:YES];
-    [_operationImageView setEditDelegate:self];
-    [self addSubview:_operationImageView];
+        _operationTextView = [[CardDrawingOperationTextEditView alloc] init];
+        [_operationTextView setHidden:YES];
+        [_operationTextView setEditDelegate:self];
+        [self addSubview:_operationTextView];
     
+        _operationImageView = [[CardDrawingOperationImageEditView alloc] init];
+        [_operationImageView setHidden:YES];
+        [_operationImageView setEditDelegate:self];
+        [self addSubview:_operationImageView];
+    }
+    
+    return self;
 }
 
 - (void) layoutSubviews
@@ -97,6 +102,11 @@
 - (void) commmitEdit
 {
     [_drawerListener commitLayerEdit];
+}
+
+- (void) presentImagePicker:(UIImagePickerController*) imagePicker
+{
+    [_drawerListener presentImagePicker:imagePicker];
 }
 
 #pragma mark - CardDrawingOperationAddProtocol

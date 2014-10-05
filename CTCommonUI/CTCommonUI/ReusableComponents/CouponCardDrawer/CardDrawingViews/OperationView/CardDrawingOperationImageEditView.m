@@ -128,13 +128,12 @@
 
 - (void) chooseImageAction:(UIButton*) image
 {
-    NSLog(@"Select image");
     
     _imagePicker = [[UIImagePickerController alloc] init];
     [_imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     _imagePicker.delegate = self;
-    
-    [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:_imagePicker animated:YES completion:NULL];
+ 
+    [_editDelegate presentImagePicker:_imagePicker];
     
 }
 

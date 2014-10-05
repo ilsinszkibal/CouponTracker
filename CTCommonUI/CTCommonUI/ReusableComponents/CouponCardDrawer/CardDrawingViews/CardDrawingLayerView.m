@@ -27,24 +27,28 @@
 
 @implementation CardDrawingLayerView
 
-- (void) awakeFromNib
+- (id) init
 {
-    [super awakeFromNib];
+    self = [super init];
     
-    _editButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_editButton setTitle:@"Edit" forState:UIControlStateNormal];
-    [_editButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [_editButton addTarget:self action:@selector(editRowOrderAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:_editButton];
+    if ( self )
+    {
+        _editButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_editButton setTitle:@"Edit" forState:UIControlStateNormal];
+        [_editButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_editButton addTarget:self action:@selector(editRowOrderAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:_editButton];
+        
+        _tableView = [[UITableView alloc] init];
+        _tableView.rowHeight = 50;
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        [self addSubview:_tableView];
+        
+        addNewLayerMode = YES;
+    }
     
-    _tableView = [[UITableView alloc] init];
-    _tableView.rowHeight = 50;
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    [self addSubview:_tableView];
-    
-    addNewLayerMode = YES;
-    
+    return self;
 }
 
 - (void) layoutSubviews

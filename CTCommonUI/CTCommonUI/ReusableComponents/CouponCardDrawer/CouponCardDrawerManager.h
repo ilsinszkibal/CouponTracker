@@ -15,8 +15,14 @@
 #import "CardDrawingOperationView.h"
 #import "CardDrawingLayerView.h"
 
+@protocol CouponDrawerManagerImagePickerDelegate <NSObject>
+
+- (void) presentImagePicker:(UIImagePickerController*) imagePicker;
+
+@end
+
 @interface CouponCardDrawerManager : NSObject<CouponCardDrawerManagerProtocol>
 
-- (id) initWithPresentView:(CardDrawingPresentView*) presentView withLayerView:(CardDrawingLayerView*) layerView withOperationView:(CardDrawingOperationView*) operationView;
+- (id) initWithPresentView:(CardDrawingPresentView*) presentView withLayerView:(CardDrawingLayerView*) layerView withOperationView:(CardDrawingOperationView*) operationView imagePickerDelegate:(UIViewController<CouponDrawerManagerImagePickerDelegate>*) imagePickerDelegate;
 
 @end

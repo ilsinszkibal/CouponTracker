@@ -64,4 +64,9 @@
     [_drawerProtocol resetPresenting];
 }
 
+- (void) presentImagePicker:(UIImagePickerController*) imagePicker
+{
+    [_drawerProtocol presentImagePicker:imagePicker];
+}
+
 @end

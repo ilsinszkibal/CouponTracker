@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Balazs Ilsinszki. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "CouponCardDrawerManagerProtocol.h"
 
 

@@ -11,6 +11,7 @@
 @protocol CardDrawingOperationEditProtocol <NSObject>
 
 - (void) commmitEdit;
+- (void) presentImagePicker:(UIImagePickerController*) imagePicker;
 
 @end
 
