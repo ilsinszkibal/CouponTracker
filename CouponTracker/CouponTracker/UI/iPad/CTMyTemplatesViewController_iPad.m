@@ -39,6 +39,15 @@
     [self.view setBackgroundColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.8 alpha:1.0] ];
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self getMyCards:^(NSArray *cards, NSError *error) {
+        NSLog(@"Got cards %@", cards);
+    }];
+}
+
 - (void) viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];

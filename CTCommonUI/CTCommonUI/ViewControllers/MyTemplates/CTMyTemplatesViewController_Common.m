@@ -8,6 +8,8 @@
 
 #import "CTMyTemplatesViewController_Common.h"
 
+#import "CTNetworkingManager.h"
+
 @interface CTMyTemplatesViewController_Common () {
     
     CTNewTemplateViewController_Common* _newTemplateViewController;
@@ -33,6 +35,11 @@
 {
     _newTemplateViewController = newTemplateViewController;
     [self navigateToViewController:_newTemplateViewController];
+}
+
+- (NSOperation*) getMyCards:(void(^)(NSArray* cards, NSError* error))completion
+{
+    return [[CTNetworkingManager sharedManager] getCards:completion];
 }
 
 @end

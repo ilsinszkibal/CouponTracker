@@ -14,4 +14,6 @@
 
 - (void) showNewTemplate:(CTNewTemplateViewController_Common*) newTemplateViewController;
 
+- (NSOperation*) getMyCards:(void(^)(NSArray* cards, NSError* error))completion;
+
 @end

@@ -13,7 +13,7 @@
 @implementation CTNetworkingManager
 
 - (void)setUp {
-    RKObjectManager* manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://coupontracker.org.149-5-47-148.sg511.servergrove.com/api/v1/"]];
+    RKObjectManager* manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://www.coupontracker.org/api/v1/"]];
     [RKObjectManager setSharedManager:manager];
     
     RKLogSetAppLoggingLevel(RKLogLevelInfo);
@@ -72,14 +72,25 @@
 }
 
 - (RKObjectRequestOperation*)getCards:(void(^)(NSArray* cards, NSError* error))completion {
+    
     NSDictionary* parameters = @{@"fields": @" ,template.cardType.localizations.name,template.cardType.localizations.language.name"};
+    
     RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:@"cards.json" parameters:parameters];
+    
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        if (completion) completion(mappingResult.array, nil);
+        if (completion)
+        {
+            completion(mappingResult.array, nil);
+        }
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        if (completion) completion(nil, error);
+        if (completion)
+        {
+            completion(nil, error);
+        }
     }];
+    
     [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
+    
     return operation;
 }
 
