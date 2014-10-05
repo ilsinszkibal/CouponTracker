@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B6053BE19E146130047293F /* CTMainViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6053BD19E146130047293F /* CTMainViewController_iPad.m */; };
+		6B6053C119E1462A0047293F /* CTMainViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6053C019E1462A0047293F /* CTMainViewController_iPhone.m */; };
+		6B63953E19E1410A0090974A /* MainiPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B63953C19E1410A0090974A /* MainiPad.storyboard */; };
 		6B77A87419D6C5AE00FC0978 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A87319D6C5AE00FC0978 /* main.m */; };
 		6B77A87719D6C5AE00FC0978 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A87619D6C5AE00FC0978 /* AppDelegate.m */; };
 		6B77A87A19D6C5AE00FC0978 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A87919D6C5AE00FC0978 /* ViewController.m */; };
@@ -52,6 +55,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B6053BC19E146130047293F /* CTMainViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTMainViewController_iPad.h; path = UI/iPad/CTMainViewController_iPad.h; sourceTree = "<group>"; };
+		6B6053BD19E146130047293F /* CTMainViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTMainViewController_iPad.m; path = UI/iPad/CTMainViewController_iPad.m; sourceTree = "<group>"; };
+		6B6053BF19E1462A0047293F /* CTMainViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTMainViewController_iPhone.h; path = UI/iPhone/CTMainViewController_iPhone.h; sourceTree = "<group>"; };
+		6B6053C019E1462A0047293F /* CTMainViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTMainViewController_iPhone.m; path = UI/iPhone/CTMainViewController_iPhone.m; sourceTree = "<group>"; };
+		6B63953D19E1410A0090974A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = CouponTracker/Base.lproj/MainiPad.storyboard; sourceTree = "<group>"; };
 		6B77A86E19D6C5AE00FC0978 /* CouponTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CouponTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B77A87219D6C5AE00FC0978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B77A87319D6C5AE00FC0978 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -95,6 +103,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B6053B819E1458F0047293F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				6B6053BB19E1459D0047293F /* iPhone */,
+				6B6053BA19E145960047293F /* iPad */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		6B6053BA19E145960047293F /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				6B6053BC19E146130047293F /* CTMainViewController_iPad.h */,
+				6B6053BD19E146130047293F /* CTMainViewController_iPad.m */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		6B6053BB19E1459D0047293F /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				6B6053BF19E1462A0047293F /* CTMainViewController_iPhone.h */,
+				6B6053C019E1462A0047293F /* CTMainViewController_iPhone.m */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
 		6B77A86519D6C5AE00FC0978 = {
 			isa = PBXGroup;
 			children = (
@@ -118,10 +153,12 @@
 		6B77A87019D6C5AE00FC0978 /* CouponTracker */ = {
 			isa = PBXGroup;
 			children = (
+				6B6053B819E1458F0047293F /* UI */,
 				6B77A87519D6C5AE00FC0978 /* AppDelegate.h */,
 				6B77A87619D6C5AE00FC0978 /* AppDelegate.m */,
 				6B77A87819D6C5AE00FC0978 /* ViewController.h */,
 				6B77A87919D6C5AE00FC0978 /* ViewController.m */,
+				6B63953C19E1410A0090974A /* MainiPad.storyboard */,
 				6B77A87B19D6C5AE00FC0978 /* Main.storyboard */,
 				6B77A87E19D6C5AE00FC0978 /* Images.xcassets */,
 				6B77A88019D6C5AE00FC0978 /* LaunchScreen.xib */,
@@ -283,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B77A87D19D6C5AE00FC0978 /* Main.storyboard in Resources */,
+				6B63953E19E1410A0090974A /* MainiPad.storyboard in Resources */,
 				6B77A88219D6C5AE00FC0978 /* LaunchScreen.xib in Resources */,
 				6B77A87F19D6C5AE00FC0978 /* Images.xcassets in Resources */,
 			);
@@ -304,6 +342,8 @@
 			files = (
 				6B77A87A19D6C5AE00FC0978 /* ViewController.m in Sources */,
 				6B77A87719D6C5AE00FC0978 /* AppDelegate.m in Sources */,
+				6B6053C119E1462A0047293F /* CTMainViewController_iPhone.m in Sources */,
+				6B6053BE19E146130047293F /* CTMainViewController_iPad.m in Sources */,
 				6B77A87419D6C5AE00FC0978 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +372,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		6B63953C19E1410A0090974A /* MainiPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6B63953D19E1410A0090974A /* Base */,
+			);
+			name = MainiPad.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		6B77A87B19D6C5AE00FC0978 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -455,6 +504,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -484,6 +534,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
