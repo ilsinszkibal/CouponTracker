@@ -46,7 +46,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[UIColor orangeColor]];
+    UIBlurEffect* blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView* effect = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    effect.frame = self.view.bounds;
+    [self.view addSubview:effect];
+    
+    [self.view setBackgroundColor:[UIColor clearColor]];
     
     self.usernameField = [[CTValidTextField alloc] init];
     self.usernameField.delegate = self;

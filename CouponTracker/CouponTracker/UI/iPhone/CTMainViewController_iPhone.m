@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.view setBackgroundColor:[UIColor clearColor]];
     
     self.loginButton = [[UIButton alloc] init];
     [self.loginButton setTitle:@"Login" forState:UIControlStateNormal];

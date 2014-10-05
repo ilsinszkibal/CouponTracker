@@ -22,6 +22,14 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor clearColor];
     self.window.opaque = NO;
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg2"]];
+    [imageView setContentMode:UIViewContentModeScaleAspectFit];
+    UIBlurEffect* blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView* effect = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    effect.frame = self.window.bounds;
+    imageView.frame = self.window.bounds;
+    [self.window addSubview:imageView];
+//    [self.window addSubview:effect];
     
     UIViewController* main;
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
