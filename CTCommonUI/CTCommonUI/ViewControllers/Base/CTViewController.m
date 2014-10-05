@@ -38,7 +38,9 @@
 
 - (void) showRegister
 {
-    
+    [UIView animateWithDuration:0.5 delay:0.1 usingSpringWithDamping:10 initialSpringVelocity:2 options:0 animations:^{
+        
+    } completion:nil];
 }
 
 - (void)showViewController:(UIViewController *)viewController animated:(BOOL) animated {

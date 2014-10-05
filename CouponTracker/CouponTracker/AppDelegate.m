@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "CTMainViewController_iPhone.h"
+#import "CTMainViewController_iPad.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor clearColor];
+    self.window.opaque = NO;
+    
+    UIViewController* main;
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        main = [[CTMainViewController_iPad alloc] init];
+    } else if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+        main = [[CTMainViewController_iPhone alloc] init];
+    }
+    self.window.rootViewController = main;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

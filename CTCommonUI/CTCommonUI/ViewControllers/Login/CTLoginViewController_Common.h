@@ -10,18 +10,20 @@
 
 @interface CTLoginViewController_Common : CTViewController
 
-@property (nonatomic, weak) IBOutlet UIView* contentView;
+@property (nonatomic, strong) UIView* contentView;
 
-@property (nonatomic, weak) IBOutlet UITextField* usernameField;
-@property (nonatomic, weak) IBOutlet UITextField* passwordField;
+@property (nonatomic, strong) UITextField* usernameField;
+@property (nonatomic, strong) UITextField* emailField;
+@property (nonatomic, strong) UITextField* passwordField;
+@property (nonatomic, strong) UITextField* passwordConfirmField;
 
-@property (nonatomic, weak) IBOutlet UILabel* statusLabel;
-@property (nonatomic, weak) IBOutlet UIButton* loginButton;
-@property (nonatomic, weak) IBOutlet UIButton* notNowButton;
-@property (nonatomic, weak) IBOutlet UIButton* registerButton;
+@property (nonatomic, strong) UILabel* statusLabel;
+@property (nonatomic, strong) UIButton* loginButton;
+@property (nonatomic, strong) UIButton* notNowButton;
+@property (nonatomic, strong) UIButton* registerButton;
 
-- (IBAction) loginAction:(UIButton*) button;
-- (IBAction) notNowAction:(UIButton*) sender;
-- (IBAction) registerAction:(UIButton*) sender;
+- (void) loginAction:(UIButton*) button;
+- (void) notNowAction:(UIButton*) sender;
+- (void) registerAction:(UIButton*) sender;
 
 @end
