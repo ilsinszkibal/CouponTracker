@@ -10,4 +10,8 @@
 
 @interface CTMyTemplatesViewController_iPad : CTMyTemplatesViewController_Common
 
+@property (nonatomic, weak) IBOutlet UIButton* backButton;
+
+- (IBAction) backButtonAction:(UIButton*) backButton;
+
 @end
