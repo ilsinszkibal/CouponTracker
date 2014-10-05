@@ -7,29 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6B6053B719E145430047293F /* CTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6053B619E145430047293F /* CTViewController.m */; };
-		6B63952619E140930090974A /* CardDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6394F819E140930090974A /* CardDrawing.m */; };
-		6B63952719E140930090974A /* CouponDrawingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6394FB19E140930090974A /* CouponDrawingData.m */; };
-		6B63952819E140930090974A /* CouponDrawingBaseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6394FF19E140930090974A /* CouponDrawingBaseLayer.m */; };
-		6B63952919E140930090974A /* CouponDrawingBoxBaseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B63950119E140930090974A /* CouponDrawingBoxBaseLayer.m */; };
-		6B63952A19E140930090974A /* CouponDrawingImageLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B63950319E140930090974A /* CouponDrawingImageLayer.m */; };
-		6B63952B19E140930090974A /* CouponDrawingRectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B63950519E140930090974A /* CouponDrawingRectLayer.m */; };
-		6B63952C19E140930090974A /* CouponDrawingTextLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B63950719E140930090974A /* CouponDrawingTextLayer.m */; };
-		6B63952D19E140930090974A /* CardDrawingLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B63950A19E140930090974A /* CardDrawingLayerView.m */; };
-		6B63952E19E140930090974A /* CardDrawingOperationAddView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B63950D19E140930090974A /* CardDrawingOperationAddView.m */; };
-		6B63952F19E140930090974A /* CardDrawingOperationImageEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B63951019E140930090974A /* CardDrawingOperationImageEditView.m */; };
-		6B63953019E140930090974A /* CardDrawingOperationRectEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B63951219E140930090974A /* CardDrawingOperationRectEditView.m */; };
-		6B63953119E140930090974A /* CardDrawingOperationTextEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B63951419E140930090974A /* CardDrawingOperationTextEditView.m */; };
-		6B63953219E140930090974A /* CardDrawingOperationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B63951619E140930090974A /* CardDrawingOperationView.m */; };
-		6B63953319E140930090974A /* CardDrawingEditBoxPresentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B63951919E140930090974A /* CardDrawingEditBoxPresentView.m */; };
-		6B63953419E140930090974A /* CardDrawingEditGrabberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B63951B19E140930090974A /* CardDrawingEditGrabberView.m */; };
-		6B63953519E140930090974A /* CardDrawingEditTextPresentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B63951E19E140930090974A /* CardDrawingEditTextPresentView.m */; };
-		6B63953619E140930090974A /* CardDrawingPresentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B63952019E140930090974A /* CardDrawingPresentView.m */; };
-		6B63953719E140930090974A /* CouponCardDrawerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B63952219E140930090974A /* CouponCardDrawerManager.m */; };
-		6B63953819E140930090974A /* CouponCardDrawerManagerListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B63952419E140930090974A /* CouponCardDrawerManagerListener.m */; };
 		6B77A8CA19D6C9E200FC0978 /* CTCommonUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6B77A8C919D6C9E200FC0978 /* CTCommonUI.h */; };
 		6B77A8CC19D6C9E200FC0978 /* CTCommonUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A8CB19D6C9E200FC0978 /* CTCommonUI.m */; };
 		6B77A8E719D6CBC100FC0978 /* libCTServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77A8E619D6CBC100FC0978 /* libCTServices.a */; };
+		BD7AB1CB19E14A91000D88AB /* CardDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB19519E14A91000D88AB /* CardDrawing.m */; };
+		BD7AB1CC19E14A91000D88AB /* CouponDrawingData.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB19819E14A91000D88AB /* CouponDrawingData.m */; };
+		BD7AB1CD19E14A91000D88AB /* CouponDrawingBaseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB19C19E14A91000D88AB /* CouponDrawingBaseLayer.m */; };
+		BD7AB1CE19E14A91000D88AB /* CouponDrawingBoxBaseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB19E19E14A91000D88AB /* CouponDrawingBoxBaseLayer.m */; };
+		BD7AB1CF19E14A91000D88AB /* CouponDrawingImageLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1A019E14A91000D88AB /* CouponDrawingImageLayer.m */; };
+		BD7AB1D019E14A91000D88AB /* CouponDrawingRectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1A219E14A91000D88AB /* CouponDrawingRectLayer.m */; };
+		BD7AB1D119E14A91000D88AB /* CouponDrawingTextLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1A419E14A91000D88AB /* CouponDrawingTextLayer.m */; };
+		BD7AB1D219E14A91000D88AB /* CardDrawingLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1A719E14A91000D88AB /* CardDrawingLayerView.m */; };
+		BD7AB1D319E14A91000D88AB /* CardDrawingOperationAddView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1AA19E14A91000D88AB /* CardDrawingOperationAddView.m */; };
+		BD7AB1D419E14A91000D88AB /* CardDrawingOperationImageEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1AD19E14A91000D88AB /* CardDrawingOperationImageEditView.m */; };
+		BD7AB1D519E14A91000D88AB /* CardDrawingOperationRectEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1AF19E14A91000D88AB /* CardDrawingOperationRectEditView.m */; };
+		BD7AB1D619E14A91000D88AB /* CardDrawingOperationTextEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1B119E14A91000D88AB /* CardDrawingOperationTextEditView.m */; };
+		BD7AB1D719E14A91000D88AB /* CardDrawingOperationView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1B319E14A91000D88AB /* CardDrawingOperationView.m */; };
+		BD7AB1D819E14A91000D88AB /* CardDrawingEditBoxPresentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1B619E14A91000D88AB /* CardDrawingEditBoxPresentView.m */; };
+		BD7AB1D919E14A91000D88AB /* CardDrawingEditGrabberView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1B819E14A91000D88AB /* CardDrawingEditGrabberView.m */; };
+		BD7AB1DA19E14A91000D88AB /* CardDrawingEditTextPresentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1BB19E14A91000D88AB /* CardDrawingEditTextPresentView.m */; };
+		BD7AB1DB19E14A91000D88AB /* CardDrawingPresentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1BD19E14A91000D88AB /* CardDrawingPresentView.m */; };
+		BD7AB1DC19E14A91000D88AB /* CouponCardDrawerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1BF19E14A91000D88AB /* CouponCardDrawerManager.m */; };
+		BD7AB1DD19E14A91000D88AB /* CouponCardDrawerManagerListener.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1C119E14A91000D88AB /* CouponCardDrawerManagerListener.m */; };
+		BD7AB1DF19E14A91000D88AB /* CTLoginViewController_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1C919E14A91000D88AB /* CTLoginViewController_Common.m */; };
+		BD7AB1E319E14AB8000D88AB /* CTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1E219E14AB8000D88AB /* CTViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,50 +64,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6B6053B519E145430047293F /* CTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTViewController.h; path = BaseUI/CTViewController.h; sourceTree = "<group>"; };
-		6B6053B619E145430047293F /* CTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTViewController.m; path = BaseUI/CTViewController.m; sourceTree = "<group>"; };
-		6B6394F719E140930090974A /* CardDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawing.h; sourceTree = "<group>"; };
-		6B6394F819E140930090974A /* CardDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawing.m; sourceTree = "<group>"; };
-		6B6394FA19E140930090974A /* CouponDrawingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDrawingData.h; sourceTree = "<group>"; };
-		6B6394FB19E140930090974A /* CouponDrawingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponDrawingData.m; sourceTree = "<group>"; };
-		6B6394FC19E140930090974A /* CouponDrawingLayerTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDrawingLayerTypes.h; sourceTree = "<group>"; };
-		6B6394FE19E140930090974A /* CouponDrawingBaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDrawingBaseLayer.h; sourceTree = "<group>"; };
-		6B6394FF19E140930090974A /* CouponDrawingBaseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponDrawingBaseLayer.m; sourceTree = "<group>"; };
-		6B63950019E140930090974A /* CouponDrawingBoxBaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDrawingBoxBaseLayer.h; sourceTree = "<group>"; };
-		6B63950119E140930090974A /* CouponDrawingBoxBaseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponDrawingBoxBaseLayer.m; sourceTree = "<group>"; };
-		6B63950219E140930090974A /* CouponDrawingImageLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDrawingImageLayer.h; sourceTree = "<group>"; };
-		6B63950319E140930090974A /* CouponDrawingImageLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponDrawingImageLayer.m; sourceTree = "<group>"; };
-		6B63950419E140930090974A /* CouponDrawingRectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDrawingRectLayer.h; sourceTree = "<group>"; };
-		6B63950519E140930090974A /* CouponDrawingRectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponDrawingRectLayer.m; sourceTree = "<group>"; };
-		6B63950619E140930090974A /* CouponDrawingTextLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDrawingTextLayer.h; sourceTree = "<group>"; };
-		6B63950719E140930090974A /* CouponDrawingTextLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponDrawingTextLayer.m; sourceTree = "<group>"; };
-		6B63950919E140930090974A /* CardDrawingLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingLayerView.h; sourceTree = "<group>"; };
-		6B63950A19E140930090974A /* CardDrawingLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingLayerView.m; sourceTree = "<group>"; };
-		6B63950C19E140930090974A /* CardDrawingOperationAddView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingOperationAddView.h; sourceTree = "<group>"; };
-		6B63950D19E140930090974A /* CardDrawingOperationAddView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingOperationAddView.m; sourceTree = "<group>"; };
-		6B63950E19E140930090974A /* CardDrawingOperationEditProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingOperationEditProtocol.h; sourceTree = "<group>"; };
-		6B63950F19E140930090974A /* CardDrawingOperationImageEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingOperationImageEditView.h; sourceTree = "<group>"; };
-		6B63951019E140930090974A /* CardDrawingOperationImageEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingOperationImageEditView.m; sourceTree = "<group>"; };
-		6B63951119E140930090974A /* CardDrawingOperationRectEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingOperationRectEditView.h; sourceTree = "<group>"; };
-		6B63951219E140930090974A /* CardDrawingOperationRectEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingOperationRectEditView.m; sourceTree = "<group>"; };
-		6B63951319E140930090974A /* CardDrawingOperationTextEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingOperationTextEditView.h; sourceTree = "<group>"; };
-		6B63951419E140930090974A /* CardDrawingOperationTextEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingOperationTextEditView.m; sourceTree = "<group>"; };
-		6B63951519E140930090974A /* CardDrawingOperationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingOperationView.h; sourceTree = "<group>"; };
-		6B63951619E140930090974A /* CardDrawingOperationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingOperationView.m; sourceTree = "<group>"; };
-		6B63951819E140930090974A /* CardDrawingEditBoxPresentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingEditBoxPresentView.h; sourceTree = "<group>"; };
-		6B63951919E140930090974A /* CardDrawingEditBoxPresentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingEditBoxPresentView.m; sourceTree = "<group>"; };
-		6B63951A19E140930090974A /* CardDrawingEditGrabberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingEditGrabberView.h; sourceTree = "<group>"; };
-		6B63951B19E140930090974A /* CardDrawingEditGrabberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingEditGrabberView.m; sourceTree = "<group>"; };
-		6B63951C19E140930090974A /* CardDrawingEditPresentViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingEditPresentViewProtocol.h; sourceTree = "<group>"; };
-		6B63951D19E140930090974A /* CardDrawingEditTextPresentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingEditTextPresentView.h; sourceTree = "<group>"; };
-		6B63951E19E140930090974A /* CardDrawingEditTextPresentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingEditTextPresentView.m; sourceTree = "<group>"; };
-		6B63951F19E140930090974A /* CardDrawingPresentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingPresentView.h; sourceTree = "<group>"; };
-		6B63952019E140930090974A /* CardDrawingPresentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingPresentView.m; sourceTree = "<group>"; };
-		6B63952119E140930090974A /* CouponCardDrawerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCardDrawerManager.h; sourceTree = "<group>"; };
-		6B63952219E140930090974A /* CouponCardDrawerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCardDrawerManager.m; sourceTree = "<group>"; };
-		6B63952319E140930090974A /* CouponCardDrawerManagerListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCardDrawerManagerListener.h; sourceTree = "<group>"; };
-		6B63952419E140930090974A /* CouponCardDrawerManagerListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCardDrawerManagerListener.m; sourceTree = "<group>"; };
-		6B63952519E140930090974A /* CouponCardDrawerManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCardDrawerManagerProtocol.h; sourceTree = "<group>"; };
 		6B77A8C619D6C9E200FC0978 /* libCTCommonUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCTCommonUI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B77A8C919D6C9E200FC0978 /* CTCommonUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTCommonUI.h; sourceTree = "<group>"; };
 		6B77A8CB19D6C9E200FC0978 /* CTCommonUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTCommonUI.m; sourceTree = "<group>"; };
@@ -114,6 +71,52 @@
 		6B77A8D419D6C9E200FC0978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B77A8E619D6CBC100FC0978 /* libCTServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCTServices.a; path = "../CTServices/build/Debug-iphoneos/libCTServices.a"; sourceTree = "<group>"; };
 		6BCB423319D7188C0091E870 /* CTServices.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTServices.xcodeproj; path = ../CTServices/CTServices.xcodeproj; sourceTree = "<group>"; };
+		BD7AB19419E14A91000D88AB /* CardDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawing.h; sourceTree = "<group>"; };
+		BD7AB19519E14A91000D88AB /* CardDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawing.m; sourceTree = "<group>"; };
+		BD7AB19719E14A91000D88AB /* CouponDrawingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDrawingData.h; sourceTree = "<group>"; };
+		BD7AB19819E14A91000D88AB /* CouponDrawingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponDrawingData.m; sourceTree = "<group>"; };
+		BD7AB19919E14A91000D88AB /* CouponDrawingLayerTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDrawingLayerTypes.h; sourceTree = "<group>"; };
+		BD7AB19B19E14A91000D88AB /* CouponDrawingBaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDrawingBaseLayer.h; sourceTree = "<group>"; };
+		BD7AB19C19E14A91000D88AB /* CouponDrawingBaseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponDrawingBaseLayer.m; sourceTree = "<group>"; };
+		BD7AB19D19E14A91000D88AB /* CouponDrawingBoxBaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDrawingBoxBaseLayer.h; sourceTree = "<group>"; };
+		BD7AB19E19E14A91000D88AB /* CouponDrawingBoxBaseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponDrawingBoxBaseLayer.m; sourceTree = "<group>"; };
+		BD7AB19F19E14A91000D88AB /* CouponDrawingImageLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDrawingImageLayer.h; sourceTree = "<group>"; };
+		BD7AB1A019E14A91000D88AB /* CouponDrawingImageLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponDrawingImageLayer.m; sourceTree = "<group>"; };
+		BD7AB1A119E14A91000D88AB /* CouponDrawingRectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDrawingRectLayer.h; sourceTree = "<group>"; };
+		BD7AB1A219E14A91000D88AB /* CouponDrawingRectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponDrawingRectLayer.m; sourceTree = "<group>"; };
+		BD7AB1A319E14A91000D88AB /* CouponDrawingTextLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDrawingTextLayer.h; sourceTree = "<group>"; };
+		BD7AB1A419E14A91000D88AB /* CouponDrawingTextLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponDrawingTextLayer.m; sourceTree = "<group>"; };
+		BD7AB1A619E14A91000D88AB /* CardDrawingLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingLayerView.h; sourceTree = "<group>"; };
+		BD7AB1A719E14A91000D88AB /* CardDrawingLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingLayerView.m; sourceTree = "<group>"; };
+		BD7AB1A919E14A91000D88AB /* CardDrawingOperationAddView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingOperationAddView.h; sourceTree = "<group>"; };
+		BD7AB1AA19E14A91000D88AB /* CardDrawingOperationAddView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingOperationAddView.m; sourceTree = "<group>"; };
+		BD7AB1AB19E14A91000D88AB /* CardDrawingOperationEditProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingOperationEditProtocol.h; sourceTree = "<group>"; };
+		BD7AB1AC19E14A91000D88AB /* CardDrawingOperationImageEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingOperationImageEditView.h; sourceTree = "<group>"; };
+		BD7AB1AD19E14A91000D88AB /* CardDrawingOperationImageEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingOperationImageEditView.m; sourceTree = "<group>"; };
+		BD7AB1AE19E14A91000D88AB /* CardDrawingOperationRectEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingOperationRectEditView.h; sourceTree = "<group>"; };
+		BD7AB1AF19E14A91000D88AB /* CardDrawingOperationRectEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingOperationRectEditView.m; sourceTree = "<group>"; };
+		BD7AB1B019E14A91000D88AB /* CardDrawingOperationTextEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingOperationTextEditView.h; sourceTree = "<group>"; };
+		BD7AB1B119E14A91000D88AB /* CardDrawingOperationTextEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingOperationTextEditView.m; sourceTree = "<group>"; };
+		BD7AB1B219E14A91000D88AB /* CardDrawingOperationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingOperationView.h; sourceTree = "<group>"; };
+		BD7AB1B319E14A91000D88AB /* CardDrawingOperationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingOperationView.m; sourceTree = "<group>"; };
+		BD7AB1B519E14A91000D88AB /* CardDrawingEditBoxPresentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingEditBoxPresentView.h; sourceTree = "<group>"; };
+		BD7AB1B619E14A91000D88AB /* CardDrawingEditBoxPresentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingEditBoxPresentView.m; sourceTree = "<group>"; };
+		BD7AB1B719E14A91000D88AB /* CardDrawingEditGrabberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingEditGrabberView.h; sourceTree = "<group>"; };
+		BD7AB1B819E14A91000D88AB /* CardDrawingEditGrabberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingEditGrabberView.m; sourceTree = "<group>"; };
+		BD7AB1B919E14A91000D88AB /* CardDrawingEditPresentViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingEditPresentViewProtocol.h; sourceTree = "<group>"; };
+		BD7AB1BA19E14A91000D88AB /* CardDrawingEditTextPresentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingEditTextPresentView.h; sourceTree = "<group>"; };
+		BD7AB1BB19E14A91000D88AB /* CardDrawingEditTextPresentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingEditTextPresentView.m; sourceTree = "<group>"; };
+		BD7AB1BC19E14A91000D88AB /* CardDrawingPresentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrawingPresentView.h; sourceTree = "<group>"; };
+		BD7AB1BD19E14A91000D88AB /* CardDrawingPresentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrawingPresentView.m; sourceTree = "<group>"; };
+		BD7AB1BE19E14A91000D88AB /* CouponCardDrawerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCardDrawerManager.h; sourceTree = "<group>"; };
+		BD7AB1BF19E14A91000D88AB /* CouponCardDrawerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCardDrawerManager.m; sourceTree = "<group>"; };
+		BD7AB1C019E14A91000D88AB /* CouponCardDrawerManagerListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCardDrawerManagerListener.h; sourceTree = "<group>"; };
+		BD7AB1C119E14A91000D88AB /* CouponCardDrawerManagerListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCardDrawerManagerListener.m; sourceTree = "<group>"; };
+		BD7AB1C219E14A91000D88AB /* CouponCardDrawerManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCardDrawerManagerProtocol.h; sourceTree = "<group>"; };
+		BD7AB1C819E14A91000D88AB /* CTLoginViewController_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTLoginViewController_Common.h; sourceTree = "<group>"; };
+		BD7AB1C919E14A91000D88AB /* CTLoginViewController_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTLoginViewController_Common.m; sourceTree = "<group>"; };
+		BD7AB1E119E14AB8000D88AB /* CTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTViewController.h; sourceTree = "<group>"; };
+		BD7AB1E219E14AB8000D88AB /* CTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,112 +138,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6B6053B219E1451D0047293F /* BaseUI */ = {
-			isa = PBXGroup;
-			children = (
-				6B6053B519E145430047293F /* CTViewController.h */,
-				6B6053B619E145430047293F /* CTViewController.m */,
-			);
-			name = BaseUI;
-			sourceTree = "<group>";
-		};
-		6B6394F519E140930090974A /* CouponCardDrawer */ = {
-			isa = PBXGroup;
-			children = (
-				6B6394F619E140930090974A /* CardDrawing */,
-				6B6394F919E140930090974A /* CardDrawingData */,
-				6B63950819E140930090974A /* CardDrawingViews */,
-				6B63952119E140930090974A /* CouponCardDrawerManager.h */,
-				6B63952219E140930090974A /* CouponCardDrawerManager.m */,
-				6B63952319E140930090974A /* CouponCardDrawerManagerListener.h */,
-				6B63952419E140930090974A /* CouponCardDrawerManagerListener.m */,
-				6B63952519E140930090974A /* CouponCardDrawerManagerProtocol.h */,
-			);
-			path = CouponCardDrawer;
-			sourceTree = "<group>";
-		};
-		6B6394F619E140930090974A /* CardDrawing */ = {
-			isa = PBXGroup;
-			children = (
-				6B6394F719E140930090974A /* CardDrawing.h */,
-				6B6394F819E140930090974A /* CardDrawing.m */,
-			);
-			path = CardDrawing;
-			sourceTree = "<group>";
-		};
-		6B6394F919E140930090974A /* CardDrawingData */ = {
-			isa = PBXGroup;
-			children = (
-				6B6394FA19E140930090974A /* CouponDrawingData.h */,
-				6B6394FB19E140930090974A /* CouponDrawingData.m */,
-				6B6394FC19E140930090974A /* CouponDrawingLayerTypes.h */,
-				6B6394FD19E140930090974A /* Layers */,
-			);
-			path = CardDrawingData;
-			sourceTree = "<group>";
-		};
-		6B6394FD19E140930090974A /* Layers */ = {
-			isa = PBXGroup;
-			children = (
-				6B6394FE19E140930090974A /* CouponDrawingBaseLayer.h */,
-				6B6394FF19E140930090974A /* CouponDrawingBaseLayer.m */,
-				6B63950019E140930090974A /* CouponDrawingBoxBaseLayer.h */,
-				6B63950119E140930090974A /* CouponDrawingBoxBaseLayer.m */,
-				6B63950219E140930090974A /* CouponDrawingImageLayer.h */,
-				6B63950319E140930090974A /* CouponDrawingImageLayer.m */,
-				6B63950419E140930090974A /* CouponDrawingRectLayer.h */,
-				6B63950519E140930090974A /* CouponDrawingRectLayer.m */,
-				6B63950619E140930090974A /* CouponDrawingTextLayer.h */,
-				6B63950719E140930090974A /* CouponDrawingTextLayer.m */,
-			);
-			path = Layers;
-			sourceTree = "<group>";
-		};
-		6B63950819E140930090974A /* CardDrawingViews */ = {
-			isa = PBXGroup;
-			children = (
-				6B63950919E140930090974A /* CardDrawingLayerView.h */,
-				6B63950A19E140930090974A /* CardDrawingLayerView.m */,
-				6B63950B19E140930090974A /* OperationView */,
-				6B63951719E140930090974A /* PresentView */,
-			);
-			path = CardDrawingViews;
-			sourceTree = "<group>";
-		};
-		6B63950B19E140930090974A /* OperationView */ = {
-			isa = PBXGroup;
-			children = (
-				6B63950C19E140930090974A /* CardDrawingOperationAddView.h */,
-				6B63950D19E140930090974A /* CardDrawingOperationAddView.m */,
-				6B63950E19E140930090974A /* CardDrawingOperationEditProtocol.h */,
-				6B63950F19E140930090974A /* CardDrawingOperationImageEditView.h */,
-				6B63951019E140930090974A /* CardDrawingOperationImageEditView.m */,
-				6B63951119E140930090974A /* CardDrawingOperationRectEditView.h */,
-				6B63951219E140930090974A /* CardDrawingOperationRectEditView.m */,
-				6B63951319E140930090974A /* CardDrawingOperationTextEditView.h */,
-				6B63951419E140930090974A /* CardDrawingOperationTextEditView.m */,
-				6B63951519E140930090974A /* CardDrawingOperationView.h */,
-				6B63951619E140930090974A /* CardDrawingOperationView.m */,
-			);
-			path = OperationView;
-			sourceTree = "<group>";
-		};
-		6B63951719E140930090974A /* PresentView */ = {
-			isa = PBXGroup;
-			children = (
-				6B63951819E140930090974A /* CardDrawingEditBoxPresentView.h */,
-				6B63951919E140930090974A /* CardDrawingEditBoxPresentView.m */,
-				6B63951A19E140930090974A /* CardDrawingEditGrabberView.h */,
-				6B63951B19E140930090974A /* CardDrawingEditGrabberView.m */,
-				6B63951C19E140930090974A /* CardDrawingEditPresentViewProtocol.h */,
-				6B63951D19E140930090974A /* CardDrawingEditTextPresentView.h */,
-				6B63951E19E140930090974A /* CardDrawingEditTextPresentView.m */,
-				6B63951F19E140930090974A /* CardDrawingPresentView.h */,
-				6B63952019E140930090974A /* CardDrawingPresentView.m */,
-			);
-			path = PresentView;
-			sourceTree = "<group>";
-		};
 		6B77A8BD19D6C9E200FC0978 = {
 			isa = PBXGroup;
 			children = (
@@ -264,8 +161,9 @@
 		6B77A8C819D6C9E200FC0978 /* CTCommonUI */ = {
 			isa = PBXGroup;
 			children = (
-				6B6053B219E1451D0047293F /* BaseUI */,
-				6B6394F519E140930090974A /* CouponCardDrawer */,
+				BD7AB19119E14A91000D88AB /* ReusableComponents */,
+				BD7AB1C319E14A91000D88AB /* ViewControllers */,
+				BD7AB1CA19E14A91000D88AB /* Views */,
 				6B77A8C919D6C9E200FC0978 /* CTCommonUI.h */,
 				6B77A8CB19D6C9E200FC0978 /* CTCommonUI.m */,
 			);
@@ -303,6 +201,145 @@
 				6BCB423C19D7188C0091E870 /* CTServicesTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		BD7AB19119E14A91000D88AB /* ReusableComponents */ = {
+			isa = PBXGroup;
+			children = (
+				BD7AB19219E14A91000D88AB /* CouponCardDrawer */,
+			);
+			path = ReusableComponents;
+			sourceTree = "<group>";
+		};
+		BD7AB19219E14A91000D88AB /* CouponCardDrawer */ = {
+			isa = PBXGroup;
+			children = (
+				BD7AB19319E14A91000D88AB /* CardDrawing */,
+				BD7AB19619E14A91000D88AB /* CardDrawingData */,
+				BD7AB1A519E14A91000D88AB /* CardDrawingViews */,
+				BD7AB1BE19E14A91000D88AB /* CouponCardDrawerManager.h */,
+				BD7AB1BF19E14A91000D88AB /* CouponCardDrawerManager.m */,
+				BD7AB1C019E14A91000D88AB /* CouponCardDrawerManagerListener.h */,
+				BD7AB1C119E14A91000D88AB /* CouponCardDrawerManagerListener.m */,
+				BD7AB1C219E14A91000D88AB /* CouponCardDrawerManagerProtocol.h */,
+			);
+			path = CouponCardDrawer;
+			sourceTree = "<group>";
+		};
+		BD7AB19319E14A91000D88AB /* CardDrawing */ = {
+			isa = PBXGroup;
+			children = (
+				BD7AB19419E14A91000D88AB /* CardDrawing.h */,
+				BD7AB19519E14A91000D88AB /* CardDrawing.m */,
+			);
+			path = CardDrawing;
+			sourceTree = "<group>";
+		};
+		BD7AB19619E14A91000D88AB /* CardDrawingData */ = {
+			isa = PBXGroup;
+			children = (
+				BD7AB19719E14A91000D88AB /* CouponDrawingData.h */,
+				BD7AB19819E14A91000D88AB /* CouponDrawingData.m */,
+				BD7AB19919E14A91000D88AB /* CouponDrawingLayerTypes.h */,
+				BD7AB19A19E14A91000D88AB /* Layers */,
+			);
+			path = CardDrawingData;
+			sourceTree = "<group>";
+		};
+		BD7AB19A19E14A91000D88AB /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				BD7AB19B19E14A91000D88AB /* CouponDrawingBaseLayer.h */,
+				BD7AB19C19E14A91000D88AB /* CouponDrawingBaseLayer.m */,
+				BD7AB19D19E14A91000D88AB /* CouponDrawingBoxBaseLayer.h */,
+				BD7AB19E19E14A91000D88AB /* CouponDrawingBoxBaseLayer.m */,
+				BD7AB19F19E14A91000D88AB /* CouponDrawingImageLayer.h */,
+				BD7AB1A019E14A91000D88AB /* CouponDrawingImageLayer.m */,
+				BD7AB1A119E14A91000D88AB /* CouponDrawingRectLayer.h */,
+				BD7AB1A219E14A91000D88AB /* CouponDrawingRectLayer.m */,
+				BD7AB1A319E14A91000D88AB /* CouponDrawingTextLayer.h */,
+				BD7AB1A419E14A91000D88AB /* CouponDrawingTextLayer.m */,
+			);
+			path = Layers;
+			sourceTree = "<group>";
+		};
+		BD7AB1A519E14A91000D88AB /* CardDrawingViews */ = {
+			isa = PBXGroup;
+			children = (
+				BD7AB1A619E14A91000D88AB /* CardDrawingLayerView.h */,
+				BD7AB1A719E14A91000D88AB /* CardDrawingLayerView.m */,
+				BD7AB1A819E14A91000D88AB /* OperationView */,
+				BD7AB1B419E14A91000D88AB /* PresentView */,
+			);
+			path = CardDrawingViews;
+			sourceTree = "<group>";
+		};
+		BD7AB1A819E14A91000D88AB /* OperationView */ = {
+			isa = PBXGroup;
+			children = (
+				BD7AB1A919E14A91000D88AB /* CardDrawingOperationAddView.h */,
+				BD7AB1AA19E14A91000D88AB /* CardDrawingOperationAddView.m */,
+				BD7AB1AB19E14A91000D88AB /* CardDrawingOperationEditProtocol.h */,
+				BD7AB1AC19E14A91000D88AB /* CardDrawingOperationImageEditView.h */,
+				BD7AB1AD19E14A91000D88AB /* CardDrawingOperationImageEditView.m */,
+				BD7AB1AE19E14A91000D88AB /* CardDrawingOperationRectEditView.h */,
+				BD7AB1AF19E14A91000D88AB /* CardDrawingOperationRectEditView.m */,
+				BD7AB1B019E14A91000D88AB /* CardDrawingOperationTextEditView.h */,
+				BD7AB1B119E14A91000D88AB /* CardDrawingOperationTextEditView.m */,
+				BD7AB1B219E14A91000D88AB /* CardDrawingOperationView.h */,
+				BD7AB1B319E14A91000D88AB /* CardDrawingOperationView.m */,
+			);
+			path = OperationView;
+			sourceTree = "<group>";
+		};
+		BD7AB1B419E14A91000D88AB /* PresentView */ = {
+			isa = PBXGroup;
+			children = (
+				BD7AB1B519E14A91000D88AB /* CardDrawingEditBoxPresentView.h */,
+				BD7AB1B619E14A91000D88AB /* CardDrawingEditBoxPresentView.m */,
+				BD7AB1B719E14A91000D88AB /* CardDrawingEditGrabberView.h */,
+				BD7AB1B819E14A91000D88AB /* CardDrawingEditGrabberView.m */,
+				BD7AB1B919E14A91000D88AB /* CardDrawingEditPresentViewProtocol.h */,
+				BD7AB1BA19E14A91000D88AB /* CardDrawingEditTextPresentView.h */,
+				BD7AB1BB19E14A91000D88AB /* CardDrawingEditTextPresentView.m */,
+				BD7AB1BC19E14A91000D88AB /* CardDrawingPresentView.h */,
+				BD7AB1BD19E14A91000D88AB /* CardDrawingPresentView.m */,
+			);
+			path = PresentView;
+			sourceTree = "<group>";
+		};
+		BD7AB1C319E14A91000D88AB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BD7AB1E019E14AB8000D88AB /* Base */,
+				BD7AB1C719E14A91000D88AB /* Login */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BD7AB1C719E14A91000D88AB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BD7AB1C819E14A91000D88AB /* CTLoginViewController_Common.h */,
+				BD7AB1C919E14A91000D88AB /* CTLoginViewController_Common.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		BD7AB1CA19E14A91000D88AB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BD7AB1E019E14AB8000D88AB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				BD7AB1E119E14AB8000D88AB /* CTViewController.h */,
+				BD7AB1E219E14AB8000D88AB /* CTViewController.m */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,27 +452,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B63952A19E140930090974A /* CouponDrawingImageLayer.m in Sources */,
-				6B63953219E140930090974A /* CardDrawingOperationView.m in Sources */,
-				6B63952F19E140930090974A /* CardDrawingOperationImageEditView.m in Sources */,
-				6B63953419E140930090974A /* CardDrawingEditGrabberView.m in Sources */,
-				6B63952E19E140930090974A /* CardDrawingOperationAddView.m in Sources */,
-				6B63953019E140930090974A /* CardDrawingOperationRectEditView.m in Sources */,
-				6B63952B19E140930090974A /* CouponDrawingRectLayer.m in Sources */,
-				6B63952719E140930090974A /* CouponDrawingData.m in Sources */,
-				6B63953819E140930090974A /* CouponCardDrawerManagerListener.m in Sources */,
-				6B63953119E140930090974A /* CardDrawingOperationTextEditView.m in Sources */,
-				6B63953319E140930090974A /* CardDrawingEditBoxPresentView.m in Sources */,
-				6B63952619E140930090974A /* CardDrawing.m in Sources */,
-				6B63952D19E140930090974A /* CardDrawingLayerView.m in Sources */,
-				6B63953719E140930090974A /* CouponCardDrawerManager.m in Sources */,
+				BD7AB1CF19E14A91000D88AB /* CouponDrawingImageLayer.m in Sources */,
+				BD7AB1D719E14A91000D88AB /* CardDrawingOperationView.m in Sources */,
+				BD7AB1DF19E14A91000D88AB /* CTLoginViewController_Common.m in Sources */,
+				BD7AB1E319E14AB8000D88AB /* CTViewController.m in Sources */,
+				BD7AB1D419E14A91000D88AB /* CardDrawingOperationImageEditView.m in Sources */,
+				BD7AB1D919E14A91000D88AB /* CardDrawingEditGrabberView.m in Sources */,
+				BD7AB1D319E14A91000D88AB /* CardDrawingOperationAddView.m in Sources */,
+				BD7AB1D519E14A91000D88AB /* CardDrawingOperationRectEditView.m in Sources */,
+				BD7AB1D019E14A91000D88AB /* CouponDrawingRectLayer.m in Sources */,
+				BD7AB1CC19E14A91000D88AB /* CouponDrawingData.m in Sources */,
+				BD7AB1DD19E14A91000D88AB /* CouponCardDrawerManagerListener.m in Sources */,
+				BD7AB1D619E14A91000D88AB /* CardDrawingOperationTextEditView.m in Sources */,
+				BD7AB1D819E14A91000D88AB /* CardDrawingEditBoxPresentView.m in Sources */,
+				BD7AB1CB19E14A91000D88AB /* CardDrawing.m in Sources */,
+				BD7AB1D219E14A91000D88AB /* CardDrawingLayerView.m in Sources */,
+				BD7AB1DC19E14A91000D88AB /* CouponCardDrawerManager.m in Sources */,
 				6B77A8CC19D6C9E200FC0978 /* CTCommonUI.m in Sources */,
-				6B63952C19E140930090974A /* CouponDrawingTextLayer.m in Sources */,
-				6B63953519E140930090974A /* CardDrawingEditTextPresentView.m in Sources */,
-				6B63953619E140930090974A /* CardDrawingPresentView.m in Sources */,
-				6B63952919E140930090974A /* CouponDrawingBoxBaseLayer.m in Sources */,
-				6B63952819E140930090974A /* CouponDrawingBaseLayer.m in Sources */,
-				6B6053B719E145430047293F /* CTViewController.m in Sources */,
+				BD7AB1D119E14A91000D88AB /* CouponDrawingTextLayer.m in Sources */,
+				BD7AB1DA19E14A91000D88AB /* CardDrawingEditTextPresentView.m in Sources */,
+				BD7AB1DB19E14A91000D88AB /* CardDrawingPresentView.m in Sources */,
+				BD7AB1CE19E14A91000D88AB /* CouponDrawingBoxBaseLayer.m in Sources */,
+				BD7AB1CD19E14A91000D88AB /* CouponDrawingBaseLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
