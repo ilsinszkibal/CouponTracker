@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Balazs Ilsinszki. All rights reserved.
 //
 
-#import "CTViewController.h"
+#import "CTMainViewController_Common.h"
 
-@interface CTMainViewController_iPad : CTViewController
+@interface CTMainViewController_iPad : CTMainViewController_Common
 
 @end

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B5056D919E14CAE006939CC /* CTMyTemplatesViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5056D819E14CAE006939CC /* CTMyTemplatesViewController_iPad.m */; };
+		6B5056DD19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5056DC19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.m */; };
+		6B5056E419E14D33006939CC /* CTNewTemplateViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5056E319E14D33006939CC /* CTNewTemplateViewController_iPad.m */; };
+		6B5056E719E14D45006939CC /* CTNewTemplateViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5056E619E14D45006939CC /* CTNewTemplateViewController_iPhone.m */; };
+		6B5056EE19E14D73006939CC /* CTPrintTemplateViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5056ED19E14D73006939CC /* CTPrintTemplateViewController_iPad.m */; };
+		6B5056F119E14D86006939CC /* CTPrintTemplateViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5056F019E14D86006939CC /* CTPrintTemplateViewController_iPhone.m */; };
 		6B6053BE19E146130047293F /* CTMainViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6053BD19E146130047293F /* CTMainViewController_iPad.m */; };
 		6B6053C119E1462A0047293F /* CTMainViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6053C019E1462A0047293F /* CTMainViewController_iPhone.m */; };
 		6B63953E19E1410A0090974A /* MainiPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B63953C19E1410A0090974A /* MainiPad.storyboard */; };
@@ -55,6 +61,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B5056D719E14CAE006939CC /* CTMyTemplatesViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTMyTemplatesViewController_iPad.h; path = UI/iPad/CTMyTemplatesViewController_iPad.h; sourceTree = "<group>"; };
+		6B5056D819E14CAE006939CC /* CTMyTemplatesViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTMyTemplatesViewController_iPad.m; path = UI/iPad/CTMyTemplatesViewController_iPad.m; sourceTree = "<group>"; };
+		6B5056DB19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTMyTemplatesViewController_iPhone.h; path = UI/iPhone/CTMyTemplatesViewController_iPhone.h; sourceTree = "<group>"; };
+		6B5056DC19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTMyTemplatesViewController_iPhone.m; path = UI/iPhone/CTMyTemplatesViewController_iPhone.m; sourceTree = "<group>"; };
+		6B5056E219E14D33006939CC /* CTNewTemplateViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTNewTemplateViewController_iPad.h; path = UI/iPad/CTNewTemplateViewController_iPad.h; sourceTree = "<group>"; };
+		6B5056E319E14D33006939CC /* CTNewTemplateViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTNewTemplateViewController_iPad.m; path = UI/iPad/CTNewTemplateViewController_iPad.m; sourceTree = "<group>"; };
+		6B5056E519E14D45006939CC /* CTNewTemplateViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTNewTemplateViewController_iPhone.h; path = UI/iPhone/CTNewTemplateViewController_iPhone.h; sourceTree = "<group>"; };
+		6B5056E619E14D45006939CC /* CTNewTemplateViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTNewTemplateViewController_iPhone.m; path = UI/iPhone/CTNewTemplateViewController_iPhone.m; sourceTree = "<group>"; };
+		6B5056EC19E14D73006939CC /* CTPrintTemplateViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTPrintTemplateViewController_iPad.h; path = UI/iPad/CTPrintTemplateViewController_iPad.h; sourceTree = "<group>"; };
+		6B5056ED19E14D73006939CC /* CTPrintTemplateViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTPrintTemplateViewController_iPad.m; path = UI/iPad/CTPrintTemplateViewController_iPad.m; sourceTree = "<group>"; };
+		6B5056EF19E14D86006939CC /* CTPrintTemplateViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTPrintTemplateViewController_iPhone.h; path = UI/iPhone/CTPrintTemplateViewController_iPhone.h; sourceTree = "<group>"; };
+		6B5056F019E14D86006939CC /* CTPrintTemplateViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTPrintTemplateViewController_iPhone.m; path = UI/iPhone/CTPrintTemplateViewController_iPhone.m; sourceTree = "<group>"; };
 		6B6053BC19E146130047293F /* CTMainViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTMainViewController_iPad.h; path = UI/iPad/CTMainViewController_iPad.h; sourceTree = "<group>"; };
 		6B6053BD19E146130047293F /* CTMainViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTMainViewController_iPad.m; path = UI/iPad/CTMainViewController_iPad.m; sourceTree = "<group>"; };
 		6B6053BF19E1462A0047293F /* CTMainViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTMainViewController_iPhone.h; path = UI/iPhone/CTMainViewController_iPhone.h; sourceTree = "<group>"; };
@@ -117,6 +135,12 @@
 			children = (
 				6B6053BC19E146130047293F /* CTMainViewController_iPad.h */,
 				6B6053BD19E146130047293F /* CTMainViewController_iPad.m */,
+				6B5056D719E14CAE006939CC /* CTMyTemplatesViewController_iPad.h */,
+				6B5056D819E14CAE006939CC /* CTMyTemplatesViewController_iPad.m */,
+				6B5056E219E14D33006939CC /* CTNewTemplateViewController_iPad.h */,
+				6B5056E319E14D33006939CC /* CTNewTemplateViewController_iPad.m */,
+				6B5056EC19E14D73006939CC /* CTPrintTemplateViewController_iPad.h */,
+				6B5056ED19E14D73006939CC /* CTPrintTemplateViewController_iPad.m */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -126,6 +150,12 @@
 			children = (
 				6B6053BF19E1462A0047293F /* CTMainViewController_iPhone.h */,
 				6B6053C019E1462A0047293F /* CTMainViewController_iPhone.m */,
+				6B5056DB19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.h */,
+				6B5056DC19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.m */,
+				6B5056E519E14D45006939CC /* CTNewTemplateViewController_iPhone.h */,
+				6B5056E619E14D45006939CC /* CTNewTemplateViewController_iPhone.m */,
+				6B5056EF19E14D86006939CC /* CTPrintTemplateViewController_iPhone.h */,
+				6B5056F019E14D86006939CC /* CTPrintTemplateViewController_iPhone.m */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -341,10 +371,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B77A87A19D6C5AE00FC0978 /* ViewController.m in Sources */,
+				6B5056F119E14D86006939CC /* CTPrintTemplateViewController_iPhone.m in Sources */,
 				6B77A87719D6C5AE00FC0978 /* AppDelegate.m in Sources */,
 				6B6053C119E1462A0047293F /* CTMainViewController_iPhone.m in Sources */,
+				6B5056EE19E14D73006939CC /* CTPrintTemplateViewController_iPad.m in Sources */,
 				6B6053BE19E146130047293F /* CTMainViewController_iPad.m in Sources */,
 				6B77A87419D6C5AE00FC0978 /* main.m in Sources */,
+				6B5056D919E14CAE006939CC /* CTMyTemplatesViewController_iPad.m in Sources */,
+				6B5056E719E14D45006939CC /* CTNewTemplateViewController_iPhone.m in Sources */,
+				6B5056E419E14D33006939CC /* CTNewTemplateViewController_iPad.m in Sources */,
+				6B5056DD19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

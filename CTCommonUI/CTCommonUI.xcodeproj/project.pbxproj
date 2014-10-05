@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B5056D219E14BCB006939CC /* CTMainViewController_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5056D119E14BCB006939CC /* CTMainViewController_Common.m */; };
+		6B5056D619E14C92006939CC /* CTMyTemplatesViewController_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5056D519E14C92006939CC /* CTMyTemplatesViewController_Common.m */; };
+		6B5056E119E14D1E006939CC /* CTNewTemplateViewController_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5056E019E14D1E006939CC /* CTNewTemplateViewController_Common.m */; };
+		6B5056EB19E14D65006939CC /* CTPrintTemplateViewController_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5056EA19E14D65006939CC /* CTPrintTemplateViewController_Common.m */; };
 		6B77A8CA19D6C9E200FC0978 /* CTCommonUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6B77A8C919D6C9E200FC0978 /* CTCommonUI.h */; };
 		6B77A8CC19D6C9E200FC0978 /* CTCommonUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A8CB19D6C9E200FC0978 /* CTCommonUI.m */; };
 		6B77A8E719D6CBC100FC0978 /* libCTServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77A8E619D6CBC100FC0978 /* libCTServices.a */; };
@@ -64,6 +68,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6B5056D019E14BCB006939CC /* CTMainViewController_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTMainViewController_Common.h; path = ViewControllers/Main/CTMainViewController_Common.h; sourceTree = "<group>"; };
+		6B5056D119E14BCB006939CC /* CTMainViewController_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTMainViewController_Common.m; path = ViewControllers/Main/CTMainViewController_Common.m; sourceTree = "<group>"; };
+		6B5056D419E14C92006939CC /* CTMyTemplatesViewController_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTMyTemplatesViewController_Common.h; path = MyTemplates/CTMyTemplatesViewController_Common.h; sourceTree = "<group>"; };
+		6B5056D519E14C92006939CC /* CTMyTemplatesViewController_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTMyTemplatesViewController_Common.m; path = MyTemplates/CTMyTemplatesViewController_Common.m; sourceTree = "<group>"; };
+		6B5056DF19E14D1E006939CC /* CTNewTemplateViewController_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTNewTemplateViewController_Common.h; path = NewTemplate/CTNewTemplateViewController_Common.h; sourceTree = "<group>"; };
+		6B5056E019E14D1E006939CC /* CTNewTemplateViewController_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTNewTemplateViewController_Common.m; path = NewTemplate/CTNewTemplateViewController_Common.m; sourceTree = "<group>"; };
+		6B5056E919E14D65006939CC /* CTPrintTemplateViewController_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTPrintTemplateViewController_Common.h; path = PrintTemplate/CTPrintTemplateViewController_Common.h; sourceTree = "<group>"; };
+		6B5056EA19E14D65006939CC /* CTPrintTemplateViewController_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTPrintTemplateViewController_Common.m; path = PrintTemplate/CTPrintTemplateViewController_Common.m; sourceTree = "<group>"; };
 		6B77A8C619D6C9E200FC0978 /* libCTCommonUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCTCommonUI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B77A8C919D6C9E200FC0978 /* CTCommonUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTCommonUI.h; sourceTree = "<group>"; };
 		6B77A8CB19D6C9E200FC0978 /* CTCommonUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTCommonUI.m; sourceTree = "<group>"; };
@@ -138,6 +150,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B5056CD19E14BB3006939CC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6B5056D019E14BCB006939CC /* CTMainViewController_Common.h */,
+				6B5056D119E14BCB006939CC /* CTMainViewController_Common.m */,
+			);
+			name = Main;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		6B5056D319E14C7E006939CC /* MyTemplates */ = {
+			isa = PBXGroup;
+			children = (
+				6B5056D419E14C92006939CC /* CTMyTemplatesViewController_Common.h */,
+				6B5056D519E14C92006939CC /* CTMyTemplatesViewController_Common.m */,
+			);
+			name = MyTemplates;
+			sourceTree = "<group>";
+		};
+		6B5056DE19E14CF1006939CC /* NewTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				6B5056DF19E14D1E006939CC /* CTNewTemplateViewController_Common.h */,
+				6B5056E019E14D1E006939CC /* CTNewTemplateViewController_Common.m */,
+			);
+			name = NewTemplate;
+			sourceTree = "<group>";
+		};
+		6B5056E819E14D4B006939CC /* PrintTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				6B5056E919E14D65006939CC /* CTPrintTemplateViewController_Common.h */,
+				6B5056EA19E14D65006939CC /* CTPrintTemplateViewController_Common.m */,
+			);
+			name = PrintTemplate;
+			sourceTree = "<group>";
+		};
 		6B77A8BD19D6C9E200FC0978 = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +360,10 @@
 		BD7AB1C319E14A91000D88AB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6B5056E819E14D4B006939CC /* PrintTemplate */,
+				6B5056DE19E14CF1006939CC /* NewTemplate */,
+				6B5056D319E14C7E006939CC /* MyTemplates */,
+				6B5056CD19E14BB3006939CC /* Main */,
 				BD7AB1E019E14AB8000D88AB /* Base */,
 				BD7AB1C719E14A91000D88AB /* Login */,
 			);
@@ -469,10 +522,14 @@
 				BD7AB1D219E14A91000D88AB /* CardDrawingLayerView.m in Sources */,
 				BD7AB1DC19E14A91000D88AB /* CouponCardDrawerManager.m in Sources */,
 				6B77A8CC19D6C9E200FC0978 /* CTCommonUI.m in Sources */,
+				6B5056D219E14BCB006939CC /* CTMainViewController_Common.m in Sources */,
+				6B5056D619E14C92006939CC /* CTMyTemplatesViewController_Common.m in Sources */,
 				BD7AB1D119E14A91000D88AB /* CouponDrawingTextLayer.m in Sources */,
 				BD7AB1DA19E14A91000D88AB /* CardDrawingEditTextPresentView.m in Sources */,
+				6B5056E119E14D1E006939CC /* CTNewTemplateViewController_Common.m in Sources */,
 				BD7AB1DB19E14A91000D88AB /* CardDrawingPresentView.m in Sources */,
 				BD7AB1CE19E14A91000D88AB /* CouponDrawingBoxBaseLayer.m in Sources */,
+				6B5056EB19E14D65006939CC /* CTPrintTemplateViewController_Common.m in Sources */,
 				BD7AB1CD19E14A91000D88AB /* CouponDrawingBaseLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
