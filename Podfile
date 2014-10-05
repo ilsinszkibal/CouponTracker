@@ -21,6 +21,9 @@ target :"CTUtils" do
 
     #QR
     pod 'iOS-QR-Code-Encoder', "~> 0.0.1"
+    
+    #Reactive
+    pod 'ReactiveCocoa', "~> 2.3"
 
     xcodeproj "CTUtils/CTUtils"
 end

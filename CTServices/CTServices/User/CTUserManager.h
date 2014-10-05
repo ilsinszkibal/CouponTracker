@@ -7,17 +7,29 @@
 //
 
 #import "CTBaseManager.h"
+#import <ReactiveCocoa.h>
 
-@class CTUser, CTOauth2User;
+@class CTUser, CTOauth2User, CCValidator;
 
 @interface CTUserManager : CTBaseManager
 
 @property (nonatomic, strong) CTUser* currentUser;
 
-- (void)loginUser:(CTOauth2User*)user completion:(void(^)(CTOauth2User* user, NSError* error))block;
+- (void)loginUser:(CTUser*)user completion:(void(^)(CTUser* user, NSError* error))block;
 - (void)loginWithStoredCredentialsCompletion:(void(^)(CTUser* user, NSError* error))block;
 - (void)logout;
 - (void)signupUser:(CTUser*)user completion:(void(^)(CTUser* user, NSError* error))block;
 - (void)requestPasswordResetForEmail:(NSString*)email completion:(void(^)(BOOL succeed, NSError* error))block;
+
+@property (nonatomic, strong) RACSignal* userSignal;
+
+- (RACSignal*)logoutSignal;
+- (RACSignal*)loginSignalWithUser:(CTUser*)user;
+- (RACSignal*)signupSignalWithUser:(CTUser*)user;
+- (RACSignal*)passwordResetSignalForEmail:(NSString*)email;
+
+- (CCValidator*)usernameValidator;
+- (CCValidator*)passwordValidator;
+- (CCValidator*)emailValidator;
 
 @end
