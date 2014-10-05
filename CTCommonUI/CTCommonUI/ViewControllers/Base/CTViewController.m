@@ -7,14 +7,18 @@
 //
 
 #import "CTViewController.h"
+
 #import "CTLoginViewController_Common.h"
+
 #import "CTSimpleAnimatedTransition.h"
+
 #import "CTBouncingAnimatedTransitioning.h"
 #import "CTLoginViewController_Common.h"
 
 @interface CTViewController ()
 
 @property (nonatomic, strong) CTSimpleAnimatedTransition* transition;
+@property (nonatomic, strong) CTSimpleAnimatedTransition* navigationTransitioning;
 
 @end
 
@@ -22,10 +26,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [self setUpTransitioningDelegates];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Setup
+
+- (void) setUpTransitioningDelegates
+{
+    self.transition = [CTSimpleAnimatedTransition bouncingModalPresentationTransition];
+    self.navigationTransitioning = [CTSimpleAnimatedTransition sideNavigationPresentationTransition];
 }
 
 #pragma mark - Login and registration
@@ -44,14 +58,26 @@
 }
 
 - (void)showViewController:(UIViewController *)viewController animated:(BOOL) animated {
-    id <UIViewControllerAnimatedTransitioning> presenting = [[CTBouncingAnimatedTransitioning alloc] initWithMoveDown:YES];
-    id <UIViewControllerAnimatedTransitioning> dismissing = [[CTBouncingAnimatedTransitioning alloc] initWithMoveDown:NO];
     
-    self.transition = [[CTSimpleAnimatedTransition alloc] initWithPresentingAnimated:presenting dismissalAnimated:dismissing];
-    [viewController setTransitioningDelegate:self.transition];
+    viewController.transitioningDelegate = self.transition;
     
     viewController.modalPresentationStyle = UIModalPresentationCustom;
     [self presentViewController:viewController animated:animated completion:nil];
+}
+
+#pragma mark - Navigation
+
+- (void) navigateToViewController:(UIViewController*) viewController
+{
+    [self navigateToViewController:viewController animated:YES completion:NULL];
+}
+
+- (void) navigateToViewController:(UIViewController*) viewController animated: (BOOL)flag completion:(void (^)(void))completion
+{
+    [viewController setTransitioningDelegate:self.navigationTransitioning];
+    
+    viewController.modalPresentationStyle = UIModalPresentationCustom;
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 @end

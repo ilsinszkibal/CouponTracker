@@ -33,7 +33,7 @@
 - (void) showMyTemplates:(CTMyTemplatesViewController_Common*) myTemplates
 {
     _myTemplatesVC = myTemplates;
-    [self presentViewController:_myTemplatesVC animated:YES completion:nil];
+    [self navigateToViewController:_myTemplatesVC];
 }
 
 #pragma mark Handling navigation

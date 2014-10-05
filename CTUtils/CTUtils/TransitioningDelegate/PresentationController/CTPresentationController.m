@@ -15,6 +15,7 @@
 @end
 
 @implementation CTPresentationController
+@synthesize dimmingView;
 
 - (instancetype)initWithPresentedViewController:(UIViewController *)presentedViewController presentingViewController:(UIViewController *)presentingViewController
 {
@@ -102,8 +103,6 @@
     return presentedViewFrame;
     
 }
-
-@synthesize dimmingView;
 
 - (void)prepareDimmingView
 {
