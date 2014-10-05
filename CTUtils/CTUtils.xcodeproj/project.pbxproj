@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		6B77A80E19D6C4FA00FC0978 /* CTUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6B77A80D19D6C4FA00FC0978 /* CTUtils.h */; };
 		6B77A81019D6C4FA00FC0978 /* CTUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A80F19D6C4FA00FC0978 /* CTUtils.m */; };
+		6BCDDFDC19E16600002599F4 /* CTSimpleAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCDDFD519E16600002599F4 /* CTSimpleAnimatedTransition.m */; };
+		6BCDDFDD19E16600002599F4 /* CTPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCDDFD819E16600002599F4 /* CTPresentationController.m */; };
+		6BCDDFDE19E16600002599F4 /* CTBouncingAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCDDFDB19E16600002599F4 /* CTBouncingAnimatedTransitioning.m */; };
+		6BCDDFE119E1667D002599F4 /* CTNavigationAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCDDFE019E1667D002599F4 /* CTNavigationAnimatedTransitioning.m */; };
 		98DACD1BB3EA4D0D8EF9DEDA /* libPods-CTUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6829225D3E24D5A9558EED8 /* libPods-CTUtils.a */; };
 /* End PBXBuildFile section */
 
@@ -139,6 +143,14 @@
 		6B77A80F19D6C4FA00FC0978 /* CTUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTUtils.m; sourceTree = "<group>"; };
 		6B77A81519D6C4FA00FC0978 /* CTUtilsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CTUtilsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B77A81819D6C4FA00FC0978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BCDDFD419E16600002599F4 /* CTSimpleAnimatedTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSimpleAnimatedTransition.h; sourceTree = "<group>"; };
+		6BCDDFD519E16600002599F4 /* CTSimpleAnimatedTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSimpleAnimatedTransition.m; sourceTree = "<group>"; };
+		6BCDDFD719E16600002599F4 /* CTPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPresentationController.h; sourceTree = "<group>"; };
+		6BCDDFD819E16600002599F4 /* CTPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPresentationController.m; sourceTree = "<group>"; };
+		6BCDDFDA19E16600002599F4 /* CTBouncingAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTBouncingAnimatedTransitioning.h; sourceTree = "<group>"; };
+		6BCDDFDB19E16600002599F4 /* CTBouncingAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTBouncingAnimatedTransitioning.m; sourceTree = "<group>"; };
+		6BCDDFDF19E1667D002599F4 /* CTNavigationAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNavigationAnimatedTransitioning.h; sourceTree = "<group>"; };
+		6BCDDFE019E1667D002599F4 /* CTNavigationAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTNavigationAnimatedTransitioning.m; sourceTree = "<group>"; };
 		A6829225D3E24D5A9558EED8 /* libPods-CTUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CTUtils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3BBA0619D6FEAE0006DE0F /* libPods-CTUtils-RestKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CTUtils-RestKit.a"; path = "../Pods/build/Debug-iphoneos/libPods-CTUtils-RestKit.a"; sourceTree = "<group>"; };
 		BD3BBAA819D700BE0006DE0F /* libPods-CTUtils-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CTUtils-AFNetworking.a"; path = "../Pods/build/Debug-iphoneos/libPods-CTUtils-AFNetworking.a"; sourceTree = "<group>"; };
@@ -205,6 +217,7 @@
 		6B77A80C19D6C4FA00FC0978 /* CTUtils */ = {
 			isa = PBXGroup;
 			children = (
+				6BCDDFD319E16600002599F4 /* TransitioningDelegate */,
 				6B77A80D19D6C4FA00FC0978 /* CTUtils.h */,
 				6B77A80F19D6C4FA00FC0978 /* CTUtils.m */,
 			);
@@ -225,6 +238,37 @@
 				6B77A81819D6C4FA00FC0978 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6BCDDFD319E16600002599F4 /* TransitioningDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				6BCDDFD419E16600002599F4 /* CTSimpleAnimatedTransition.h */,
+				6BCDDFD519E16600002599F4 /* CTSimpleAnimatedTransition.m */,
+				6BCDDFD619E16600002599F4 /* PresentationController */,
+				6BCDDFD919E16600002599F4 /* Transitions */,
+			);
+			path = TransitioningDelegate;
+			sourceTree = "<group>";
+		};
+		6BCDDFD619E16600002599F4 /* PresentationController */ = {
+			isa = PBXGroup;
+			children = (
+				6BCDDFD719E16600002599F4 /* CTPresentationController.h */,
+				6BCDDFD819E16600002599F4 /* CTPresentationController.m */,
+			);
+			path = PresentationController;
+			sourceTree = "<group>";
+		};
+		6BCDDFD919E16600002599F4 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				6BCDDFDA19E16600002599F4 /* CTBouncingAnimatedTransitioning.h */,
+				6BCDDFDB19E16600002599F4 /* CTBouncingAnimatedTransitioning.m */,
+				6BCDDFDF19E1667D002599F4 /* CTNavigationAnimatedTransitioning.h */,
+				6BCDDFE019E1667D002599F4 /* CTNavigationAnimatedTransitioning.m */,
+			);
+			path = Transitions;
 			sourceTree = "<group>";
 		};
 		BD3BBAC919D701190006DE0F /* Products */ = {
@@ -504,7 +548,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BCDDFDE19E16600002599F4 /* CTBouncingAnimatedTransitioning.m in Sources */,
+				6BCDDFE119E1667D002599F4 /* CTNavigationAnimatedTransitioning.m in Sources */,
+				6BCDDFDC19E16600002599F4 /* CTSimpleAnimatedTransition.m in Sources */,
 				6B77A81019D6C4FA00FC0978 /* CTUtils.m in Sources */,
+				6BCDDFDD19E16600002599F4 /* CTPresentationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
