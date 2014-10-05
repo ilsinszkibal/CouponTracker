@@ -10,9 +10,6 @@
 		6B77A80E19D6C4FA00FC0978 /* CTUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6B77A80D19D6C4FA00FC0978 /* CTUtils.h */; };
 		6B77A81019D6C4FA00FC0978 /* CTUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A80F19D6C4FA00FC0978 /* CTUtils.m */; };
 		98DACD1BB3EA4D0D8EF9DEDA /* libPods-CTUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6829225D3E24D5A9558EED8 /* libPods-CTUtils.a */; };
-		BD7AB1F219E14DBB000D88AB /* CTBouncingAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1EF19E14DBB000D88AB /* CTBouncingAnimatedTransitioning.m */; };
-		BD7AB1F319E14DBB000D88AB /* CTSimpleAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1F119E14DBB000D88AB /* CTSimpleAnimatedTransition.m */; };
-		BD7AB25619E15016000D88AB /* CTPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB25519E15016000D88AB /* CTPresentationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,7 +108,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = BD3BBAC819D701190006DE0F /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = BAA3830A496543B89C7588A8;
+			remoteGlobalIDString = 6F9915B008254F01A3D60656;
 			remoteInfo = "Pods-CTUtils";
 		};
 		BD7AB20119E14DBB000D88AB /* PBXContainerItemProxy */ = {
@@ -162,12 +159,6 @@
 		BD3BBB2C19D701CC0006DE0F /* libCTData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCTData.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/CouponTracker-acwfmdgdbdhriieqrdcaxmyadjae/Build/Products/Debug-iphoneos/libCTData.a"; sourceTree = "<group>"; };
 		BD3BBB2D19D701CC0006DE0F /* libCTServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCTServices.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/CouponTracker-acwfmdgdbdhriieqrdcaxmyadjae/Build/Products/Debug-iphoneos/libCTServices.a"; sourceTree = "<group>"; };
 		BD3BBB3519D703270006DE0F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		BD7AB1EE19E14DBB000D88AB /* CTBouncingAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTBouncingAnimatedTransitioning.h; sourceTree = "<group>"; };
-		BD7AB1EF19E14DBB000D88AB /* CTBouncingAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTBouncingAnimatedTransitioning.m; sourceTree = "<group>"; };
-		BD7AB1F019E14DBB000D88AB /* CTSimpleAnimatedTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSimpleAnimatedTransition.h; sourceTree = "<group>"; };
-		BD7AB1F119E14DBB000D88AB /* CTSimpleAnimatedTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSimpleAnimatedTransition.m; sourceTree = "<group>"; };
-		BD7AB25419E15016000D88AB /* CTPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPresentationController.h; sourceTree = "<group>"; };
-		BD7AB25519E15016000D88AB /* CTPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPresentationController.m; sourceTree = "<group>"; };
 		FDF09384091C4FF096AFA1DE /* Pods-CTUtils.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CTUtils.xcconfig"; path = "../Pods/Pods-CTUtils.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,7 +205,6 @@
 		6B77A80C19D6C4FA00FC0978 /* CTUtils */ = {
 			isa = PBXGroup;
 			children = (
-				BD7AB1ED19E14DBB000D88AB /* Transitions */,
 				6B77A80D19D6C4FA00FC0978 /* CTUtils.h */,
 				6B77A80F19D6C4FA00FC0978 /* CTUtils.m */,
 			);
@@ -256,19 +246,6 @@
 				BD3BBAF119D701190006DE0F /* libPods-CTUtils-iOS-QR-Code-Encoder.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		BD7AB1ED19E14DBB000D88AB /* Transitions */ = {
-			isa = PBXGroup;
-			children = (
-				BD7AB25419E15016000D88AB /* CTPresentationController.h */,
-				BD7AB25519E15016000D88AB /* CTPresentationController.m */,
-				BD7AB1EE19E14DBB000D88AB /* CTBouncingAnimatedTransitioning.h */,
-				BD7AB1EF19E14DBB000D88AB /* CTBouncingAnimatedTransitioning.m */,
-				BD7AB1F019E14DBB000D88AB /* CTSimpleAnimatedTransition.h */,
-				BD7AB1F119E14DBB000D88AB /* CTSimpleAnimatedTransition.m */,
-			);
-			path = Transitions;
 			sourceTree = "<group>";
 		};
 		F25FE91731FC49FDADD97AE3 /* Frameworks */ = {
@@ -527,10 +504,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD7AB25619E15016000D88AB /* CTPresentationController.m in Sources */,
 				6B77A81019D6C4FA00FC0978 /* CTUtils.m in Sources */,
-				BD7AB1F319E14DBB000D88AB /* CTSimpleAnimatedTransition.m in Sources */,
-				BD7AB1F219E14DBB000D88AB /* CTBouncingAnimatedTransitioning.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
