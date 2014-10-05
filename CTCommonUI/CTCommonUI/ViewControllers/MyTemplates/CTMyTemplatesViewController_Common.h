@@ -8,6 +8,10 @@
 
 #import "CTViewController.h"
 
+#import "CTNewTemplateViewController_Common.h"
+
 @interface CTMyTemplatesViewController_Common : CTViewController
+
+- (void) showNewTemplate:(CTNewTemplateViewController_Common*) newTemplateViewController;
 
 @end

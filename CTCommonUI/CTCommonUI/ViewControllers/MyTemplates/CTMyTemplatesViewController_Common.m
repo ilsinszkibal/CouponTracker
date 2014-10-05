@@ -8,7 +8,11 @@
 
 #import "CTMyTemplatesViewController_Common.h"
 
-@interface CTMyTemplatesViewController_Common ()
+@interface CTMyTemplatesViewController_Common () {
+    
+    CTNewTemplateViewController_Common* _newTemplateViewController;
+    
+}
 
 @end
 
@@ -24,14 +28,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void) showNewTemplate:(CTNewTemplateViewController_Common*) newTemplateViewController
+{
+    _newTemplateViewController = newTemplateViewController;
+    [self navigateToViewController:_newTemplateViewController];
 }
-*/
 
 @end
