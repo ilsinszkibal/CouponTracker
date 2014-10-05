@@ -23,3 +23,5 @@ Pods
 Podfile.lock
 
 CouponTracker/CouponTracker/Projects/CouponServices/CouponAnalytics/CouponAnalytics.xcodeproj/xcuserdata/balazsilsinszki.xcuserdatad/xcschemes/CouponAnalytics.xcscheme
+
+*.xcuserstate
