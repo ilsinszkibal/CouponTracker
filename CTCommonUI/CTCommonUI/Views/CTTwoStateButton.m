@@ -32,6 +32,11 @@
     [self toggleState];
 }
 
+- (void)setCurrentState:(CTButtonState)currentState {
+    _currentState = currentState;
+    [self setTitle:[self titleForButtonState:self.currentState] forState:UIControlStateNormal];
+}
+
 - (void)toggleState {
     if (self.currentState == CTButtonStateInactive) {
         self.currentState = CTButtonStateActive;

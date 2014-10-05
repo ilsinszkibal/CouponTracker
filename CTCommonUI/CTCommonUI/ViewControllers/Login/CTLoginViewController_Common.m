@@ -49,30 +49,52 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.currentState = CTLoginViewStateLogin;
+    [self.view setBackgroundColor:[UIColor orangeColor]];
     
     self.usernameField = [[UITextField alloc] init];
-    self.fullnameField = [[UITextField alloc] init];
-    self.emailField = [[UITextField alloc] init];
-    self.passwordField = [[UITextField alloc] init];
-    self.passwordConfirmationField = [[UITextField alloc] init];
+    [self.usernameField setPlaceholder:@"username"];
+    [self.view addSubview:self.usernameField];
     
+    self.fullnameField = [[UITextField alloc] init];
+    [self.fullnameField setPlaceholder:@"full name"];
+    [self.view addSubview:self.fullnameField];
+    
+    self.emailField = [[UITextField alloc] init];
+    [self.emailField setPlaceholder:@"email address"];
+    [self.view addSubview:self.emailField];
+    
+    self.passwordField = [[UITextField alloc] init];
     [self.passwordField setSecureTextEntry:YES];
+    [self.passwordField setPlaceholder:@"password"];
+    [self.view addSubview:self.passwordField];
+    
+    self.passwordConfirmationField = [[UITextField alloc] init];
     [self.passwordConfirmationField setSecureTextEntry:YES];
+    [self.passwordConfirmationField setPlaceholder:@"confirmation"];
+    [self.view addSubview:self.passwordConfirmationField];
     
     self.statusLabel = [[UILabel alloc] init];
-    self.actionButton = [[UIButton alloc] init];
-    self.cancelButton = [[UIButton alloc] init];
-    self.switchButton = [[CTTwoStateButton alloc] init];
+    [self.view addSubview:self.statusLabel];
     
+    self.actionButton = [[UIButton alloc] init];
+    [self.actionButton addTarget:self action:@selector(actionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.actionButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [self.view addSubview:self.actionButton];
+    
+    self.cancelButton = [[UIButton alloc] init];
+    [self.cancelButton setTitle:@"Not now" forState:UIControlStateNormal];
+    [self.cancelButton addTarget:self action:@selector(cancelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.cancelButton];
+    
+    self.switchButton = [[CTTwoStateButton alloc] init];
     [self.switchButton setTitle:@"Login" forButtonState:CTButtonStateActive];
     [self.switchButton setTitle:@"Register" forButtonState:CTButtonStateInactive];
-    
-    [self.cancelButton setTitle:@"Not now" forState:UIControlStateNormal];
-    
-    [self.actionButton addTarget:self action:@selector(actionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [self.cancelButton addTarget:self action:@selector(cancelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.switchButton addTarget:self action:@selector(switchButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.switchButton setCurrentState:CTButtonStateInactive];
+    [self.view addSubview:self.switchButton];
+   
+    self.currentState = CTLoginViewStateLogin;
+    [self switchToState:self.currentState];
     
     [[CTUserManager sharedManager].userSignal subscribeNext:^(CTUser* user) {
         if (self.currentState == CTLoginViewStateLogin) {
@@ -103,22 +125,19 @@
 }
 
 - (void)switchToState:(CTLoginViewState)state {
-    [UIView animateWithDuration:0.5 delay:0.1 usingSpringWithDamping:10 initialSpringVelocity:2 options:0 animations:^{
-        if (state == CTLoginViewStateLogin) {
-            [self setupLoginViews];
-            self.actionButton.rac_command = self.loginCommand;
-        } else if (state == CTLoginViewStateRegister) {
-            [self setupRegisterViews];
-            self.actionButton.rac_command = self.registerCommand;
-        } else if (state == CTLoginViewStateForgot) {
-            //TODO:
-        }
-    } completion:nil];
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    [self switchToState:self.currentState];
+    if (state == CTLoginViewStateLogin) {
+        [self.actionButton setTitle:@"Login" forState:UIControlStateNormal];
+        [self.switchButton setCurrentState:CTButtonStateInactive];
+        [self setupLoginViews];
+        self.actionButton.rac_command = self.loginCommand;
+    } else if (state == CTLoginViewStateRegister) {
+        [self.actionButton setTitle:@"Register" forState:UIControlStateNormal];
+        [self.switchButton setCurrentState:CTButtonStateActive];
+        [self setupRegisterViews];
+        self.actionButton.rac_command = self.registerCommand;
+    } else if (state == CTLoginViewStateForgot) {
+        //TODO:
+    }
 }
 
 #pragma mark - Actions
@@ -141,13 +160,12 @@
 }
 
 -  (void) switchButtonPressed:(CTTwoStateButton*) sender {
-    CTLoginViewState state = self.currentState;
-    if (state == CTLoginViewStateLogin) {
-        state = CTLoginViewStateRegister;
-    } else if (state == CTLoginViewStateRegister) {
-        state = CTLoginViewStateLogin;
+    if (self.currentState == CTLoginViewStateLogin) {
+        self.currentState = CTLoginViewStateRegister;
+    } else if (self.currentState == CTLoginViewStateRegister) {
+        self.currentState = CTLoginViewStateLogin;
     }
-    [self switchToState:state];
+    [self switchToState:self.currentState];
 }
 
 #pragma mark - Public methods for showing login and register
@@ -269,24 +287,40 @@
 #pragma mark - Setup
 
 - (void)setupLoginViews {
-    self.usernameField.frame = CGRectMake(10, 10, 200, 35);
-    self.passwordField.frame = CGRectMake(10, CGRectGetMaxY(self.usernameField.frame) + 10, 200, 35);
+    [UIView animateWithDuration:0.5 delay:0.1 usingSpringWithDamping:10 initialSpringVelocity:2 options:0 animations:^{
+        self.usernameField.frame = CGRectMake(10, 60, 200, 35);
+        self.passwordField.frame = CGRectMake(10, CGRectGetMaxY(self.usernameField.frame) + 10, 200, 35);
+        
+        self.fullnameField.frame = self.usernameField.frame;
+        self.emailField.frame = self.usernameField.frame;
+        self.passwordConfirmationField.frame = self.passwordField.frame;
+        
+        self.switchButton.frame = CGRectMake(10, CGRectGetMaxY(self.passwordField.frame) + 10, 80, 40);
+        self.cancelButton.frame = CGRectMake(CGRectGetMaxX(self.switchButton.frame) + 10, CGRectGetMinY(self.switchButton.frame), 100, 40);
+        self.actionButton.frame = CGRectMake(CGRectGetMaxX(self.cancelButton.frame) + 10, CGRectGetMinY(self.cancelButton.frame), 60, 40);
 
-    self.emailField.alpha = 0;
-    self.passwordConfirmationField.alpha = 0;
-    self.fullnameField.alpha = 0;
+        self.emailField.alpha = 0;
+        self.passwordConfirmationField.alpha = 0;
+        self.fullnameField.alpha = 0;
+    } completion:nil];
 }
 
 - (void)setupRegisterViews {
-    self.usernameField.frame = CGRectMake(10, 10, 200, 35);
-    self.fullnameField.frame = CGRectMake(10, CGRectGetMaxY(self.usernameField.frame) + 10, 200, 35);
-    self.emailField.frame = CGRectMake(10, CGRectGetMaxY(self.fullnameField.frame) + 10, 200, 35);
-    self.passwordField.frame = CGRectMake(10, CGRectGetMaxY(self.emailField.frame) + 10, 200, 35);
-    self.passwordConfirmationField.frame = CGRectMake(10, CGRectGetMaxY(self.passwordConfirmationField.frame) + 10, 200, 35);
-    
-    self.emailField.alpha = 1;
-    self.passwordConfirmationField.alpha = 1;
-    self.fullnameField.alpha = 1;
+    [UIView animateWithDuration:0.5 delay:0.3 usingSpringWithDamping:10 initialSpringVelocity:2 options:0 animations:^{
+        self.fullnameField.frame = CGRectMake(10, 10, 200, 35);
+        self.usernameField.frame = CGRectMake(10, CGRectGetMaxY(self.fullnameField.frame) + 10, 200, 35);
+        self.emailField.frame = CGRectMake(10, CGRectGetMaxY(self.usernameField.frame) + 10, 200, 35);
+        self.passwordField.frame = CGRectMake(10, CGRectGetMaxY(self.emailField.frame) + 10, 200, 35);
+        self.passwordConfirmationField.frame = CGRectMake(10, CGRectGetMaxY(self.passwordField.frame) + 10, 200, 35);
+        
+        self.switchButton.frame = CGRectMake(10, CGRectGetMaxY(self.passwordConfirmationField.frame) + 10, 60, 40);
+        self.cancelButton.frame = CGRectMake(CGRectGetMaxX(self.switchButton.frame) + 10, CGRectGetMinY(self.switchButton.frame), 100, 40);
+        self.actionButton.frame = CGRectMake(CGRectGetMaxX(self.cancelButton.frame) + 10, CGRectGetMinY(self.cancelButton.frame), 80, 40);
+        
+        self.emailField.alpha = 0.5;
+        self.passwordConfirmationField.alpha = 0.5;
+        self.fullnameField.alpha = 0.5;
+    } completion:nil];
 }
 
 @end
