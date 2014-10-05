@@ -10,6 +10,7 @@
 #import "CTLoginViewController_Common.h"
 #import "CTSimpleAnimatedTransition.h"
 #import "CTBouncingAnimatedTransitioning.h"
+#import "CTLoginViewController_Common.h"
 
 @interface CTViewController ()
 
@@ -31,9 +32,8 @@
 
 - (void) showLogin
 {
-    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:[NSBundle mainBundle] ];
-    UIViewController* viewController = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
-    [self showViewController:viewController animated:YES];
+    UIViewController* login = [[CTLoginViewController_Common alloc] init];
+    [self showViewController:login animated:YES];
 }
 
 - (void) showRegister

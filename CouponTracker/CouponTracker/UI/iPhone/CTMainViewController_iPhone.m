@@ -21,7 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    
     self.loginButton = [[UIButton alloc] init];
+    [self.loginButton setTitle:@"Login" forState:UIControlStateNormal];
+    [self.loginButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [self.loginButton addTarget:self action:@selector(loginButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.loginButton];
 }
 
