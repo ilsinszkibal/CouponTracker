@@ -10,4 +10,6 @@
 
 @interface CTMainViewController_Common : CTViewController
 
+- (IBAction)loginButtonPressed:(id)sender;
+
 @end
