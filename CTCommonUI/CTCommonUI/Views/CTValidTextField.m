@@ -8,41 +8,102 @@
 
 #import "CTValidTextField.h"
 
+@interface CTValidTextField () {
+    
+    BOOL _isValid;
+    
+}
+
+@end
+
 @implementation CTValidTextField
+
+#pragma mark - Factory
+
++ (instancetype) createForDelegate:(id<CTTextFieldDelegate>) delegate placeHolder:(NSString*) placeHolder
+{
+    CTValidTextField* validTextField = [[CTValidTextField alloc] init];
+    
+    validTextField.fieldDelegate = delegate;
+    [validTextField setPlaceholder:placeHolder];
+    
+    return validTextField;
+}
+
+#pragma mark - Init
 
 - (instancetype)init
 {
     self = [super init];
-    if (self) {
+    
+    if (self)
+    {
         [self addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-        [self setValid:YES];
     }
+    
     return self;
 }
+
+#pragma mark - TextField delegate
 
 - (void)textFieldDidChange:(UITextField*)textField {
     [self updateValidity];
 }
 
-- (void)setValid:(BOOL)valid {
+#pragma mark - Setter/Getters
+
+- (void) setValidationBlock:(BOOL (^)(NSString *))validationBlock
+{
+    _validationBlock = validationBlock;
     [self updateValidity];
-    _valid = valid;
+}
+
+#pragma mark- Validation changed
+
+- (void) setFieldDelegate:(id<CTTextFieldDelegate>)fieldDelegate
+{
+    _fieldDelegate = fieldDelegate;
+    [self updateValidity];
 }
 
 - (void)updateValidity {
-    if (self.validationBlock) {
-        BOOL isValid = self.validationBlock(self.text);
-        if (isValid && !self.isValid) {
-            if ([self.delegate respondsToSelector:@selector(textFieldDidBecameValid:)]) {
-                [self.delegate textFieldDidBecameValid:self];
-            }
-        } else if (!isValid && self.isValid) {
-            if ([self.delegate respondsToSelector:@selector(textFieldDidBecameInvalid:)]) {
-                [self.delegate textFieldDidBecameInvalid:self];
-            }
-        }
-        _valid = isValid;
+    
+    BOOL originalValidation = _isValid;
+    
+    if (self.validationBlock)
+    {
+        _isValid = self.validationBlock(self.text);
     }
+    else
+    {
+        _isValid = YES;
+    }
+    
+    //Validation changed
+    if ( _isValid != originalValidation )
+    {
+        [self notifyDelegateOfChange];
+    }
+    
+}
+
+- (void) notifyDelegateOfChange
+{
+    
+    if ( [self isValid] && [self.fieldDelegate respondsToSelector:@selector(textFieldDidBecameValid:) ] )
+    {
+        [self.fieldDelegate textFieldDidBecameValid:self];
+    }
+    else if ( [self isValid] == NO && [self.fieldDelegate respondsToSelector:@selector(textFieldDidBecameInvalid:) ] )
+    {
+        [self.fieldDelegate textFieldDidBecameInvalid:self];
+    }
+    
+}
+
+- (BOOL) isValid
+{
+    return _isValid;
 }
 
 @end

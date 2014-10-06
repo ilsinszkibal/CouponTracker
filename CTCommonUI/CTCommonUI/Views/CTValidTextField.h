@@ -17,9 +17,12 @@
 
 @interface CTValidTextField : UITextField
 
-@property (nonatomic, assign, getter = isValid) BOOL valid;
 @property (nonatomic, assign) BOOL(^validationBlock)(NSString* text);
 
-@property (nonatomic, assign) id<CTTextFieldDelegate> delegate;
+@property (nonatomic, weak) id<CTTextFieldDelegate> fieldDelegate;
+
++ (instancetype) createForDelegate:(id<CTTextFieldDelegate>) delegate placeHolder:(NSString*) placeHolder;
+
+- (BOOL) isValid;
 
 @end

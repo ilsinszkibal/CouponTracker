@@ -7,13 +7,20 @@
 //
 
 #import "CTLoginViewController_Common.h"
+
+#import "UIFactory.h"
+
 #import "CTUserManager.h"
 #import "CTUser.h"
 #import "CCValidationManager.h"
 #import "CTTwoStateButton.h"
 #import "CTValidTextField.h"
 
-@interface CTLoginViewController_Common () <CTTextFieldDelegate>
+@interface CTLoginViewController_Common () <CTTextFieldDelegate> {
+    
+    UIVisualEffectView* _backgroundEffect;
+    
+}
 
 @property (nonatomic, strong) CTValidTextField* usernameField;
 @property (nonatomic, strong) CTValidTextField* fullnameField;
@@ -47,67 +54,56 @@
     [super viewDidLoad];
     
     UIBlurEffect* blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    UIVisualEffectView* effect = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    effect.frame = self.view.bounds;
-    [self.view addSubview:effect];
+    _backgroundEffect = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    [self.view addSubview:_backgroundEffect];
     
     [self.view setBackgroundColor:[UIColor clearColor]];
     
-    self.usernameField = [[CTValidTextField alloc] init];
-    self.usernameField.delegate = self;
-    [self.usernameField setPlaceholder:@"username"];
+    self.usernameField = [CTValidTextField createForDelegate:self placeHolder:@"username"];
     self.usernameField.validationBlock = ^BOOL(NSString* text) {
         return [[CTUserManager sharedManager].usernameValidator validateValue:text errors:nil];
     };
-    self.usernameField.valid = NO;
     [self.view addSubview:self.usernameField];
     
-    self.fullnameField = [[CTValidTextField alloc] init];
-    self.fullnameField.delegate = self;
-    [self.fullnameField setPlaceholder:@"full name"];
+    
+    self.fullnameField = [CTValidTextField createForDelegate:self placeHolder:@"full name"];
     self.fullnameField.validationBlock = ^BOOL(NSString* text) {
         CCValidationCondition* length = [CCLengthCondition conditionWithMinLength:4];
         CCIncludingCondition* space = [CCIncludingCondition condition];
         [space includePart:CCIncludingPartWhitespace minimum:1];
         return [[CCValidator validatorWithConditions:@[length, space]] validateValue:text errors:nil];
     };
-    self.fullnameField.valid = NO;
     [self.view addSubview:self.fullnameField];
     
-    self.emailField = [[CTValidTextField alloc] init];
-    self.emailField.delegate = self;
-    [self.emailField setPlaceholder:@"email address"];
+    self.emailField = [CTValidTextField createForDelegate:self placeHolder:@"email address"];
     self.emailField.validationBlock = ^BOOL(NSString* text) {
         return [[CTUserManager sharedManager].emailValidator validateValue:text errors:nil];
     };
-    self.emailField.valid = NO;
     [self.view addSubview:self.emailField];
     
-    self.passwordField = [[CTValidTextField alloc] init];
-    self.passwordField.delegate = self;
+    self.passwordField = [CTValidTextField createForDelegate:self placeHolder:@"password"];
     [self.passwordField setSecureTextEntry:YES];
-    [self.passwordField setPlaceholder:@"password"];
     self.passwordField.validationBlock = ^BOOL(NSString* text) {
         return [[CTUserManager sharedManager].passwordValidator validateValue:text errors:nil];
     };
-    self.passwordField.valid = NO;
     [self.view addSubview:self.passwordField];
     
-    self.passwordConfirmationField = [[CTValidTextField alloc] init];
-    self.passwordConfirmationField.delegate = self;
+    
+    
+    self.passwordConfirmationField = [CTValidTextField createForDelegate:self placeHolder:@"confirmation"];
     [self.passwordConfirmationField setSecureTextEntry:YES];
-    [self.passwordConfirmationField setPlaceholder:@"confirmation"];
     __weak CTLoginViewController_Common* weakSelf = self;
     self.passwordConfirmationField.validationBlock = ^BOOL(NSString* text) {
         CCMatchingCondition* match = [CCMatchingCondition conditionMatchesValue:weakSelf.passwordField.text];
         CCRequiredCondition* notEmpty = [CCRequiredCondition condition];
         return [[CCValidator validatorWithConditions:@[match, notEmpty]] validateValue:text errors:nil];
     };
-    self.passwordConfirmationField.valid = NO;
     [self.view addSubview:self.passwordConfirmationField];
+    
     
     self.statusLabel = [[UILabel alloc] init];
     [self.view addSubview:self.statusLabel];
+    
     
     self.actionButton = [[UIButton alloc] init];
     [self.actionButton addTarget:self action:@selector(actionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -115,9 +111,7 @@
     [self.actionButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateDisabled];
     [self.view addSubview:self.actionButton];
     
-    self.cancelButton = [[UIButton alloc] init];
-    [self.cancelButton setTitle:@"Not now" forState:UIControlStateNormal];
-    [self.cancelButton addTarget:self action:@selector(cancelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    self.cancelButton = [UIFactory defaultButtonWithTitle:@"Not now" target:self action:@selector( cancelButtonPressed: ) ];
     [self.view addSubview:self.cancelButton];
     
     self.switchButton = [[CTTwoStateButton alloc] init];
@@ -125,6 +119,7 @@
     [self.switchButton setTitle:@"Register" forButtonState:CTButtonStateInactive];
     [self.switchButton addTarget:self action:@selector(switchButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.switchButton setCurrentState:CTButtonStateInactive];
+    [UIFactory setBordersAndCornerToButton:self.switchButton];
     [self.view addSubview:self.switchButton];
    
     self.currentState = CTLoginViewStateLogin;
@@ -154,6 +149,15 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[CTUserManager sharedManager] loginWithStoredCredentialsCompletion:nil];
+}
+
+- (void) viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    [_backgroundEffect setFrame:self.view.bounds];
+
+    
 }
 
 - (void)switchToState:(CTLoginViewState)state {

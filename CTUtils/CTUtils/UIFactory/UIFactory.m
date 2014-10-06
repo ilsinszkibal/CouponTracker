@@ -10,6 +10,8 @@
 
 @implementation UIFactory
 
+#pragma mark - Button
+
 + (UIButton*) defaultButtonWithTitle:(NSString*) title target:(id) target action:(SEL) selector
 {
     
@@ -26,11 +28,16 @@
         [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
     }
     
+    [self setBordersAndCornerToButton:button];
+    
+    return button;
+}
+
++ (void) setBordersAndCornerToButton:(UIButton*) button
+{
     [button.layer setCornerRadius:5];
     [button.layer setBorderColor:[UIColor whiteColor].CGColor ];
     [button.layer setBorderWidth:1];
-    
-    return button;
 }
 
 @end
