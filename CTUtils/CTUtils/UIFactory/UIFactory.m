@@ -33,11 +33,11 @@
     return button;
 }
 
-+ (void) setBordersAndCornerToButton:(UIButton*) button
++ (void) setBordersAndCornerToButton:(UIView*) view
 {
-    [button.layer setCornerRadius:5];
-    [button.layer setBorderColor:[UIColor whiteColor].CGColor ];
-    [button.layer setBorderWidth:1];
+    [view.layer setCornerRadius:5];
+    [view.layer setBorderColor:[UIColor whiteColor].CGColor ];
+    [view.layer setBorderWidth:1];
 }
 
 @end

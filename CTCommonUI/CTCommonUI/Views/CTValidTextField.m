@@ -8,6 +8,9 @@
 
 #import "CTValidTextField.h"
 
+#import "UIFactory.h"
+#import "CTColor.h"
+
 @interface CTValidTextField () {
     
     BOOL _isValid;
@@ -22,10 +25,20 @@
 
 + (instancetype) createForDelegate:(id<CTTextFieldDelegate>) delegate placeHolder:(NSString*) placeHolder
 {
+    return [self createForDelegate:delegate placeHolder:placeHolder isAutoCorrect:NO];
+}
+
++ (instancetype) createForDelegate:(id<CTTextFieldDelegate>) delegate placeHolder:(NSString*) placeHolder isAutoCorrect:(BOOL) isAutoCorrect
+{
     CTValidTextField* validTextField = [[CTValidTextField alloc] init];
     
     validTextField.fieldDelegate = delegate;
     [validTextField setPlaceholder:placeHolder];
+    
+    if ( isAutoCorrect )
+    {
+        [validTextField setAutocorrectionType:UITextAutocorrectionTypeNo];
+    }
     
     return validTextField;
 }
@@ -39,9 +52,33 @@
     if (self)
     {
         [self addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+        
+        [self setTintColor:[UIColor whiteColor] ];
+        [self setTextColor:[UIColor whiteColor] ];
+        
+        [UIFactory setBordersAndCornerToButton:self];
     }
     
     return self;
+}
+
+#pragma mark - Super
+
+- (void) setPlaceholder:(NSString *)placeholder
+{
+    NSAttributedString* attributedString = [[NSAttributedString alloc] initWithString:placeholder attributes:@{ NSForegroundColorAttributeName: [CTColor placeHolderGray] }];
+    
+    [self setAttributedPlaceholder:attributedString];
+}
+
+- (CGRect) textRectForBounds:(CGRect)bounds
+{
+    return CGRectInset(bounds, 8, 0);
+}
+
+- (CGRect) editingRectForBounds:(CGRect)bounds
+{
+    return CGRectInset(bounds, 8, 0);
 }
 
 #pragma mark - TextField delegate

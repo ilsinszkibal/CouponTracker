@@ -12,4 +12,9 @@
 
 + (UIColor*) viewControllerBackgroundColor;
 
++ (UIColor*) invalidColor;
++ (UIColor*) validColor;
+
++ (UIColor*) placeHolderGray;
+
 @end

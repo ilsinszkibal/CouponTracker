@@ -15,4 +15,19 @@
     return [UIColor colorWithRed:0.05 green:0.05 blue:0.05 alpha:0.65];
 }
 
++ (UIColor*) invalidColor
+{
+    return [UIColor colorWithRed:1 green:0.19 blue:0.24 alpha:1];
+}
+
++ (UIColor*) validColor
+{
+    return [UIColor whiteColor];
+}
+
++ (UIColor*) placeHolderGray
+{
+    return [UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1.0];
+}
+
 @end

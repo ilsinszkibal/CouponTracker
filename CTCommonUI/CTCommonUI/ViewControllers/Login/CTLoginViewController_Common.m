@@ -9,6 +9,7 @@
 #import "CTLoginViewController_Common.h"
 
 #import "UIFactory.h"
+#import "CTColor.h"
 
 #import "CTUserManager.h"
 #import "CTUser.h"
@@ -233,13 +234,13 @@
 
 - (void)textFieldDidBecameValid:(UITextField *)textField {
     [UIView animateWithDuration:0.2 animations:^{
-        textField.backgroundColor = [UIColor colorWithRed:0.78 green:1 blue:0.63 alpha:1];
+        [textField.layer setBorderColor:[CTColor validColor].CGColor];
     }];
 }
 
 - (void)textFieldDidBecameInvalid:(UITextField *)textField {
     [UIView animateWithDuration:0.2 animations:^{
-        textField.backgroundColor = [UIColor colorWithRed:1 green:0.19 blue:0.24 alpha:1];
+        [textField.layer setBorderColor:[CTColor invalidColor].CGColor];
     }];
 }
 

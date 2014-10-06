@@ -22,6 +22,7 @@
 @property (nonatomic, weak) id<CTTextFieldDelegate> fieldDelegate;
 
 + (instancetype) createForDelegate:(id<CTTextFieldDelegate>) delegate placeHolder:(NSString*) placeHolder;
++ (instancetype) createForDelegate:(id<CTTextFieldDelegate>) delegate placeHolder:(NSString*) placeHolder isAutoCorrect:(BOOL) isAutoCorrect;
 
 - (BOOL) isValid;
 

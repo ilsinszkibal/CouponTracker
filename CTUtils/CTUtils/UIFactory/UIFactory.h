@@ -11,6 +11,6 @@
 @interface UIFactory : NSObject
 
 + (UIButton*) defaultButtonWithTitle:(NSString*) title target:(id) target action:(SEL) selector;
-+ (void) setBordersAndCornerToButton:(UIButton*) button;
++ (void) setBordersAndCornerToButton:(UIView*) view;
 
 @end
