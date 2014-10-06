@@ -46,8 +46,8 @@
 {
     [super viewDidLayoutSubviews];
     
-    [_backButton setFrame:CGRectMake(0, 0, 120, 44)];
-    [_newTemplateButton setFrame:CGRectMake(0, 50, 120, 44)];
+    [_backButton setFrame:CGRectMake(0, 25, 120, 44)];
+    [_newTemplateButton setFrame:CGRectMake(0, 75, 120, 44)];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -26,6 +26,10 @@
         [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
     }
     
+    [button.layer setCornerRadius:5];
+    [button.layer setBorderColor:[UIColor whiteColor].CGColor ];
+    [button.layer setBorderWidth:1];
+    
     return button;
 }
 

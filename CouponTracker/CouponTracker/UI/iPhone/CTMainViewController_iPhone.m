@@ -8,6 +8,8 @@
 
 #import "CTMainViewController_iPhone.h"
 
+#import "UIFactory.h"
+
 @interface CTMainViewController_iPhone ()
 
 @property (nonatomic, strong) UIButton* loginButton;
@@ -21,10 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.loginButton = [[UIButton alloc] init];
-    [self.loginButton setTitle:@"Login" forState:UIControlStateNormal];
-    [self.loginButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [self.loginButton addTarget:self action:@selector(loginButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    self.loginButton = [UIFactory defaultButtonWithTitle:@"Login" target:self action:@selector(loginButtonPressed:) ];
     [self.view addSubview:self.loginButton];
 }
 
