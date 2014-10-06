@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+
+#import "CTWindow.h"
+
 #import "CTMainViewController_iPhone.h"
 #import "CTMainViewController_iPad.h"
 
@@ -18,18 +21,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor clearColor];
-    self.window.opaque = NO;
-    UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg5"]];
-    [imageView setContentMode:UIViewContentModeScaleAspectFill];
-    UIBlurEffect* blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    UIVisualEffectView* effect = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    effect.frame = self.window.bounds;
-    imageView.frame = self.window.bounds;
-    [self.window addSubview:imageView];
-//    [self.window addSubview:effect];
+
+    self.window = [[CTWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds] ];
     
     UIViewController* main;
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
