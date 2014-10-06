@@ -8,6 +8,8 @@
 
 #import "CTNewTemplateViewController_iPad.h"
 
+#import "UIFactory.h"
+
 #import "CardDrawingLayerView.h"
 #import "CardDrawingOperationView.h"
 #import "CardDrawingPresentView.h"
@@ -31,10 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _backButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_backButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [_backButton setTitle:@"Back" forState:UIControlStateNormal];
-    [_backButton addTarget:self action:@selector(backButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    _backButton = [UIFactory defaultButtonWithTitle:@"Back" target:self action:@selector( backButtonAction: ) ];
     [self.view addSubview:_backButton];
     
     _layerView = [[CardDrawingLayerView alloc] init];

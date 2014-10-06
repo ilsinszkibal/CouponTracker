@@ -10,6 +10,7 @@
 		6B77A80E19D6C4FA00FC0978 /* CTUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6B77A80D19D6C4FA00FC0978 /* CTUtils.h */; };
 		6B77A81019D6C4FA00FC0978 /* CTUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A80F19D6C4FA00FC0978 /* CTUtils.m */; };
 		6BB2AD4D19E30BA100525002 /* CTColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2AD4C19E30BA100525002 /* CTColor.m */; };
+		6BB2AD6019E311D000525002 /* UIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2AD5F19E311D000525002 /* UIFactory.m */; };
 		6BCDDFDC19E16600002599F4 /* CTSimpleAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCDDFD519E16600002599F4 /* CTSimpleAnimatedTransition.m */; };
 		6BCDDFDD19E16600002599F4 /* CTPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCDDFD819E16600002599F4 /* CTPresentationController.m */; };
 		6BCDDFDE19E16600002599F4 /* CTBouncingAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCDDFDB19E16600002599F4 /* CTBouncingAnimatedTransitioning.m */; };
@@ -146,6 +147,8 @@
 		6B77A81819D6C4FA00FC0978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BB2AD4B19E30BA100525002 /* CTColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTColor.h; path = Color/CTColor.h; sourceTree = "<group>"; };
 		6BB2AD4C19E30BA100525002 /* CTColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTColor.m; path = Color/CTColor.m; sourceTree = "<group>"; };
+		6BB2AD5E19E311D000525002 /* UIFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIFactory.h; path = UIFactory/UIFactory.h; sourceTree = "<group>"; };
+		6BB2AD5F19E311D000525002 /* UIFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIFactory.m; path = UIFactory/UIFactory.m; sourceTree = "<group>"; };
 		6BCDDFD419E16600002599F4 /* CTSimpleAnimatedTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSimpleAnimatedTransition.h; sourceTree = "<group>"; };
 		6BCDDFD519E16600002599F4 /* CTSimpleAnimatedTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSimpleAnimatedTransition.m; sourceTree = "<group>"; };
 		6BCDDFD719E16600002599F4 /* CTPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPresentationController.h; sourceTree = "<group>"; };
@@ -220,6 +223,7 @@
 		6B77A80C19D6C4FA00FC0978 /* CTUtils */ = {
 			isa = PBXGroup;
 			children = (
+				6BB2AD5019E311BD00525002 /* UIFactory */,
 				6BB2AD3D19E30B8E00525002 /* Color */,
 				6BCDDFD319E16600002599F4 /* TransitioningDelegate */,
 				6B77A80D19D6C4FA00FC0978 /* CTUtils.h */,
@@ -251,6 +255,15 @@
 				6BB2AD4C19E30BA100525002 /* CTColor.m */,
 			);
 			name = Color;
+			sourceTree = "<group>";
+		};
+		6BB2AD5019E311BD00525002 /* UIFactory */ = {
+			isa = PBXGroup;
+			children = (
+				6BB2AD5E19E311D000525002 /* UIFactory.h */,
+				6BB2AD5F19E311D000525002 /* UIFactory.m */,
+			);
+			name = UIFactory;
 			sourceTree = "<group>";
 		};
 		6BCDDFD319E16600002599F4 /* TransitioningDelegate */ = {
@@ -561,6 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BB2AD6019E311D000525002 /* UIFactory.m in Sources */,
 				6BCDDFDE19E16600002599F4 /* CTBouncingAnimatedTransitioning.m in Sources */,
 				6BCDDFE119E1667D002599F4 /* CTNavigationAnimatedTransitioning.m in Sources */,
 				6BB2AD4D19E30BA100525002 /* CTColor.m in Sources */,

@@ -8,6 +8,8 @@
 
 #import "CTMyTemplatesViewController_iPad.h"
 
+#import "UIFactory.h"
+
 #import "CTNewTemplateViewController_iPad.h"
 
 @interface CTMyTemplatesViewController_iPad () {
@@ -24,16 +26,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _backButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_backButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [_backButton setTitle:@"Back" forState:UIControlStateNormal];
-    [_backButton addTarget:self action:@selector(backButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    _backButton = [UIFactory defaultButtonWithTitle:@"Back" target:self action:@selector(backButtonAction:) ];
     [self.view addSubview:_backButton];
  
-    _newTemplateButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_newTemplateButton setTitle:@"New template" forState:UIControlStateNormal];
-    [_newTemplateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [_newTemplateButton addTarget:self action:@selector(newTemplateButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    _newTemplateButton = [UIFactory defaultButtonWithTitle:@"New template" target:self action:@selector(newTemplateButtonAction:) ];
     [self.view addSubview:_newTemplateButton];
 }
 

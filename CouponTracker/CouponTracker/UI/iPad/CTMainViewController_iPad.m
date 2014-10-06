@@ -8,6 +8,8 @@
 
 #import "CTMainViewController_iPad.h"
 
+#import "UIFactory.h"
+
 #import "CTMyTemplatesViewController_iPad.h"
 
 @interface CTMainViewController_iPad () {
@@ -25,17 +27,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _showMyTemplatesButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_showMyTemplatesButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_showMyTemplatesButton setTitle:@"My templates2" forState:UIControlStateNormal];
-    [_showMyTemplatesButton addTarget:self action:@selector(showMyTemplatesAction:) forControlEvents:UIControlEventTouchUpInside];
+    _showMyTemplatesButton = [UIFactory defaultButtonWithTitle:@"My templates" target:self action:@selector(showMyTemplatesAction:) ];
     [self.view addSubview:_showMyTemplatesButton];
     
-    _loginButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_loginButton setTitle:@"Login" forState:UIControlStateNormal];
-    [_loginButton addTarget:self action:@selector(loginButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    _loginButton = [UIFactory defaultButtonWithTitle:@"Login" target:self action:@selector(loginButtonAction:) ];
     [self.view addSubview:_loginButton];
+    
 }
 
 - (void) viewDidLayoutSubviews
