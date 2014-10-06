@@ -8,6 +8,8 @@
 
 #import "CardDrawingOperationView.h"
 
+#import "UIFactory.h"
+
 #import "CouponDrawingData.h"
 #import "CouponDrawingBaseLayer.h"
 
@@ -46,9 +48,7 @@
         _titleLabel = [[UILabel alloc] init];
         [self addSubview:_titleLabel];
     
-        _showCardButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [_showCardButton addTarget:self action:@selector(showCardAction:) forControlEvents:UIControlEventTouchUpInside];
-        [_showCardButton setTitle:@"Show card" forState:UIControlStateNormal];
+        _showCardButton = [UIFactory defaultButtonWithTitle:@"Show card" target:self action:@selector(showCardAction:) ];
         [self addSubview:_showCardButton];
     
         _operationAddView = [[CardDrawingOperationAddView alloc] init];

@@ -61,11 +61,11 @@
 {
     [super viewDidLayoutSubviews];
     
-    [_backButton setFrame:CGRectMake(0, 0, 120, 44)];
+    [_backButton setFrame:CGRectMake(0, 25, 120, 44)];
     
-    [_layerView setFrame:CGRectMake(0, 250, 80, 300)];
-    [_operationView setFrame:CGRectMake(80, 50, 600, 200)];
-    [_presentView setFrame:CGRectMake(80, 250, 600, 300)];
+    [_layerView setFrame:CGRectMake(0, 275, 80, 300)];
+    [_operationView setFrame:CGRectMake(80, 75, 600, 200)];
+    [_presentView setFrame:CGRectMake(80, 275, 600, 300)];
 }
 
 - (void)didReceiveMemoryWarning {

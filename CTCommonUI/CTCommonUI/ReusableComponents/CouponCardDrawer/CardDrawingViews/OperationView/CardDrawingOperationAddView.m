@@ -8,6 +8,8 @@
 
 #import "CardDrawingOperationAddView.h"
 
+#import "UIFactory.h"
+
 @interface CardDrawingOperationAddView () {
 
     NSUInteger _addLayerIndex;
@@ -30,19 +32,13 @@
     
     if ( self ) {
      
-        _addImageButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [_addImageButton addTarget:self action:@selector(addImageAction:) forControlEvents:UIControlEventTouchUpInside];
-        [_addImageButton setTitle:@"Add image" forState:UIControlStateNormal];
+        _addImageButton = [UIFactory defaultButtonWithTitle:@"Add image" target:self action:@selector(addImageAction:) ];
         [self addSubview:_addImageButton];
         
-        _addTextButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [_addTextButton addTarget:self action:@selector(addTextAction:) forControlEvents:UIControlEventTouchUpInside];
-        [_addTextButton setTitle:@"Add text" forState:UIControlStateNormal];
+        _addTextButton = [UIFactory defaultButtonWithTitle:@"Add text" target:self action:@selector(addTextAction:) ];
         [self addSubview:_addTextButton];
         
-        _addRectButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [_addRectButton addTarget:self action:@selector(addRectAction:) forControlEvents:UIControlEventTouchUpInside];
-        [_addRectButton setTitle:@"Add rect" forState:UIControlStateNormal];
+        _addRectButton = [UIFactory defaultButtonWithTitle:@"Add rect" target:self action:@selector(addRectAction:) ];
         [self addSubview:_addRectButton];
         
     }

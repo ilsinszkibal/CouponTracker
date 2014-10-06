@@ -8,6 +8,8 @@
 
 #import "CardDrawingOperationImageEditView.h"
 
+#import "UIFactory.h"
+
 #import "CouponDrawingImageLayer.h"
 
 @interface CardDrawingOperationImageEditView ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
@@ -41,22 +43,13 @@
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:_imageView];
         
-        _chooseImageButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_chooseImageButton setTitle:@"Select image" forState:UIControlStateNormal];
-        [_chooseImageButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_chooseImageButton addTarget:self action:@selector(chooseImageAction:) forControlEvents:UIControlEventTouchUpInside];
+        _chooseImageButton = [UIFactory defaultButtonWithTitle:@"Select image" target:self action:@selector( chooseImageAction: ) ];
         [self addSubview:_chooseImageButton];
         
-        _scaleToWidth = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_scaleToWidth setTitle:@"Scale to width" forState:UIControlStateNormal];
-        [_scaleToWidth setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_scaleToWidth addTarget:self action:@selector(scaleToWidthAction:) forControlEvents:UIControlEventTouchUpInside];
+        _scaleToWidth = [UIFactory defaultButtonWithTitle:@"Scale to width" target:self action:@selector( scaleToWidthAction: ) ];
         [self addSubview:_scaleToWidth];
         
-        _scaleToHeight = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_scaleToHeight setTitle:@"Scale to height" forState:UIControlStateNormal];
-        [_scaleToHeight setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_scaleToHeight addTarget:self action:@selector(scaleToHeightAction:) forControlEvents:UIControlEventTouchUpInside];
+        _scaleToHeight = [UIFactory defaultButtonWithTitle:@"Scale to height" target:self action:@selector( scaleToHeightAction: ) ];
         [self addSubview:_scaleToHeight];
         
     }
@@ -82,6 +75,7 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
+    [_imagePicker dismissViewControllerAnimated:YES completion:NULL];
     _imagePicker = nil;
 }
 
@@ -95,9 +89,7 @@
         [_editDelegate commmitEdit];
     }
     
-    NSLog(@"Picker");
     [_imagePicker dismissViewControllerAnimated:YES completion:NULL];
-    
     _imagePicker = nil;
 }
 
