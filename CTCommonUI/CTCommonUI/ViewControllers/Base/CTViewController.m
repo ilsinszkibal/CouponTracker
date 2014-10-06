@@ -8,6 +8,8 @@
 
 #import "CTViewController.h"
 
+#import "CTColor.h"
+
 #import "CTLoginViewController_Common.h"
 
 #import "CTSimpleAnimatedTransition.h"
@@ -27,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self.view setBackgroundColor:[CTColor viewControllerBackgroundColor] ];
+    
     [self setUpTransitioningDelegates];
 }
 

@@ -35,8 +35,6 @@
     [_newTemplateButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [_newTemplateButton addTarget:self action:@selector(newTemplateButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_newTemplateButton];
-    
-    [self.view setBackgroundColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.8 alpha:1.0] ];
 }
 
 - (void) viewDidAppear:(BOOL)animated

@@ -26,18 +26,16 @@
     // Do any additional setup after loading the view.
     
     _showMyTemplatesButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_showMyTemplatesButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [_showMyTemplatesButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_showMyTemplatesButton setTitle:@"My templates2" forState:UIControlStateNormal];
     [_showMyTemplatesButton addTarget:self action:@selector(showMyTemplatesAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_showMyTemplatesButton];
     
     _loginButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_loginButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [_loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_loginButton setTitle:@"Login" forState:UIControlStateNormal];
     [_loginButton addTarget:self action:@selector(loginButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_loginButton];
-    
-    [self.view setBackgroundColor:[UIColor orangeColor] ];
 }
 
 - (void) viewDidLayoutSubviews

@@ -34,31 +34,39 @@
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     
-    UIViewController* fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIView* fromView = [fromVC view];
-    UIViewController* toVC   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    UIView* toView = [toVC view];
-    
-    UIView* containerView = [transitionContext containerView];
-    
-    BOOL isPresenting = [self moveLeft];
-    
-    if(isPresenting)
+    if ( [self moveLeft] )
     {
-        [containerView addSubview:toView];
+        [self presentAnimation:transitionContext];
+    }
+    else
+    {
+        [self dismissAnimation:transitionContext];
     }
     
-    UIViewController* animatingVC = isPresenting? toVC : fromVC;
-    UIView* animatingView = [animatingVC view];
+}
+
+- (void) presentAnimation:(id<UIViewControllerContextTransitioning>)transitionContext
+{
     
-    CGRect appearedFrame = [transitionContext finalFrameForViewController:animatingVC];
-    CGRect dismissedFrame = appearedFrame;
-    dismissedFrame.origin.x += toView.frame.size.width;
+    //CurrentViewController
+    UIViewController* currentViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIView* currentView = [currentViewController view];
+    CGRect currentViewFinalRect = [transitionContext finalFrameForViewController:currentViewController];
+    currentViewFinalRect.origin.x -= currentViewFinalRect.size.width;
     
-    CGRect initialFrame = isPresenting ? dismissedFrame : appearedFrame;
-    CGRect finalFrame = isPresenting ? appearedFrame : dismissedFrame;
+    //PresentingViewController
+    UIViewController* presentingViewController   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIView* presentingView = [presentingViewController view];
+    CGRect presentingFinalRect = [transitionContext finalFrameForViewController:presentingViewController];
+    CGRect presentingInitialRect = presentingFinalRect;
+    presentingInitialRect.origin.x += presentingInitialRect.size.width;
     
-    [animatingView setFrame:initialFrame];
+    //Add view to presenting
+    UIView* containerView = [transitionContext containerView];
+    [containerView addSubview:presentingView];
+    
+    //Set the initial presenting position
+    [presentingView setFrame:presentingInitialRect];
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext]
                           delay:0
@@ -66,13 +74,44 @@
           initialSpringVelocity:5.0
                         options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState
                      animations:^{
-                         [animatingView setFrame:finalFrame];
+                         [presentingView setFrame:presentingFinalRect];
+                         [currentView setFrame:currentViewFinalRect];
                      }
                      completion:^(BOOL finished){
-                         if(!isPresenting)
-                         {
-                             [fromView removeFromSuperview];
-                         }
+                         //Need to transitionContext for completed transition
+                         [transitionContext completeTransition:YES];
+                     }];
+    
+}
+
+- (void) dismissAnimation:(id<UIViewControllerContextTransitioning>)transitionContext
+{
+    //DismissingViewController
+    UIViewController* dismissingViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIView* dismissingView = [dismissingViewController view];
+    CGRect dismissingFinalRect = dismissingView.frame;
+    dismissingFinalRect.origin.x += dismissingFinalRect.size.width;
+    
+    //OriginalViewController
+    UIViewController* originalViewController   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIView* originalView = [originalViewController view];
+    CGRect originalFinalRect = [transitionContext finalFrameForViewController:originalViewController];
+    
+    
+    [UIView animateWithDuration:[self transitionDuration:transitionContext]
+                          delay:0
+         usingSpringWithDamping:300.0
+          initialSpringVelocity:5.0
+                        options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         [dismissingView setFrame:dismissingFinalRect];
+                         [originalView setFrame:originalFinalRect];
+                     }
+                     completion:^(BOOL finished){
+                         
+                         [dismissingView removeFromSuperview];
+                         
+                         //Need to transitionContext for completed transition
                          [transitionContext completeTransition:YES];
                      }];
     

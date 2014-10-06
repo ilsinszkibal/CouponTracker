@@ -30,7 +30,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.view setBackgroundColor:[UIColor whiteColor] ];
     
     _backButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_backButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];

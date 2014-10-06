@@ -22,8 +22,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor clearColor];
     self.window.opaque = NO;
-    UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg2"]];
-    [imageView setContentMode:UIViewContentModeScaleAspectFit];
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg5"]];
+    [imageView setContentMode:UIViewContentModeScaleAspectFill];
     UIBlurEffect* blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     UIVisualEffectView* effect = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     effect.frame = self.window.bounds;
