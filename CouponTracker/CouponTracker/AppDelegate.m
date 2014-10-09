@@ -22,7 +22,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    self.window = [[CTWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds] ];
+    CTWindow* window = [[CTWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds] ];
+    self.window = window;
     
     UIViewController* main;
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
@@ -32,6 +33,8 @@
     }
     self.window.rootViewController = main;
     [self.window makeKeyAndVisible];
+    
+    [window welcomeAnimation];
     
     return YES;
 }

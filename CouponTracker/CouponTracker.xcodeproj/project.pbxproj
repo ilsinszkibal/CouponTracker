@@ -21,6 +21,7 @@
 		6B77A87F19D6C5AE00FC0978 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B77A87E19D6C5AE00FC0978 /* Images.xcassets */; };
 		6B77A88E19D6C5AE00FC0978 /* CouponTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A88D19D6C5AE00FC0978 /* CouponTrackerTests.m */; };
 		6B77A8E219D6CAB500FC0978 /* libCTCommonUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77A8E119D6CAB500FC0978 /* libCTCommonUI.a */; };
+		6B987F6F19E70E3700EDBB68 /* CTWelcomeAnimationProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B987F6E19E70E3700EDBB68 /* CTWelcomeAnimationProperties.m */; };
 		BD3BBB3B19D703760006DE0F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB3A19D703760006DE0F /* CoreData.framework */; };
 		BD3BBB4019D703990006DE0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB3F19D703990006DE0F /* SystemConfiguration.framework */; };
 		BD3BBB4219D703E30006DE0F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB4119D703E30006DE0F /* MobileCoreServices.framework */; };
@@ -86,6 +87,8 @@
 		6B77A88C19D6C5AE00FC0978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B77A88D19D6C5AE00FC0978 /* CouponTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CouponTrackerTests.m; sourceTree = "<group>"; };
 		6B77A8E119D6CAB500FC0978 /* libCTCommonUI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCTCommonUI.a; path = "../CTCommonUI/build/Debug-iphoneos/libCTCommonUI.a"; sourceTree = "<group>"; };
+		6B987F6D19E70E3700EDBB68 /* CTWelcomeAnimationProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTWelcomeAnimationProperties.h; sourceTree = "<group>"; };
+		6B987F6E19E70E3700EDBB68 /* CTWelcomeAnimationProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTWelcomeAnimationProperties.m; sourceTree = "<group>"; };
 		BD3BBA0819D700070006DE0F /* CTCommonUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTCommonUI.xcodeproj; path = ../CTCommonUI/CTCommonUI.xcodeproj; sourceTree = "<group>"; };
 		BD3BBB3A19D703760006DE0F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		BD3BBB3D19D703880006DE0F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -193,6 +196,8 @@
 				6B77A87119D6C5AE00FC0978 /* Supporting Files */,
 				6B483C0A19E31604009B7C99 /* CTWindow.h */,
 				6B483C0B19E31604009B7C99 /* CTWindow.m */,
+				6B987F6D19E70E3700EDBB68 /* CTWelcomeAnimationProperties.h */,
+				6B987F6E19E70E3700EDBB68 /* CTWelcomeAnimationProperties.m */,
 			);
 			path = CouponTracker;
 			sourceTree = "<group>";
@@ -376,6 +381,7 @@
 				6B77A87419D6C5AE00FC0978 /* main.m in Sources */,
 				6B4C2AFD19E6F70100FB87DE /* CTMyTemplatesViewController_iPad.m in Sources */,
 				6B5056E719E14D45006939CC /* CTNewTemplateViewController_iPhone.m in Sources */,
+				6B987F6F19E70E3700EDBB68 /* CTWelcomeAnimationProperties.m in Sources */,
 				6B4C2AFC19E6F70100FB87DE /* CTMainViewController_iPad.m in Sources */,
 				6B5056DD19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.m in Sources */,
 			);

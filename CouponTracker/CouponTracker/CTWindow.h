@@ -10,4 +10,6 @@
 
 @interface CTWindow : UIWindow
 
+- (void) welcomeAnimation;
+
 @end

@@ -8,10 +8,14 @@
 
 #import "CTWindow.h"
 
+#import "CTWelcomeAnimationProperties.h"
+
 @interface CTWindow () {
     
     UIImageView* _backgroundImageView;
     CGSize _backgroundImageViewSize;
+    
+    CTWelcomeAnimationProperties* _animationProperties;
 }
 
 @end
@@ -31,9 +35,11 @@
         UIImage* image = [UIImage imageNamed:@"bg6"];
         
         _backgroundImageView = [[UIImageView alloc] initWithImage:image ];
-        _backgroundImageViewSize = _backgroundImageView.image.size;
-        _backgroundImageViewSize.width *= 0.6;
-        _backgroundImageViewSize.height *= 0.6;
+        
+        CGSize backgroundImageViewSize = _backgroundImageView.image.size;
+        
+//        _animationProperties = [[CTWelcomeAnimationProperties alloc] initWithImageSize:backgroundImageViewSize preAnimationOffset:CGPointMake(-430, 0) postAnimationOffset:CGPointMake(-400, 0) ];
+        _animationProperties = [CTWelcomeAnimationProperties createOpeningAnimationForImageSize:backgroundImageViewSize];
         
         [self addSubview:_backgroundImageView];
         
@@ -48,10 +54,59 @@
 {
     [super layoutSubviews];
     
-    [_backgroundImageView setFrame:CGRectIntegral( CGRectMake(-400, 0, _backgroundImageViewSize.width, _backgroundImageViewSize.height) ) ];
-    
+    if ( [_animationProperties isAnimating] == NO )
+    {
+        [self setBackgroundImagePosition];
+    }
+}
+
+#pragma mark - Private
+
+- (void) setBackgroundImagePosition
+{
+    [_backgroundImageView setFrame:[_animationProperties postWelcomeAnimationImageRect:self.bounds.size] ];
 }
 
 #pragma mark - Public
+
+- (void) timerRepresentBack:(NSTimer*) timer
+{
+    [UIView animateWithDuration:1.4f animations:^{
+        [self.rootViewController.view setAlpha:1.0f];
+    }];
+}
+
+- (void) presentAnimation
+{
+    
+    CGFloat animationDuration = 1.5f;
+    
+    [NSTimer scheduledTimerWithTimeInterval:( animationDuration - 0.5f ) target:self selector:@selector(timerRepresentBack:) userInfo:self repeats:NO];
+    
+    [UIView animateWithDuration:animationDuration animations:^{
+        [self setBackgroundImagePosition];
+    } completion:^(BOOL finished) {
+    }];
+    
+}
+
+- (void) welcomeAnimation
+{
+    
+    [_animationProperties setIsAnimating:YES];
+    
+    [self.rootViewController.view setAlpha:0.0f];
+    
+    [_backgroundImageView setFrame:[_animationProperties preWelcomeAnimationImageRect:self.bounds.size] ];
+    
+    [NSTimer scheduledTimerWithTimeInterval:0.9f target:self selector:@selector(presentAnimation) userInfo:nil repeats:NO];
+    
+    
+//    [UIView animateWithDuration:animationDuration animations:^{
+//        [self setBackgroundImagePosition];
+//    } completion:^(BOOL finished) {
+//    }];
+
+}
 
 @end
