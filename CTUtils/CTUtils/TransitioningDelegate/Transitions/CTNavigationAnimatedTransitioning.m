@@ -78,6 +78,10 @@
                          [currentView setFrame:currentViewFinalRect];
                      }
                      completion:^(BOOL finished){
+                         
+                         //Make sure current isn't visible
+                         [currentView setAlpha:0.0f];
+                         
                          //Need to transitionContext for completed transition
                          [transitionContext completeTransition:YES];
                      }];
@@ -97,6 +101,8 @@
     UIView* originalView = [originalViewController view];
     CGRect originalFinalRect = [transitionContext finalFrameForViewController:originalViewController];
     
+    //Make sure original is visible again
+    [originalView setAlpha:1.0f];
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext]
                           delay:0
