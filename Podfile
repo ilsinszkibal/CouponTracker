@@ -15,7 +15,10 @@ target :"CTUtils" do
     pod 'SDWebImage', "~> 3.7.1"
     pod 'SDWebImage-ProgressView', "~> 0.4.0"
     pod 'UIActivityIndicator-for-SDWebImage', "~> 1.2"
-
+    
+    #Presentation
+    pod 'iCarousel', "~> 1.7.6"
+    
     #Social service SDKs
     pod 'AFOAuth2Client', "~> 0.1.2"
 
