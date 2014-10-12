@@ -11,6 +11,7 @@
 @interface CTColor : NSObject
 
 + (UIColor*) viewControllerBackgroundColor;
++ (void) setViewControllerBackgroundColor:(UIColor*) color;
 
 + (UIColor*) invalidColor;
 + (UIColor*) validColor;

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		6B77A80E19D6C4FA00FC0978 /* CTUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6B77A80D19D6C4FA00FC0978 /* CTUtils.h */; };
 		6B77A81019D6C4FA00FC0978 /* CTUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A80F19D6C4FA00FC0978 /* CTUtils.m */; };
+		6BA6310F19EAA69600D56532 /* FolderPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA6310E19EAA69600D56532 /* FolderPath.m */; };
+		6BA6311919EAA7F400D56532 /* CTWelcomeAnimationProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA6311819EAA7F400D56532 /* CTWelcomeAnimationProperties.m */; };
+		6BA6311E19EAB45B00D56532 /* CGExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA6311D19EAB45B00D56532 /* CGExtensions.m */; };
+		6BA6312219EAB51D00D56532 /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA6312119EAB51D00D56532 /* DeviceInfo.m */; };
 		6BB2AD4D19E30BA100525002 /* CTColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2AD4C19E30BA100525002 /* CTColor.m */; };
 		6BB2AD6019E311D000525002 /* UIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2AD5F19E311D000525002 /* UIFactory.m */; };
 		6BCDDFDC19E16600002599F4 /* CTSimpleAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCDDFD519E16600002599F4 /* CTSimpleAnimatedTransition.m */; };
@@ -19,6 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6BA6310B19EAA68000D56532 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBAC819D701190006DE0F /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3601DE672C344DB1865C61FE;
+			remoteInfo = "Pods-CTUtils-iCarousel";
+		};
 		BD3BBAD819D701190006DE0F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BD3BBAC819D701190006DE0F /* Pods.xcodeproj */;
@@ -114,7 +125,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = BD3BBAC819D701190006DE0F /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 6F9915B008254F01A3D60656;
+			remoteGlobalIDString = F2C1E26D77194884B0A39BD8;
 			remoteInfo = "Pods-CTUtils";
 		};
 		BD7AB20119E14DBB000D88AB /* PBXContainerItemProxy */ = {
@@ -145,6 +156,14 @@
 		6B77A80F19D6C4FA00FC0978 /* CTUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTUtils.m; sourceTree = "<group>"; };
 		6B77A81519D6C4FA00FC0978 /* CTUtilsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CTUtilsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B77A81819D6C4FA00FC0978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BA6310D19EAA69600D56532 /* FolderPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FolderPath.h; path = Folder/FolderPath.h; sourceTree = "<group>"; };
+		6BA6310E19EAA69600D56532 /* FolderPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FolderPath.m; path = Folder/FolderPath.m; sourceTree = "<group>"; };
+		6BA6311719EAA7F400D56532 /* CTWelcomeAnimationProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTWelcomeAnimationProperties.h; path = Animations/CTWelcomeAnimationProperties.h; sourceTree = "<group>"; };
+		6BA6311819EAA7F400D56532 /* CTWelcomeAnimationProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTWelcomeAnimationProperties.m; path = Animations/CTWelcomeAnimationProperties.m; sourceTree = "<group>"; };
+		6BA6311C19EAB45B00D56532 /* CGExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGExtensions.h; path = CGExtensions/CGExtensions.h; sourceTree = "<group>"; };
+		6BA6311D19EAB45B00D56532 /* CGExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGExtensions.m; path = CGExtensions/CGExtensions.m; sourceTree = "<group>"; };
+		6BA6312019EAB51D00D56532 /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceInfo.h; path = DeviceInfo/DeviceInfo.h; sourceTree = "<group>"; };
+		6BA6312119EAB51D00D56532 /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceInfo.m; path = DeviceInfo/DeviceInfo.m; sourceTree = "<group>"; };
 		6BB2AD4B19E30BA100525002 /* CTColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTColor.h; path = Color/CTColor.h; sourceTree = "<group>"; };
 		6BB2AD4C19E30BA100525002 /* CTColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTColor.m; path = Color/CTColor.m; sourceTree = "<group>"; };
 		6BB2AD5E19E311D000525002 /* UIFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIFactory.h; path = UIFactory/UIFactory.h; sourceTree = "<group>"; };
@@ -223,6 +242,10 @@
 		6B77A80C19D6C4FA00FC0978 /* CTUtils */ = {
 			isa = PBXGroup;
 			children = (
+				6BA6311F19EAB50A00D56532 /* DeviceInfo */,
+				6BA6311B19EAB43500D56532 /* CGExtensions */,
+				6BA6311619EAA7DB00D56532 /* Animations */,
+				6BA630FC19EAA68000D56532 /* Folder */,
 				6BB2AD5019E311BD00525002 /* UIFactory */,
 				6BB2AD3D19E30B8E00525002 /* Color */,
 				6BCDDFD319E16600002599F4 /* TransitioningDelegate */,
@@ -246,6 +269,42 @@
 				6B77A81819D6C4FA00FC0978 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6BA630FC19EAA68000D56532 /* Folder */ = {
+			isa = PBXGroup;
+			children = (
+				6BA6310D19EAA69600D56532 /* FolderPath.h */,
+				6BA6310E19EAA69600D56532 /* FolderPath.m */,
+			);
+			name = Folder;
+			sourceTree = "<group>";
+		};
+		6BA6311619EAA7DB00D56532 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				6BA6311719EAA7F400D56532 /* CTWelcomeAnimationProperties.h */,
+				6BA6311819EAA7F400D56532 /* CTWelcomeAnimationProperties.m */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
+		6BA6311B19EAB43500D56532 /* CGExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				6BA6311C19EAB45B00D56532 /* CGExtensions.h */,
+				6BA6311D19EAB45B00D56532 /* CGExtensions.m */,
+			);
+			name = CGExtensions;
+			sourceTree = "<group>";
+		};
+		6BA6311F19EAB50A00D56532 /* DeviceInfo */ = {
+			isa = PBXGroup;
+			children = (
+				6BA6312019EAB51D00D56532 /* DeviceInfo.h */,
+				6BA6312119EAB51D00D56532 /* DeviceInfo.m */,
+			);
+			name = DeviceInfo;
 			sourceTree = "<group>";
 		};
 		6BB2AD3D19E30B8E00525002 /* Color */ = {
@@ -313,6 +372,7 @@
 				BD3BBAEB19D701190006DE0F /* libPods-CTUtils-SOCKit.a */,
 				BD3BBAED19D701190006DE0F /* libPods-CTUtils-TransitionKit.a */,
 				BD3BBAEF19D701190006DE0F /* libPods-CTUtils-UIActivityIndicator-for-SDWebImage.a */,
+				6BA6310C19EAA68000D56532 /* libPods-CTUtils-iCarousel.a */,
 				BD3BBAF119D701190006DE0F /* libPods-CTUtils-iOS-QR-Code-Encoder.a */,
 			);
 			name = Products;
@@ -426,6 +486,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		6BA6310C19EAA68000D56532 /* libPods-CTUtils-iCarousel.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-CTUtils-iCarousel.a";
+			remoteRef = 6BA6310B19EAA68000D56532 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		BD3BBAD919D701190006DE0F /* libPods-CTUtils.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -574,11 +641,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BA6310F19EAA69600D56532 /* FolderPath.m in Sources */,
 				6BB2AD6019E311D000525002 /* UIFactory.m in Sources */,
 				6BCDDFDE19E16600002599F4 /* CTBouncingAnimatedTransitioning.m in Sources */,
+				6BA6312219EAB51D00D56532 /* DeviceInfo.m in Sources */,
 				6BCDDFE119E1667D002599F4 /* CTNavigationAnimatedTransitioning.m in Sources */,
 				6BB2AD4D19E30BA100525002 /* CTColor.m in Sources */,
+				6BA6311E19EAB45B00D56532 /* CGExtensions.m in Sources */,
 				6BCDDFDC19E16600002599F4 /* CTSimpleAnimatedTransition.m in Sources */,
+				6BA6311919EAA7F400D56532 /* CTWelcomeAnimationProperties.m in Sources */,
 				6B77A81019D6C4FA00FC0978 /* CTUtils.m in Sources */,
 				6BCDDFDD19E16600002599F4 /* CTPresentationController.m in Sources */,
 			);

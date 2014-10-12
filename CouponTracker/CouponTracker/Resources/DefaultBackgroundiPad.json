@@ -1,0 +1,9 @@
+{
+	"epochtime" : 1413114906,
+	"imageName" : "London.jpg",
+	"preAnimationPosition" : { "offsetX": -970, "offsetY": 0, "percent":0.615, },
+	"postAnimationPosition" : { "offsetX": -800, "offsetY": 0, "percent":0.6, },
+	"moveAnimationDuration" : { "waitingBefore":0.9, "duration":1.5, },
+	"alphaAnimationDuration" : { "waitingBefore":0.7, "duration":0.8, },
+	"backgroundColor" : { "r":0.05, "g":0.05, "b":0.05, "a":0.65, }
+}

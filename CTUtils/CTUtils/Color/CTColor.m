@@ -8,11 +8,23 @@
 
 #import "CTColor.h"
 
+static UIColor* _viewControllerBackgroundColor;
+
 @implementation CTColor
 
 + (UIColor*) viewControllerBackgroundColor
 {
-    return [UIColor colorWithRed:0.05 green:0.05 blue:0.05 alpha:0.65];
+    if ( _viewControllerBackgroundColor == nil )
+    {
+        return [UIColor colorWithRed:0.05 green:0.05 blue:0.05 alpha:0.65];
+    }
+    
+    return _viewControllerBackgroundColor;
+}
+
++ (void) setViewControllerBackgroundColor:(UIColor*) color
+{
+    _viewControllerBackgroundColor = color;
 }
 
 + (UIColor*) invalidColor
