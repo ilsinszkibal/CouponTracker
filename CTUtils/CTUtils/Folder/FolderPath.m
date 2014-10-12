@@ -35,4 +35,21 @@
     return defaultBackground;
 }
 
++ (NSString*) backgroundImagePath
+{
+    NSString* imagePath = [NSString stringWithFormat:@"%@/%@", [self documentsFolderPath], @"backgroundImage.jpg" ];
+    return imagePath;
+}
+
++ (NSString*) backgroundAnimationPath
+{
+    NSString* animationPath = [NSString stringWithFormat:@"%@/%@", [self documentsFolderPath], @"backgroundAnimation.json" ];
+    return animationPath;
+}
+
++ (BOOL) checkIfFileExists:(NSString*) path
+{
+    return [[NSFileManager defaultManager] fileExistsAtPath:path];
+}
+
 @end

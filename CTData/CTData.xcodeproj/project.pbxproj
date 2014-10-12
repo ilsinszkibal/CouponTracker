@@ -10,6 +10,7 @@
 		6B77A82E19D6C50900FC0978 /* CTData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6B77A82D19D6C50900FC0978 /* CTData.h */; };
 		6B77A83019D6C50900FC0978 /* CTData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A82F19D6C50900FC0978 /* CTData.m */; };
 		6B77A89C19D6C6AB00FC0978 /* libCTUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77A89B19D6C6AB00FC0978 /* libCTUtils.a */; };
+		6BA6312919EAC58400D56532 /* CTServerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA6312819EAC58400D56532 /* CTServerSettings.m */; };
 		BD3BB9E619D6F0160006DE0F /* Model_BaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9CE19D6F0160006DE0F /* Model_BaseEntity.m */; };
 		BD3BB9E719D6F0160006DE0F /* Model_CardContent.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9D019D6F0160006DE0F /* Model_CardContent.m */; };
 		BD3BB9E819D6F0160006DE0F /* Model_CardRead.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3BB9D219D6F0160006DE0F /* Model_CardRead.m */; };
@@ -60,6 +61,8 @@
 		6B77A83519D6C50900FC0978 /* CTDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CTDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B77A83819D6C50900FC0978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B77A89B19D6C6AB00FC0978 /* libCTUtils.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCTUtils.a; path = "../CTUtils/build/Debug-iphoneos/libCTUtils.a"; sourceTree = "<group>"; };
+		6BA6312719EAC58400D56532 /* CTServerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTServerSettings.h; sourceTree = "<group>"; };
+		6BA6312819EAC58400D56532 /* CTServerSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTServerSettings.m; sourceTree = "<group>"; };
 		6BCB425119D718D20091E870 /* CTUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTUtils.xcodeproj; path = ../CTUtils/CTUtils.xcodeproj; sourceTree = "<group>"; };
 		BD3BB9CE19D6F0160006DE0F /* Model_BaseEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model_BaseEntity.m; sourceTree = "<group>"; };
 		BD3BB9CF19D6F0160006DE0F /* Model_CardContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model_CardContent.h; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 				BD3BB9CD19D6EFF80006DE0F /* Model */,
 				BD6FF02019D71036001F50D5 /* CTUser.h */,
 				BD6FF02119D71036001F50D5 /* CTUser.m */,
+				6BA6312719EAC58400D56532 /* CTServerSettings.h */,
+				6BA6312819EAC58400D56532 /* CTServerSettings.m */,
 			);
 			path = CTData;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 				BD3BB9E619D6F0160006DE0F /* Model_BaseEntity.m in Sources */,
 				BD3BB9EA19D6F0160006DE0F /* Model_CardType.m in Sources */,
 				BD3BB9EB19D6F0160006DE0F /* Model_CardTypeLocalization.m in Sources */,
+				6BA6312919EAC58400D56532 /* CTServerSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

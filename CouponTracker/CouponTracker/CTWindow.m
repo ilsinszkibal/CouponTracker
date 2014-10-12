@@ -44,6 +44,8 @@
         
         [CTColor setViewControllerBackgroundColor:[_animationProperties postAnimationColor] ];
         
+        [[CTBackgroundService sharedManager] checkForUpdate];
+        
         [self addSubview:_backgroundImageView];
         
     }

@@ -7,7 +7,9 @@
 //
 
 #import "CTNetworkingManager.h"
+
 #import "Model.h"
+
 #import <RestKit.h>
 
 @implementation CTNetworkingManager
@@ -20,6 +22,8 @@
     
     [self addRequestDescriptor:self.cardRequestDescriptor];
     [self addResponseDescriptors:self.cardResponseDescriptors];
+    
+    [self addResponseDescriptors:[self settingsIDResponseDescriptors] ];
 }
 
 - (void)addRequestDescriptor:(RKRequestDescriptor*)descriptor {
@@ -88,6 +92,44 @@
             completion(nil, error);
         }
     }];
+    
+    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
+    
+    return operation;
+}
+
+#pragma mark - Settigns
+
+- (RKObjectMapping*)settingsIDMapping
+{
+    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[CTServerSettings class]];
+    [mapping addAttributeMappingsFromArray:@[@"backgroundAnimationSettingsID" ] ];
+    return mapping;
+}
+
+- (NSArray*)settingsIDResponseDescriptors
+{
+    RKResponseDescriptor* responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[self settingsIDMapping] method:RKRequestMethodGET|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE pathPattern:@"settingsID.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    return @[ responseDescriptor ];
+}
+
+- (NSOperation*)getSettingsID:(void(^)(CTServerSettings* settingsID, NSError* error))completion
+{
+    
+    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:@"settingsID.json" parameters:nil];
+    
+    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if ( completion )
+        {
+            completion( [mappingResult firstObject], nil );
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if ( completion )
+        {
+            completion( nil, error );
+        }
+    }];
+    
     
     [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
     

@@ -12,7 +12,14 @@
 
 + (NSString*) documentsFolderPath;
 
+//BackgroundAnimation
 + (NSString*) defaultBackgroundImagePath;
 + (NSString*) defaultBackgroundAnimationPath;
+
++ (NSString*) backgroundImagePath;
++ (NSString*) backgroundAnimationPath;
+
+//Checked
++ (BOOL) checkIfFileExists:(NSString*) path;
 
 @end

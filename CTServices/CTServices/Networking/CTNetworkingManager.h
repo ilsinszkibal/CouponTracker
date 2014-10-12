@@ -8,8 +8,12 @@
 
 #import "CTBaseManager.h"
 
+#import "CTServerSettings.h"
+
 @interface CTNetworkingManager : CTBaseManager
 
 - (NSOperation*)getCards:(void(^)(NSArray* cards, NSError* error))completion;
+
+- (NSOperation*)getSettingsID:(void(^)(CTServerSettings* settingsID, NSError* error))completion;
 
 @end
