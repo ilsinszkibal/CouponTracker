@@ -28,7 +28,6 @@
 
 @property (nonatomic, assign) BOOL isAnimating;
 
-+ (instancetype) createOpeningAnimationForImageSize:(CGSize) imageSize;
 + (instancetype) createOpeningAnimationForImageSize:(CGSize)imageSize withDictionary:(NSDictionary*) dictionary;
 
 - (id) initWithImageSize:(CGSize) imageSize preOffset:(CGPoint) preOffset preImagePercent:(CGFloat) prePercent postOffset:(CGPoint) postOffset postImagePercent:(CGFloat) postPercent;

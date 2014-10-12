@@ -12,9 +12,20 @@
 
 @implementation CTBackgroundService
 
+- (id) init
+{
+    self = [super init];
+    
+    if ( self ) {
+        
+    }
+    
+    return self;
+}
+
 - (NSString*) backgroundImagePath
 {
-    return @"bg6";
+    return [FolderPath defaultBackgroundImagePath];
 }
 
 - (CTWelcomeAnimationProperties*) welcomeAnimationPropertiesForImageSize:(CGSize) imageSize

@@ -37,39 +37,6 @@ struct AnimationDuration {
 
 #pragma mark - Factory method
 
-+ (instancetype) createOpeningAnimationForImageSize:(CGSize) imageSize
-{
-    
-    CGPoint preAnimationOffset;
-    CGFloat preAnimationImagePercent;
-    
-    CGPoint postAnimationOffset;
-    CGFloat postAnimationImagePercent;
-    
-    
-    if ( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone )
-    {
-        preAnimationOffset = CGPointMake(-480, 0);
-        postAnimationOffset = CGPointMake(-450, 0);
-        
-        preAnimationImagePercent = 0.44;
-        postAnimationImagePercent = 0.4;
-    }
-    else
-    {
-        preAnimationOffset = CGPointMake(-485, 0);
-        postAnimationOffset = CGPointMake(-400, 0);
-        
-        preAnimationImagePercent = 0.615;
-        postAnimationImagePercent = 0.6;
-    }
-    
-    
-    CTWelcomeAnimationProperties* animation = [[CTWelcomeAnimationProperties alloc] initWithImageSize:imageSize preOffset:preAnimationOffset preImagePercent:preAnimationImagePercent postOffset:postAnimationOffset postImagePercent:postAnimationImagePercent];
-    
-    return animation;
-}
-
 + (instancetype) createOpeningAnimationForImageSize:(CGSize)imageSize withDictionary:(NSDictionary*) dictionary
 {
     

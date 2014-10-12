@@ -33,8 +33,9 @@
         self.backgroundColor = [UIColor clearColor];
         self.opaque = NO;
         
-        NSString* imageName = [[CTBackgroundService sharedManager] backgroundImagePath];
-        UIImage* image = [UIImage imageNamed:imageName];
+        NSString* imagePath = [[CTBackgroundService sharedManager] backgroundImagePath];
+//        UIImage* image = [UIImage imageNamed:imageName];
+        UIImage* image = [UIImage imageWithContentsOfFile:imagePath];
         
         _backgroundImageView = [[UIImageView alloc] initWithImage:image ];
         

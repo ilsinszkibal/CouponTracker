@@ -8,6 +8,8 @@
 
 #import "FolderPath.h"
 
+#import "DeviceInfo.h"
+
 @implementation FolderPath
 
 + (NSString*) documentsFolderPath
@@ -18,10 +20,18 @@
     return documentsDirectory;
 }
 
++ (NSString*) defaultBackgroundImagePath
+{
+    NSString* defaultBackground = [[NSBundle mainBundle] pathForResource:@"DefaultBackground" ofType:@"jpg"];
+    return defaultBackground;
+}
+
 + (NSString*) defaultBackgroundAnimationPath
 {
     
-    NSString* defaultBackground = [[NSBundle mainBundle] pathForResource:@"DefaultBackgroundiPad" ofType:@"json"];
+    NSString* deviceSpecific = [DeviceInfo isiPhone] ? @"DefaultBackgroundiPhone" : @"DefaultBackgroundiPad";
+    
+    NSString* defaultBackground = [[NSBundle mainBundle] pathForResource:deviceSpecific ofType:@"json"];
     return defaultBackground;
 }
 

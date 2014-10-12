@@ -12,6 +12,7 @@
 
 + (NSString*) documentsFolderPath;
 
++ (NSString*) defaultBackgroundImagePath;
 + (NSString*) defaultBackgroundAnimationPath;
 
 @end
