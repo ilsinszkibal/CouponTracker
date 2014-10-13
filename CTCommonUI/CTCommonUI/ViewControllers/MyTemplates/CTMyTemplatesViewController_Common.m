@@ -13,6 +13,7 @@
 @interface CTMyTemplatesViewController_Common () {
     
     CTNewTemplateViewController_Common* _newTemplateViewController;
+    CTPrintTemplateViewController_Common* _printTemplateViewController;
     
 }
 
@@ -35,6 +36,12 @@
 {
     _newTemplateViewController = newTemplateViewController;
     [self navigateToViewController:_newTemplateViewController];
+}
+
+- (void) showPrintTemplate:(CTPrintTemplateViewController_Common*)  printTemplateViewController forKey:(CTPassingViewNavigatingKey*) key
+{
+    _printTemplateViewController = printTemplateViewController;
+    [self passingViewNavigateToViewController:_printTemplateViewController forKey:key];
 }
 
 - (NSOperation*) getMyCards:(void(^)(NSArray* cards, NSError* error))completion

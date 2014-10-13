@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Balazs Ilsinszki. All rights reserved.
 //
 
-#import "CTViewController.h"
+#import "CTPassingViewNavigationViewController.h"
 
-@interface CTPrintTemplateViewController_Common : CTViewController
+@interface CTPrintTemplateViewController_Common : CTPassingViewNavigationViewController
 
 @end

@@ -8,7 +8,15 @@
 
 #import "CTPrintTemplateViewController_iPad.h"
 
-@interface CTPrintTemplateViewController_iPad ()
+#import "UIFactory.h"
+
+@interface CTPrintTemplateViewController_iPad () {
+    
+    UIButton* _backButton;
+    
+    UIView* _passingView;
+    
+}
 
 @end
 
@@ -16,22 +24,49 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    _backButton = [UIFactory defaultButtonWithTitle:@"Back" target:self action:@selector( backButtonAction: ) ];
+    [self.view addSubview:_backButton];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - LayoutSubviews
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void) viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    [_backButton setFrame:CGRectMake(0, 25, 120, 44)];
 }
-*/
+
+#pragma mark - Action
+
+- (void) backButtonAction:(UIButton*) backButton
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+#pragma mark - CTPassingViewNavigating protocol
+
+- (UIView*) passingViewForKey:(CTPassingViewNavigatingKey*) key
+{
+    return _passingView;
+}
+
+- (CGRect) passingViewRectForKey:(CTPassingViewNavigatingKey*) key
+{
+    return CGRectMake(self.view.frame.size.width - 250, 50, 200, 200);
+}
+
+- (void) receivingView:(UIView*) view forKey:(CTPassingViewNavigatingKey*) key
+{
+    _passingView = view;
+    [self.view addSubview:_passingView];
+}
 
 @end
