@@ -24,6 +24,8 @@
     [self addResponseDescriptors:self.cardResponseDescriptors];
     
     [self addResponseDescriptors:[self settingsIDResponseDescriptors] ];
+    
+    [self addResponseDescriptors:[self backgroundAnimationResponseDescriptors] ];
 }
 
 - (void)addRequestDescriptor:(RKRequestDescriptor*)descriptor {
@@ -131,6 +133,35 @@
     }];
     
     
+    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
+    
+    return operation;
+}
+
+#pragma mark - Background animation settings
+
+- (RKObjectMapping*) backgroundAnimationMapping
+{
+    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
+    return mapping;
+}
+
+- (NSArray*) backgroundAnimationResponseDescriptors
+{
+    RKResponseDescriptor* responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[self backgroundAnimationMapping] method:RKRequestMethodGET|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE pathPattern:@"backgroundAnimation.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    return @[ responseDescriptor ];
+}
+
+- (NSOperation*)getBackgroundAnimationJSON:(void(^)(NSDictionary* settingsID, NSError* error))completion
+{
+    RKObjectRequestOperation* operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:@"backgroundAnimation.json" parameters:nil];
+
+    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        NSLog(@"Succ");
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        NSLog(@"Failure");
+    }];
+
     [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
     
     return operation;

@@ -88,8 +88,12 @@
 
 - (void) performUpdate
 {
-    
     NSLog(@"Perform update");
+    
+    [[CTNetworkingManager sharedManager] getBackgroundAnimationJSON:^(NSDictionary *settingsID, NSError *error) {
+        NSLog(@"BackgroundAnim");
+    }];
+    
 }
 
 - (long) currentBackgroundTime
