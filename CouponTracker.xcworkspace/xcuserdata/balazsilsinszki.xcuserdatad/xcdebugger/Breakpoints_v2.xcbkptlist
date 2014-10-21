@@ -30,11 +30,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CouponTracker/CouponTracker/CTWindow.m"
-            timestampString = "435573572.300968"
+            timestampString = "435590007.441431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "-setBackgroundImagePosition"
             landmarkType = "5">
          </BreakpointContent>
@@ -46,11 +46,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CouponTracker/CouponTracker/CTWindow.m"
-            timestampString = "435573572.300968"
+            timestampString = "435590007.441431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "-welcomeAnimation"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,62 +202,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CTServices/CTServices/Networking/CTNetworkingManager.m"
-            timestampString = "435576314.720409"
+            filePath = "CTServices/CTServices/BackgroundService/CTBackgroundService.m"
+            timestampString = "435591267.209603"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "-getBackgroundAnimationJSON:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__50-[CTNetworkingManager getBackgroundAnimationJSON:]_block_invoke"
-                  moduleName = "CouponTracker"
-                  urlString = "file:///Users/balazsilsinszki/Documents/Programming/iOS/GitHub/Skyscanner/CouponTracker/CTServices/CTServices/Networking/CTNetworkingManager.m"
-                  timestampString = "435576343.991434"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "161"
-                  endingLineNumber = "161"
-                  offsetFromSymbolStart = "96">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__50-[CTNetworkingManager getBackgroundAnimationJSON:]_block_invoke_2"
-                  moduleName = "CouponTracker"
-                  urlString = "file:///Users/balazsilsinszki/Documents/Programming/iOS/GitHub/Skyscanner/CouponTracker/CTServices/CTServices/Networking/CTNetworkingManager.m"
-                  timestampString = "435576343.991936"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "161"
-                  endingLineNumber = "161"
-                  offsetFromSymbolStart = "68">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CTServices/CTServices/Networking/CTNetworkingManager.m"
-            timestampString = "435576326.439594"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "-getBackgroundAnimationJSON:"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-setUpAnimationPath"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

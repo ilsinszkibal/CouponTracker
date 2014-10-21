@@ -49,9 +49,6 @@
         [[CTBackgroundService sharedManager] checkForUpdate];
         
         [self addSubview:_backgroundImageView];
-        
-        [self setUpMotionEffects];
-        
     }
     
     return self;
@@ -111,8 +108,14 @@
     [UIView animateWithDuration:[_animationProperties animationDuration] animations:^{
         [self setBackgroundImagePosition];
     } completion:^(BOOL finished) {
+        [self completedAnimation:finished];
     }];
     
+}
+
+- (void) completedAnimation:(BOOL) finished
+{
+    [self setUpMotionEffects];
 }
 
 - (void) welcomeAnimation

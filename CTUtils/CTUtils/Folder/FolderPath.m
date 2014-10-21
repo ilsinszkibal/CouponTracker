@@ -52,4 +52,35 @@
     return [[NSFileManager defaultManager] fileExistsAtPath:path];
 }
 
++ (BOOL) setURLIsExcludedFromBackupKeyForFilePath:(NSString*) filePath
+{
+    
+    NSString* documentsFolderPath = [self documentsFolderPath];
+    NSRange documentsRange = [filePath rangeOfString:documentsFolderPath];
+    
+    if ( documentsRange.location != 0 )
+    {
+        //Not in the documents folder, then no point in saving the file
+        return NO;
+    }
+    
+
+    //Add NSURLIsExcludedFromBackupKey in order to not back up on icloud
+    if ( [[NSFileManager defaultManager] fileExistsAtPath:filePath] )
+    {
+        NSError* error = nil;
+        BOOL success = [[NSURL fileURLWithPath:filePath] setResourceValue:@YES forKey:NSURLIsExcludedFromBackupKey error:&error];
+        
+        if ( success == NO )
+        {
+            NSLog(@"FolderPath setURLIsExcludedFromBackupKeyForFilePath failed for path %@ error %@", filePath, error);
+        }
+        
+        //Return
+        return error == nil;
+    }
+    
+    return NO;
+}
+
 @end

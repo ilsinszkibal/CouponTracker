@@ -41,10 +41,11 @@
     NSString* jsonPath = [FolderPath backgroundAnimationPath];
     NSString* imagePath = [FolderPath backgroundImagePath];
     
-    if ( [FolderPath checkIfFileExists:jsonPath] && [FolderPath checkIfFileExists:imagePath] )
+    if ( [FolderPath checkIfFileExists:jsonPath] /*&& [FolderPath checkIfFileExists:imagePath]*/ )
     {
         _jsonPath = jsonPath;
-        _imagePath = imagePath;
+        _imagePath = [FolderPath defaultBackgroundImagePath];
+    //    _imagePath = imagePath;
     }
     else
     {
@@ -88,10 +89,26 @@
 
 - (void) performUpdate
 {
-    NSLog(@"Perform update");
     
-    [[CTNetworkingManager sharedManager] getBackgroundAnimationJSON:^(NSDictionary *settingsID, NSError *error) {
-        NSLog(@"BackgroundAnim");
+    [[CTNetworkingManager sharedManager] getBackgroundAnimationJSON:^(NSDictionary* settingsID, NSError* error) {
+       
+        if ( settingsID )
+        {
+            //Save settingsId to backgroundAnimationPath
+            NSString* filePath = [FolderPath backgroundAnimationPath];
+            
+            NSError* error = nil;
+            NSData* data = [NSJSONSerialization dataWithJSONObject:settingsID options:NSJSONWritingPrettyPrinted error:&error];
+            [data writeToFile:filePath atomically:YES];
+           
+            //Set the flag to not sync for iCloud
+            if ( error == nil )
+            {
+                [FolderPath setURLIsExcludedFromBackupKeyForFilePath:filePath];
+            }
+            
+        }
+        
     }];
     
 }

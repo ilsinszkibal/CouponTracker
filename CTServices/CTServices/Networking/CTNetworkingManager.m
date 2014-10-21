@@ -143,7 +143,7 @@
 - (RKObjectMapping*) backgroundAnimationMapping
 {
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
-    [mapping addAttributeMappingsFromArray:@[@"epochtime"]];
+    [mapping addAttributeMappingsFromArray:@[@"epochtime", @"imageName", @"preAnimationPosition", @"postAnimationPosition", @"moveAnimationDuration", @"alphaAnimationDuration", @"backgroundColor"]];
     return mapping;
 }
 
@@ -158,9 +158,11 @@
     RKObjectRequestOperation* operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:@"backgroundAnimation.json" parameters:nil];
 
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        NSLog(@"Succ %@", [mappingResult firstObject] );
+        if ( completion )
+            completion([mappingResult firstObject], nil);
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        NSLog(@"Failure");
+        if ( completion )
+            completion(nil, error);
     }];
 
     [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];

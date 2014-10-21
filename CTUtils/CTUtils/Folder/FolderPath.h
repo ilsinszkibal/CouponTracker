@@ -22,4 +22,6 @@
 //Checked
 + (BOOL) checkIfFileExists:(NSString*) path;
 
++ (BOOL) setURLIsExcludedFromBackupKeyForFilePath:(NSString*) filePath;
+
 @end
