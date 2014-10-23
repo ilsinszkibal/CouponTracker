@@ -81,7 +81,7 @@
     [viewController setTransitioningDelegate:self.navigationTransitioning];
     
     viewController.modalPresentationStyle = UIModalPresentationCustom;
-    [self presentViewController:viewController animated:YES completion:nil];
+    [self presentViewController:viewController animated:flag completion:nil];
 }
 
 @end

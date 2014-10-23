@@ -17,6 +17,8 @@
     CGSize _backgroundImageViewSize;
     
     CTWelcomeAnimationProperties* _animationProperties;
+    
+    UIMotionEffectGroup* _motionEffects;
 }
 
 @end
@@ -25,7 +27,7 @@
 
 - (id) initWithFrame:(CGRect)frame
 {
-    
+   
     self = [super initWithFrame:frame];
     
     if ( self ) {
@@ -47,7 +49,6 @@
         [[CTBackgroundService sharedManager] checkForUpdate];
         
         [self addSubview:_backgroundImageView];
-        
     }
     
     return self;
@@ -66,6 +67,24 @@
 }
 
 #pragma mark - Private
+
+- (void) setUpMotionEffects
+{
+    
+    UIInterpolatingMotionEffect *verticalMotionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+    verticalMotionEffect.minimumRelativeValue = @(-20);
+    verticalMotionEffect.maximumRelativeValue = @(20);
+    
+    UIInterpolatingMotionEffect *horizontalMotionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+    horizontalMotionEffect.minimumRelativeValue = @(-20);
+    horizontalMotionEffect.maximumRelativeValue = @(20);
+    
+    _motionEffects = [UIMotionEffectGroup new];
+    _motionEffects.motionEffects = @[horizontalMotionEffect, verticalMotionEffect];
+    
+    [_backgroundImageView addMotionEffect:_motionEffects];
+    
+}
 
 - (void) setBackgroundImagePosition
 {
@@ -89,8 +108,14 @@
     [UIView animateWithDuration:[_animationProperties animationDuration] animations:^{
         [self setBackgroundImagePosition];
     } completion:^(BOOL finished) {
+        [self completedAnimation:finished];
     }];
     
+}
+
+- (void) completedAnimation:(BOOL) finished
+{
+    [self setUpMotionEffects];
 }
 
 - (void) welcomeAnimation

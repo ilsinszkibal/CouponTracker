@@ -19,6 +19,8 @@
 		6BCDDFDD19E16600002599F4 /* CTPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCDDFD819E16600002599F4 /* CTPresentationController.m */; };
 		6BCDDFDE19E16600002599F4 /* CTBouncingAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCDDFDB19E16600002599F4 /* CTBouncingAnimatedTransitioning.m */; };
 		6BCDDFE119E1667D002599F4 /* CTNavigationAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCDDFE019E1667D002599F4 /* CTNavigationAnimatedTransitioning.m */; };
+		6BDCAFB219EC428A00365D32 /* CTPassingViewNavigationAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BDCAFB119EC428A00365D32 /* CTPassingViewNavigationAnimatedTransitioning.m */; };
+		6BDCAFB619EC438200365D32 /* CTPassingViewNavigatingKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BDCAFB519EC438200365D32 /* CTPassingViewNavigatingKey.m */; };
 		98DACD1BB3EA4D0D8EF9DEDA /* libPods-CTUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6829225D3E24D5A9558EED8 /* libPods-CTUtils.a */; };
 /* End PBXBuildFile section */
 
@@ -176,6 +178,11 @@
 		6BCDDFDB19E16600002599F4 /* CTBouncingAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTBouncingAnimatedTransitioning.m; sourceTree = "<group>"; };
 		6BCDDFDF19E1667D002599F4 /* CTNavigationAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNavigationAnimatedTransitioning.h; sourceTree = "<group>"; };
 		6BCDDFE019E1667D002599F4 /* CTNavigationAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTNavigationAnimatedTransitioning.m; sourceTree = "<group>"; };
+		6BDCAFB019EC428A00365D32 /* CTPassingViewNavigationAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTPassingViewNavigationAnimatedTransitioning.h; path = PassingViewNavigation/CTPassingViewNavigationAnimatedTransitioning.h; sourceTree = "<group>"; };
+		6BDCAFB119EC428A00365D32 /* CTPassingViewNavigationAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTPassingViewNavigationAnimatedTransitioning.m; path = PassingViewNavigation/CTPassingViewNavigationAnimatedTransitioning.m; sourceTree = "<group>"; };
+		6BDCAFB319EC431E00365D32 /* CTPassingViewNavigating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTPassingViewNavigating.h; path = PassingViewNavigation/CTPassingViewNavigating.h; sourceTree = "<group>"; };
+		6BDCAFB419EC438200365D32 /* CTPassingViewNavigatingKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTPassingViewNavigatingKey.h; path = PassingViewNavigation/CTPassingViewNavigatingKey.h; sourceTree = "<group>"; };
+		6BDCAFB519EC438200365D32 /* CTPassingViewNavigatingKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTPassingViewNavigatingKey.m; path = PassingViewNavigation/CTPassingViewNavigatingKey.m; sourceTree = "<group>"; };
 		A6829225D3E24D5A9558EED8 /* libPods-CTUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CTUtils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3BBA0619D6FEAE0006DE0F /* libPods-CTUtils-RestKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CTUtils-RestKit.a"; path = "../Pods/build/Debug-iphoneos/libPods-CTUtils-RestKit.a"; sourceTree = "<group>"; };
 		BD3BBAA819D700BE0006DE0F /* libPods-CTUtils-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CTUtils-AFNetworking.a"; path = "../Pods/build/Debug-iphoneos/libPods-CTUtils-AFNetworking.a"; sourceTree = "<group>"; };
@@ -348,12 +355,25 @@
 		6BCDDFD919E16600002599F4 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
+				6BDCAFA119EC426400365D32 /* PassingViewNavigation */,
 				6BCDDFDA19E16600002599F4 /* CTBouncingAnimatedTransitioning.h */,
 				6BCDDFDB19E16600002599F4 /* CTBouncingAnimatedTransitioning.m */,
 				6BCDDFDF19E1667D002599F4 /* CTNavigationAnimatedTransitioning.h */,
 				6BCDDFE019E1667D002599F4 /* CTNavigationAnimatedTransitioning.m */,
 			);
 			path = Transitions;
+			sourceTree = "<group>";
+		};
+		6BDCAFA119EC426400365D32 /* PassingViewNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				6BDCAFB019EC428A00365D32 /* CTPassingViewNavigationAnimatedTransitioning.h */,
+				6BDCAFB119EC428A00365D32 /* CTPassingViewNavigationAnimatedTransitioning.m */,
+				6BDCAFB319EC431E00365D32 /* CTPassingViewNavigating.h */,
+				6BDCAFB419EC438200365D32 /* CTPassingViewNavigatingKey.h */,
+				6BDCAFB519EC438200365D32 /* CTPassingViewNavigatingKey.m */,
+			);
+			name = PassingViewNavigation;
 			sourceTree = "<group>";
 		};
 		BD3BBAC919D701190006DE0F /* Products */ = {
@@ -644,7 +664,9 @@
 				6BA6310F19EAA69600D56532 /* FolderPath.m in Sources */,
 				6BB2AD6019E311D000525002 /* UIFactory.m in Sources */,
 				6BCDDFDE19E16600002599F4 /* CTBouncingAnimatedTransitioning.m in Sources */,
+				6BDCAFB619EC438200365D32 /* CTPassingViewNavigatingKey.m in Sources */,
 				6BA6312219EAB51D00D56532 /* DeviceInfo.m in Sources */,
+				6BDCAFB219EC428A00365D32 /* CTPassingViewNavigationAnimatedTransitioning.m in Sources */,
 				6BCDDFE119E1667D002599F4 /* CTNavigationAnimatedTransitioning.m in Sources */,
 				6BB2AD4D19E30BA100525002 /* CTColor.m in Sources */,
 				6BA6311E19EAB45B00D56532 /* CGExtensions.m in Sources */,

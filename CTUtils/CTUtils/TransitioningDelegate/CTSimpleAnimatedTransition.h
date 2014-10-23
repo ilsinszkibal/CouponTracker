@@ -11,6 +11,7 @@
 typedef enum : NSUInteger {
     PresentationTypeBouncing,
     PresentationTypeSideNavigation,
+    PresentationTypeViewPassingNavigation
 } PresentationType;
 
 @interface CTSimpleAnimatedTransition : NSObject<UIViewControllerTransitioningDelegate>
@@ -21,6 +22,7 @@ typedef enum : NSUInteger {
 
 + (instancetype) bouncingModalPresentationTransition;
 + (instancetype) sideNavigationPresentationTransition;
++ (instancetype) viewPassingNavigationPresentationTransition;
 
 - (id) initWithPresentingAnimated:(id<UIViewControllerAnimatedTransitioning>) presentingAnimated dismissalAnimated:(id<UIViewControllerAnimatedTransitioning>) dismissalAnimated presentationType:(PresentationType) presentationType;
 

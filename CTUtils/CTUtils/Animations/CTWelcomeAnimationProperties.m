@@ -38,8 +38,7 @@ struct AnimationDuration {
 #pragma mark - Factory method
 
 + (instancetype) createOpeningAnimationForImageSize:(CGSize)imageSize withDictionary:(NSDictionary*) dictionary
-{
-    
+{    
     struct AnimationPosition prePosition = [self animationPosition:dictionary[ [self preAnimationPositionKey] ] ];
     struct AnimationPosition postPosition = [self animationPosition:dictionary[ [self postAnimationPosition] ] ];
     

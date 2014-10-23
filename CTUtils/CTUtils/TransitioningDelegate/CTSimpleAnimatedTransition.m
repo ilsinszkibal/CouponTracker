@@ -12,6 +12,7 @@
 
 #import "CTBouncingAnimatedTransitioning.h"
 #import "CTNavigationAnimatedTransitioning.h"
+#import "CTPassingViewNavigationAnimatedTransitioning.h"
 
 @implementation CTSimpleAnimatedTransition
 
@@ -35,6 +36,17 @@
     id<UIViewControllerAnimatedTransitioning> dismissing = [[CTNavigationAnimatedTransitioning alloc] initWithMoveLeft:NO];
     
     CTSimpleAnimatedTransition* animatedTransition = [[CTSimpleAnimatedTransition alloc] initWithPresentingAnimated:presenting dismissalAnimated:dismissing presentationType:PresentationTypeSideNavigation];
+    
+    return animatedTransition;
+}
+
++ (instancetype) viewPassingNavigationPresentationTransition
+{
+    
+    id<UIViewControllerAnimatedTransitioning> presenting = [[CTPassingViewNavigationAnimatedTransitioning alloc] initWithMoveLeft:YES];
+    id<UIViewControllerAnimatedTransitioning> dismissing = [[CTPassingViewNavigationAnimatedTransitioning alloc] initWithMoveLeft:NO];
+    
+    CTSimpleAnimatedTransition* animatedTransition = [[CTSimpleAnimatedTransition alloc] initWithPresentingAnimated:presenting dismissalAnimated:dismissing presentationType:PresentationTypeViewPassingNavigation];
     
     return animatedTransition;
 }

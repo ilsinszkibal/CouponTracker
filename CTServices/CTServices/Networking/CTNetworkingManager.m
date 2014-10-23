@@ -33,6 +33,9 @@
     [self addResponseDescriptors:self.templateResponseDescriptors];
     
     [self addResponseDescriptors:[self settingsIDResponseDescriptors]];
+    [self addResponseDescriptors:[self settingsIDResponseDescriptors] ];
+    
+    [self addResponseDescriptors:[self backgroundAnimationResponseDescriptors] ];
 }
 
 - (void)addRequestDescriptor:(RKRequestDescriptor*)descriptor {
@@ -282,6 +285,38 @@
     }];
     
     
+    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
+    
+    return operation;
+}
+
+#pragma mark - Background animation settings
+
+- (RKObjectMapping*) backgroundAnimationMapping
+{
+    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
+    [mapping addAttributeMappingsFromArray:@[@"epochtime", @"imageName", @"preAnimationPosition", @"postAnimationPosition", @"moveAnimationDuration", @"alphaAnimationDuration", @"backgroundColor"]];
+    return mapping;
+}
+
+- (NSArray*) backgroundAnimationResponseDescriptors
+{
+    RKResponseDescriptor* responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[self backgroundAnimationMapping] method:RKRequestMethodGET|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE pathPattern:@"backgroundAnimation.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    return @[ responseDescriptor ];
+}
+
+- (NSOperation*)getBackgroundAnimationJSON:(void(^)(NSDictionary* settingsID, NSError* error))completion
+{
+    RKObjectRequestOperation* operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:@"backgroundAnimation.json" parameters:nil];
+
+    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if ( completion )
+            completion([mappingResult firstObject], nil);
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if ( completion )
+            completion(nil, error);
+    }];
+
     [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
     
     return operation;

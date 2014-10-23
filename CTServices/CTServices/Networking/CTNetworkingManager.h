@@ -23,4 +23,6 @@
 
 - (NSOperation*)getSettingsID:(void(^)(CTServerSettings* settingsID, NSError* error))completion;
 
+- (NSOperation*)getBackgroundAnimationJSON:(void(^)(NSDictionary* settingsID, NSError* error))completion;
+
 @end

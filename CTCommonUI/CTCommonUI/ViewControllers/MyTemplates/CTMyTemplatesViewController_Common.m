@@ -13,6 +13,7 @@
 @interface CTMyTemplatesViewController_Common () {
     
     CTNewTemplateViewController_Common* _newTemplateViewController;
+    CTPrintTemplateViewController_Common* _printTemplateViewController;
     
 }
 
@@ -37,8 +38,10 @@
     [self navigateToViewController:_newTemplateViewController];
 }
 
-- (NSOperation*)uploadImage:(UIImage*)image completion:(void(^)(Model_Image* image, NSError* error))completion {
-    return [[CTNetworkingManager sharedManager] postImage:image completion:completion];
+- (void) showPrintTemplate:(CTPrintTemplateViewController_Common*)  printTemplateViewController forKey:(CTPassingViewNavigatingKey*) key
+{
+    _printTemplateViewController = printTemplateViewController;
+    [self passingViewNavigateToViewController:_printTemplateViewController forKey:key];
 }
 
 - (NSOperation*) getMyCards:(void(^)(NSArray* cards, NSError* error))completion
