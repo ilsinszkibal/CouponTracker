@@ -37,6 +37,10 @@
     [self navigateToViewController:_newTemplateViewController];
 }
 
+- (NSOperation*)uploadImage:(UIImage*)image completion:(void(^)(Model_Image* image, NSError* error))completion {
+    return [[CTNetworkingManager sharedManager] postImage:image completion:completion];
+}
+
 - (NSOperation*) getMyCards:(void(^)(NSArray* cards, NSError* error))completion
 {
     return [[CTNetworkingManager sharedManager] getCards:completion];

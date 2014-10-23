@@ -7,14 +7,26 @@
 //
 
 #import "CTMainViewController_iPhone.h"
-
+#import "CTScanViewController_iPhone.h"
+#import "CTMyTemplatesViewController_iPhone.h"
+#import "CTCardsViewController_iPhone.h"
 #import "UIFactory.h"
+#import "CTUserManager.h"
+#import "CTUser.h"
 
 @interface CTMainViewController_iPhone ()
 
+@property (nonatomic, strong) UILabel* loginLabel;
+
 @property (nonatomic, strong) UIButton* loginButton;
+@property (nonatomic, strong) UIButton* scanButton;
+@property (nonatomic, strong) UIButton* cardsButton;
+@property (nonatomic, strong) UIButton* templatesButton;
 
 - (void)loginButtonPressed:(UIButton*)button;
+- (void)scanButtonPressed:(UIButton*)button;
+- (void)cardsButtonPressed:(UIButton*)button;
+- (void)templatesButtonPressed:(UIButton*)button;
 
 @end
 
@@ -23,17 +35,70 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.loginLabel = [[UILabel alloc] init];
+    self.loginLabel.backgroundColor = [UIColor clearColor];
+    self.loginLabel.textColor = [UIColor whiteColor];
+    self.loginLabel.font = [UIFont boldSystemFontOfSize:16];
+    self.loginLabel.numberOfLines = 0;
+    [self.view addSubview:self.loginLabel];
+    
     self.loginButton = [UIFactory defaultButtonWithTitle:@"Login" target:self action:@selector(loginButtonPressed:) ];
     [self.view addSubview:self.loginButton];
+    
+    self.cardsButton = [UIFactory defaultButtonWithTitle:@"My coupons" target:self action:@selector(cardsButtonPressed:) ];
+    [self.view addSubview:self.cardsButton];
+    
+    self.templatesButton = [UIFactory defaultButtonWithTitle:@"Templates" target:self action:@selector(templatesButtonPressed:) ];
+    [self.view addSubview:self.templatesButton];
+    
+    self.scanButton = [[UIButton alloc] init];
+    [self.scanButton addTarget:self action:@selector(scanButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.scanButton setBackgroundColor:[UIColor clearColor]];
+    [self.scanButton setAlpha:0.65];
+    [self.scanButton setImage:[UIImage imageNamed:@"scan"] forState:UIControlStateNormal];
+    [self.view addSubview:self.scanButton];
 }
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    [self.loginButton setFrame:CGRectMake(20, 20, 100, 40)];
+    
+    [self.loginLabel setFrame:CGRectMake(20, 30, 280, 100)];
+    
+    [self.loginButton setFrame:CGRectMake(200, 20, 100, 40)];
+    [self.cardsButton setFrame:CGRectMake(20, 460, 100, 40)];
+    [self.templatesButton setFrame:CGRectMake(200, 460, 100, 40)];
+    
+    [self.scanButton setFrame:CGRectMake(110, 200, 100, 100)];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    CTUser* currentUser = [CTUserManager sharedManager].currentUser;
+    if (currentUser) {
+        self.loginLabel.text = [NSString stringWithFormat:@"Welcome %@!", currentUser.name];
+    } else {
+        self.loginLabel.text = @"You are not logged in.\nAfter you are part of the CouponTracker community, you can create custom beautiful coupon cards and spread them to the world!";
+    }
 }
 
 - (void)loginButtonPressed:(UIButton*)button {
     [self showLogin];
+}
+
+- (void)scanButtonPressed:(UIButton*)button {
+    UIViewController* login = [[CTScanViewController_iPhone alloc] init];
+    [self navigateToViewController:login];
+}
+
+- (void)cardsButtonPressed:(UIButton*)button {
+    UIViewController* login = [[CTCardsViewController_iPhone alloc] init];
+    [self navigateToViewController:login];
+}
+
+- (void)templatesButtonPressed:(UIButton*)button {
+    UIViewController* login = [[CTMyTemplatesViewController_iPhone alloc] init];
+    [self navigateToViewController:login];
 }
 
 @end

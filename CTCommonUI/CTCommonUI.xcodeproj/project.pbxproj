@@ -16,6 +16,9 @@
 		6B77A8CA19D6C9E200FC0978 /* CTCommonUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6B77A8C919D6C9E200FC0978 /* CTCommonUI.h */; };
 		6B77A8CC19D6C9E200FC0978 /* CTCommonUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A8CB19D6C9E200FC0978 /* CTCommonUI.m */; };
 		6B77A8E719D6CBC100FC0978 /* libCTServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77A8E619D6CBC100FC0978 /* libCTServices.a */; };
+		BD31F30419F9170200AF73D6 /* CTScanViewController_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31F30319F9170200AF73D6 /* CTScanViewController_Common.m */; };
+		BD31F31819F9415000AF73D6 /* CTCardsViewController_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31F31719F9415000AF73D6 /* CTCardsViewController_Common.m */; };
+		BD31F31C19F944E400AF73D6 /* CTCardsViewController_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31F31719F9415000AF73D6 /* CTCardsViewController_Common.m */; };
 		BD7228BC19E165A800EA93A9 /* CTTwoStateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7228BB19E165A800EA93A9 /* CTTwoStateButton.m */; };
 		BD7228C319E194A900EA93A9 /* CTValidTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7228C219E194A900EA93A9 /* CTValidTextField.m */; };
 		BD7AB1CB19E14A91000D88AB /* CardDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB19519E14A91000D88AB /* CardDrawing.m */; };
@@ -92,6 +95,10 @@
 		6B77A8D419D6C9E200FC0978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B77A8E619D6CBC100FC0978 /* libCTServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCTServices.a; path = "../CTServices/build/Debug-iphoneos/libCTServices.a"; sourceTree = "<group>"; };
 		6BCB423319D7188C0091E870 /* CTServices.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTServices.xcodeproj; path = ../CTServices/CTServices.xcodeproj; sourceTree = "<group>"; };
+		BD31F30219F9170200AF73D6 /* CTScanViewController_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTScanViewController_Common.h; sourceTree = "<group>"; };
+		BD31F30319F9170200AF73D6 /* CTScanViewController_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTScanViewController_Common.m; sourceTree = "<group>"; };
+		BD31F31619F9415000AF73D6 /* CTCardsViewController_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTCardsViewController_Common.h; sourceTree = "<group>"; };
+		BD31F31719F9415000AF73D6 /* CTCardsViewController_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTCardsViewController_Common.m; sourceTree = "<group>"; };
 		BD7228BA19E165A800EA93A9 /* CTTwoStateButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTTwoStateButton.h; sourceTree = "<group>"; };
 		BD7228BB19E165A800EA93A9 /* CTTwoStateButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTTwoStateButton.m; sourceTree = "<group>"; };
 		BD7228C119E194A900EA93A9 /* CTValidTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTValidTextField.h; sourceTree = "<group>"; };
@@ -277,6 +284,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		BD31F2FF19F916E500AF73D6 /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				BD31F30219F9170200AF73D6 /* CTScanViewController_Common.h */,
+				BD31F30319F9170200AF73D6 /* CTScanViewController_Common.m */,
+			);
+			path = Scan;
+			sourceTree = "<group>";
+		};
+		BD31F31519F9415000AF73D6 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				BD31F31619F9415000AF73D6 /* CTCardsViewController_Common.h */,
+				BD31F31719F9415000AF73D6 /* CTCardsViewController_Common.m */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
 		BD7AB19119E14A91000D88AB /* ReusableComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +411,8 @@
 		BD7AB1C319E14A91000D88AB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BD31F31519F9415000AF73D6 /* Cards */,
+				BD31F2FF19F916E500AF73D6 /* Scan */,
 				6B5056E819E14D4B006939CC /* PrintTemplate */,
 				6B5056DE19E14CF1006939CC /* NewTemplate */,
 				6B5056D319E14C7E006939CC /* MyTemplates */,
@@ -535,6 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD31F31C19F944E400AF73D6 /* CTCardsViewController_Common.m in Sources */,
 				BD7AB1CF19E14A91000D88AB /* CouponDrawingImageLayer.m in Sources */,
 				BD7AB1D719E14A91000D88AB /* CardDrawingOperationView.m in Sources */,
 				6B4C2B0919E6FE7500FB87DE /* PreferredSizingImageView.m in Sources */,
@@ -557,6 +585,7 @@
 				6B77A8CC19D6C9E200FC0978 /* CTCommonUI.m in Sources */,
 				6B5056D219E14BCB006939CC /* CTMainViewController_Common.m in Sources */,
 				6B5056D619E14C92006939CC /* CTMyTemplatesViewController_Common.m in Sources */,
+				BD31F30419F9170200AF73D6 /* CTScanViewController_Common.m in Sources */,
 				BD7AB1D119E14A91000D88AB /* CouponDrawingTextLayer.m in Sources */,
 				BD7228C319E194A900EA93A9 /* CTValidTextField.m in Sources */,
 				BD7AB1DA19E14A91000D88AB /* CardDrawingEditTextPresentView.m in Sources */,
@@ -572,6 +601,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD31F31819F9415000AF73D6 /* CTCardsViewController_Common.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

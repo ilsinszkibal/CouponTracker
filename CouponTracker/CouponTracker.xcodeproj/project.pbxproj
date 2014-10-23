@@ -24,6 +24,8 @@
 		6BA630FB19EAA66A00D56532 /* DefaultBackgroundiPad.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BA630FA19EAA66A00D56532 /* DefaultBackgroundiPad.json */; };
 		6BA6312419EAB94300D56532 /* DefaultBackgroundiPhone.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BA6312319EAB94300D56532 /* DefaultBackgroundiPhone.json */; };
 		6BA6312619EABB3800D56532 /* DefaultBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6BA6312519EABB3800D56532 /* DefaultBackground.jpg */; };
+		BD31F30E19F91EC500AF73D6 /* CTScanViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31F30D19F91EC500AF73D6 /* CTScanViewController_iPhone.m */; };
+		BD31F31B19F9417700AF73D6 /* CTCardsViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31F31A19F9417700AF73D6 /* CTCardsViewController_iPhone.m */; };
 		BD3BBB3B19D703760006DE0F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB3A19D703760006DE0F /* CoreData.framework */; };
 		BD3BBB4019D703990006DE0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB3F19D703990006DE0F /* SystemConfiguration.framework */; };
 		BD3BBB4219D703E30006DE0F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB4119D703E30006DE0F /* MobileCoreServices.framework */; };
@@ -92,6 +94,10 @@
 		6BA630FA19EAA66A00D56532 /* DefaultBackgroundiPad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DefaultBackgroundiPad.json; path = CouponTracker/Resources/DefaultBackgroundiPad.json; sourceTree = "<group>"; };
 		6BA6312319EAB94300D56532 /* DefaultBackgroundiPhone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DefaultBackgroundiPhone.json; path = CouponTracker/Resources/DefaultBackgroundiPhone.json; sourceTree = "<group>"; };
 		6BA6312519EABB3800D56532 /* DefaultBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = DefaultBackground.jpg; path = CouponTracker/Resources/DefaultBackground.jpg; sourceTree = "<group>"; };
+		BD31F30C19F91EC500AF73D6 /* CTScanViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTScanViewController_iPhone.h; path = UI/iPhone/CTScanViewController_iPhone.h; sourceTree = "<group>"; };
+		BD31F30D19F91EC500AF73D6 /* CTScanViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTScanViewController_iPhone.m; path = UI/iPhone/CTScanViewController_iPhone.m; sourceTree = "<group>"; };
+		BD31F31919F9417700AF73D6 /* CTCardsViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTCardsViewController_iPhone.h; path = UI/iPhone/CTCardsViewController_iPhone.h; sourceTree = "<group>"; };
+		BD31F31A19F9417700AF73D6 /* CTCardsViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTCardsViewController_iPhone.m; path = UI/iPhone/CTCardsViewController_iPhone.m; sourceTree = "<group>"; };
 		BD3BBA0819D700070006DE0F /* CTCommonUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTCommonUI.xcodeproj; path = ../CTCommonUI/CTCommonUI.xcodeproj; sourceTree = "<group>"; };
 		BD3BBB3A19D703760006DE0F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		BD3BBB3D19D703880006DE0F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -165,6 +171,10 @@
 				6B5056E619E14D45006939CC /* CTNewTemplateViewController_iPhone.m */,
 				6B5056EF19E14D86006939CC /* CTPrintTemplateViewController_iPhone.h */,
 				6B5056F019E14D86006939CC /* CTPrintTemplateViewController_iPhone.m */,
+				BD31F30C19F91EC500AF73D6 /* CTScanViewController_iPhone.h */,
+				BD31F30D19F91EC500AF73D6 /* CTScanViewController_iPhone.m */,
+				BD31F31919F9417700AF73D6 /* CTCardsViewController_iPhone.h */,
+				BD31F31A19F9417700AF73D6 /* CTCardsViewController_iPhone.m */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -388,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B483C0C19E31604009B7C99 /* CTWindow.m in Sources */,
+				BD31F30E19F91EC500AF73D6 /* CTScanViewController_iPhone.m in Sources */,
 				6B5056F119E14D86006939CC /* CTPrintTemplateViewController_iPhone.m in Sources */,
 				6B77A87719D6C5AE00FC0978 /* AppDelegate.m in Sources */,
 				6B6053C119E1462A0047293F /* CTMainViewController_iPhone.m in Sources */,
@@ -397,6 +408,7 @@
 				6B4C2AFD19E6F70100FB87DE /* CTMyTemplatesViewController_iPad.m in Sources */,
 				6B5056E719E14D45006939CC /* CTNewTemplateViewController_iPhone.m in Sources */,
 				6B4C2AFC19E6F70100FB87DE /* CTMainViewController_iPad.m in Sources */,
+				BD31F31B19F9417700AF73D6 /* CTCardsViewController_iPhone.m in Sources */,
 				6B5056DD19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

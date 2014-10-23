@@ -10,10 +10,13 @@
 
 #import "CTNewTemplateViewController_Common.h"
 
+@class Model_Image;
+
 @interface CTMyTemplatesViewController_Common : CTViewController
 
 - (void) showNewTemplate:(CTNewTemplateViewController_Common*) newTemplateViewController;
 
+- (NSOperation*)uploadImage:(UIImage*)image completion:(void(^)(Model_Image* image, NSError* error))completion;
 - (NSOperation*) getMyCards:(void(^)(NSArray* cards, NSError* error))completion;
 
 @end

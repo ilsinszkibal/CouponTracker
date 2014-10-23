@@ -12,9 +12,10 @@
 
 #import "CTNewTemplateViewController_iPad.h"
 
-#import "iCarousel.h"
+#import <iCarousel/iCarousel.h>
 #import "BorderContainerView.h"
 #import "PreferredSizingImageView.h"
+#import "Model.h"
 
 @interface CTMyTemplatesViewController_iPad () <iCarouselDataSource, iCarouselDelegate> {
     
@@ -47,10 +48,14 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+     [super viewDidAppear:animated];
     
     [self getMyCards:^(NSArray *cards, NSError *error) {
         NSLog(@"Got cards %@", cards);
+    }];
+    
+    [self uploadImage:[UIImage imageNamed:@"bg"] completion:^(Model_Image *image, NSError *error) {
+        
     }];
 }
 

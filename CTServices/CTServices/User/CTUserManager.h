@@ -7,7 +7,6 @@
 //
 
 #import "CTBaseManager.h"
-#import <ReactiveCocoa.h>
 
 @class CTUser, CTOauth2User, CCValidator;
 
@@ -20,13 +19,6 @@
 - (void)logout;
 - (void)signupUser:(CTUser*)user completion:(void(^)(CTUser* user, NSError* error))block;
 - (void)requestPasswordResetForEmail:(NSString*)email completion:(void(^)(BOOL succeed, NSError* error))block;
-
-@property (nonatomic, strong) RACSignal* userSignal;
-
-- (RACSignal*)logoutSignal;
-- (RACSignal*)loginSignalWithUser:(CTUser*)user;
-- (RACSignal*)signupSignalWithUser:(CTUser*)user;
-- (RACSignal*)passwordResetSignalForEmail:(NSString*)email;
 
 - (CCValidator*)usernameValidator;
 - (CCValidator*)passwordValidator;

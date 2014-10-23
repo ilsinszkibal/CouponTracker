@@ -11,7 +11,6 @@
 #import <RestKit.h>
 #import "CTUser.h"
 #import "CCValidationManager.h"
-#import <ReactiveCocoa/RACEXTScope.h>
 
 @interface CTUserManager ()
 
@@ -116,71 +115,6 @@
 
 - (void)requestPasswordResetForEmail:(NSString*)email completion:(void(^)(BOOL succeed, NSError* error))block {
    //TODO: call server...
-}
-
-
-- (RACSignal*)logoutSignal {
-    @weakify(self);
-    RACSignal* signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        @strongify(self);
-        self.currentUser = nil;
-        [subscriber sendNext:nil];
-        [subscriber sendCompleted];
-        return nil;
-    }];
-    [signal setName:@"log out"];
-    return signal;
-}
-
-- (RACSignal*)loginSignalWithUser:(CTUser*)user {
-    @weakify(self);
-    RACSignal* signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        [self loginUser:user completion:^(CTUser *user, NSError *error) {
-            @strongify(self);
-            if (error) {
-                [subscriber sendError:error];
-            } else {
-                self.currentUser = user;
-                [subscriber sendNext:user];
-                [subscriber sendCompleted];
-            }
-        }];
-        return nil;
-    }];
-    [signal setName:@"log in"];
-    return signal;
-}
-
-- (RACSignal*)signupSignalWithUser:(CTUser*)user {
-    RACSignal* signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        [self signupUser:user completion:^(CTUser *user, NSError *error) {
-            if (error) {
-                [subscriber sendError:error];
-            } else {
-                [subscriber sendNext:user];
-                [subscriber sendCompleted];
-            }
-        }];
-        return nil;
-    }];
-    [signal setName:@"sign up"];
-    return signal;
-}
-
-- (RACSignal*)passwordResetSignalForEmail:(NSString*)email {
-    RACSignal* signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        [self requestPasswordResetForEmail:email completion:^(BOOL succeed, NSError *error) {
-            if (error) {
-                [subscriber sendError:error];
-            } else {
-                [subscriber sendNext:@(succeed)];
-                [subscriber sendCompleted];
-            }
-        }];
-        return nil;
-    }];
-    [signal setName:@"password reset"];
-    return signal;
 }
 
 - (CCValidator*)usernameValidator {
