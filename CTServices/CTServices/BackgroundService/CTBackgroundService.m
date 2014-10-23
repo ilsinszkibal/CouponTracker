@@ -41,11 +41,10 @@
     NSString* jsonPath = [FolderPath backgroundAnimationPath];
     NSString* imagePath = [FolderPath backgroundImagePath];
     
-    if ( [FolderPath checkIfFileExists:jsonPath] /*&& [FolderPath checkIfFileExists:imagePath]*/ )
+    if ( [FolderPath checkIfFileExists:jsonPath] && [FolderPath checkIfFileExists:imagePath] )
     {
         _jsonPath = jsonPath;
-        _imagePath = [FolderPath defaultBackgroundImagePath];
-    //    _imagePath = imagePath;
+        _imagePath = imagePath;
     }
     else
     {

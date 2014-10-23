@@ -30,6 +30,8 @@
 
 - (void) setUpTransitioningDelegates
 {
+    [super setUpTransitioningDelegates];
+    
     self.passingViewTransitioning = [CTSimpleAnimatedTransition viewPassingNavigationPresentationTransition];
 }
 

@@ -13,6 +13,8 @@
 - (void) showLogin;
 - (void) showRegister;
 
+- (void) setUpTransitioningDelegates;
+
 - (void) navigateToViewController:(UIViewController*) viewController;
 - (void) navigateToViewController:(UIViewController*) viewController animated: (BOOL)flag completion:(void (^)(void))completion;
 
