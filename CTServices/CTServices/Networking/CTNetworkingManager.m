@@ -155,6 +155,9 @@
 
 - (RKRequestDescriptor*)cardRequestDescriptor {
     RKObjectMapping* mapping = [RKObjectMapping requestMapping];
+    RKObjectMapping* templateMapping = [RKObjectMapping requestMapping];
+    [templateMapping addAttributeMappingsFromArray:@[@"id"]];
+    [mapping addRelationshipMappingWithSourceKeyPath:@"template" mapping:templateMapping];
     return [RKRequestDescriptor requestDescriptorWithMapping:mapping objectClass:[Model_PrintedCard class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
 }
 

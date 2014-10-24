@@ -21,13 +21,18 @@
 
 - (void)print {
     [[CTNetworkingManager sharedManager] createPrintedCardFromTemplate:self.template completion:^(Model_PrintedCard* card, NSError* error){
-        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.template.image.url] options:0 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-            
-            UIImage* qrImage = [[CTQRCodeManager sharedManager] generateQRCodeFromString:card.code size:100];
-            UIImage* finalImage = [self placeQRCode:qrImage aboveImage:image];
-            
-            [[CTPrinterManager sharedManager] printImage:finalImage];
-        }];
+        if (error) {
+            //TODO: show popup
+        } else {
+            [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.template.image.url] options:0 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                if (image) {
+                    UIImage* qrImage = [[CTQRCodeManager sharedManager] generateQRCodeFromString:card.code size:100];
+                    UIImage* finalImage = [self placeQRCode:qrImage aboveImage:image];
+                    
+                    [[CTPrinterManager sharedManager] printImage:finalImage];
+                }
+            }];
+        }
     }];
 }
 

@@ -35,6 +35,7 @@
     if (self) {
         self.imageView = [[UIImageView alloc] init];
         self.imageView.backgroundColor = [UIColor clearColor];
+        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
         [self addSubview:self.imageView];
         
         self.titleLabel = [[UILabel alloc] init];
