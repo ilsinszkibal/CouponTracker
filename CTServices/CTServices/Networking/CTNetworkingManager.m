@@ -291,7 +291,8 @@
 
 - (RKRequestDescriptor*)templateRequestDescriptor {
     RKObjectMapping* mapping = [RKObjectMapping requestMapping];
-    [mapping addAttributeMappingsFromArray:@[@"text", @"name", @"image"]];
+    [mapping addAttributeMappingsFromArray:@[@"text", @"name"]];
+    [mapping addRelationshipMappingWithSourceKeyPath:@"image" mapping:self.imageMapping];
     return [RKRequestDescriptor requestDescriptorWithMapping:mapping objectClass:[Model_CardTemplate class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
 }
 

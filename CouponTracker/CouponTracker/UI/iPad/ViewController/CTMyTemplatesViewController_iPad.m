@@ -10,6 +10,8 @@
 
 #import "UIFactory.h"
 
+#import "UIImageView+WebCache.h"
+
 #import "CTNewTemplateViewController_iPad.h"
 #import "CTPrintTemplateViewController_iPad.h"
 
@@ -21,6 +23,8 @@
 @interface CTMyTemplatesViewController_iPad () <iCarouselDataSource, iCarouselDelegate> {
     iCarousel* _carousel;
     NSUInteger _selectedIndex;
+    
+    NSArray* _myCards;
     
 }
 
@@ -47,12 +51,11 @@
      [super viewDidAppear:animated];
     
     [self getMyCards:^(NSArray *cards, NSError *error) {
-        NSLog(@"Got cards %@", cards);
+        _myCards = cards;
+        
+        [_carousel reloadData];
     }];
     
-    [self uploadImage:[UIImage imageNamed:@"bg"] completion:^(Model_Image *image, NSError *error) {
-        
-    }];
 }
 
 - (void) viewDidLayoutSubviews
@@ -82,12 +85,12 @@
 
 #pragma mark - iCarouselDataSource
 
-- (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
+- (NSUInteger) numberOfItemsInCarousel:(iCarousel *)carousel
 {
-    return 3;
+    return [_myCards count];
 }
 
-- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
+- (UIView*) carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
     BorderContainerView* borderContainer = (BorderContainerView*)view;
     if (  borderContainer == nil )
@@ -95,7 +98,11 @@
         borderContainer = [self createCell];
     }
     
-    [(UIImageView*)borderContainer.contentView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"bg%d", index + 2] ] ];
+    Model_PrintedCard* printedCard = [_myCards objectAtIndex:index];
+    Model_CardTemplate* templateCard = [printedCard template];
+    Model_Image* image = [templateCard image];
+    
+    [(UIImageView*)borderContainer.contentView sd_setImageWithURL:[NSURL URLWithString:image.url] ];
     
     return borderContainer;
 }
@@ -115,21 +122,6 @@
 
 #pragma mark - ICarouselDelegate
 
-- (CGFloat)carousel:(__unused iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
-{
-    
-    switch ( option ) {
-        default:
-        case iCarouselOptionFadeRange:
-            return value;
-            break;
-            
-            
-    }
-    
-    return 0;
-}
-
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
 {
     
@@ -148,20 +140,10 @@
     
     if ( [[key key] isEqualToString:[CTMyTemplatesViewController_iPad printNavigationKey] ] )
     {
-        /*
-        UIImageView* imageView = [[UIImageView alloc] init];
-        [imageView setFrame:CGRectMake(300, 300, 250, 250)];
-        [imageView setBackgroundColor:[UIColor orangeColor] ];
-        
-        return imageView;
-        */
         NSNumber* selectedIndex = [key parameters][ [CTMyTemplatesViewController_iPad selectedElemIndexKey] ];
         
         BorderContainerView* selected = (BorderContainerView*)[_carousel itemViewAtIndex:[selectedIndex integerValue] ];
         [selected setHidden:YES];
-//        _selectedOriginalPosition = selected.frame;
-//        _selectedOriginalPosition.origin.x += 300;
-//        _selectedOriginalPosition.origin.y += 300;
         
         UIImage* selectedImage = [(UIImageView*)selected.contentView image];
         

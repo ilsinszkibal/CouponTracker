@@ -189,7 +189,7 @@
     [_operationImageView setHidden:![self isEditingType:CouponDrawingLayerTypeImage] ];
     
     [_showCardButton setHidden:( [_drawingData state] == CouponDrawingStatePresent ) ];
-    [_createCardButton setHidden:( _showCardButton.isHidden == NO || 0 == [_drawingData layerCount] )];
+    [_createCardButton setHidden:( [_drawingData state] != CouponDrawingStatePresent || _showCardButton.isHidden == NO || 0 == [_drawingData layerCount] )];
     
 }
 
@@ -215,6 +215,8 @@
     {
         [_operationImageView editRectLayer:(CouponDrawingImageLayer*)layer forIndex:[_drawingData layerIndex] ];
     }
+    
+    [_createCardButton setHidden:YES];
 }
 
 @end
