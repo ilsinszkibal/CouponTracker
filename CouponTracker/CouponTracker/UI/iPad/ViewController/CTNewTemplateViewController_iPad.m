@@ -17,8 +17,6 @@
 
 @interface CTNewTemplateViewController_iPad ()<CouponDrawerManagerImagePickerDelegate> {
     
-    UIButton* _backButton;
-    
     CardDrawingLayerView* _layerView;
     CardDrawingOperationView* _operationView;
     CardDrawingPresentView* _presentView;
@@ -33,8 +31,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _backButton = [UIFactory defaultButtonWithTitle:@"Back" target:self action:@selector( backButtonAction: ) ];
-    [self.view addSubview:_backButton];
+    [self setUpTopLeftButtonWithTitle:@"Back" withSel:@selector(backButtonAction:) ];
     
     _layerView = [[CardDrawingLayerView alloc] init];
     [self.view addSubview:_layerView];
@@ -60,8 +57,6 @@
 - (void) viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    
-    [_backButton setFrame:CGRectMake(0, 25, 120, 44)];
     
     [_layerView setFrame:CGRectMake(0, 275, 80, 300)];
     [_operationView setFrame:CGRectMake(80, 75, 600, 200)];

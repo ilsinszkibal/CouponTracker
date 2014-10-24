@@ -10,6 +10,9 @@
 
 @interface CTViewController : UIViewController
 
+- (void) setUpTopLeftButtonWithTitle:(NSString*) title withSel:(SEL) selector;
+- (void) setUpTopRightButtonWithTitle:(NSString*) title withSel:(SEL) selector;
+
 - (void) showLogin;
 - (void) showRegister;
 

@@ -19,10 +19,6 @@
 #import "Model.h"
 
 @interface CTMyTemplatesViewController_iPad () <iCarouselDataSource, iCarouselDelegate> {
-    
-    UIButton* _backButton;
-    UIButton* _newTemplateButton;
-    
     iCarousel* _carousel;
     NSUInteger _selectedIndex;
     
@@ -34,12 +30,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [self setUpTopLeftButtonWithTitle:@"Back" withSel:@selector(backButtonAction:) ];
     
-    _backButton = [UIFactory defaultButtonWithTitle:@"Back" target:self action:@selector(backButtonAction:) ];
-    [self.view addSubview:_backButton];
- 
-    _newTemplateButton = [UIFactory defaultButtonWithTitle:@"New template" target:self action:@selector(newTemplateButtonAction:) ];
-    [self.view addSubview:_newTemplateButton];
+    [self setUpTopRightButtonWithTitle:@"New template" withSel:@selector(newTemplateButtonAction:) ];
     
     _carousel = [[iCarousel alloc] init];
     _carousel.delegate = self;
@@ -64,9 +58,6 @@
 - (void) viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    
-    [_backButton setFrame:CGRectMake(0, 25, 120, 44)];
-    [_newTemplateButton setFrame:CGRectMake(0, 75, 120, 44)];
     
     [_carousel setFrame:CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.height - 100) ];
 }

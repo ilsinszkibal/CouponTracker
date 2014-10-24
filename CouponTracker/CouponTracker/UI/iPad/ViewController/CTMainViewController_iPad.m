@@ -14,7 +14,6 @@
 
 @interface CTMainViewController_iPad () {
     
-    UIButton* _showMyTemplatesButton;
     UIButton* _loginButton;
     
 }
@@ -27,8 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _showMyTemplatesButton = [UIFactory defaultButtonWithTitle:@"My templates" target:self action:@selector(showMyTemplatesAction:) ];
-    [self.view addSubview:_showMyTemplatesButton];
+    [self setUpTopRightButtonWithTitle:@"My templates" withSel:@selector(showMyTemplatesAction:) ];
     
     _loginButton = [UIFactory defaultButtonWithTitle:@"Login" target:self action:@selector(loginButtonAction:) ];
     [self.view addSubview:_loginButton];
@@ -39,7 +37,6 @@
 {
     [super viewDidLayoutSubviews];
     
-    [_showMyTemplatesButton setFrame:CGRectMake(200, 400, 150, 44) ];
     [_loginButton setFrame:CGRectMake(200, 450, 150, 44) ];
     
 }

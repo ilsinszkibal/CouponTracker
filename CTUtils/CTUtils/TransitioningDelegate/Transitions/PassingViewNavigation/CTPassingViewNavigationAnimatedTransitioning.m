@@ -99,7 +99,7 @@
                               delay:0
              usingSpringWithDamping:300.0
               initialSpringVelocity:5.0
-                            options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionLayoutSubviews
+                            options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionLayoutSubviews
                          animations:^{
                              [presentingView setFrame:presentingFinalRect];
                              [currentView setFrame:currentViewFinalRect];
@@ -166,7 +166,7 @@
                               delay:0
              usingSpringWithDamping:300.0
               initialSpringVelocity:5.0
-                            options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionLayoutSubviews
+                            options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionLayoutSubviews
                          animations:^{
                              [dismissingView setFrame:dismissingFinalRect];
                              [originalView setFrame:originalFinalRect];
