@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) Model_CardTemplate* template;
 
+- (void)configure;
+
 @end

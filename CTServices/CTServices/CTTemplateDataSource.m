@@ -22,6 +22,8 @@
 - (void)setTemplateType:(CTTemplateType)templateType {
     _templateType = templateType;
     
+    [self.collectionView registerClass:[CTTemplateCell class] forCellWithReuseIdentifier:@"Cell"];
+    
     if (templateType == CTMyTemplates) {
         [[CTNetworkingManager sharedManager] getMyTemplates:^(NSArray* templates, NSError* error){
             if (!error) {
@@ -40,8 +42,8 @@
 }
 
 - (Model_CardTemplate*)templateForIndexPath:(NSIndexPath*)indexPath {
-    if (self.templates.count < indexPath.row) {
-        return self.templates[indexPath.row];
+    if (self.templates.count > indexPath.item) {
+        return self.templates[indexPath.item];
     }
     return nil;
 }
@@ -51,6 +53,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CTTemplateCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     cell.template = [self templateForIndexPath:indexPath];
+    [cell configure];
     return cell;
 }
 
