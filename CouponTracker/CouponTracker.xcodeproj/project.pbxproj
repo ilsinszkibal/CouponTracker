@@ -532,11 +532,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../**",
-					"/Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CTServices/build/Debug-iphoneos",
 					"$(PROJECT_DIR)",
-					"/Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CTAnalytics/build/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/CouponTracker-acwfmdgdbdhriieqrdcaxmyadjae/Build/Products/Debug-iphoneos",
-					"/Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CTData/build/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -564,11 +561,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../**",
-					"/Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CTServices/build/Debug-iphoneos",
 					"$(PROJECT_DIR)",
-					"/Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CTAnalytics/build/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/CouponTracker-acwfmdgdbdhriieqrdcaxmyadjae/Build/Products/Debug-iphoneos",
-					"/Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CTData/build/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",

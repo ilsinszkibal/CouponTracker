@@ -300,7 +300,7 @@
 - (RKObjectMapping*) backgroundAnimationMapping
 {
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
-    [mapping addAttributeMappingsFromArray:@[@"epochtime", @"imageName", @"preAnimationPosition", @"postAnimationPosition", @"moveAnimationDuration", @"alphaAnimationDuration", @"backgroundColor"]];
+    [mapping addAttributeMappingsFromArray:@[@"epochtime", @"imageName", @"preAnimationPosition", @"postAnimationPosition", @"moveAnimationDuration", @"alphaAnimationDuration", @"backgroundColor", @"imagePath"]];
     return mapping;
 }
 

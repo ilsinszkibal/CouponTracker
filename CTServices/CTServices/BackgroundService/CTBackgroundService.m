@@ -10,6 +10,7 @@
 
 #import "FolderPath.h"
 
+#import <SDWebImageManager.h>
 #import "CTNetworkingManager.h"
 
 @interface CTBackgroundService () {
@@ -105,6 +106,24 @@
             {
                 [FolderPath setURLIsExcludedFromBackupKeyForFilePath:filePath];
             }
+            
+            NSString* imagePath = [FolderPath backgroundImagePath];
+            NSString* imageServerPath =  settingsID[@"imagePath"];
+            
+            NSURL* imageURl = [NSURL URLWithString:imageServerPath];
+            
+            [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:imageURl options:SDWebImageDownloaderLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+                NSLog(@"Completed");
+                if ( error == nil && image )
+                {
+                    NSData* imageData = UIImageJPEGRepresentation(image, 0.0f);
+                    [imageData writeToFile:imagePath atomically:YES];
+                    
+                    [FolderPath setURLIsExcludedFromBackupKeyForFilePath:imagePath];
+                }
+                
+            }];
             
         }
         
