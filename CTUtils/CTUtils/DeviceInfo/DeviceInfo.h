@@ -13,5 +13,6 @@
 + (BOOL) isiPhone;
 
 + (CGFloat) screenScale;
++ (CGSize) screenSize;
 
 @end

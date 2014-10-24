@@ -9,6 +9,7 @@
 #import "CTNetworkingManager.h"
 
 #import "Model.h"
+#import "DeviceInfo.h"
 
 #import <RestKit/RestKit.h>
 
@@ -270,7 +271,11 @@
 - (NSOperation*)getSettingsID:(void(^)(CTServerSettings* settingsID, NSError* error))completion
 {
     
-    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:@"settingsID.json" parameters:nil];
+    CGFloat screenScale = [DeviceInfo screenScale];
+    CGSize screenSize = [DeviceInfo screenSize];
+    NSDictionary* parameters = @{ @"screenWidth" : @(screenSize.width), @"screenHeight" : @(screenSize.height), @"screenScale" : @(screenScale) };
+    
+    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:@"settingsID.json" parameters:parameters];
     
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         if ( completion )
@@ -307,7 +312,12 @@
 
 - (NSOperation*)getBackgroundAnimationJSON:(void(^)(NSDictionary* settingsID, NSError* error))completion
 {
-    RKObjectRequestOperation* operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:@"backgroundAnimation.json" parameters:nil];
+    
+    CGFloat screenScale = [DeviceInfo screenScale];
+    CGSize screenSize = [DeviceInfo screenSize];
+    NSDictionary* parameters = @{ @"screenWidth" : @(screenSize.width), @"screenHeight" : @(screenSize.height), @"screenScale" : @(screenScale) };
+    
+    RKObjectRequestOperation* operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:@"backgroundAnimation.json" parameters:parameters];
 
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         if ( completion )
