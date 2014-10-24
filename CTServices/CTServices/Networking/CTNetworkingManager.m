@@ -17,6 +17,7 @@
 
 - (void)setUp {
     RKObjectManager* manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://www.coupontracker.org/api/v1/"]];
+    [manager setRequestSerializationMIMEType:@"application/json"];
     [RKObjectManager setSharedManager:manager];
     
     RKLogSetAppLoggingLevel(RKLogLevelInfo);
@@ -32,6 +33,9 @@
     
     [self addRequestDescriptor:self.templateRequestDescriptor];
     [self addResponseDescriptors:self.templateResponseDescriptors];
+    
+    [self addRequestDescriptor:self.typeRequestDescriptor];
+    [self addResponseDescriptors:self.typeResponseDescriptors];
     
     [self addResponseDescriptors:[self settingsIDResponseDescriptors]];
     [self addResponseDescriptors:[self settingsIDResponseDescriptors] ];
@@ -71,27 +75,51 @@
 }
 
 - (NSArray*)imageResponseDescriptors {
-    RKResponseDescriptor *allResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.cardMapping method:RKRequestMethodGET|RKRequestMethodPOST pathPattern:@"images.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    RKResponseDescriptor *allResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.imageMapping method:RKRequestMethodGET|RKRequestMethodPOST pathPattern:@"images.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
-    RKResponseDescriptor *singleResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.cardMapping method:RKRequestMethodGET|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE pathPattern:@"images/:id.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    RKResponseDescriptor *singleResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.imageMapping method:RKRequestMethodGET|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE pathPattern:@"images/:id.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
     return @[allResponseDescriptor, singleResponseDescriptor];
 }
 
 - (RKRequestDescriptor*)imageRequestDescriptor {
-    return [RKRequestDescriptor requestDescriptorWithMapping:self.cardMapping.inverseMapping objectClass:[Model_Image class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
+    RKObjectMapping* mapping = [RKObjectMapping requestMapping];
+    [mapping addAttributeMappingsFromArray:@[@"name", @"file"]];
+    return [RKRequestDescriptor requestDescriptorWithMapping:mapping objectClass:[NSDictionary class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
 }
 
+- (NSOperation*)getImageWithId:(NSString*)imageId completion:(void(^)(Model_Image* image, NSError* error))completion {
+    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:[NSString stringWithFormat:@"images/%@.json", imageId] parameters:@{}];
+    
+    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (completion) {
+            completion(mappingResult.array.lastObject, nil);
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (completion) {
+            completion(nil, error);
+        }
+    }];
+    
+    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
+    
+    return operation;
+}
 
-- (NSOperation*)postImage:(UIImage*)image completion:(void(^)(Model_Image* image, NSError* error))completion {
+- (NSOperation*)uploadImage:(UIImage*)image completion:(void(^)(Model_Image* image, NSError* error))completion {
     NSData* imageData = UIImageJPEGRepresentation(image, 1.0);
     NSDictionary* imageDictionary = @{@"name": @"uploaded image", @"file": [imageData base64EncodedStringWithOptions:0]};
     RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:imageDictionary method:RKRequestMethodPOST path:@"images.json" parameters:@{}];
+    
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        if (completion) completion(mappingResult.array.lastObject, nil);
+        NSString* imageId = [[operation.HTTPRequestOperation.response.allHeaderFields[@"Location"] stringByDeletingPathExtension] lastPathComponent];
+        [self getImageWithId:imageId completion:completion];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        if (completion) completion(nil, error);
+        if (completion) {
+            completion(nil, error);
+        }
     }];
+    
     [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
     return operation;
 }
@@ -143,7 +171,7 @@
 #pragma mark - Read
 
 - (RKObjectMapping*)readMapping {
-    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[Model_PrintedCard class]];
+    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[Model_CardRead class]];
     [mapping addAttributeMappingsFromArray:@[@"id", @"createdAt", @"updatedAt", @"deleted", @"code", @"latitude", @"longitude"]];
     [mapping addRelationshipMappingWithSourceKeyPath:@"card" mapping:self.cardMapping];
     return mapping;
@@ -158,7 +186,7 @@
 }
 
 - (RKRequestDescriptor*)readRequestDescriptor {
-    return [RKRequestDescriptor requestDescriptorWithMapping:self.readMapping.inverseMapping objectClass:[Model_PrintedCard class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
+    return [RKRequestDescriptor requestDescriptorWithMapping:self.readMapping.inverseMapping objectClass:[Model_CardRead class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
 }
 
 - (NSOperation*)readCardWithCode:(NSString*)code completion:(void(^)(Model_CardRead* read, NSError* error))completion {
@@ -195,25 +223,59 @@
 //    }];
 //}
 
+#pragma mark - Type
+
+- (RKObjectMapping*)typeMapping {
+    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[Model_CardType class]];
+    [mapping addAttributeMappingsFromArray:@[@"id", @"createdAt", @"updatedAt", @"deleted"]];
+    
+    RKObjectMapping* localizationsMapping = [RKObjectMapping mappingForClass:[Model_CardTypeLocalization class]];
+    [localizationsMapping addAttributeMappingsFromArray:@[@"id", @"createdAt", @"updatedAt", @"deleted"]];
+    
+    RKObjectMapping* languageMapping = [RKObjectMapping mappingForClass:[Model_Language class]];
+    [languageMapping addAttributeMappingsFromArray:@[@"id", @"createdAt", @"updatedAt", @"deleted", @"name", @"code"]];
+    
+    [localizationsMapping addRelationshipMappingWithSourceKeyPath:@"language" mapping:languageMapping];
+    
+    [mapping addRelationshipMappingWithSourceKeyPath:@"localizations" mapping:localizationsMapping];
+    
+    return mapping;
+}
+
+- (NSArray*)typeResponseDescriptors {
+    RKResponseDescriptor *allResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.typeMapping method:RKRequestMethodGET|RKRequestMethodPOST pathPattern:@"types.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
+    RKResponseDescriptor *singleResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.typeMapping method:RKRequestMethodGET|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE pathPattern:@"types/:id.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
+    return @[allResponseDescriptor, singleResponseDescriptor];
+}
+
+- (RKRequestDescriptor*)typeRequestDescriptor {
+    return [RKRequestDescriptor requestDescriptorWithMapping:self.typeMapping.inverseMapping objectClass:[Model_CardType class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
+}
+
 #pragma mark - Template
 
 - (RKObjectMapping*)templateMapping {
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[Model_CardTemplate class]];
-    [mapping addAttributeMappingsFromArray:@[@"id", @"createdAt", @"updatedAt", @"deleted", @"name"]];
-//    [mapping addRelationshipMappingWithSourceKeyPath:@"type" mapping:self.typeMapping];
+    [mapping addAttributeMappingsFromArray:@[@"id", @"createdAt", @"updatedAt", @"deleted", @"name", @"text"]];
+    [mapping addRelationshipMappingWithSourceKeyPath:@"type" mapping:self.typeMapping];
+    [mapping addRelationshipMappingWithSourceKeyPath:@"image" mapping:self.imageMapping];
     return mapping;
 }
 
 - (NSArray*)templateResponseDescriptors {
     RKResponseDescriptor *allResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.templateMapping method:RKRequestMethodGET|RKRequestMethodPOST pathPattern:@"templates.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
-    RKResponseDescriptor *singleResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.cardMapping method:RKRequestMethodGET|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE pathPattern:@"templates/:id.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    RKResponseDescriptor *singleResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.templateMapping method:RKRequestMethodGET|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE pathPattern:@"templates/:id.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
     return @[allResponseDescriptor, singleResponseDescriptor];
 }
 
 - (RKRequestDescriptor*)templateRequestDescriptor {
-    return [RKRequestDescriptor requestDescriptorWithMapping:self.templateMapping.inverseMapping objectClass:[Model_PrintedCard class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
+    RKObjectMapping* mapping = [RKObjectMapping requestMapping];
+    [mapping addAttributeMappingsFromArray:@[@"text", @"name", @"image"]];
+    return [RKRequestDescriptor requestDescriptorWithMapping:mapping objectClass:[Model_CardTemplate class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
 }
 
 
@@ -251,6 +313,51 @@
     [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
     
     return operation;
+}
+
+- (NSOperation*)createTemplateWithName:(NSString*)name text:(NSString*)text image:(UIImage*)image completion:(void(^)(Model_CardTemplate* template, NSError* error))completion {
+    return [self uploadImage:image completion:^(Model_Image *image, NSError *error) {
+        if (!error && image) {
+            Model_CardTemplate* template = [[Model_CardTemplate alloc] init];
+            template.image = image;
+            template.name = name;
+            template.text = text;
+            
+//            Model_Language* en = [[Model_Language alloc] init];
+//            en.code = @"en";
+//            en.name = @"English";
+//            Model_CardTypeLocalization* enLoc = [[Model_CardTypeLocalization alloc] init];
+//            enLoc.name = @"Test";
+//            enLoc.language = en;
+//            
+//            Model_Language* hu = [[Model_Language alloc] init];
+//            hu.code = @"hu";
+//            hu.name = @"Magyar";
+//            Model_CardTypeLocalization* huLoc = [[Model_CardTypeLocalization alloc] init];
+//            enLoc.name = @"Teszt";
+//            enLoc.language = hu;
+//            
+//            Model_CardType* type = [[Model_CardType alloc] init];
+//            type.localizations = @[enLoc, huLoc];
+//            template.type = type;
+            
+            RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:template method:RKRequestMethodPOST path:@"templates.json" parameters:@{}];
+            
+            [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                if (completion) {
+                    completion(mappingResult.array.lastObject, nil);
+                }
+            } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                if (completion) {
+                    completion(nil, error);
+                }
+            }];
+            
+            [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
+        } else {
+            if (completion) completion(nil, error);
+        }
+    }];
 }
 
 #pragma mark - Settings

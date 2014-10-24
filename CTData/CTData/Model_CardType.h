@@ -13,7 +13,7 @@
 
 @interface Model_CardType : Model_BaseEntity
 
-@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSArray* localizations;
 @property (nonatomic, retain) NSSet *templates;
 
 @end

@@ -127,7 +127,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = BD3BBAC819D701190006DE0F /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = F2C1E26D77194884B0A39BD8;
+			remoteGlobalIDString = 1387B9D547927A192B414894;
 			remoteInfo = "Pods-CTUtils";
 		};
 		BD7AB20119E14DBB000D88AB /* PBXContainerItemProxy */ = {
@@ -153,6 +153,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5B21D786AC6957845902C4BA /* Pods-CTUtils.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CTUtils.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CTUtils/Pods-CTUtils.debug.xcconfig"; sourceTree = "<group>"; };
 		6B77A80A19D6C4FA00FC0978 /* libCTUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCTUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B77A80D19D6C4FA00FC0978 /* CTUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTUtils.h; sourceTree = "<group>"; };
 		6B77A80F19D6C4FA00FC0978 /* CTUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTUtils.m; sourceTree = "<group>"; };
@@ -203,7 +204,7 @@
 		BD3BBB2C19D701CC0006DE0F /* libCTData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCTData.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/CouponTracker-acwfmdgdbdhriieqrdcaxmyadjae/Build/Products/Debug-iphoneos/libCTData.a"; sourceTree = "<group>"; };
 		BD3BBB2D19D701CC0006DE0F /* libCTServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCTServices.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/CouponTracker-acwfmdgdbdhriieqrdcaxmyadjae/Build/Products/Debug-iphoneos/libCTServices.a"; sourceTree = "<group>"; };
 		BD3BBB3519D703270006DE0F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		FDF09384091C4FF096AFA1DE /* Pods-CTUtils.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CTUtils.xcconfig"; path = "../Pods/Pods-CTUtils.xcconfig"; sourceTree = "<group>"; };
+		C8224E69CFF26FEB85F21A38 /* Pods-CTUtils.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CTUtils.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CTUtils/Pods-CTUtils.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +226,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64A2AAAF1403C63A67610C02 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5B21D786AC6957845902C4BA /* Pods-CTUtils.debug.xcconfig */,
+				C8224E69CFF26FEB85F21A38 /* Pods-CTUtils.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6B77A80119D6C4FA00FC0978 = {
 			isa = PBXGroup;
 			children = (
@@ -232,8 +242,8 @@
 				6B77A80C19D6C4FA00FC0978 /* CTUtils */,
 				6B77A81619D6C4FA00FC0978 /* CTUtilsTests */,
 				6B77A80B19D6C4FA00FC0978 /* Products */,
-				FDF09384091C4FF096AFA1DE /* Pods-CTUtils.xcconfig */,
 				F25FE91731FC49FDADD97AE3 /* Frameworks */,
+				64A2AAAF1403C63A67610C02 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -636,7 +646,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Pods-CTUtils-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-CTUtils/Pods-CTUtils-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FE195B995CE344C4B0E6BEB4 /* Check Pods Manifest.lock */ = {
@@ -771,7 +781,7 @@
 		};
 		6B77A81C19D6C4FA00FC0978 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FDF09384091C4FF096AFA1DE /* Pods-CTUtils.xcconfig */;
+			baseConfigurationReference = 5B21D786AC6957845902C4BA /* Pods-CTUtils.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = (
@@ -783,7 +793,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/CouponTracker-acwfmdgdbdhriieqrdcaxmyadjae/Build/Products/Debug-iphoneos",
 					"/Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CTCommonUI/build/Debug-iphoneos",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -791,7 +801,7 @@
 		};
 		6B77A81D19D6C4FA00FC0978 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FDF09384091C4FF096AFA1DE /* Pods-CTUtils.xcconfig */;
+			baseConfigurationReference = C8224E69CFF26FEB85F21A38 /* Pods-CTUtils.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = (
@@ -803,7 +813,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/CouponTracker-acwfmdgdbdhriieqrdcaxmyadjae/Build/Products/Debug-iphoneos",
 					"/Volumes/Data/Users/tevelilaszlo/Dropbox/Teve/Dev/Apps/CouponTracker/CTCommonUI/build/Debug-iphoneos",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

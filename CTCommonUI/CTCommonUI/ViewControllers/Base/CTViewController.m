@@ -51,7 +51,7 @@
     
     if ( [DeviceInfo isiPhone] )
     {
-        
+        [self setTopButtoniPhonePositions];
     }
     else
     {
@@ -91,6 +91,14 @@
     
     [_topLeftButton setFrame:CGRectMake(margin, 25, 150, 44) ];
     [_topRightButton setFrame:CGRectMake(self.view.frame.size.width - 150 - 10, 25, 150, 44) ];
+}
+
+- (void) setTopButtoniPhonePositions
+{
+    CGFloat margin = 10;
+    
+    [_topLeftButton setFrame:CGRectMake(margin, 25, 100, 44) ];
+    [_topRightButton setFrame:CGRectMake(self.view.frame.size.width - 100 - 10, 25, 100, 44) ];
 }
 
 #pragma mark - Login and registration
