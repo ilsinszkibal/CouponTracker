@@ -8,6 +8,8 @@
 
 #import "CardDrawingLayerView.h"
 
+#import "UIFactory.h"
+
 #import "CouponDrawingData.h"
 #import "CouponDrawingBaseLayer.h"
 
@@ -35,11 +37,13 @@
     {
         _editButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_editButton setTitle:@"Edit" forState:UIControlStateNormal];
-        [_editButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_editButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_editButton addTarget:self action:@selector(editRowOrderAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_editButton];
         
         _tableView = [[UITableView alloc] init];
+        [_tableView setBackgroundColor:[UIColor clearColor] ];
+        [_tableView setSeparatorColor:[UIColor clearColor] ];
         _tableView.rowHeight = 50;
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -126,6 +130,9 @@
     
     if ( cell == nil ) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[self tableCellIdentifier] ];
+        [cell setBackgroundColor:[UIColor clearColor] ];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        [UIFactory setBordersAndCornerToButton:cell];
     }
     
     UIImage* imageToPresent = [self imageForIndex:indexPath.row];
@@ -169,7 +176,7 @@
 
 - (UIImage*) addImage
 {
-    return [UIImage imageNamed:@"AddImage"];
+    return [UIFactory imageWhiteNamed:@"add"];
 }
 
 - (BOOL) isNewLayerCandidate:(NSUInteger) tableIndex

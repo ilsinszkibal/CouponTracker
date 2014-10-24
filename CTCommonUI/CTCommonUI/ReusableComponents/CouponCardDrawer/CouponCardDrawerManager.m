@@ -61,8 +61,6 @@
 - (void) setUpPresentationView:(CardDrawingPresentView*) presentView borderWidth:(CGFloat) borderWidth
 {
     _presentationView = presentView;
-    [_presentationView.layer setBorderColor:[UIColor blackColor].CGColor ];
-    [_presentationView.layer setBorderWidth:borderWidth];
     [_presentationView setDrawerListener:[self drawerListener] ];
     [_presentationView setDrawingData:_drawingData];
 }
@@ -70,8 +68,6 @@
 - (void) setUpLayerView:(CardDrawingLayerView*) layerView borderWidth:(CGFloat) borderWidth
 {
     _layerView = layerView;
-    [_layerView.layer setBorderColor:[UIColor blackColor].CGColor ];
-    [_layerView.layer setBorderWidth:borderWidth];
     [_layerView setDrawerListener:[self drawerListener] ];
     [_layerView setDrawingData:_drawingData];
 }
@@ -79,8 +75,6 @@
 - (void) setUpOperaiontView:(CardDrawingOperationView*) operationView borderWidth:(CGFloat) borderWidth
 {
     _operationView = operationView;
-    [_operationView.layer setBorderColor:[UIColor blackColor].CGColor ];
-    [_operationView.layer setBorderWidth:borderWidth];
     [_operationView setDrawerListener:[self drawerListener] ];
     [_operationView setDrawingData:_drawingData];
 }

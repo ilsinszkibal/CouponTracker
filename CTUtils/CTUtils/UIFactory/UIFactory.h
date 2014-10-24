@@ -13,4 +13,8 @@
 + (UIButton*) defaultButtonWithTitle:(NSString*) title target:(id) target action:(SEL) selector;
 + (void) setBordersAndCornerToButton:(UIView*) view;
 
++ (UIImage*) imageWhiteNamed:(NSString*) name;
+
++ (UIImage*) image:(UIImage*) image withColor:(UIColor*) color;
+
 @end

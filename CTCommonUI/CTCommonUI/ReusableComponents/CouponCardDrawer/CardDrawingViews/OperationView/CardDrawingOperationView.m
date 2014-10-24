@@ -44,8 +44,11 @@
     
     if ( self )
     {
+        
+        [UIFactory setBordersAndCornerToButton:self];
     
         _titleLabel = [[UILabel alloc] init];
+        [_titleLabel setTextColor:[UIColor whiteColor] ];
         [self addSubview:_titleLabel];
     
         _showCardButton = [UIFactory defaultButtonWithTitle:@"Show card" target:self action:@selector(showCardAction:) ];
