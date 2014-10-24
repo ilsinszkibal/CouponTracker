@@ -22,6 +22,8 @@
 
     UIImageView* _imageView;
     
+    UIImageView* _qrCodeImageView;
+    
 }
 
 @end
@@ -41,7 +43,7 @@
         
         _imageView = [[UIImageView alloc] init];
         [self addSubview:_imageView];
-    
+        
         _editBoxPresentView = [[CardDrawingEditBoxPresentView alloc] init];
         [_editBoxPresentView setEditProtocol:self];
         [_editBoxPresentView setHidden:YES];
@@ -51,6 +53,12 @@
         [_editTextPresentView setEditProtocol:self];
         [_editTextPresentView setHidden:YES];
         [self addSubview:_editTextPresentView];
+        
+        _qrCodeImageView = [[UIImageView alloc] init];
+        [_qrCodeImageView setImage:[UIImage imageNamed:@"scan"] ];
+        [_qrCodeImageView setBackgroundColor:[UIColor whiteColor] ];
+        [_qrCodeImageView.layer setCornerRadius:20.0f];
+        [self addSubview:_qrCodeImageView];
     }
     
     return self;
@@ -60,9 +68,16 @@
 {
     [super layoutSubviews];
     
-    [_imageView setFrame:self.bounds];
-    [_editBoxPresentView setFrame:self.bounds];
-    [_editTextPresentView setFrame:self.bounds];
+    CGFloat qrCodeSize = 150;
+    CGFloat margin = 20;
+    
+    CGRect selfBounds = self.bounds;
+    
+    [_imageView setFrame:selfBounds];
+    [_editBoxPresentView setFrame:selfBounds];
+    [_editTextPresentView setFrame:selfBounds];
+    
+    [_qrCodeImageView setFrame:CGRectMake(selfBounds.size.width - qrCodeSize - margin, selfBounds.size.height - qrCodeSize - margin, qrCodeSize, qrCodeSize) ];
     
 }
 
@@ -119,6 +134,8 @@
     [_editTextPresentView setHidden:YES];
     [_editTextPresentView reset];
     
+    [_qrCodeImageView setHidden:NO];
+    
     [_imageView setImage:[_drawingData cardImage] ];
     
 }
@@ -140,6 +157,8 @@
         [_editTextPresentView setHidden:NO];
         [_editTextPresentView startEditingBoxLayer:(CouponDrawingTextLayer*)layer];
     }
+    
+    [_qrCodeImageView setHidden:YES];
     
 }
 
