@@ -7,6 +7,11 @@
 //
 
 #import "CTPrintTemplateViewController_Common.h"
+#import "CTQRCodeManager.h"
+#import "CTNetworkingManager.h"
+#import "CTPrinterManager.h"
+#import "Model.h"
+#import <SDWebImage/SDWebImageManager.h>
 
 @interface CTPrintTemplateViewController_Common ()
 
@@ -14,24 +19,33 @@
 
 @implementation CTPrintTemplateViewController_Common
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (void)print {
+    [[CTNetworkingManager sharedManager] createPrintedCardFromTemplate:self.template completion:^(Model_PrintedCard* card, NSError* error){
+        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.template.image.url] options:0 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            
+            UIImage* qrImage = [[CTQRCodeManager sharedManager] generateQRCodeFromString:card.code size:100];
+            UIImage* finalImage = [self placeQRCode:qrImage aboveImage:image];
+            
+            [[CTPrinterManager sharedManager] printImage:finalImage];
+        }];
+    }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+- (UIImage*)placeQRCode:(UIImage*)qrImage aboveImage:(UIImage*)inputImage {
+    UIGraphicsBeginImageContextWithOptions(inputImage.size, YES, 0.0);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    UIGraphicsPushContext(context);
+    
+    [qrImage drawInRect:CGRectMake(200, 20, 100, 100)];//FIXME: get QR code position
+    
+    UIGraphicsPopContext();
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    UIImage *outputImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return outputImage;
 }
-*/
 
 @end

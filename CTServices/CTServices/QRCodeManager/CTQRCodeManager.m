@@ -8,7 +8,7 @@
 
 #import "CTQRCodeManager.h"
 #import <AVFoundation/AVFoundation.h>
-//#import <QRCodeGenerator.h>
+#import <iOS-QR-Code-Encoder/QRCodeGenerator.h>
 
 @interface CTQRCodeManager () <AVCaptureMetadataOutputObjectsDelegate>
 
@@ -157,8 +157,7 @@
 }
 
 - (UIImage*)generateQRCodeFromString:(NSString*)string size:(CGFloat)size {
-    return nil;
-    //return [QRCodeGenerator qrImageForString:string imageSize:size];
+    return [QRCodeGenerator qrImageForString:string imageSize:size];
 }
 
 @end

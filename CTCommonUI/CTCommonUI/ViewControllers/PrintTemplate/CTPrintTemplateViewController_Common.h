@@ -8,6 +8,12 @@
 
 #import "CTPassingViewNavigationViewController.h"
 
+@class Model_CardTemplate;
+
 @interface CTPrintTemplateViewController_Common : CTPassingViewNavigationViewController
+
+@property (nonatomic, strong) Model_CardTemplate* template;
+
+- (void)print;
 
 @end

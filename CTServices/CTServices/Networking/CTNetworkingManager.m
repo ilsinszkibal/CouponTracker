@@ -168,6 +168,25 @@
     return operation;
 }
 
+- (NSOperation*)createPrintedCardFromTemplate:(Model_CardTemplate*)template completion:(void(^)(Model_PrintedCard* card, NSError* error))completion {
+    
+    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:template method:RKRequestMethodPOST path:@"cards.json" parameters:@{}];
+    
+    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (completion) {
+            completion(mappingResult.array.lastObject, nil);
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (completion) {
+            completion(nil, error);
+        }
+    }];
+    
+    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
+    
+    return operation;
+}
+
 #pragma mark - Read
 
 - (RKObjectMapping*)readMapping {
@@ -197,13 +216,11 @@
     RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:read method:RKRequestMethodPOST path:@"reads.json" parameters:@{}];
     
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        if (completion)
-        {
+        if (completion) {
             completion(mappingResult.array.lastObject, nil);
         }
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        if (completion)
-        {
+        if (completion) {
             completion(nil, error);
         }
     }];

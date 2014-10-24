@@ -38,6 +38,7 @@
 		BD7AB25219E14ECB000D88AB /* CCStringValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB23919E14ECB000D88AB /* CCStringValidator.m */; };
 		BD7AB25319E14ECB000D88AB /* CCValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB23B19E14ECB000D88AB /* CCValidator.m */; };
 		BD7AB25B19E15247000D88AB /* CTNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB25A19E15247000D88AB /* CTNetworkingManager.m */; };
+		BDC1FC0519FAA09C0010BC78 /* CTPrinterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC1FC0419FAA09C0010BC78 /* CTPrinterManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +135,8 @@
 		BD7AB23C19E14ECB000D88AB /* CCValidators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValidators.h; sourceTree = "<group>"; };
 		BD7AB25919E15247000D88AB /* CTNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNetworkingManager.h; sourceTree = "<group>"; };
 		BD7AB25A19E15247000D88AB /* CTNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTNetworkingManager.m; sourceTree = "<group>"; };
+		BDC1FC0319FAA09C0010BC78 /* CTPrinterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPrinterManager.h; sourceTree = "<group>"; };
+		BDC1FC0419FAA09C0010BC78 /* CTPrinterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPrinterManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +181,7 @@
 		6B77A8A819D6C9BF00FC0978 /* CTServices */ = {
 			isa = PBXGroup;
 			children = (
+				BDC1FC0019FAA08C0010BC78 /* PrinterManager */,
 				BD31F2F919F915F100AF73D6 /* QRCodeManager */,
 				6BA6311019EAA78C00D56532 /* BackgroundService */,
 				BD7AB25819E15247000D88AB /* Networking */,
@@ -337,6 +341,15 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		BDC1FC0019FAA08C0010BC78 /* PrinterManager */ = {
+			isa = PBXGroup;
+			children = (
+				BDC1FC0319FAA09C0010BC78 /* CTPrinterManager.h */,
+				BDC1FC0419FAA09C0010BC78 /* CTPrinterManager.m */,
+			);
+			path = PrinterManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -471,6 +484,7 @@
 				BD7AB23D19E14ECB000D88AB /* CTBaseManager.m in Sources */,
 				BD7AB24619E14ECB000D88AB /* CCNumericCondition.m in Sources */,
 				BD7AB24E19E14ECB000D88AB /* CCDataValidator.m in Sources */,
+				BDC1FC0519FAA09C0010BC78 /* CTPrinterManager.m in Sources */,
 				BD7AB24F19E14ECB000D88AB /* CCDateValidator.m in Sources */,
 				6BA6311519EAA7AF00D56532 /* CTBackgroundService.m in Sources */,
 				BD7AB24719E14ECB000D88AB /* CCRegexCondition.m in Sources */,
