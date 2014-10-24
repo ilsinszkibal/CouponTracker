@@ -14,7 +14,15 @@
 
 @class CouponDrawingData;
 
+@protocol CardDrawingCreating <NSObject>
+
+- (void) createCardWithImage:(UIImage*) image;
+
+@end
+
 @interface CardDrawingOperationView : UIView<CardDrawingOperationAddProtocol, CardDrawingOperationEditProtocol>
+
+@property (nonatomic, weak) id<CardDrawingCreating> drawingCreating;
 
 - (void) setDrawerListener:(id<CouponCardDrawerManagerProtocol>) drawerListener;
 - (void) setDrawingData:(CouponDrawingData*) drawingData;

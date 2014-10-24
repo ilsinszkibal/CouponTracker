@@ -189,22 +189,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/RestKit/Code/Support/RKNSJSONSerialization.m"
-            timestampString = "435093606.300067"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "+dataFromObject:error:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "CTCommonUI/CTCommonUI/ViewControllers/Base/CTViewController.m"
             timestampString = "435831257.877209"
             startingColumnNumber = "9223372036854775807"
@@ -260,6 +244,38 @@
             startingLineNumber = "123"
             endingLineNumber = "123"
             landmarkName = "-performUpdate"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CTCommonUI/CTCommonUI/ReusableComponents/CouponCardDrawer/CardDrawingViews/OperationView/CardDrawingOperationView.m"
+            timestampString = "435856384.351742"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "-setSubViewVisibility"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CTCommonUI/CTCommonUI/ViewControllers/NewTemplate/CTNewTemplateViewController_Common.m"
+            timestampString = "435857247.71051"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "-createTemplateWithName:withText:withImage:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

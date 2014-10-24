@@ -15,7 +15,7 @@
 #import "CardDrawingPresentView.h"
 #import "CouponCardDrawerManager.h"
 
-@interface CTNewTemplateViewController_iPad ()<CouponDrawerManagerImagePickerDelegate> {
+@interface CTNewTemplateViewController_iPad ()<CouponDrawerManagerImagePickerDelegate, CardDrawingCreating> {
     
     CardDrawingLayerView* _layerView;
     CardDrawingOperationView* _operationView;
@@ -33,20 +33,33 @@
     
     [self setUpTopLeftButtonWithTitle:@"Back" withSel:@selector(backButtonAction:) ];
     
-    _layerView = [[CardDrawingLayerView alloc] init];
-    [self.view addSubview:_layerView];
-    
-    _operationView = [[CardDrawingOperationView alloc] init];
-    [self.view addSubview:_operationView];
-    
-    _presentView = [[CardDrawingPresentView alloc] init];
-    [self.view addSubview:_presentView];
-    
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    if ( _layerView == nil )
+    {
+        _layerView = [[CardDrawingLayerView alloc] init];
+        [self.view addSubview:_layerView];
+    }
+    
+    if ( _operationView == nil )
+    {
+        _operationView = [[CardDrawingOperationView alloc] init];
+        [_operationView setDrawingCreating:self];
+        [self.view addSubview:_operationView];
+    }
+    
+    if ( _presentView == nil )
+    {
+        _presentView = [[CardDrawingPresentView alloc] init];
+        [self.view addSubview:_presentView];
+    }
+    
+    [self.view setNeedsLayout];
+    [self.view layoutIfNeeded];
     
     if ( _drawerManager == nil )
     {
@@ -66,6 +79,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - CardDrawingCreating
+
+- (void) createCardWithImage:(UIImage*) image
+{
+    [self createTemplateWithName:@"Name" withText:@"Text" withImage:image];
 }
 
 #pragma mark - Action

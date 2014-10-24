@@ -10,4 +10,6 @@
 
 @interface CTNewTemplateViewController_Common : CTViewController
 
+- (void) createTemplateWithName:(NSString*) name withText:(NSString*) text withImage:(UIImage*) image;
+
 @end

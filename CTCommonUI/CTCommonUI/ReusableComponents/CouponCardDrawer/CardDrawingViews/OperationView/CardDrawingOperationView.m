@@ -23,6 +23,7 @@
     
     UILabel* _titleLabel;
     UIButton* _showCardButton;
+    UIButton* _createCardButton;
     
     CardDrawingOperationAddView* _operationAddView;
     CardDrawingOperationRectEditView* _operationRectView;
@@ -53,6 +54,10 @@
     
         _showCardButton = [UIFactory defaultButtonWithTitle:@"Show card" target:self action:@selector(showCardAction:) ];
         [self addSubview:_showCardButton];
+        
+        _createCardButton = [UIFactory defaultButtonWithTitle:@"Create card" target:self action:@selector(createCardAction:) ];
+        [_createCardButton setHidden:YES];
+        [self addSubview:_createCardButton];
     
         _operationAddView = [[CardDrawingOperationAddView alloc] init];
         [_operationAddView setHidden:YES];
@@ -85,6 +90,7 @@
     CGFloat subViewYOffset = 50;
     
     [_showCardButton setFrame:CGRectMake(self.frame.size.width - 100, 0, 100, 45) ];
+    [_createCardButton setFrame:_showCardButton.frame];
     [_titleLabel setFrame:CGRectMake(10, 0, self.frame.size.width - _showCardButton.frame.size.width, 45)];
     
     [_operationAddView setFrame:CGRectMake(0, subViewYOffset, self.frame.size.width, self.frame.size.height - subViewYOffset ) ];
@@ -98,6 +104,11 @@
 - (void) showCardAction:(UIButton*) button
 {
     [_drawerListener resetPresenting];
+}
+
+- (void) createCardAction:(UIButton*) button
+{
+    [_drawingCreating createCardWithImage:[_drawingData cardImage] ];
 }
 
 #pragma mark - CardDrawingOperationEditProtocol
@@ -178,6 +189,7 @@
     [_operationImageView setHidden:![self isEditingType:CouponDrawingLayerTypeImage] ];
     
     [_showCardButton setHidden:( [_drawingData state] == CouponDrawingStatePresent ) ];
+    [_createCardButton setHidden:( _showCardButton.isHidden == NO || 0 == [_drawingData layerCount] )];
     
 }
 
