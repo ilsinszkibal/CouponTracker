@@ -36,6 +36,9 @@
     
     if ( self )
     {
+        
+        [self setBackgroundColor:[UIColor whiteColor] ];
+        
         _imageView = [[UIImageView alloc] init];
         [self addSubview:_imageView];
     
