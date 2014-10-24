@@ -28,7 +28,7 @@
     [self addRequestDescriptor:self.readRequestDescriptor];
     [self addResponseDescriptors:self.readResponseDescriptors];
     
-    [self addRequestDescriptor:self.imageRequestDescriptor];
+    [self addRequestDescriptors:self.imageRequestDescriptors];
     [self addResponseDescriptors:self.imageResponseDescriptors];
     
     [self addRequestDescriptor:self.templateRequestDescriptor];
@@ -66,6 +66,12 @@
     }
 }
 
+- (void)addRequestDescriptors:(NSArray*)descriptors {
+    for (RKRequestDescriptor* descriptor in descriptors) {
+        [self addRequestDescriptor:descriptor];
+    }
+}
+
 #pragma mark - Image
 
 - (RKObjectMapping*)imageMapping {
@@ -82,10 +88,16 @@
     return @[allResponseDescriptor, singleResponseDescriptor];
 }
 
-- (RKRequestDescriptor*)imageRequestDescriptor {
-    RKObjectMapping* mapping = [RKObjectMapping requestMapping];
-    [mapping addAttributeMappingsFromArray:@[@"name", @"file"]];
-    return [RKRequestDescriptor requestDescriptorWithMapping:mapping objectClass:[NSDictionary class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
+- (NSArray*)imageRequestDescriptors {
+    RKObjectMapping* mapping1 = [RKObjectMapping requestMapping];
+    [mapping1 addAttributeMappingsFromArray:@[@"name", @"file"]];
+    RKRequestDescriptor* descriptor1 = [RKRequestDescriptor requestDescriptorWithMapping:mapping1 objectClass:[NSDictionary class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
+    
+    RKObjectMapping* mapping2 = [RKObjectMapping requestMapping];
+    [mapping2 addAttributeMappingsFromArray:@[@"id"]];
+    RKRequestDescriptor* descriptor2 =  [RKRequestDescriptor requestDescriptorWithMapping:mapping2 objectClass:[Model_Image class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
+    
+    return @[descriptor1, descriptor2];
 }
 
 - (NSOperation*)getImageWithId:(NSString*)imageId completion:(void(^)(Model_Image* image, NSError* error))completion {
@@ -142,7 +154,8 @@
 }
 
 - (RKRequestDescriptor*)cardRequestDescriptor {
-    return [RKRequestDescriptor requestDescriptorWithMapping:self.cardMapping.inverseMapping objectClass:[Model_PrintedCard class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
+    RKObjectMapping* mapping = [RKObjectMapping requestMapping];
+    return [RKRequestDescriptor requestDescriptorWithMapping:mapping objectClass:[Model_PrintedCard class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
 }
 
 - (RKObjectRequestOperation*)getCards:(void(^)(NSArray* cards, NSError* error))completion {
@@ -170,7 +183,9 @@
 
 - (NSOperation*)createPrintedCardFromTemplate:(Model_CardTemplate*)template completion:(void(^)(Model_PrintedCard* card, NSError* error))completion {
     
-    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:template method:RKRequestMethodPOST path:@"cards.json" parameters:@{}];
+    Model_PrintedCard* card = [[Model_PrintedCard alloc] init];
+    card.template = template;
+    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:card method:RKRequestMethodPOST path:@"cards.json" parameters:@{}];
     
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         if (completion) {
@@ -292,10 +307,11 @@
 - (RKRequestDescriptor*)templateRequestDescriptor {
     RKObjectMapping* mapping = [RKObjectMapping requestMapping];
     [mapping addAttributeMappingsFromArray:@[@"text", @"name"]];
-    [mapping addRelationshipMappingWithSourceKeyPath:@"image" mapping:self.imageMapping];
+    RKObjectMapping* imageMapping = [RKObjectMapping requestMapping];
+    [imageMapping addAttributeMappingsFromArray:@[@"id"]];
+    [mapping addRelationshipMappingWithSourceKeyPath:@"image" mapping:imageMapping];
     return [RKRequestDescriptor requestDescriptorWithMapping:mapping objectClass:[Model_CardTemplate class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
 }
-
 
 - (NSOperation*)getMyTemplates:(void(^)(NSArray* templates, NSError* error))completion {
     RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:@"templates.json" parameters:@{@"filter": @"user:me"}];

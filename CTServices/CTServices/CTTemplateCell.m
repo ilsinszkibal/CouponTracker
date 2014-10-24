@@ -29,9 +29,9 @@
     return layoutAttributes;
 }
 
-- (instancetype)init
+- (instancetype)initWithFrame:(CGRect)frame
 {
-    self = [super init];
+    self = [super initWithFrame:frame];
     if (self) {
         self.imageView = [[UIImageView alloc] init];
         self.imageView.backgroundColor = [UIColor clearColor];
@@ -46,6 +46,10 @@
         self.imageView.frame = self.bounds;
     }
     return self;
+}
+
+- (void)configure {
+
 }
 
 - (void)setTemplate:(Model_CardTemplate *)template {

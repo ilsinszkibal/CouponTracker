@@ -10,6 +10,7 @@
 #import "Model.h"
 #import "CTTemplateDataSource.h"
 #import "UIFactory.h"
+#import "CTPrintTemplateViewController_iPhone.h"
 
 @interface CTMyTemplatesViewController_iPhone () <UICollectionViewDelegate>
 
@@ -40,7 +41,11 @@
     self.switcher.tintColor = [UIColor whiteColor];
     [self.view addSubview:self.switcher];
     
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:[UICollectionViewFlowLayout new]];
+    UICollectionViewFlowLayout* layout = [UICollectionViewFlowLayout new];
+    layout.itemSize = CGSizeMake(200, 100);
+    layout.minimumInteritemSpacing = 10;
+    layout.minimumLineSpacing = 10;
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     self.collectionView.dataSource = self.templatesDataSource;
     self.collectionView.delegate = self;
     self.collectionView.backgroundColor = [UIColor clearColor];
@@ -68,7 +73,11 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//    Model_CardTemplate* template = [self.templatesDataSource templateForIndexPath:indexPath];
+    Model_CardTemplate* template = [self.templatesDataSource templateForIndexPath:indexPath];
+    
+    CTPrintTemplateViewController_Common* print = [[CTPrintTemplateViewController_iPhone alloc] init];
+    print.template = template;
+    [self navigateToViewController:print];
 }
 
 - (void)backButtonPressed:(UIButton*)backButton {
