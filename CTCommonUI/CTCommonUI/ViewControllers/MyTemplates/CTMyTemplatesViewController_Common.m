@@ -44,6 +44,11 @@
     [self passingViewNavigateToViewController:_printTemplateViewController forKey:key];
 }
 
+- (NSOperation*)uploadImage:(UIImage*)image completion:(void(^)(Model_Image* image, NSError* error))completion
+{
+    return nil;
+}
+
 - (NSOperation*) getMyCards:(void(^)(NSArray* cards, NSError* error))completion
 {
     return [[CTNetworkingManager sharedManager] getCards:completion];
