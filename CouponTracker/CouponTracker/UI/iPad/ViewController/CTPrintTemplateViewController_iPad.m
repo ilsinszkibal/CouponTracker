@@ -11,9 +11,6 @@
 #import "UIFactory.h"
 
 @interface CTPrintTemplateViewController_iPad () {
-    
-    UIButton* _backButton;
-    
     UIView* _passingView;
     
 }
@@ -25,8 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _backButton = [UIFactory defaultButtonWithTitle:@"Back" target:self action:@selector( backButtonAction: ) ];
-    [self.view addSubview:_backButton];
+    [self setUpTopLeftButtonWithTitle:@"Back" withSel:@selector( backButtonAction: ) ];
     
 }
 
@@ -40,8 +36,6 @@
 - (void) viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    
-    [_backButton setFrame:CGRectMake(0, 25, 120, 44)];
 }
 
 #pragma mark - Action
