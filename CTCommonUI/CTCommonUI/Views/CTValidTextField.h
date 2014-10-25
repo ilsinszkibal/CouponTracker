@@ -17,7 +17,7 @@
 
 @interface CTValidTextField : UITextField
 
-@property (nonatomic, assign) BOOL(^validationBlock)(NSString* text);
+@property (nonatomic, copy) BOOL(^validationBlock)(NSString* text);
 
 @property (nonatomic, weak) id<CTTextFieldDelegate> fieldDelegate;
 

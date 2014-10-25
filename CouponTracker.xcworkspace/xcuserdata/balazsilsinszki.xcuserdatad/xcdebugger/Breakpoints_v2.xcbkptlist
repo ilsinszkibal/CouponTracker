@@ -195,7 +195,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "278"
             endingLineNumber = "278"
-            landmarkName = "-typeResponseDescriptors"
+            landmarkName = "-typeMapping"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -228,6 +228,68 @@
             startingLineNumber = "23"
             endingLineNumber = "23"
             landmarkName = "-createTemplateWithName:withText:withImage:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CTCommonUI/CTCommonUI/ViewControllers/Login/CTLoginViewController_Common.m"
+            timestampString = "435958697.375948"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
+            landmarkName = "-actionButtonPressed:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[CTLoginViewController_Common actionButtonPressed:]"
+                  moduleName = "CouponTracker"
+                  urlString = "file:///Users/balazsilsinszki/Documents/Programming/iOS/GitHub/Skyscanner/CouponTracker/CTCommonUI/CTCommonUI/ViewControllers/Login/CTLoginViewController_Common.m"
+                  timestampString = "435958697.378851"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "202"
+                  endingLineNumber = "202"
+                  offsetFromSymbolStart = "1702">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__52-[CTLoginViewController_Common actionButtonPressed:]_block_invoke184"
+                  moduleName = "CouponTracker"
+                  urlString = "file:///Users/balazsilsinszki/Documents/Programming/iOS/GitHub/Skyscanner/CouponTracker/CTCommonUI/CTCommonUI/ViewControllers/Login/CTLoginViewController_Common.m"
+                  timestampString = "435958697.379064"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "202"
+                  endingLineNumber = "202"
+                  offsetFromSymbolStart = "83">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CTCommonUI/CTCommonUI/ViewControllers/Login/CTLoginViewController_Common.m"
+            timestampString = "435958701.695772"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "-actionButtonPressed:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
