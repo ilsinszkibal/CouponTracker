@@ -80,6 +80,30 @@
     }
 }
 
+- (RKObjectRequestOperation*)requestPath:(NSString*)path method:(RKRequestMethod)method object:(id)object parameters:(NSDictionary*)parameters completion:(void(^)(NSArray* results, NSError* error))completionBlock {
+    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:object method:method path:path parameters:parameters];
+    
+    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        NSString* redirectUrl = operation.HTTPRequestOperation.response.allHeaderFields[@"Location"];
+        if (operation.HTTPRequestOperation.response.statusCode == 201 && redirectUrl.length > 0) {
+            NSString* redirectPath = [redirectUrl stringByReplacingOccurrencesOfString:[RKObjectManager sharedManager].baseURL.absoluteString withString:@""];
+            [self requestPath:redirectPath method:RKRequestMethodGET object:nil parameters:parameters completion:completionBlock];
+        } else {
+            if (completionBlock) {
+                completionBlock(mappingResult.array, nil);
+            }
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (completionBlock) {
+            completionBlock(nil, error);
+        }
+    }];
+    
+    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
+    
+    return operation;
+}
+
 #pragma mark - Image
 
 - (RKObjectMapping*)imageMapping {
@@ -109,39 +133,18 @@
 }
 
 - (NSOperation*)getImageWithId:(NSString*)imageId completion:(void(^)(Model_Image* image, NSError* error))completion {
-    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:[NSString stringWithFormat:@"images/%@.json", imageId] parameters:@{}];
-    
-    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        if (completion) {
-            completion(mappingResult.array.lastObject, nil);
-        }
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        if (completion) {
-            completion(nil, error);
-        }
+    return [self requestPath:[NSString stringWithFormat:@"images/%@.json", imageId] method:RKRequestMethodGET object:nil parameters:@{} completion:^(NSArray *results, NSError *error) {
+        if (completion) completion(results.lastObject, error);
     }];
-    
-    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
-    
-    return operation;
 }
 
 - (NSOperation*)uploadImage:(UIImage*)image completion:(void(^)(Model_Image* image, NSError* error))completion {
     NSData* imageData = UIImageJPEGRepresentation(image, 1.0);
     NSDictionary* imageDictionary = @{@"name": @"uploaded image", @"file": [imageData base64EncodedStringWithOptions:0]};
-    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:imageDictionary method:RKRequestMethodPOST path:@"images.json" parameters:@{}];
     
-    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        NSString* imageId = [[operation.HTTPRequestOperation.response.allHeaderFields[@"Location"] stringByDeletingPathExtension] lastPathComponent];
-        [self getImageWithId:imageId completion:completion];
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        if (completion) {
-            completion(nil, error);
-        }
+    return [self requestPath:@"images.json" method:RKRequestMethodPOST object:imageDictionary parameters:@{} completion:^(NSArray *results, NSError *error) {
+        if (completion) completion(results.lastObject, error);
     }];
-    
-    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
-    return operation;
 }
 
 #pragma mark - Content
@@ -195,47 +198,16 @@
 }
 
 - (RKObjectRequestOperation*)getCards:(void(^)(NSArray* cards, NSError* error))completion {
-    
     NSDictionary* parameters = @{@"fields": @" ,template.cardType.localizations.name,template.cardType.localizations.language.name"};
-    
-    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:@"cards.json" parameters:parameters];
-    
-    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        if (completion)
-        {
-            completion(mappingResult.array, nil);
-        }
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        if (completion)
-        {
-            completion(nil, error);
-        }
-    }];
-    
-    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
-    
-    return operation;
+    return [self requestPath:@"cards.json" method:RKRequestMethodGET object:nil parameters:parameters completion:completion];
 }
 
 - (NSOperation*)createPrintedCardFromTemplate:(Model_CardTemplate*)template completion:(void(^)(Model_PrintedCard* card, NSError* error))completion {
-    
     Model_PrintedCard* card = [[Model_PrintedCard alloc] init];
     card.template = template;
-    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:card method:RKRequestMethodPOST path:@"cards.json" parameters:@{}];
-    
-    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        if (completion) {
-            completion(mappingResult.array.lastObject, nil);
-        }
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        if (completion) {
-            completion(nil, error);
-        }
+    return [self requestPath:@"cards.json" method:RKRequestMethodPOST object:card parameters:@{} completion:^(NSArray *results, NSError *error) {
+        if (completion) completion(results.lastObject, error);
     }];
-    
-    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
-    
-    return operation;
 }
 
 #pragma mark - Read
@@ -276,25 +248,13 @@
             [read setLocationLongitude:[NSString stringWithFormat:@"%f", currentLocation.coordinate.longitude]];
         }
         
-        RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:read method:RKRequestMethodPOST path:@"reads.json" parameters:@{}];
-        
-        [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-            NSString* readId = [[operation.HTTPRequestOperation.response.allHeaderFields[@"Location"] stringByDeletingPathExtension] lastPathComponent];
-            if (readId) {
-                [self getReadWithId:readId completion:completion];
-            } else {
-                if (completion) {
-                    completion(nil, nil);
-                }
-            }
-        } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        [self requestPath:@"reads.json" method:RKRequestMethodPOST object:read parameters:nil progress:^(NSProgress *progress) {
+            NSLog(@"%f, %@ %@", progress.fractionCompleted, progress.localizedAdditionalDescription, progress.localizedDescription);
+        } completion:^(NSArray *results, NSError *error) {
             if (completion) {
-                completion(nil, error);
+                completion(results.lastObject, error);
             }
         }];
-        
-        [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
-        
     }];
     return nil;
 }
@@ -376,39 +336,11 @@
 }
 
 - (NSOperation*)getMyTemplates:(void(^)(NSArray* templates, NSError* error))completion {
-    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:@"templates.json" parameters:@{@"filter": @"user:me"}];
-    
-    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        if (completion) {
-            completion(mappingResult.array, nil);
-        }
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        if (completion) {
-            completion(nil, error);
-        }
-    }];
-    
-    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
-    
-    return operation;
+    return [self requestPath:@"templates.json" method:RKRequestMethodGET object:nil parameters:@{@"filter": @"user:me"} completion:completion];
 }
 
 - (NSOperation*)getPopularTemplates:(void(^)(NSArray* templates, NSError* error))completion {
-    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:@"templates.json" parameters:@{@"sort": @"popular"}];
-    
-    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        if (completion) {
-            completion(mappingResult.array, nil);
-        }
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        if (completion) {
-            completion(nil, error);
-        }
-    }];
-    
-    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
-    
-    return operation;
+    return [self requestPath:@"templates.json" method:RKRequestMethodGET object:nil parameters:@{@"filter": @"popular", @"sort": @"popular"} completion:completion];
 }
 
 - (NSOperation*)createTemplateWithName:(NSString*)name text:(NSString*)text image:(UIImage*)image completion:(void(^)(Model_CardTemplate* template, NSError* error))completion {
@@ -418,38 +350,10 @@
             template.image = image;
             template.name = name;
             template.text = text;
-            
-//            Model_Language* en = [[Model_Language alloc] init];
-//            en.code = @"en";
-//            en.name = @"English";
-//            Model_CardTypeLocalization* enLoc = [[Model_CardTypeLocalization alloc] init];
-//            enLoc.name = @"Test";
-//            enLoc.language = en;
-//            
-//            Model_Language* hu = [[Model_Language alloc] init];
-//            hu.code = @"hu";
-//            hu.name = @"Magyar";
-//            Model_CardTypeLocalization* huLoc = [[Model_CardTypeLocalization alloc] init];
-//            enLoc.name = @"Teszt";
-//            enLoc.language = hu;
-//            
-//            Model_CardType* type = [[Model_CardType alloc] init];
-//            type.localizations = @[enLoc, huLoc];
-//            template.type = type;
-            
-            RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:template method:RKRequestMethodPOST path:@"templates.json" parameters:@{}];
-            
-            [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                if (completion) {
-                    completion(mappingResult.array.lastObject, nil);
-                }
-            } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                if (completion) {
-                    completion(nil, error);
-                }
+
+            [self requestPath:@"templates.json" method:RKRequestMethodPOST object:template parameters:@{} completion:^(NSArray *results, NSError *error) {
+                if (completion) completion(results.lastObject, error);
             }];
-            
-            [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
         } else {
             if (completion) completion(nil, error);
         }
@@ -478,24 +382,9 @@
     CGSize screenSize = [DeviceInfo screenSize];
     NSDictionary* parameters = @{ @"screenWidth" : @(screenSize.width), @"screenHeight" : @(screenSize.height), @"screenScale" : @(screenScale) };
     
-    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:@"settings/settingsID.json" parameters:parameters];
-    
-    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        if ( completion )
-        {
-            completion( [mappingResult firstObject], nil );
-        }
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        if ( completion )
-        {
-            completion( nil, error );
-        }
+    return [self requestPath:@"settings/settingsID.json" method:RKRequestMethodGET object:nil parameters:parameters completion:^(NSArray *results, NSError *error) {
+        if (completion) completion(results.firstObject, error);
     }];
-    
-    
-    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
-    
-    return operation;
 }
 
 #pragma mark - Background animation settings
@@ -519,20 +408,10 @@
     CGFloat screenScale = [DeviceInfo screenScale];
     CGSize screenSize = [DeviceInfo screenSize];
     NSDictionary* parameters = @{ @"screenWidth" : @(screenSize.width), @"screenHeight" : @(screenSize.height), @"screenScale" : @(screenScale) };
-    
-    RKObjectRequestOperation* operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:@"settings/backgroundAnimation.json" parameters:parameters];
 
-    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        if ( completion )
-            completion([mappingResult firstObject], nil);
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        if ( completion )
-            completion(nil, error);
+    return [self requestPath:@"settings/backgroundAnimation.json" method:RKRequestMethodGET object:nil parameters:parameters completion:^(NSArray *results, NSError *error) {
+        if (completion) completion(results.firstObject, error);
     }];
-
-    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
-    
-    return operation;
 }
 
 #pragma mark - User
@@ -557,21 +436,9 @@
 }
 
 - (NSOperation*)signupUser:(CTUser*)user completion:(void(^)(CTUser* user, NSError* error))completion {
-    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:user method:RKRequestMethodPOST path:@"users.json" parameters:@{}];
-    
-    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        if (completion) {
-            completion(mappingResult.array.lastObject, nil);
-        }
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        if (completion) {
-            completion(nil, error);
-        }
+    return [self requestPath:@"users.json" method:RKRequestMethodPOST object:user parameters:@{} completion:^(NSArray *results, NSError *error) {
+        if (completion) completion(results.firstObject, error);
     }];
-    
-    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
-    
-    return operation;
 }
 
 @end
