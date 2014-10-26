@@ -224,7 +224,7 @@
 - (NSArray*)readResponseDescriptors {
     RKResponseDescriptor *allResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.readMapping method:RKRequestMethodGET|RKRequestMethodPOST pathPattern:@"reads.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
-    RKResponseDescriptor *singleResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.cardMapping method:RKRequestMethodGET|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE pathPattern:@"reads/:id.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    RKResponseDescriptor *singleResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.readMapping method:RKRequestMethodGET|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE pathPattern:@"reads/:id.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
     return @[allResponseDescriptor, singleResponseDescriptor];
 }
@@ -250,8 +250,13 @@
         RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:read method:RKRequestMethodPOST path:@"reads.json" parameters:@{}];
         
         [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-            if (completion) {
-                completion(mappingResult.array.lastObject, nil);
+            NSString* readId = [[operation.HTTPRequestOperation.response.allHeaderFields[@"Location"] stringByDeletingPathExtension] lastPathComponent];
+            if (readId) {
+                [self getReadWithId:readId completion:completion];
+            } else {
+                if (completion) {
+                    completion(nil, nil);
+                }
             }
         } failure:^(RKObjectRequestOperation *operation, NSError *error) {
             if (completion) {
@@ -265,15 +270,23 @@
     return nil;
 }
 
-//- (void)getCardForCode:(NSString*)code completion:(void(^)(Model_PrintedCard* card, NSError* error))completion {
-//    NSString* path = [self.mapping remoteObjectNameForClass:[Model_PrintedCard class]];
-//    [self _GETForPath:path parameters:@{@"filter": [NSString stringWithFormat:@"code:%@", code], @"limit": @"1", @"fields": @"all"} completionBlock:^(RKMappingResult *result, NSError *error) {
-//        Model_PrintedCard* card = (Model_PrintedCard*)result.array.lastObject;
-//        if (completion) {
-//            completion(card, error);
-//        }
-//    }];
-//}
+- (NSOperation*)getReadWithId:(NSString*)readId completion:(void(^)(Model_CardRead* read, NSError* error))completion {
+    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:[NSString stringWithFormat:@"reads/%@.json", readId] parameters:@{}];
+    
+    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (completion) {
+            completion(mappingResult.array.lastObject, nil);
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (completion) {
+            completion(nil, error);
+        }
+    }];
+    
+    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
+    
+    return operation;
+}
 
 #pragma mark - Type
 

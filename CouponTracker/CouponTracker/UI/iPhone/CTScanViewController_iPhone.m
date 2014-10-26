@@ -20,13 +20,6 @@
 
 @implementation CTScanViewController_iPhone
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    //test
-    [self codeDidRead:@"http://coupontracker.org/code/1f1g2h3i4j5" ofType:@"test"];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
