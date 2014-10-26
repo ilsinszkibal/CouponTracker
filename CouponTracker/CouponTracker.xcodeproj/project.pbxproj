@@ -30,6 +30,8 @@
 		BD3BBB4019D703990006DE0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB3F19D703990006DE0F /* SystemConfiguration.framework */; };
 		BD3BBB4219D703E30006DE0F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB4119D703E30006DE0F /* MobileCoreServices.framework */; };
 		BD89C38B19FD09F20005A9B2 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BD89C38A19FD09F20005A9B2 /* beep.mp3 */; };
+		BDBFC19A19FD33440072306F /* CTContentDetailsViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBFC19919FD33440072306F /* CTContentDetailsViewController_iPhone.m */; };
+		BDBFC19E19FD33530072306F /* CTNewContentViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBFC19D19FD33530072306F /* CTNewContentViewController_iPhone.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,10 @@
 		BD3BBB3F19D703990006DE0F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		BD3BBB4119D703E30006DE0F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		BD89C38A19FD09F20005A9B2 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = beep.mp3; path = CouponTracker/Resources/beep.mp3; sourceTree = "<group>"; };
+		BDBFC19819FD33440072306F /* CTContentDetailsViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTContentDetailsViewController_iPhone.h; sourceTree = "<group>"; };
+		BDBFC19919FD33440072306F /* CTContentDetailsViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTContentDetailsViewController_iPhone.m; sourceTree = "<group>"; };
+		BDBFC19C19FD33530072306F /* CTNewContentViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNewContentViewController_iPhone.h; sourceTree = "<group>"; };
+		BDBFC19D19FD33530072306F /* CTNewContentViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTNewContentViewController_iPhone.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +183,10 @@
 				BD31F30D19F91EC500AF73D6 /* CTScanViewController_iPhone.m */,
 				BD31F31919F9417700AF73D6 /* CTCardsViewController_iPhone.h */,
 				BD31F31A19F9417700AF73D6 /* CTCardsViewController_iPhone.m */,
+				BDBFC19819FD33440072306F /* CTContentDetailsViewController_iPhone.h */,
+				BDBFC19919FD33440072306F /* CTContentDetailsViewController_iPhone.m */,
+				BDBFC19C19FD33530072306F /* CTNewContentViewController_iPhone.h */,
+				BDBFC19D19FD33530072306F /* CTNewContentViewController_iPhone.m */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -402,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B483C0C19E31604009B7C99 /* CTWindow.m in Sources */,
+				BDBFC19E19FD33530072306F /* CTNewContentViewController_iPhone.m in Sources */,
 				BD31F30E19F91EC500AF73D6 /* CTScanViewController_iPhone.m in Sources */,
 				6B5056F119E14D86006939CC /* CTPrintTemplateViewController_iPhone.m in Sources */,
 				6B77A87719D6C5AE00FC0978 /* AppDelegate.m in Sources */,
@@ -410,6 +421,7 @@
 				6B4C2AFE19E6F70100FB87DE /* CTNewTemplateViewController_iPad.m in Sources */,
 				6B77A87419D6C5AE00FC0978 /* main.m in Sources */,
 				6B4C2AFD19E6F70100FB87DE /* CTMyTemplatesViewController_iPad.m in Sources */,
+				BDBFC19A19FD33440072306F /* CTContentDetailsViewController_iPhone.m in Sources */,
 				6B5056E719E14D45006939CC /* CTNewTemplateViewController_iPhone.m in Sources */,
 				6B4C2AFC19E6F70100FB87DE /* CTMainViewController_iPad.m in Sources */,
 				BD31F31B19F9417700AF73D6 /* CTCardsViewController_iPhone.m in Sources */,

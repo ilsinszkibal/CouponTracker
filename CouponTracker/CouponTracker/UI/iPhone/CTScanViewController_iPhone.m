@@ -10,6 +10,9 @@
 
 #import "UIFactory.h"
 
+#import "CTContentDetailsViewController_iPhone.h"
+#import "CTNewContentViewController_iPhone.h"
+
 @interface CTScanViewController_iPhone ()
 
 @property (nonatomic, strong) UIButton* backButton;
@@ -56,6 +59,19 @@
 
 - (void)backButtonPressed:(UIButton*)backButton {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Navigation
+
+- (void)showContentDetails:(Model_CardContent*)content {
+    CTContentDetailsViewController_iPhone* viewController = [[CTContentDetailsViewController_iPhone alloc] init];
+    viewController.content = content;
+    [self navigateToViewController:viewController];
+}
+
+- (void)showNewContent {
+    UIViewController* viewController = [[CTNewContentViewController_iPhone alloc] init];
+    [self navigateToViewController:viewController];
 }
 
 @end

@@ -8,6 +8,11 @@
 
 #import "CTScanViewController_Common.h"
 
+@class Model_CardContent;
+
 @interface CTScanViewController_iPhone : CTScanViewController_Common
+
+- (void)showContentDetails:(Model_CardContent*)content;
+- (void)showNewContent;
 
 @end

@@ -10,6 +10,8 @@
 #import "CTNetworkingManager.h"
 #import "Model.h"
 #import "CCValidationManager.h"
+#import "CTContentDetailsViewController_Common.h"
+#import "CTNewContentViewController_Common.h"
 
 @interface CTScanViewController_Common ()
 
@@ -84,7 +86,12 @@
         [[CTNetworkingManager sharedManager] readCardWithCode:code.lastPathComponent completion:^(Model_CardRead *read, NSError *error) {
             if (read.card) {
                 self.card = read.card;
-//                [self performSegueWithIdentifier:@"showCardDetails" sender:self];
+                
+                if (read.currentContent.owner) {
+                    [self showContentDetails:read.currentContent];
+                } else {
+                    [self showNewContent];
+                }
             } else {
                 [self showInvalidAlert];
             }
@@ -115,6 +122,19 @@
 
 - (void)readingDidStop {
     [self stop];
+}
+
+#pragma mark - Navigation 
+
+- (void)showContentDetails:(Model_CardContent*)content {
+    CTContentDetailsViewController_Common* viewController = [[CTContentDetailsViewController_Common alloc] init];
+    viewController.content = content;
+    [self navigateToViewController:viewController];
+}
+
+- (void)showNewContent {
+    UIViewController* viewController = [[CTNewContentViewController_Common alloc] init];
+    [self navigateToViewController:viewController];
 }
 
 @end

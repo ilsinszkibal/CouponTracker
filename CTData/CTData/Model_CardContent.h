@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Model_BaseEntity.h"
 
-@class Model_PrintedCard;
+@class Model_PrintedCard, CTUser;
 
 @interface Model_CardContent : Model_BaseEntity
 
@@ -20,5 +20,6 @@
 @property (nonatomic, retain) NSString * locationLatitude;
 @property (nonatomic, retain) NSString * locationLongitude;
 @property (nonatomic, retain) Model_PrintedCard *card;
+@property (nonatomic, retain) CTUser* owner;
 
 @end

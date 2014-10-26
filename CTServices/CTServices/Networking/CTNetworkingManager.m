@@ -27,6 +27,9 @@
     [self addRequestDescriptor:self.cardRequestDescriptor];
     [self addResponseDescriptors:self.cardResponseDescriptors];
 
+    [self addRequestDescriptor:self.contentRequestDescriptor];
+    [self addResponseDescriptors:self.contentResponseDescriptors];
+
     [self addRequestDescriptor:self.readRequestDescriptor];
     [self addResponseDescriptors:self.readResponseDescriptors];
     
@@ -141,6 +144,31 @@
     return operation;
 }
 
+#pragma mark - Content
+
+- (RKObjectMapping*)contentMapping {
+    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[Model_CardContent class]];
+    [mapping addAttributeMappingsFromArray:@[@"id", @"createdAt", @"updatedAt", @"deleted", @"text", @"images", @"videos", @"urls"]];
+    [mapping addAttributeMappingsFromDictionary:@{@"latitude": @"locationLatitude",
+                                                  @"longitude": @"locationLongitude"}];
+    //[mapping addRelationshipMappingWithSourceKeyPath:@"card" mapping:self.cardMapping];//causes reference loop
+    [mapping addRelationshipMappingWithSourceKeyPath:@"owner" mapping:self.userMapping];
+    return mapping;
+}
+
+- (NSArray*)contentResponseDescriptors {
+    RKResponseDescriptor *allResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.contentMapping method:RKRequestMethodGET|RKRequestMethodPOST pathPattern:@"contents.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
+    RKResponseDescriptor *singleResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.contentMapping method:RKRequestMethodGET|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE pathPattern:@"contents/:id.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
+    return @[allResponseDescriptor, singleResponseDescriptor];
+}
+
+- (RKRequestDescriptor*)contentRequestDescriptor {
+    RKObjectMapping* mapping = [RKObjectMapping requestMapping];
+    return [RKRequestDescriptor requestDescriptorWithMapping:mapping objectClass:[Model_CardContent class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
+}
+
 #pragma mark - Card
 
 - (RKObjectMapping*)cardMapping {
@@ -218,6 +246,7 @@
     [mapping addAttributeMappingsFromDictionary:@{@"latitude": @"locationLatitude",
                                                   @"longitude": @"locationLongitude"}];
     [mapping addRelationshipMappingWithSourceKeyPath:@"card" mapping:self.cardMapping];
+    [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"current_card_content" toKeyPath:@"currentContent" withMapping:self.contentMapping]];
     return mapping;
 }
 
