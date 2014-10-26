@@ -11,6 +11,7 @@
 #import <RestKit.h>
 #import "CTUser.h"
 #import "CCValidationManager.h"
+#import "CTNetworkingManager.h"
 
 @interface CTUserManager ()
 
@@ -110,7 +111,7 @@
 }
 
 - (void)signupUser:(CTUser*)user completion:(void(^)(CTUser* user, NSError* error))block {
-   //TODO: call server...
+    [[CTNetworkingManager sharedManager] signupUser:user completion:block];
 }
 
 - (void)requestPasswordResetForEmail:(NSString*)email completion:(void(^)(BOOL succeed, NSError* error))block {

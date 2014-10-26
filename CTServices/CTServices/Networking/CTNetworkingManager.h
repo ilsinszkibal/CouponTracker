@@ -10,7 +10,7 @@
 #import "CTServerSettings.h"
 #import <UIKit/UIKit.h>
 
-@class Model_Image, Model_CardRead, Model_CardTemplate, Model_PrintedCard;
+@class Model_Image, Model_CardRead, Model_CardTemplate, Model_PrintedCard, CTUser;
 
 @interface CTNetworkingManager : CTBaseManager
 
@@ -20,6 +20,8 @@
 
 - (NSOperation*)createTemplateWithName:(NSString*)name text:(NSString*)text image:(UIImage*)image completion:(void(^)(Model_CardTemplate* image, NSError* error))completion;
 - (NSOperation*)createPrintedCardFromTemplate:(Model_CardTemplate*)template completion:(void(^)(Model_PrintedCard* card, NSError* error))completion;
+
+- (NSOperation*)signupUser:(CTUser*)user completion:(void(^)(CTUser* user, NSError* error))completion;
 
 - (NSOperation*)getMyTemplates:(void(^)(NSArray* templates, NSError* error))completion;
 - (NSOperation*)getPopularTemplates:(void(^)(NSArray* templates, NSError* error))completion;

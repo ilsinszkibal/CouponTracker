@@ -10,6 +10,7 @@
 
 #import "Model.h"
 #import "DeviceInfo.h"
+#import "CTUser.h"
 
 #import <RestKit/RestKit.h>
 
@@ -36,6 +37,9 @@
     
     [self addRequestDescriptor:self.typeRequestDescriptor];
     [self addResponseDescriptors:self.typeResponseDescriptors];
+    
+    [self addRequestDescriptor:self.userRequestDescriptor];
+    [self addResponseDescriptors:self.userResponseDescriptors];
     
     [self addResponseDescriptors:[self settingsIDResponseDescriptors]];
     [self addResponseDescriptors:[self settingsIDResponseDescriptors] ];
@@ -471,6 +475,44 @@
             completion(nil, error);
     }];
 
+    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
+    
+    return operation;
+}
+
+#pragma mark - User
+
+- (RKObjectMapping*)userMapping {
+    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[CTUser class]];
+    [mapping addAttributeMappingsFromArray:@[@"id", @"createdAt", @"updatedAt", @"deleted", @"email", @"username", @"fullname", @"nickname", @"password"]];
+    return mapping;
+}
+
+- (NSArray*)userResponseDescriptors {
+    RKResponseDescriptor *allResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.userMapping method:RKRequestMethodGET|RKRequestMethodPOST pathPattern:@"users.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
+    RKResponseDescriptor *singleResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.userMapping method:RKRequestMethodGET|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE pathPattern:@"users/:id.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
+    return @[allResponseDescriptor, singleResponseDescriptor];
+}
+
+- (RKRequestDescriptor*)userRequestDescriptor {
+    return [RKRequestDescriptor requestDescriptorWithMapping:self.userMapping.inverseMapping objectClass:[CTUser class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
+}
+
+- (NSOperation*)signupUser:(CTUser*)user completion:(void(^)(CTUser* user, NSError* error))completion {
+    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:user method:RKRequestMethodPOST path:@"user.json" parameters:@{}];
+    
+    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (completion) {
+            completion(mappingResult.array.lastObject, nil);
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (completion) {
+            completion(nil, error);
+        }
+    }];
+    
     [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
     
     return operation;
