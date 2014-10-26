@@ -253,12 +253,12 @@
                   symbolName = "-[CTLoginViewController_Common actionButtonPressed:]"
                   moduleName = "CouponTracker"
                   urlString = "file:///Users/balazsilsinszki/Documents/Programming/iOS/GitHub/Skyscanner/CouponTracker/CTCommonUI/CTCommonUI/ViewControllers/Login/CTLoginViewController_Common.m"
-                  timestampString = "435958697.378851"
+                  timestampString = "436012398.162022"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "202"
                   endingLineNumber = "202"
-                  offsetFromSymbolStart = "1702">
+                  offsetFromSymbolStart = "1584">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -267,12 +267,12 @@
                   symbolName = "__52-[CTLoginViewController_Common actionButtonPressed:]_block_invoke184"
                   moduleName = "CouponTracker"
                   urlString = "file:///Users/balazsilsinszki/Documents/Programming/iOS/GitHub/Skyscanner/CouponTracker/CTCommonUI/CTCommonUI/ViewControllers/Login/CTLoginViewController_Common.m"
-                  timestampString = "435958697.379064"
+                  timestampString = "436012398.162201"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "202"
                   endingLineNumber = "202"
-                  offsetFromSymbolStart = "83">
+                  offsetFromSymbolStart = "72">
                </Location>
             </Locations>
          </BreakpointContent>
