@@ -29,6 +29,7 @@
 		BD3BBB3B19D703760006DE0F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB3A19D703760006DE0F /* CoreData.framework */; };
 		BD3BBB4019D703990006DE0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB3F19D703990006DE0F /* SystemConfiguration.framework */; };
 		BD3BBB4219D703E30006DE0F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB4119D703E30006DE0F /* MobileCoreServices.framework */; };
+		BD89C38B19FD09F20005A9B2 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BD89C38A19FD09F20005A9B2 /* beep.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		BD3BBB3D19D703880006DE0F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BD3BBB3F19D703990006DE0F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		BD3BBB4119D703E30006DE0F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		BD89C38A19FD09F20005A9B2 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = beep.mp3; path = CouponTracker/Resources/beep.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +257,7 @@
 		6BA630F819EAA5A400D56532 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BD89C38A19FD09F20005A9B2 /* beep.mp3 */,
 				6BA6312519EABB3800D56532 /* DefaultBackground.jpg */,
 				6BA6312319EAB94300D56532 /* DefaultBackgroundiPhone.json */,
 				6BA630FA19EAA66A00D56532 /* DefaultBackgroundiPad.json */,
@@ -377,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B77A87F19D6C5AE00FC0978 /* Images.xcassets in Resources */,
+				BD89C38B19FD09F20005A9B2 /* beep.mp3 in Resources */,
 				6BA6312619EABB3800D56532 /* DefaultBackground.jpg in Resources */,
 				6BA630FB19EAA66A00D56532 /* DefaultBackgroundiPad.json in Resources */,
 				6BA6312419EAB94300D56532 /* DefaultBackgroundiPhone.json in Resources */,

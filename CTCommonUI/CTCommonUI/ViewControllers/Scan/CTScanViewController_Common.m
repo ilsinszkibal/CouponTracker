@@ -26,6 +26,11 @@
     self.previewView.layer.borderWidth = 2.0;
     [[CTQRCodeManager sharedManager] setPreviewView:self.previewView];
     [[CTQRCodeManager sharedManager] setDelegate:self];
+    
+    self.previewView = [[UIView alloc] init];
+    [CTQRCodeManager sharedManager].previewView = self.previewView;
+    [self.view addSubview:self.previewView];
+    
     [self stop];
 }
 
@@ -41,8 +46,8 @@
         [[CTQRCodeManager sharedManager] stopReading];
         [self stop];
     } else {
-        BOOL suCTess = [[CTQRCodeManager sharedManager] startReading];
-        if (suCTess) {
+        BOOL success = [[CTQRCodeManager sharedManager] startReading];
+        if (success) {
             [self start];
         } else {
             [self disable];
@@ -94,7 +99,12 @@
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Card read" message:@"This is not a valid CouponTracker card" preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleCancel handler:nil]];
     [alert addAction:[UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [self start];
+        BOOL success = [[CTQRCodeManager sharedManager] startReading];
+        if (success) {
+            [self start];
+        } else {
+            [self disable];
+        }
     }]];
     [self presentViewController:alert animated:YES completion:nil];
 }

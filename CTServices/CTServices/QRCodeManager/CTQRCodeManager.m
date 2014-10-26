@@ -8,6 +8,7 @@
 
 #import "CTQRCodeManager.h"
 #import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioServices.h>
 #import <iOS-QR-Code-Encoder/QRCodeGenerator.h>
 
 @interface CTQRCodeManager () <AVCaptureMetadataOutputObjectsDelegate>
@@ -34,6 +35,7 @@
         self.availableCodeTypes = @[AVMetadataObjectTypeQRCode];
         self.stopsReadingWhenCodeIsFound = YES;
         self.beepsWhenCodeIsFound = YES;
+        self.vibratesWhenCodeIsFound = YES;
         self.reading = NO;
         self.prepared = NO;
     }
@@ -141,6 +143,10 @@
                 }
                 if (self.beepsWhenCodeIsFound && self.audioPlayer) {
                     [self.audioPlayer play];
+                }
+                if (self.vibratesWhenCodeIsFound) {
+                    //AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);//plays audio on unsupported devices
+                    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);//does nothing on upsupported devices
                 }
                 if (self.stopsReadingWhenCodeIsFound) {
                     [self stopReading];

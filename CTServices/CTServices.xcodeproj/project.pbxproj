@@ -38,6 +38,8 @@
 		BD7AB25219E14ECB000D88AB /* CCStringValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB23919E14ECB000D88AB /* CCStringValidator.m */; };
 		BD7AB25319E14ECB000D88AB /* CCValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB23B19E14ECB000D88AB /* CCValidator.m */; };
 		BD7AB25B19E15247000D88AB /* CTNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB25A19E15247000D88AB /* CTNetworkingManager.m */; };
+		BD89C38519FD08920005A9B2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD89C38419FD08920005A9B2 /* AVFoundation.framework */; };
+		BD89C38919FD08960005A9B2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD89C38819FD08960005A9B2 /* AudioToolbox.framework */; };
 		BDC1FC0519FAA09C0010BC78 /* CTPrinterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC1FC0419FAA09C0010BC78 /* CTPrinterManager.m */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +137,8 @@
 		BD7AB23C19E14ECB000D88AB /* CCValidators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValidators.h; sourceTree = "<group>"; };
 		BD7AB25919E15247000D88AB /* CTNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNetworkingManager.h; sourceTree = "<group>"; };
 		BD7AB25A19E15247000D88AB /* CTNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTNetworkingManager.m; sourceTree = "<group>"; };
+		BD89C38419FD08920005A9B2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BD89C38819FD08960005A9B2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		BDC1FC0319FAA09C0010BC78 /* CTPrinterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPrinterManager.h; sourceTree = "<group>"; };
 		BDC1FC0419FAA09C0010BC78 /* CTPrinterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPrinterManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +148,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD89C38919FD08960005A9B2 /* AudioToolbox.framework in Frameworks */,
+				BD89C38519FD08920005A9B2 /* AVFoundation.framework in Frameworks */,
 				6B77A8E019D6CA5100FC0978 /* libCTAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,6 +167,8 @@
 		6B77A89D19D6C9BF00FC0978 = {
 			isa = PBXGroup;
 			children = (
+				BD89C38819FD08960005A9B2 /* AudioToolbox.framework */,
+				BD89C38419FD08920005A9B2 /* AVFoundation.framework */,
 				6BCB423D19D718B10091E870 /* CTAnalytics.xcodeproj */,
 				6B77A8E519D6CBA100FC0978 /* framework */,
 				6B77A8A819D6C9BF00FC0978 /* CTServices */,

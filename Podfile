@@ -26,6 +26,9 @@ target :"CTUtils" do
     #QR
     pod 'iOS-QR-Code-Encoder', "~> 0.0.1"
     
+    #Location
+    pod 'INTULocationManager', "~> 1.2"
+    
     #Reactive
     pod 'ReactiveCocoa', "~> 2.3"
 

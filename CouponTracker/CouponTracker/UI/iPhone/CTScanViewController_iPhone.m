@@ -33,9 +33,7 @@
     self.backButton = [UIFactory defaultButtonWithTitle:@"Back" target:self action:@selector(backButtonPressed:)];
     [self.view addSubview:self.backButton];
     
-    self.previewView = [[UIView alloc] init];
     self.previewView.backgroundColor = [UIColor lightGrayColor];
-    [self.view addSubview:self.previewView];
     
     self.startStopButton = [UIFactory defaultButtonWithTitle:@"Start" target:self action:@selector(startStopButtonPressed:)];
     [self.view addSubview:self.startStopButton];

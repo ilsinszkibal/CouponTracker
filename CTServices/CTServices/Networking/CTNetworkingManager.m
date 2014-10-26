@@ -13,6 +13,7 @@
 #import "CTUser.h"
 
 #import <RestKit/RestKit.h>
+#import <INTULocationManager.h>
 
 @implementation CTNetworkingManager
 
@@ -213,7 +214,9 @@
 
 - (RKObjectMapping*)readMapping {
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[Model_CardRead class]];
-    [mapping addAttributeMappingsFromArray:@[@"id", @"createdAt", @"updatedAt", @"deleted", @"code", @"latitude", @"longitude"]];
+    [mapping addAttributeMappingsFromArray:@[@"id", @"createdAt", @"updatedAt", @"deleted", @"code"]];
+    [mapping addAttributeMappingsFromDictionary:@{@"latitude": @"locationLatitude",
+                                                  @"longitude": @"locationLongitude"}];
     [mapping addRelationshipMappingWithSourceKeyPath:@"card" mapping:self.cardMapping];
     return mapping;
 }
@@ -227,29 +230,39 @@
 }
 
 - (RKRequestDescriptor*)readRequestDescriptor {
-    return [RKRequestDescriptor requestDescriptorWithMapping:self.readMapping.inverseMapping objectClass:[Model_CardRead class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
+    RKObjectMapping* mapping = [RKObjectMapping requestMapping];
+    [mapping addAttributeMappingsFromArray:@[@"code"]];
+    [mapping addAttributeMappingsFromDictionary:@{@"locationLatitude": @"latitude",
+                                                  @"locationLongitude": @"longitude"}];
+    return [RKRequestDescriptor requestDescriptorWithMapping:mapping objectClass:[Model_CardRead class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
 }
 
 - (NSOperation*)readCardWithCode:(NSString*)code completion:(void(^)(Model_CardRead* read, NSError* error))completion {
-    Model_CardRead* read = [[Model_CardRead alloc] init];
-    [read setCode:code];
-    //TODO: set latitude, longitude
-    
-    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:read method:RKRequestMethodPOST path:@"reads.json" parameters:@{}];
-    
-    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        if (completion) {
-            completion(mappingResult.array.lastObject, nil);
+    [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyRoom timeout:15 delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+        Model_CardRead* read = [[Model_CardRead alloc] init];
+        [read setCode:code];
+        
+        if (status == INTULocationStatusSuccess) {
+            [read setLocationLatitude:[NSString stringWithFormat:@"%f", currentLocation.coordinate.latitude]];
+            [read setLocationLongitude:[NSString stringWithFormat:@"%f", currentLocation.coordinate.longitude]];
         }
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        if (completion) {
-            completion(nil, error);
-        }
+        
+        RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:read method:RKRequestMethodPOST path:@"reads.json" parameters:@{}];
+        
+        [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+            if (completion) {
+                completion(mappingResult.array.lastObject, nil);
+            }
+        } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+            if (completion) {
+                completion(nil, error);
+            }
+        }];
+        
+        [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
+        
     }];
-    
-    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
-    
-    return operation;
+    return nil;
 }
 
 //- (void)getCardForCode:(NSString*)code completion:(void(^)(Model_PrintedCard* card, NSError* error))completion {

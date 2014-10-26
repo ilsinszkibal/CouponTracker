@@ -24,7 +24,7 @@
 
 - (void)setUp {
     self.storeCredentials = YES;
-    self.client = [AFOAuth2Client clientWithBaseURL:[NSURL URLWithString:@"http://coupontracker.org.149-5-47-148.sg511.servergrove.com"] clientID:@"1_3y9wqmtr87ggo4c88scgscoowc0wowcskg408c0gcw0kk8cg4w" secret:@"4sn0z798juas04ko8sgkgwo80co4wwc0g844wwk84g88o8scgo"];
+    self.client = [AFOAuth2Client clientWithBaseURL:[NSURL URLWithString:@"http://coupontracker.org.149-5-47-148.sg511.servergrove.com"] clientID:@"12_1o7gprptdfr40gkcgo88gcwgwksskscc0ocsowwogsw80ssk0s" secret:@"bszst42w03cwk0okws44co8k8s4kg00ks004sosksk4884owo"];
 }
 
 - (BOOL)storeCredential:(AFOAuthCredential*)credential {

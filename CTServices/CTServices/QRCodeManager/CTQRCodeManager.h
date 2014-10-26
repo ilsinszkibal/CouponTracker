@@ -25,6 +25,7 @@
 @property (nonatomic, readonly, getter = isReading) BOOL reading;
 @property (nonatomic, assign) BOOL stopsReadingWhenCodeIsFound;
 @property (nonatomic, assign) BOOL beepsWhenCodeIsFound;
+@property (nonatomic, assign) BOOL vibratesWhenCodeIsFound;
 
 @property (nonatomic, strong) NSString* lastReadCode;
 @property (nonatomic, strong) UIImage* lastReadImage;
