@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <AFOAuth2Client.h>
+#import "Model_BaseEntity.h"
 
-@interface CTUser : NSObject
+@interface CTUser : Model_BaseEntity
 
 @property (nonatomic, strong) NSString* username;
 @property (nonatomic, strong) NSString* name;

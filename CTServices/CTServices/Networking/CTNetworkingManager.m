@@ -484,7 +484,8 @@
 
 - (RKObjectMapping*)userMapping {
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[CTUser class]];
-    [mapping addAttributeMappingsFromArray:@[@"id", @"createdAt", @"updatedAt", @"deleted", @"email", @"username", @"fullname", @"nickname", @"password"]];
+    [mapping addAttributeMappingsFromArray:@[@"id", @"createdAt", @"updatedAt", @"deleted", @"email", @"username", @"password"]];
+    [mapping addAttributeMappingsFromDictionary:@{@"fullname": @"name"}];
     return mapping;
 }
 
@@ -501,7 +502,7 @@
 }
 
 - (NSOperation*)signupUser:(CTUser*)user completion:(void(^)(CTUser* user, NSError* error))completion {
-    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:user method:RKRequestMethodPOST path:@"user.json" parameters:@{}];
+    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:user method:RKRequestMethodPOST path:@"users.json" parameters:@{}];
     
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         if (completion) {

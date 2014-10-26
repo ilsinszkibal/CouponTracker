@@ -186,8 +186,8 @@
 
     if (self.currentState == CTLoginViewStateLogin) {
         CTUser* user = [[CTUser alloc] init];
-        user.username = self.usernameField.text;
-        user.password = self.passwordField.text;
+        user.username = [self.usernameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        user.password = [self.passwordField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         [[CTUserManager sharedManager] loginUser:user completion:^(CTUser *user, NSError *error) {
             if (!error) {
                 [self dismissViewControllerAnimated:YES completion:nil];
@@ -195,10 +195,10 @@
         }];
     } else if (self.currentState == CTLoginViewStateRegister) {
         CTUser* user = [[CTUser alloc] init];
-        user.username = self.usernameField.text;
-        user.name = self.fullnameField.text;
-        user.email = self.emailField.text;
-        user.password = self.passwordField.text;
+        user.username = [self.usernameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        user.name = [self.fullnameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        user.email = [self.emailField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        user.password = [self.passwordField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         [[CTUserManager sharedManager] signupUser:user completion:^(CTUser *user, NSError *error) {
             if (!error) {
                 [self dismissViewControllerAnimated:YES completion:nil];
