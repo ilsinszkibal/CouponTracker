@@ -30,6 +30,7 @@
 		BD3BBB4019D703990006DE0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB3F19D703990006DE0F /* SystemConfiguration.framework */; };
 		BD3BBB4219D703E30006DE0F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB4119D703E30006DE0F /* MobileCoreServices.framework */; };
 		BD89C38B19FD09F20005A9B2 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BD89C38A19FD09F20005A9B2 /* beep.mp3 */; };
+		BD9D498A1A001054001D2326 /* CTScanViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9D49891A001054001D2326 /* CTScanViewController_iPad.m */; };
 		BDBFC19A19FD33440072306F /* CTContentDetailsViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBFC19919FD33440072306F /* CTContentDetailsViewController_iPhone.m */; };
 		BDBFC19E19FD33530072306F /* CTNewContentViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBFC19D19FD33530072306F /* CTNewContentViewController_iPhone.m */; };
 /* End PBXBuildFile section */
@@ -107,6 +108,8 @@
 		BD3BBB3F19D703990006DE0F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		BD3BBB4119D703E30006DE0F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		BD89C38A19FD09F20005A9B2 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = beep.mp3; path = CouponTracker/Resources/beep.mp3; sourceTree = "<group>"; };
+		BD9D49881A001054001D2326 /* CTScanViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTScanViewController_iPad.h; sourceTree = "<group>"; };
+		BD9D49891A001054001D2326 /* CTScanViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTScanViewController_iPad.m; sourceTree = "<group>"; };
 		BDBFC19819FD33440072306F /* CTContentDetailsViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTContentDetailsViewController_iPhone.h; sourceTree = "<group>"; };
 		BDBFC19919FD33440072306F /* CTContentDetailsViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTContentDetailsViewController_iPhone.m; sourceTree = "<group>"; };
 		BDBFC19C19FD33530072306F /* CTNewContentViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNewContentViewController_iPhone.h; sourceTree = "<group>"; };
@@ -146,6 +149,8 @@
 				6B4C2AF919E6F70100FB87DE /* CTNewTemplateViewController_iPad.m */,
 				6B4C2AFA19E6F70100FB87DE /* CTPrintTemplateViewController_iPad.h */,
 				6B4C2AFB19E6F70100FB87DE /* CTPrintTemplateViewController_iPad.m */,
+				BD9D49881A001054001D2326 /* CTScanViewController_iPad.h */,
+				BD9D49891A001054001D2326 /* CTScanViewController_iPad.m */,
 			);
 			name = ViewController;
 			path = UI/iPad/ViewController;
@@ -171,22 +176,10 @@
 		6B6053BB19E1459D0047293F /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
-				6B6053BF19E1462A0047293F /* CTMainViewController_iPhone.h */,
-				6B6053C019E1462A0047293F /* CTMainViewController_iPhone.m */,
-				6B5056DB19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.h */,
-				6B5056DC19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.m */,
-				6B5056E519E14D45006939CC /* CTNewTemplateViewController_iPhone.h */,
-				6B5056E619E14D45006939CC /* CTNewTemplateViewController_iPhone.m */,
-				6B5056EF19E14D86006939CC /* CTPrintTemplateViewController_iPhone.h */,
-				6B5056F019E14D86006939CC /* CTPrintTemplateViewController_iPhone.m */,
-				BD31F30C19F91EC500AF73D6 /* CTScanViewController_iPhone.h */,
-				BD31F30D19F91EC500AF73D6 /* CTScanViewController_iPhone.m */,
-				BD31F31919F9417700AF73D6 /* CTCardsViewController_iPhone.h */,
-				BD31F31A19F9417700AF73D6 /* CTCardsViewController_iPhone.m */,
-				BDBFC19819FD33440072306F /* CTContentDetailsViewController_iPhone.h */,
-				BDBFC19919FD33440072306F /* CTContentDetailsViewController_iPhone.m */,
-				BDBFC19C19FD33530072306F /* CTNewContentViewController_iPhone.h */,
-				BDBFC19D19FD33530072306F /* CTNewContentViewController_iPhone.m */,
+				BD9D49821A001003001D2326 /* Main */,
+				BD9D49841A001011001D2326 /* Template */,
+				BD9D49851A001019001D2326 /* Scan */,
+				BD9D49861A001023001D2326 /* Cards */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -282,6 +275,58 @@
 				BD3BBA6919D700070006DE0F /* CTCommonUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		BD9D49821A001003001D2326 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6B6053BF19E1462A0047293F /* CTMainViewController_iPhone.h */,
+				6B6053C019E1462A0047293F /* CTMainViewController_iPhone.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		BD9D49841A001011001D2326 /* Template */ = {
+			isa = PBXGroup;
+			children = (
+				6B5056DB19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.h */,
+				6B5056DC19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.m */,
+				6B5056E519E14D45006939CC /* CTNewTemplateViewController_iPhone.h */,
+				6B5056E619E14D45006939CC /* CTNewTemplateViewController_iPhone.m */,
+				6B5056EF19E14D86006939CC /* CTPrintTemplateViewController_iPhone.h */,
+				6B5056F019E14D86006939CC /* CTPrintTemplateViewController_iPhone.m */,
+			);
+			name = Template;
+			sourceTree = "<group>";
+		};
+		BD9D49851A001019001D2326 /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				BD31F30C19F91EC500AF73D6 /* CTScanViewController_iPhone.h */,
+				BD31F30D19F91EC500AF73D6 /* CTScanViewController_iPhone.m */,
+				BD9D49871A001032001D2326 /* Content */,
+			);
+			name = Scan;
+			sourceTree = "<group>";
+		};
+		BD9D49861A001023001D2326 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				BD31F31919F9417700AF73D6 /* CTCardsViewController_iPhone.h */,
+				BD31F31A19F9417700AF73D6 /* CTCardsViewController_iPhone.m */,
+			);
+			name = Cards;
+			sourceTree = "<group>";
+		};
+		BD9D49871A001032001D2326 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				BDBFC19819FD33440072306F /* CTContentDetailsViewController_iPhone.h */,
+				BDBFC19919FD33440072306F /* CTContentDetailsViewController_iPhone.m */,
+				BDBFC19C19FD33530072306F /* CTNewContentViewController_iPhone.h */,
+				BDBFC19D19FD33530072306F /* CTNewContentViewController_iPhone.m */,
+			);
+			name = Content;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,6 +470,7 @@
 				6B5056E719E14D45006939CC /* CTNewTemplateViewController_iPhone.m in Sources */,
 				6B4C2AFC19E6F70100FB87DE /* CTMainViewController_iPad.m in Sources */,
 				BD31F31B19F9417700AF73D6 /* CTCardsViewController_iPhone.m in Sources */,
+				BD9D498A1A001054001D2326 /* CTScanViewController_iPad.m in Sources */,
 				6B5056DD19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

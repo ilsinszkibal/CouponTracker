@@ -15,6 +15,43 @@
 #import <RestKit/RestKit.h>
 #import <INTULocationManager.h>
 
+@interface RKObjectRequestOperation (progress)
+
+- (void)setUploadStart:(void(^)(long long total))start progress:(void(^)(long long complete, long long total))progress completion:(void(^)())completion;
+- (void)setDownloadStart:(void(^)(long long total))start progress:(void(^)(long long complete, long long total))progress completion:(void(^)())completion;
+
+@end
+
+@implementation RKObjectRequestOperation (progress)
+
+- (void)setUploadStart:(void(^)(long long total))start progress:(void(^)(long long complete, long long total))progress completion:(void(^)())completion {
+    [self.HTTPRequestOperation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+        double percentDone = (double)totalBytesWritten / (double)totalBytesExpectedToWrite;
+        if (percentDone == 0) {
+            if (start) start(totalBytesExpectedToWrite);
+        } else if (percentDone == 1) {
+            if (completion) completion();
+        } else {
+            if (progress) progress(totalBytesWritten, totalBytesExpectedToWrite);
+        }
+    }];
+}
+
+- (void)setDownloadStart:(void(^)(long long total))start progress:(void(^)(long long complete, long long total))progress completion:(void(^)())completion {
+    [self.HTTPRequestOperation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+        double percentDone = (double)totalBytesRead / (double)totalBytesExpectedToRead;
+        if (percentDone == 0) {
+            if (start) start(totalBytesExpectedToRead);
+        } else if (percentDone == 1) {
+            if (completion) completion();
+        } else {
+            if (progress) progress(totalBytesRead, totalBytesExpectedToRead);
+        }
+    }];
+}
+
+@end
+
 @implementation CTNetworkingManager
 
 - (void)setUp {

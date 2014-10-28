@@ -9,6 +9,8 @@
 #import "CTViewController.h"
 #import "CTQRCodeManager.h"
 
+@class Model_CardContent;
+
 @interface CTScanViewController_Common : CTViewController <CTCodeReaderDelegate>
 
 @property (nonatomic, strong) UIView* previewView;
@@ -17,5 +19,8 @@
 @property (nonatomic, strong) UILabel* instructionLabel;
 
 - (void)startStopButtonPressed:(UIButton*)button;
+
+- (void)showContentDetails:(Model_CardContent*)content;
+- (void)showNewContent;
 
 @end
