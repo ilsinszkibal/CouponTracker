@@ -13,7 +13,6 @@
 		6BA6311519EAA7AF00D56532 /* CTBackgroundService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA6311419EAA7AF00D56532 /* CTBackgroundService.m */; };
 		BD31F2FC19F915F100AF73D6 /* CTQRCodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31F2FB19F915F100AF73D6 /* CTQRCodeManager.m */; };
 		BD31F30519F91AFC00AF73D6 /* CTQRCodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31F2FB19F915F100AF73D6 /* CTQRCodeManager.m */; };
-		BD31F31F19F94AAA00AF73D6 /* CTTemplateDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31F31E19F94AAA00AF73D6 /* CTTemplateDataSource.m */; };
 		BD31F32419F94C6F00AF73D6 /* CTTemplateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31F32319F94C6F00AF73D6 /* CTTemplateCell.m */; };
 		BD7AB23D19E14ECB000D88AB /* CTBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB20819E14ECB000D88AB /* CTBaseManager.m */; };
 		BD7AB23F19E14ECB000D88AB /* CTUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB20E19E14ECB000D88AB /* CTUserManager.m */; };
@@ -85,8 +84,6 @@
 		6BCB423D19D718B10091E870 /* CTAnalytics.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTAnalytics.xcodeproj; path = ../CTAnalytics/CTAnalytics.xcodeproj; sourceTree = "<group>"; };
 		BD31F2FA19F915F100AF73D6 /* CTQRCodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTQRCodeManager.h; sourceTree = "<group>"; };
 		BD31F2FB19F915F100AF73D6 /* CTQRCodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTQRCodeManager.m; sourceTree = "<group>"; };
-		BD31F31D19F94AAA00AF73D6 /* CTTemplateDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTTemplateDataSource.h; sourceTree = "<group>"; };
-		BD31F31E19F94AAA00AF73D6 /* CTTemplateDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTTemplateDataSource.m; sourceTree = "<group>"; };
 		BD31F32219F94C6F00AF73D6 /* CTTemplateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTTemplateCell.h; sourceTree = "<group>"; };
 		BD31F32319F94C6F00AF73D6 /* CTTemplateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTTemplateCell.m; sourceTree = "<group>"; };
 		BD7AB20719E14ECB000D88AB /* CTBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTBaseManager.h; sourceTree = "<group>"; };
@@ -199,8 +196,6 @@
 				BD7AB20819E14ECB000D88AB /* CTBaseManager.m */,
 				BD7AB20C19E14ECB000D88AB /* User */,
 				BD7AB20F19E14ECB000D88AB /* Validation */,
-				BD31F31D19F94AAA00AF73D6 /* CTTemplateDataSource.h */,
-				BD31F31E19F94AAA00AF73D6 /* CTTemplateDataSource.m */,
 				BD31F32219F94C6F00AF73D6 /* CTTemplateCell.h */,
 				BD31F32319F94C6F00AF73D6 /* CTTemplateCell.m */,
 			);
@@ -486,7 +481,6 @@
 				BD7AB24419E14ECB000D88AB /* CCLengthCondition.m in Sources */,
 				BD7AB24019E14ECB000D88AB /* CCValidationManager.m in Sources */,
 				BD7AB24A19E14ECB000D88AB /* CCUrlCondition.m in Sources */,
-				BD31F31F19F94AAA00AF73D6 /* CTTemplateDataSource.m in Sources */,
 				BD7AB24919E14ECB000D88AB /* CCUniqueCondition.m in Sources */,
 				BD7AB25119E14ECB000D88AB /* CCNumberValidator.m in Sources */,
 				BD7AB23D19E14ECB000D88AB /* CTBaseManager.m in Sources */,

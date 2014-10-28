@@ -10,6 +10,8 @@
 
 @interface CTPrintTemplateViewController_iPhone ()
 
+@property (nonatomic, strong) UIView* passingView;
+
 @end
 
 @implementation CTPrintTemplateViewController_iPhone
@@ -28,6 +30,24 @@
 
 - (void)backButtonPressed:(UIButton*)backButton {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - CTPassingViewNavigating protocol
+
+- (UIView*) passingViewForKey:(CTPassingViewNavigatingKey*) key
+{
+    return self.passingView;
+}
+
+- (CGRect) passingViewRectForKey:(CTPassingViewNavigatingKey*) key
+{
+    return CGRectMake(self.view.frame.size.width - 200, 85, 150, 100);
+}
+
+- (void) receivingView:(UIView*) view forKey:(CTPassingViewNavigatingKey*) key
+{
+    self.passingView = view;
+    [self.view addSubview:self.passingView];
 }
 
 @end

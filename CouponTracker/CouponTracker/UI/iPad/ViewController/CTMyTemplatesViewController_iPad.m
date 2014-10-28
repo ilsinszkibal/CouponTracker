@@ -16,7 +16,6 @@
 #import "CTPrintTemplateViewController_iPad.h"
 
 #import <iCarousel/iCarousel.h>
-#import "BorderContainerView.h"
 #import "PreferredSizingImageView.h"
 #import "Model.h"
 
@@ -95,7 +94,7 @@
     BorderContainerView* borderContainer = (BorderContainerView*)view;
     if (  borderContainer == nil )
     {
-        borderContainer = [self createCell];
+        borderContainer = [self createCellWithSize:CGSizeMake(400, 400) ];
     }
     
     Model_PrintedCard* printedCard = [_myCards objectAtIndex:index];
@@ -107,19 +106,6 @@
     return borderContainer;
 }
 
-- (BorderContainerView*) createCell
-{
-    PreferredSizingImageView* imageView = [[PreferredSizingImageView alloc] initWithFrame:CGRectMake(0, 0, 400, 400) ];
-    [imageView setContentMode:UIViewContentModeScaleAspectFill];
-    
-    BorderContainerView* borderContainer = [[BorderContainerView alloc] initWithContentView:imageView];
-    CGRect borderRect = CGRectZero;
-    borderRect.size = [borderContainer preferredContainterViewSize];
-    [borderContainer setFrame:borderRect ];
-    
-    return borderContainer;
-}
-
 #pragma mark - ICarouselDelegate
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
@@ -127,7 +113,7 @@
     
     _selectedIndex = index;
     
-    CTPassingViewNavigatingKey* key = [CTPassingViewNavigatingKey createNavigationWithKey:[CTMyTemplatesViewController_iPad printNavigationKey] withParameters:@{ [CTMyTemplatesViewController_iPad selectedElemIndexKey] : @(index) } ];
+    CTPassingViewNavigatingKey* key = [CTPassingViewNavigatingKey createNavigationWithKey:[self printNavigationKey] withParameters:@{ [self selectedElemIndexKey] : @(index) } ];
     
     CTPrintTemplateViewController_iPad* printTemplate = [[CTPrintTemplateViewController_iPad alloc] init];
     [self passingViewNavigateToViewController:printTemplate forKey:key];
@@ -138,16 +124,16 @@
 - (UIView*) passingViewForKey:(CTPassingViewNavigatingKey*) key
 {
     
-    if ( [[key key] isEqualToString:[CTMyTemplatesViewController_iPad printNavigationKey] ] )
+    if ( [[key key] isEqualToString:[self printNavigationKey] ] )
     {
-        NSNumber* selectedIndex = [key parameters][ [CTMyTemplatesViewController_iPad selectedElemIndexKey] ];
+        NSNumber* selectedIndex = [key parameters][ [self selectedElemIndexKey] ];
         
         BorderContainerView* selected = (BorderContainerView*)[_carousel itemViewAtIndex:[selectedIndex integerValue] ];
         [selected setHidden:YES];
         
         UIImage* selectedImage = [(UIImageView*)selected.contentView image];
         
-        BorderContainerView* cell = [self createCell];
+        BorderContainerView* cell = [self createCellWithSize:CGSizeMake(250, 250) ];
         [(UIImageView*)cell.contentView setImage:selectedImage];
         
         return cell;
@@ -159,7 +145,7 @@
 - (CGRect) passingViewRectForKey:(CTPassingViewNavigatingKey*) key
 {
     
-    if ( [[key key] isEqualToString:[CTMyTemplatesViewController_iPad printNavigationKey] ] )
+    if ( [[key key] isEqualToString:[self printNavigationKey] ] )
     {
         CGFloat size = 430;
         CGRect actFrame = self.view.frame;
@@ -171,23 +157,13 @@
 
 - (void) receivingView:(UIView*) view forKey:(CTPassingViewNavigatingKey*) key
 {
-    if ( [[key key] isEqualToString:[CTMyTemplatesViewController_iPad printNavigationKey] ] )
+    if ( [[key key] isEqualToString:[self printNavigationKey] ] )
     {
-        NSNumber* selectedIndex = [key parameters][ [CTMyTemplatesViewController_iPad selectedElemIndexKey] ];
+        NSNumber* selectedIndex = [key parameters][ [self selectedElemIndexKey] ];
         BorderContainerView* selected = (BorderContainerView*)[_carousel itemViewAtIndex:[selectedIndex integerValue] ];
         
         [selected setHidden:NO];
     }
-}
-
-+ (NSString*) selectedElemIndexKey
-{
-    return @"SelectedElemIndexKey";
-}
-
-+ (NSString*) printNavigationKey
-{
-    return @"PrintNavigationKey";
 }
 
 #pragma mark - dealloc

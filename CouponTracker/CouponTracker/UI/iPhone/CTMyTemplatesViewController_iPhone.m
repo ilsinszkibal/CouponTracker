@@ -8,17 +8,24 @@
 
 #import "CTMyTemplatesViewController_iPhone.h"
 #import "Model.h"
-#import "CTTemplateDataSource.h"
 #import "UIFactory.h"
 #import "CTPrintTemplateViewController_iPhone.h"
 
-@interface CTMyTemplatesViewController_iPhone () <UICollectionViewDelegate>
+#import "CTNetworkingManager.h"
+
+#import "CTMyTemplatesViewController_iPhone.h"
+
+#import <iCarousel/iCarousel.h>
+#import "UIImageView+WebCache.h"
+
+@interface CTMyTemplatesViewController_iPhone () <UICollectionViewDelegate, iCarouselDataSource, iCarouselDelegate>
+
+@property (nonatomic, strong) NSArray* templates;
+@property (nonatomic, strong) iCarousel* carousel;
+@property (nonatomic, assign) NSUInteger selectedIndex;
 
 @property (nonatomic, strong) UISegmentedControl* switcher;
-@property (nonatomic, strong) UICollectionView* collectionView;
 @property (nonatomic, strong) UIButton* backButton;
-
-@property (nonatomic, strong) CTTemplateDataSource* templatesDataSource;
 
 - (void)switcherChanged:(UISegmentedControl*)switcher;
 - (void)backButtonPressed:(UIButton*)backButton;
@@ -30,29 +37,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.templatesDataSource = [[CTTemplateDataSource alloc] init];
+    self.view.clipsToBounds = YES;
     
     self.backButton = [UIFactory defaultButtonWithTitle:@"Back" target:self action:@selector(backButtonPressed:)];
     [self.view addSubview:self.backButton];
     
-    self.switcher = [[UISegmentedControl alloc] initWithItems:@[@"My templates", @"Popular templates"]];
-    [self.switcher setSelectedSegmentIndex:CTMyTemplates];
-    [self.switcher addTarget:self action:@selector(switcherChanged:) forControlEvents:UIControlEventValueChanged];
-    self.switcher.tintColor = [UIColor whiteColor];
-    [self.view addSubview:self.switcher];
+    _carousel = [[iCarousel alloc] init];
+    _carousel.delegate = self;
+    _carousel.dataSource = self;
+    _carousel.type = iCarouselTypeLinear;
+    [self.view addSubview:_carousel];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     
-    UICollectionViewFlowLayout* layout = [UICollectionViewFlowLayout new];
-    layout.itemSize = CGSizeMake(200, 100);
-    layout.minimumInteritemSpacing = 10;
-    layout.minimumLineSpacing = 10;
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-    self.collectionView.dataSource = self.templatesDataSource;
-    self.collectionView.delegate = self;
-    self.collectionView.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:self.collectionView];
+    if (!self.switcher)
+    {
+        self.switcher = [[UISegmentedControl alloc] initWithItems:@[@"My templates", @"Popular templates"]];
+        [self.switcher addTarget:self action:@selector(switcherChanged:) forControlEvents:UIControlEventValueChanged];
+        self.switcher.tintColor = [UIColor whiteColor];
+        [self.view addSubview:self.switcher];
+        self.switcher.selectedSegmentIndex = 0;
+        [self switcherChanged:self.switcher];
+    }
     
-    self.templatesDataSource.collectionView = self.collectionView;
-    self.templatesDataSource.templateType = CTMyTemplates;
 }
 
 - (void)viewDidLayoutSubviews {
@@ -60,28 +70,119 @@
     
     [self.backButton setFrame:CGRectMake(10, 20, 60, 30)];
     [self.switcher setFrame:CGRectMake(20, 60, 280, 25)];
-    [self.collectionView setFrame:CGRectMake(20, 100, 280, 400)];
+    [self.carousel setFrame:CGRectMake(20, 100, 280, 400)];
 }
 
 - (void)switcherChanged:(UISegmentedControl*)switcher {
-    if (switcher.selectedSegmentIndex == 0) {
-        self.templatesDataSource.templateType = CTMyTemplates;
-    } else {
-        self.templatesDataSource.templateType = CTPopularTemplates;
+    
+    self.templates = nil;
+    [self.carousel reloadData];
+    
+    if ( switcher.selectedSegmentIndex == 0 )
+    {
+        [[CTNetworkingManager sharedManager] getMyTemplates:^(NSArray* templates, NSError* error){
+            if (!error) {
+                self.templates = templates.copy;
+            }
+            [self.carousel reloadData];
+        }];
     }
-    [self.collectionView.collectionViewLayout invalidateLayout];
+    else
+    {
+        [[CTNetworkingManager sharedManager] getPopularTemplates:^(NSArray* templates, NSError* error){
+            if (!error) {
+                self.templates = templates.copy;
+            }
+            [self.carousel reloadData];
+        }];
+    }
+    
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    Model_CardTemplate* template = [self.templatesDataSource templateForIndexPath:indexPath];
+#pragma mark - iCarouselDataSource
+
+- (NSUInteger) numberOfItemsInCarousel:(iCarousel *)carousel
+{
+    return [self.templates count];
+}
+
+- (UIView*) carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
+{
+    BorderContainerView* borderContainer = (BorderContainerView*)view;
+    if (  borderContainer == nil )
+    {
+        borderContainer = [self createCellWithSize:CGSizeMake(200, 100) ];
+    }
     
-    CTPrintTemplateViewController_Common* print = [[CTPrintTemplateViewController_iPhone alloc] init];
-    print.template = template;
-    [self navigateToViewController:print];
+    Model_CardTemplate* templateCard = [self.templates objectAtIndex:index];
+    Model_Image* image = [templateCard image];
+    
+    [(UIImageView*)borderContainer.contentView sd_setImageWithURL:[NSURL URLWithString:image.url] ];
+    
+    return borderContainer;
+}
+
+#pragma mark - ICarouselDelegate
+
+- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
+{
+    
+    _selectedIndex = index;
+    
+    CTPassingViewNavigatingKey* key = [CTPassingViewNavigatingKey createNavigationWithKey:[self printNavigationKey] withParameters:@{ [self selectedElemIndexKey] : @(index) } ];
+    
+    CTPrintTemplateViewController_iPhone* printTemplate = [[CTPrintTemplateViewController_iPhone alloc] init];
+    [self passingViewNavigateToViewController:printTemplate forKey:key];
 }
 
 - (void)backButtonPressed:(UIButton*)backButton {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - PassingViewAnimation
+
+- (UIView*) passingViewForKey:(CTPassingViewNavigatingKey*) key
+{
+    
+    if ( [[key key] isEqualToString:[self printNavigationKey] ] )
+    {
+        NSNumber* selectedIndex = [key parameters][ [self selectedElemIndexKey] ];
+        
+        BorderContainerView* selected = (BorderContainerView*)[_carousel itemViewAtIndex:[selectedIndex integerValue] ];
+        [selected setHidden:YES];
+        
+        UIImage* selectedImage = [(UIImageView*)selected.contentView image];
+        
+        BorderContainerView* cell = [self createCellWithSize:CGSizeMake(200, 100) ];
+        [(UIImageView*)cell.contentView setImage:selectedImage];
+        
+        return cell;
+    }
+    
+    return nil;
+}
+
+- (CGRect) passingViewRectForKey:(CTPassingViewNavigatingKey*) key
+{
+    
+    if ( [[key key] isEqualToString:[self printNavigationKey] ] )
+    {
+        CGRect actFrame = self.view.frame;
+        return CGRectMake( ( actFrame.size.width - 230 ) / 2.0, ( actFrame.size.height - 130 ) / 2.0, 230, 130);
+    }
+    
+    return CGRectZero;
+}
+
+- (void) receivingView:(UIView*) view forKey:(CTPassingViewNavigatingKey*) key
+{
+    if ( [[key key] isEqualToString:[self printNavigationKey] ] )
+    {
+        NSNumber* selectedIndex = [key parameters][ [self selectedElemIndexKey] ];
+        BorderContainerView* selected = (BorderContainerView*)[_carousel itemViewAtIndex:[selectedIndex integerValue] ];
+        
+        [selected setHidden:NO];
+    }
 }
 
 @end

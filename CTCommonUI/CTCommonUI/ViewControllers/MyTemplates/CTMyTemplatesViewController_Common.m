@@ -31,6 +31,32 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BorderContainerView*) createCellWithSize:(CGSize) size
+{
+    
+    CGRect imageViewRect = CGRectZero;
+    imageViewRect.size = size;
+    
+    PreferredSizingImageView* imageView = [[PreferredSizingImageView alloc] initWithFrame:imageViewRect ];
+    [imageView setContentMode:UIViewContentModeScaleAspectFill];
+    
+    BorderContainerView* borderContainer = [[BorderContainerView alloc] initWithContentView:imageView];
+    CGRect borderRect = CGRectZero;
+    borderRect.size = [borderContainer preferredContainterViewSize];
+    [borderContainer setFrame:borderRect ];
+    
+    return borderContainer;
+}
+
+- (NSString*) selectedElemIndexKey
+{
+    return @"SelectedElemIndexKey";
+}
+
+- (NSString*) printNavigationKey
+{
+    return @"PrintNavigationKey";
+}
 
 - (void) showNewTemplate:(CTNewTemplateViewController_Common*) newTemplateViewController
 {

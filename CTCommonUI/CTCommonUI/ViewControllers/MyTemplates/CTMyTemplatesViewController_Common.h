@@ -11,9 +11,16 @@
 #import "CTNewTemplateViewController_Common.h"
 #import "CTPrintTemplateViewController_Common.h"
 
+#import "BorderContainerView.h"
+#import "PreferredSizingImageView.h"
+
 @class Model_Image;
 
 @interface CTMyTemplatesViewController_Common : CTPassingViewNavigationViewController
+
+- (BorderContainerView*) createCellWithSize:(CGSize) size;
+- (NSString*) selectedElemIndexKey;
+- (NSString*) printNavigationKey;
 
 - (void) showNewTemplate:(CTNewTemplateViewController_Common*) newTemplateViewController;
 - (void) showPrintTemplate:(CTPrintTemplateViewController_Common*)  printTemplateViewController forKey:(CTPassingViewNavigatingKey*) key;
