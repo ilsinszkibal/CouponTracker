@@ -11,10 +11,12 @@
 #import "UIFactory.h"
 
 #import "CTMyTemplatesViewController_iPad.h"
+#import "CTScanViewController_iPad.h"
 
 @interface CTMainViewController_iPad () {
     
     UIButton* _loginButton;
+    UIButton* _scanButton;
     
 }
 
@@ -31,6 +33,9 @@
     _loginButton = [UIFactory defaultButtonWithTitle:@"Login" target:self action:@selector(loginButtonAction:) ];
     [self.view addSubview:_loginButton];
     
+    _scanButton = [UIFactory defaultButtonWithTitle:@"Scan" target:self action:@selector(scanButtonPressed:)];
+    [self.view addSubview:_scanButton];
+    
 }
 
 - (void) viewDidLayoutSubviews
@@ -38,6 +43,7 @@
     [super viewDidLayoutSubviews];
     
     [_loginButton setFrame:CGRectMake(200, 450, 150, 44) ];
+    [_scanButton setFrame:CGRectMake(200, 600, 150, 44)];
     
 }
 
@@ -57,6 +63,12 @@
 - (void) loginButtonAction:(UIButton*) button
 {
     [self showLogin];
+}
+
+- (void) scanButtonPressed:(UIButton*) button
+{
+    CTScanViewController_iPad* scan = [[CTScanViewController_iPad alloc] init];
+    [self navigateToViewController:scan];
 }
 
 @end

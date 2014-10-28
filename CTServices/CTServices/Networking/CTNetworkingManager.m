@@ -285,9 +285,7 @@
             [read setLocationLongitude:[NSString stringWithFormat:@"%f", currentLocation.coordinate.longitude]];
         }
         
-        [self requestPath:@"reads.json" method:RKRequestMethodPOST object:read parameters:nil progress:^(NSProgress *progress) {
-            NSLog(@"%f, %@ %@", progress.fractionCompleted, progress.localizedAdditionalDescription, progress.localizedDescription);
-        } completion:^(NSArray *results, NSError *error) {
+        [self requestPath:@"reads.json" method:RKRequestMethodPOST object:read parameters:nil completion:^(NSArray *results, NSError *error) {
             if (completion) {
                 completion(results.lastObject, error);
             }

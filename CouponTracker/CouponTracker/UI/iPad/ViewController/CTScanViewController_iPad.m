@@ -50,10 +50,10 @@
     [super viewDidLayoutSubviews];
     
     [self.backButton setFrame:CGRectMake(20, 30, 50, 30)];
-    [self.previewView setFrame:CGRectMake(60, 70, 200, 200)];
-    [self.startStopButton setFrame:CGRectMake(60, 290, 200, 30)];
-    [self.statusLabel setFrame:CGRectMake(60, 330, 200, 30)];
-    [self.instructionLabel setFrame:CGRectMake(60, 150, 200, 40)];
+    [self.previewView setFrame:CGRectMake(100, 100, 500, 500)];
+    [self.startStopButton setFrame:CGRectMake(200, 650, 300, 30)];
+    [self.statusLabel setFrame:CGRectMake(100, 750, 500, 44)];
+    [self.instructionLabel setFrame:CGRectMake(100, 350, 500, 100)];
 }
 
 - (void)backButtonPressed:(UIButton*)backButton {
