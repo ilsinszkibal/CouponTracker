@@ -29,7 +29,6 @@
     
     BOOL isOpen = self.content.senderUser != nil && self.content.receiverUser == nil;
     BOOL isClosed = self.content.senderUser != nil && self.content.receiverUser != nil;
-    BOOL isMine = YES;//FIXME: determine receiver
     if (isOpen) {
         UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"This card is unassigned" message:@"Do you want to take ownership?" preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -42,14 +41,7 @@
         }]];
         [self presentViewController:alert animated:YES completion:nil];
     } else if (isClosed && isMine == NO) {
-        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"This card is closed" message:@"Do you want to reuse it with a new content?" preferredStyle:UIAlertControllerStyleAlert];
-        [alert addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [self navigateToNew];
-        }]];
-        [alert addAction:[UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [self backButtonPressed:nil];
-        }]];
-        [self presentViewController:alert animated:YES completion:nil];
+        //Do nothing, present content, wait for handoff or back
     }
 }
 
@@ -70,10 +62,6 @@
 
 - (void)navigateToHandoff {
     
-}
-
-- (void)navigateToNew {
-
 }
 
 @end

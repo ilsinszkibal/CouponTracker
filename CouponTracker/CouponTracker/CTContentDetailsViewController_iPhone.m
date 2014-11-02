@@ -24,10 +24,4 @@
     [self navigateToViewController:controller];
 }
 
-- (void)navigateToNew {
-    CTNewContentViewController_iPhone* controller = [[CTNewContentViewController_iPhone alloc] init];
-    controller.isHandoff = NO;
-    [self navigateToViewController:controller];
-}
-
 @end

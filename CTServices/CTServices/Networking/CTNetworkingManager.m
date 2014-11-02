@@ -211,14 +211,12 @@
 }
 
 - (NSOperation*)createContentWithCode:(NSString*)text completion:(void(^)(Model_CardContent* card, NSError* error))completion {
-    return nil;
-}
-
-- (NSOperation*)handoffCardWithNewContentWithCode:(NSString*)text completion:(void(^)(Model_CardContent* card, NSError* error))completion {
+    //POST cardcontent
     return nil;
 }
 
 - (NSOperation*)ownCard:(Model_CardContent*)content completion:(void(^)(Model_CardContent* card, NSError* error))completion {
+    //PUT contents/takeownership/ID.json
     return nil;
 }
 

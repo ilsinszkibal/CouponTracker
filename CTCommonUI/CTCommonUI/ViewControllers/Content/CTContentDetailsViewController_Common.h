@@ -17,6 +17,5 @@
 @property (nonatomic, strong) UIButton* handoffButton;
 
 - (void)navigateToHandoff;
-- (void)navigateToNew;
 
 @end

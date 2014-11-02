@@ -40,17 +40,10 @@
         } else if (result == REComposeResultPosted) {
             [weakSelf.spinner startAnimating];
             
-            if (weakSelf.isHandoff) {
-                [[CTNetworkingManager sharedManager] handoffCardWithNewContentWithCode:composeViewController.text completion:^(Model_CardContent *card, NSError *error) {
-                    [weakSelf.spinner startAnimating];
-                    [composeViewController dismissViewControllerAnimated:YES completion:nil];
-                }];
-            } else {
-                [[CTNetworkingManager sharedManager] createContentWithCode:composeViewController.text completion:^(Model_CardContent *card, NSError *error) {
-                    [weakSelf.spinner startAnimating];
-                    [composeViewController dismissViewControllerAnimated:YES completion:nil];
-                }];
-            }
+            [[CTNetworkingManager sharedManager] createContentWithCode:composeViewController.text completion:^(Model_CardContent *card, NSError *error) {
+                [weakSelf.spinner startAnimating];
+                [composeViewController dismissViewControllerAnimated:YES completion:nil];
+            }];
         }
     };
 }
