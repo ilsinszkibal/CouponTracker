@@ -14,10 +14,6 @@
 
 @interface CTScanViewController_iPad ()
 
-@property (nonatomic, strong) UIButton* backButton;
-
-- (void)backButtonPressed:(UIButton*)backButton;
-
 @end
 
 @implementation CTScanViewController_iPad
@@ -25,8 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.backButton = [UIFactory defaultButtonWithTitle:@"Back" target:self action:@selector(backButtonPressed:)];
-    [self.view addSubview:self.backButton];
+    [self setUpTopLeftButtonWithTitle:@"Back" withSel:@selector(backButtonPressed:) ];
     
     self.previewView.backgroundColor = [UIColor lightGrayColor];
     
@@ -49,7 +44,6 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
-    [self.backButton setFrame:CGRectMake(20, 30, 50, 30)];
     [self.previewView setFrame:CGRectMake(100, 100, 500, 500)];
     [self.startStopButton setFrame:CGRectMake(200, 650, 300, 30)];
     [self.statusLabel setFrame:CGRectMake(100, 750, 500, 44)];

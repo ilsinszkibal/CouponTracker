@@ -170,7 +170,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CTCommonUI/CTCommonUI/ViewControllers/NewTemplate/CTNewTemplateViewController_Common.m"
@@ -205,12 +205,12 @@
                   symbolName = "-[CTLoginViewController_Common actionButtonPressed:]"
                   moduleName = "CouponTracker"
                   urlString = "file:///Users/balazsilsinszki/Documents/Programming/iOS/GitHub/Skyscanner/CouponTracker/CTCommonUI/CTCommonUI/ViewControllers/Login/CTLoginViewController_Common.m"
-                  timestampString = "436218090.717067"
+                  timestampString = "436630959.415504"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "202"
                   endingLineNumber = "202"
-                  offsetFromSymbolStart = "2261">
+                  offsetFromSymbolStart = "2184">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -219,12 +219,12 @@
                   symbolName = "__52-[CTLoginViewController_Common actionButtonPressed:]_block_invoke189"
                   moduleName = "CouponTracker"
                   urlString = "file:///Users/balazsilsinszki/Documents/Programming/iOS/GitHub/Skyscanner/CouponTracker/CTCommonUI/CTCommonUI/ViewControllers/Login/CTLoginViewController_Common.m"
-                  timestampString = "436218090.717183"
+                  timestampString = "436630959.415649"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "202"
                   endingLineNumber = "202"
-                  offsetFromSymbolStart = "67">
+                  offsetFromSymbolStart = "72">
                </Location>
             </Locations>
          </BreakpointContent>
