@@ -207,17 +207,26 @@
 
 - (RKRequestDescriptor*)contentRequestDescriptor {
     RKObjectMapping* mapping = [RKObjectMapping requestMapping];
+    [mapping addAttributeMappingsFromArray:@[@"text"]];
     return [RKRequestDescriptor requestDescriptorWithMapping:mapping objectClass:[Model_CardContent class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
 }
 
 - (NSOperation*)createContentWithCode:(NSString*)text completion:(void(^)(Model_CardContent* card, NSError* error))completion {
-    //POST cardcontent
-    return nil;
+    Model_CardContent* content = [[Model_CardContent alloc] init];
+    content.text = text;
+    return [self requestPath:@"contents.json" method:RKRequestMethodPOST object:content parameters:@{} completion:^(NSArray *results, NSError *error) {
+        if (completion) {
+            completion(results.lastObject, error);
+        }
+    }];
 }
 
 - (NSOperation*)ownCard:(Model_CardContent*)content completion:(void(^)(Model_CardContent* card, NSError* error))completion {
-    //PUT contents/takeownership/ID.json
-    return nil;
+    return [self requestPath:[NSString stringWithFormat:@"contents/takeownership/%@.json", content.id] method:RKRequestMethodPUT object:content parameters:@{} completion:^(NSArray *results, NSError *error) {
+        if (completion) {
+            completion(results.lastObject, error);
+        }
+    }];
 }
 
 #pragma mark - Card
@@ -306,21 +315,11 @@
 }
 
 - (NSOperation*)getReadWithId:(NSString*)readId completion:(void(^)(Model_CardRead* read, NSError* error))completion {
-    RKObjectRequestOperation *operation = [[RKObjectManager sharedManager] appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:[NSString stringWithFormat:@"reads/%@.json", readId] parameters:@{}];
-    
-    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+    return [self requestPath:@"reads/%@.json" method:RKRequestMethodGET object:nil parameters:@{} completion:^(NSArray *results, NSError *error) {
         if (completion) {
-            completion(mappingResult.array.lastObject, nil);
-        }
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        if (completion) {
-            completion(nil, error);
+            completion(results.lastObject, error);
         }
     }];
-    
-    [[RKObjectManager sharedManager] enqueueObjectRequestOperation:operation];
-    
-    return operation;
 }
 
 #pragma mark - Type
