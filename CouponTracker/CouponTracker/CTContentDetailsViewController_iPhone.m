@@ -7,17 +7,27 @@
 //
 
 #import "CTContentDetailsViewController_iPhone.h"
+#import "CTNewContentViewController_iPhone.h"
+#import "CTCardContentView.h"
 
 @implementation CTContentDetailsViewController_iPhone
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
     
-    [self setUpTopLeftButtonWithTitle:@"Back" withSel:@selector(backButtonPressed:)];
+    [self.contentView setFrame:CGRectMake(60, 100, 200, 300)];
 }
 
-- (void)backButtonPressed:(UIButton*)backButton {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)navigateToHandoff {
+    CTNewContentViewController_iPhone* controller = [[CTNewContentViewController_iPhone alloc] init];
+    controller.isHandoff = YES;
+    [self navigateToViewController:controller];
+}
+
+- (void)navigateToNew {
+    CTNewContentViewController_iPhone* controller = [[CTNewContentViewController_iPhone alloc] init];
+    controller.isHandoff = NO;
+    [self navigateToViewController:controller];
 }
 
 @end

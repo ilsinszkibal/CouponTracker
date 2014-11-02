@@ -30,6 +30,8 @@
     [[CTQRCodeManager sharedManager] setDelegate:self];
     
     self.previewView = [[UIView alloc] init];
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+    [self.previewView addGestureRecognizer:tap];
     [CTQRCodeManager sharedManager].previewView = self.previewView;
     [self.view addSubview:self.previewView];
     
@@ -87,7 +89,7 @@
             if (read.card) {
                 self.card = read.card;
                 
-                if (read.currentContent.owner) {
+                if (read.currentContent) {
                     [self showContentDetails:read.currentContent];
                 } else {
                     [self showNewContent];
@@ -135,6 +137,16 @@
 - (void)showNewContent {
     UIViewController* viewController = [[CTNewContentViewController_Common alloc] init];
     [self navigateToViewController:viewController];
+}
+
+#pragma mark - Tap gesture
+
+- (void)tap:(UITapGestureRecognizer*)recognizer {
+    if (recognizer.state == UIGestureRecognizerStateRecognized) {
+        if ([CTQRCodeManager sharedManager].isReading) {
+            [[CTQRCodeManager sharedManager] switchCamera];
+        }
+    }
 }
 
 @end

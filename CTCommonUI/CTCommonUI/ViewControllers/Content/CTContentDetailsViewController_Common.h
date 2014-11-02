@@ -8,10 +8,15 @@
 
 #import "CTViewController.h"
 
-@class Model_CardContent;
+@class Model_CardContent, CTCardContentView;
 
 @interface CTContentDetailsViewController_Common : CTViewController
 
 @property (nonatomic, strong) Model_CardContent* content;
+@property (nonatomic, strong) CTCardContentView* contentView;
+@property (nonatomic, strong) UIButton* handoffButton;
+
+- (void)navigateToHandoff;
+- (void)navigateToNew;
 
 @end

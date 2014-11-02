@@ -38,6 +38,8 @@
 - (BOOL)startReading;
 - (BOOL)stopReading;
 
+- (void)switchCamera;
+
 - (UIImage*)generateQRCodeFromString:(NSString*)string size:(CGFloat)size;
 
 @end

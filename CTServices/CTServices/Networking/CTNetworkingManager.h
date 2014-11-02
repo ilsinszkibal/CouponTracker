@@ -10,7 +10,7 @@
 #import "CTServerSettings.h"
 #import <UIKit/UIKit.h>
 
-@class Model_Image, Model_CardRead, Model_CardTemplate, Model_PrintedCard, CTUser;
+@class Model_Image, Model_CardRead, Model_CardTemplate, Model_PrintedCard, Model_CardContent, CTUser;
 
 @interface CTNetworkingManager : CTBaseManager
 
@@ -26,6 +26,10 @@
 - (NSOperation*)uploadImage:(UIImage*)image completion:(void(^)(Model_Image* image, NSError* error))completion;
 - (NSOperation*)readCardWithCode:(NSString*)code completion:(void(^)(Model_CardRead* card, NSError* error))completion;
 
+- (NSOperation*)createContentWithCode:(NSString*)text completion:(void(^)(Model_CardContent* card, NSError* error))completion;
+- (NSOperation*)handoffCardWithNewContentWithCode:(NSString*)text completion:(void(^)(Model_CardContent* card, NSError* error))completion;
+
+- (NSOperation*)ownCard:(Model_CardContent*)content completion:(void(^)(Model_CardContent* card, NSError* error))completion;
 
 - (NSOperation*)signupUser:(CTUser*)user completion:(void(^)(CTUser* user, NSError* error))completion;
 

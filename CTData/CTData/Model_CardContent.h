@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSString * locationLatitude;
 @property (nonatomic, retain) NSString * locationLongitude;
 @property (nonatomic, retain) Model_PrintedCard *card;
-@property (nonatomic, retain) CTUser* owner;
+@property (nonatomic, retain) CTUser* senderUser;
+@property (nonatomic, retain) CTUser* receiverUser;
 
 @end

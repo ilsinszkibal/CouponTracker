@@ -30,6 +30,7 @@
     [self.view addSubview:self.backButton];
     
     self.previewView.backgroundColor = [UIColor lightGrayColor];
+    self.previewView.layer.cornerRadius = 5;
     
     self.startStopButton = [UIFactory defaultButtonWithTitle:@"Start" target:self action:@selector(startStopButtonPressed:)];
     [self.view addSubview:self.startStopButton];

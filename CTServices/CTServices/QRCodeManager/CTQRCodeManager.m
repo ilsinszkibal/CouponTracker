@@ -21,6 +21,8 @@
 @property (nonatomic, strong) NSArray *availableCodeTypes;
 
 @property (nonatomic, assign, getter = isPrepared) BOOL prepared;
+@property (nonatomic, assign, getter = isFrontCamera) BOOL frontCamera;
+@property (nonatomic, strong) AVCaptureInput* currentInput;
 
 - (void)setReading:(BOOL)reading;
 
@@ -38,23 +40,15 @@
         self.vibratesWhenCodeIsFound = YES;
         self.reading = NO;
         self.prepared = NO;
+        self.frontCamera = NO;
     }
     return self;
 }
 
 - (BOOL)prepareForReading {
     if (!self.isPrepared) {
-        AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-        
-        NSError *error;
-        AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
-        if (!input) {
-            NSLog(@"%@", error);
-            return NO;
-        }
-        
         self.captureSession = [[AVCaptureSession alloc] init];
-        [self.captureSession addInput:input];
+        [self switchCamera];
         
         AVCaptureMetadataOutput *captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
         [self.captureSession addOutput:captureMetadataOutput];
@@ -92,12 +86,72 @@
 
 - (BOOL)stopReading {
     [self.captureSession stopRunning];
-    self.captureSession = nil;
-    self.audioPlayer = nil;
     [self.videoPreviewLayer removeFromSuperlayer];
-    self.prepared = NO;
     self.reading = NO;
     return YES;
+}
+
+- (void)switchCamera {
+    if (self.currentInput) {
+        [UIView animateWithDuration:0.4 animations:^{
+            self.previewView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self addVideoInputCamera:!self.frontCamera];
+            [UIView animateWithDuration:0.4 delay:0.3 options:0 animations:^{
+                self.previewView.alpha = 1;
+            } completion:nil];
+        }];
+    } else {
+        [self addVideoInputCamera:!self.frontCamera];
+    }
+}
+
+- (BOOL)addVideoInputCamera:(BOOL)isFrontCamera {
+    NSArray *devices = [AVCaptureDevice devices];
+    AVCaptureDevice *frontCamera;
+    AVCaptureDevice *backCamera;
+    
+    for (AVCaptureDevice *device in devices) {
+        if ([device hasMediaType:AVMediaTypeVideo]) {
+            if ([device position] == AVCaptureDevicePositionBack) {
+                backCamera = device;
+            } else {
+                frontCamera = device;
+            }
+        }
+    }
+    
+    NSError *error = nil;
+    
+    if (isFrontCamera) {
+        AVCaptureDeviceInput *frontFacingCameraDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:frontCamera error:&error];
+        if (!error) {
+            [[self captureSession] removeInput:self.currentInput];
+            if ([[self captureSession] canAddInput:frontFacingCameraDeviceInput]) {
+                [[self captureSession] addInput:frontFacingCameraDeviceInput];
+                self.frontCamera = YES;
+                self.currentInput = frontFacingCameraDeviceInput;
+                return YES;
+            } else {
+                [[self captureSession] addInput:self.currentInput];
+            }
+        }
+    } else {
+        AVCaptureDeviceInput *backFacingCameraDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:backCamera error:&error];
+        if (!error) {
+            [[self captureSession] removeInput:self.currentInput];
+            if ([[self captureSession] canAddInput:backFacingCameraDeviceInput]) {
+                [[self captureSession] addInput:backFacingCameraDeviceInput];
+                self.frontCamera = NO;
+                self.currentInput = backFacingCameraDeviceInput;
+                return YES;
+            } else {
+                [[self captureSession] addInput:self.currentInput];
+            }
+        }
+    }
+    
+    return NO;
 }
 
 - (void)setReading:(BOOL)reading {

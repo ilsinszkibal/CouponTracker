@@ -192,7 +192,8 @@
     [mapping addAttributeMappingsFromDictionary:@{@"latitude": @"locationLatitude",
                                                   @"longitude": @"locationLongitude"}];
     //[mapping addRelationshipMappingWithSourceKeyPath:@"card" mapping:self.cardMapping];//causes reference loop
-    [mapping addRelationshipMappingWithSourceKeyPath:@"owner" mapping:self.userMapping];
+    [mapping addRelationshipMappingWithSourceKeyPath:@"senderUser" mapping:self.userMapping];
+    [mapping addRelationshipMappingWithSourceKeyPath:@"receiverUser" mapping:self.userMapping];
     return mapping;
 }
 
@@ -207,6 +208,18 @@
 - (RKRequestDescriptor*)contentRequestDescriptor {
     RKObjectMapping* mapping = [RKObjectMapping requestMapping];
     return [RKRequestDescriptor requestDescriptorWithMapping:mapping objectClass:[Model_CardContent class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
+}
+
+- (NSOperation*)createContentWithCode:(NSString*)text completion:(void(^)(Model_CardContent* card, NSError* error))completion {
+    return nil;
+}
+
+- (NSOperation*)handoffCardWithNewContentWithCode:(NSString*)text completion:(void(^)(Model_CardContent* card, NSError* error))completion {
+    return nil;
+}
+
+- (NSOperation*)ownCard:(Model_CardContent*)content completion:(void(^)(Model_CardContent* card, NSError* error))completion {
+    return nil;
 }
 
 #pragma mark - Card

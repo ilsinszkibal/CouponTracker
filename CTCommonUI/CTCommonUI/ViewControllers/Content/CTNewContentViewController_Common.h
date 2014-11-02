@@ -10,4 +10,6 @@
 
 @interface CTNewContentViewController_Common : CTViewController
 
+@property (nonatomic, assign) BOOL isHandoff; // if not creating a new card but creating a new content into an existing empty card
+
 @end

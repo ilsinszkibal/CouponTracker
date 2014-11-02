@@ -43,6 +43,8 @@
 		BD7AB1DD19E14A91000D88AB /* CouponCardDrawerManagerListener.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1C119E14A91000D88AB /* CouponCardDrawerManagerListener.m */; };
 		BD7AB1DF19E14A91000D88AB /* CTLoginViewController_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1C919E14A91000D88AB /* CTLoginViewController_Common.m */; };
 		BD7AB1E319E14AB8000D88AB /* CTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7AB1E219E14AB8000D88AB /* CTViewController.m */; };
+		BD9D49D61A063B13001D2326 /* CTCardContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9D49D51A063B13001D2326 /* CTCardContentView.m */; };
+		BD9D49E31A06753D001D2326 /* CTComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9D49E21A06753D001D2326 /* CTComposeViewController.m */; };
 		BDBFC19419FD330F0072306F /* CTContentDetailsViewController_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBFC19319FD330F0072306F /* CTContentDetailsViewController_Common.m */; };
 		BDBFC19719FD331F0072306F /* CTNewContentViewController_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBFC19619FD331F0072306F /* CTNewContentViewController_Common.m */; };
 /* End PBXBuildFile section */
@@ -154,6 +156,10 @@
 		BD7AB1C919E14A91000D88AB /* CTLoginViewController_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTLoginViewController_Common.m; sourceTree = "<group>"; };
 		BD7AB1E119E14AB8000D88AB /* CTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTViewController.h; sourceTree = "<group>"; };
 		BD7AB1E219E14AB8000D88AB /* CTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTViewController.m; sourceTree = "<group>"; };
+		BD9D49D41A063B13001D2326 /* CTCardContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTCardContentView.h; sourceTree = "<group>"; };
+		BD9D49D51A063B13001D2326 /* CTCardContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTCardContentView.m; sourceTree = "<group>"; };
+		BD9D49E11A06753D001D2326 /* CTComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTComposeViewController.h; sourceTree = "<group>"; };
+		BD9D49E21A06753D001D2326 /* CTComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTComposeViewController.m; sourceTree = "<group>"; };
 		BDBFC19219FD330F0072306F /* CTContentDetailsViewController_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTContentDetailsViewController_Common.h; sourceTree = "<group>"; };
 		BDBFC19319FD330F0072306F /* CTContentDetailsViewController_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTContentDetailsViewController_Common.m; sourceTree = "<group>"; };
 		BDBFC19519FD331F0072306F /* CTNewContentViewController_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNewContentViewController_Common.h; sourceTree = "<group>"; };
@@ -449,6 +455,10 @@
 				BD7228BB19E165A800EA93A9 /* CTTwoStateButton.m */,
 				BD7228C119E194A900EA93A9 /* CTValidTextField.h */,
 				BD7228C219E194A900EA93A9 /* CTValidTextField.m */,
+				BD9D49D41A063B13001D2326 /* CTCardContentView.h */,
+				BD9D49D51A063B13001D2326 /* CTCardContentView.m */,
+				BD9D49E11A06753D001D2326 /* CTComposeViewController.h */,
+				BD9D49E21A06753D001D2326 /* CTComposeViewController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -588,6 +598,7 @@
 				BD31F31C19F944E400AF73D6 /* CTCardsViewController_Common.m in Sources */,
 				BD7AB1CF19E14A91000D88AB /* CouponDrawingImageLayer.m in Sources */,
 				BD7AB1D719E14A91000D88AB /* CardDrawingOperationView.m in Sources */,
+				BD9D49E31A06753D001D2326 /* CTComposeViewController.m in Sources */,
 				6B4C2B0919E6FE7500FB87DE /* PreferredSizingImageView.m in Sources */,
 				6BDCAFB919EC44F700365D32 /* CTPassingViewNavigationViewController.m in Sources */,
 				BD7AB1DF19E14A91000D88AB /* CTLoginViewController_Common.m in Sources */,
@@ -618,6 +629,7 @@
 				6B5056E119E14D1E006939CC /* CTNewTemplateViewController_Common.m in Sources */,
 				BD7AB1DB19E14A91000D88AB /* CardDrawingPresentView.m in Sources */,
 				BD7AB1CE19E14A91000D88AB /* CouponDrawingBoxBaseLayer.m in Sources */,
+				BD9D49D61A063B13001D2326 /* CTCardContentView.m in Sources */,
 				6B5056EB19E14D65006939CC /* CTPrintTemplateViewController_Common.m in Sources */,
 				BD7AB1CD19E14A91000D88AB /* CouponDrawingBaseLayer.m in Sources */,
 			);

@@ -16,7 +16,6 @@
 
 + (UIButton*) defaultButtonWithTitle:(NSString*) title target:(id) target action:(SEL) selector
 {
-    
     UIButton* button = [UIButton buttonWithType:UIButtonTypeSystem];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 
