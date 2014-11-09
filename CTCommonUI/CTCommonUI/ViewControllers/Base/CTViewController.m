@@ -19,12 +19,13 @@
 #import "CTBouncingAnimatedTransitioning.h"
 #import "CTLoginViewController_Common.h"
 
-#import "UIFactory.h"
 #import "DeviceInfo.h"
 @interface CTViewController () {
    
     UIButton* _topLeftButton;
     UIButton* _topRightButton;
+    
+    UIActivityIndicatorView* _loadingIndicator;
     
 }
 
@@ -41,6 +42,11 @@
     [self.view setBackgroundColor:[CTColor viewControllerBackgroundColor] ];
     
     [self setUpTransitioningDelegates];
+    
+    _loadingIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [_loadingIndicator setHidden:YES];
+    [self.view addSubview:_loadingIndicator];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,6 +65,8 @@
     {
         [self setTopButtoniPadPositions];
     }
+    
+    [_loadingIndicator setFrame: CGRectIntegral( CGRectMake(self.view.width / 2.0 - _loadingIndicator.width, 0, _loadingIndicator.frame.size.width, _loadingIndicator.frame.size.height) )];
     
 }
 
@@ -100,6 +108,20 @@
     
     [_topLeftButton setFrame:CGRectMake(margin, 25, 100, 44) ];
     [_topRightButton setFrame:CGRectMake(self.view.frame.size.width - 100 - 10, 25, 100, 44) ];
+}
+
+#pragma mark - Loading indicator
+
+- (void) startMiddleLoadingIndicator
+{
+    [_loadingIndicator setHidden:NO];
+    [_loadingIndicator startAnimating];
+}
+
+- (void) stopMiddleLoadingIndicator
+{
+    [_loadingIndicator setHidden:YES];
+    [_loadingIndicator stopAnimating];
 }
 
 #pragma mark - Login and registration

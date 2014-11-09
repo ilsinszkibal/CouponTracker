@@ -8,8 +8,6 @@
 
 #import "CardDrawingOperationAddView.h"
 
-#import "UIFactory.h"
-
 @interface CardDrawingOperationAddView () {
 
     NSUInteger _addLayerIndex;

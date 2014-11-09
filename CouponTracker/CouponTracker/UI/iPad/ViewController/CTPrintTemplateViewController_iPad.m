@@ -8,8 +8,6 @@
 
 #import "CTPrintTemplateViewController_iPad.h"
 
-#import "UIFactory.h"
-
 @interface CTPrintTemplateViewController_iPad () {
     UIView* _passingView;
     

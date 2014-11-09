@@ -8,8 +8,6 @@
 
 #import "CTMainViewController_iPad.h"
 
-#import "UIFactory.h"
-
 #import "CTMyTemplatesViewController_iPad.h"
 #import "CTScanViewController_iPad.h"
 

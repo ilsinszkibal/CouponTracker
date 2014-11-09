@@ -11,7 +11,6 @@
 #import "CTMyTemplatesViewController_iPhone.h"
 #import "CTCardsViewController_iPhone.h"
 #import "CTInstructionsViewController_iPhone.h"
-#import "UIFactory.h"
 #import "CTUserManager.h"
 #import "CTUser.h"
 

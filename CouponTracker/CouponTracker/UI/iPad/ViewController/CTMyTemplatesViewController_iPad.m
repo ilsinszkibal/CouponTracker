@@ -8,8 +8,6 @@
 
 #import "CTMyTemplatesViewController_iPad.h"
 
-#import "UIFactory.h"
-
 #import "UIImageView+WebCache.h"
 
 #import "CTNewTemplateViewController_iPad.h"

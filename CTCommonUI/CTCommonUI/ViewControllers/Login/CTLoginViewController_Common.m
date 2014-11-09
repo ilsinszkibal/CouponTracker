@@ -8,7 +8,6 @@
 
 #import "CTLoginViewController_Common.h"
 
-#import "UIFactory.h"
 #import "CTColor.h"
 
 #import "CTUserManager.h"

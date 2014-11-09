@@ -93,6 +93,7 @@
 		6B5056E019E14D1E006939CC /* CTNewTemplateViewController_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTNewTemplateViewController_Common.m; path = NewTemplate/CTNewTemplateViewController_Common.m; sourceTree = "<group>"; };
 		6B5056E919E14D65006939CC /* CTPrintTemplateViewController_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTPrintTemplateViewController_Common.h; path = PrintTemplate/CTPrintTemplateViewController_Common.h; sourceTree = "<group>"; };
 		6B5056EA19E14D65006939CC /* CTPrintTemplateViewController_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTPrintTemplateViewController_Common.m; path = PrintTemplate/CTPrintTemplateViewController_Common.m; sourceTree = "<group>"; };
+		6B5C66EE1A0F9BED000E99EA /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = CTCommonUI/Prefix.pch; sourceTree = "<group>"; };
 		6B77A8C619D6C9E200FC0978 /* libCTCommonUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCTCommonUI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B77A8C919D6C9E200FC0978 /* CTCommonUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTCommonUI.h; sourceTree = "<group>"; };
 		6B77A8CB19D6C9E200FC0978 /* CTCommonUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTCommonUI.m; sourceTree = "<group>"; };
@@ -237,6 +238,7 @@
 		6B77A8BD19D6C9E200FC0978 = {
 			isa = PBXGroup;
 			children = (
+				6B5C66EE1A0F9BED000E99EA /* Prefix.pch */,
 				6B77A8E819D6CBC600FC0978 /* framework */,
 				6B77A8C819D6C9E200FC0978 /* CTCommonUI */,
 				6B77A8D219D6C9E200FC0978 /* CTCommonUITests */,
@@ -724,6 +726,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../**";
+				GCC_PREFIX_HEADER = CTCommonUI/Prefix.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -740,6 +743,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../**";
+				GCC_PREFIX_HEADER = CTCommonUI/Prefix.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,

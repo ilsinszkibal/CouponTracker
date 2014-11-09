@@ -8,8 +8,6 @@
 
 #import "CardDrawingOperationView.h"
 
-#import "UIFactory.h"
-
 #import "CouponDrawingData.h"
 #import "CouponDrawingBaseLayer.h"
 

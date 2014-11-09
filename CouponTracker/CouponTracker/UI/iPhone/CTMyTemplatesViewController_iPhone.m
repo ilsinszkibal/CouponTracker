@@ -8,7 +8,6 @@
 
 #import "CTMyTemplatesViewController_iPhone.h"
 #import "Model.h"
-#import "UIFactory.h"
 #import "CTPrintTemplateViewController_iPhone.h"
 
 #import "CTNetworkingManager.h"

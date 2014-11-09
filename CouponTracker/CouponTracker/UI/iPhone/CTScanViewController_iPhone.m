@@ -8,8 +8,6 @@
 
 #import "CTScanViewController_iPhone.h"
 
-#import "UIFactory.h"
-
 #import "CTContentDetailsViewController_iPhone.h"
 #import "CTNewContentViewController_iPhone.h"
 

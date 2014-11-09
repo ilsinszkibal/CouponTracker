@@ -7,7 +7,6 @@
 //
 
 #import "CTScanViewController_iPad.h"
-#import "UIFactory.h"
 
 #import "CTContentDetailsViewController_Common.h"
 #import "CTNewContentViewController_Common.h"

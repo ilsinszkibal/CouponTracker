@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B5C66E91A0F9578000E99EA /* UIView+UIView_Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5C66E81A0F9578000E99EA /* UIView+UIView_Frame.m */; };
 		6B77A80E19D6C4FA00FC0978 /* CTUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6B77A80D19D6C4FA00FC0978 /* CTUtils.h */; };
 		6B77A81019D6C4FA00FC0978 /* CTUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A80F19D6C4FA00FC0978 /* CTUtils.m */; };
 		6BA6310F19EAA69600D56532 /* FolderPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA6310E19EAA69600D56532 /* FolderPath.m */; };
@@ -25,6 +26,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6B5C66DF1A0F950B000E99EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBAC819D701190006DE0F /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 23EF1080857199B227FF512F;
+			remoteInfo = "Pods-CTUtils-AYVibrantButton";
+		};
+		6B5C66E11A0F950B000E99EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBAC819D701190006DE0F /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ACCE59C92151A19CBED22773;
+			remoteInfo = "Pods-CTUtils-INTULocationManager";
+		};
+		6B5C66E31A0F950B000E99EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBAC819D701190006DE0F /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 41A19A389EE45204C422837A;
+			remoteInfo = "Pods-CTUtils-JazzHands";
+		};
+		6B5C66E51A0F950B000E99EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3BBAC819D701190006DE0F /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05A8D9D2207A152837C7B9CF;
+			remoteInfo = "Pods-CTUtils-REComposeViewController";
+		};
 		6BA6310B19EAA68000D56532 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BD3BBAC819D701190006DE0F /* Pods.xcodeproj */;
@@ -127,7 +156,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = BD3BBAC819D701190006DE0F /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 1387B9D547927A192B414894;
+			remoteGlobalIDString = A15916D0195B5A131F1D5F85;
 			remoteInfo = "Pods-CTUtils";
 		};
 		BD7AB20119E14DBB000D88AB /* PBXContainerItemProxy */ = {
@@ -154,6 +183,8 @@
 
 /* Begin PBXFileReference section */
 		5B21D786AC6957845902C4BA /* Pods-CTUtils.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CTUtils.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CTUtils/Pods-CTUtils.debug.xcconfig"; sourceTree = "<group>"; };
+		6B5C66E71A0F9578000E99EA /* UIView+UIView_Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+UIView_Frame.h"; path = "Views/UIView+UIView_Frame.h"; sourceTree = "<group>"; };
+		6B5C66E81A0F9578000E99EA /* UIView+UIView_Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+UIView_Frame.m"; path = "Views/UIView+UIView_Frame.m"; sourceTree = "<group>"; };
 		6B77A80A19D6C4FA00FC0978 /* libCTUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCTUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B77A80D19D6C4FA00FC0978 /* CTUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTUtils.h; sourceTree = "<group>"; };
 		6B77A80F19D6C4FA00FC0978 /* CTUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTUtils.m; sourceTree = "<group>"; };
@@ -235,6 +266,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6B5C66CC1A0F950B000E99EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6B5C66E71A0F9578000E99EA /* UIView+UIView_Frame.h */,
+				6B5C66E81A0F9578000E99EA /* UIView+UIView_Frame.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		6B77A80119D6C4FA00FC0978 = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +299,7 @@
 		6B77A80C19D6C4FA00FC0978 /* CTUtils */ = {
 			isa = PBXGroup;
 			children = (
+				6B5C66CC1A0F950B000E99EA /* Views */,
 				6BA6311F19EAB50A00D56532 /* DeviceInfo */,
 				6BA6311B19EAB43500D56532 /* CGExtensions */,
 				6BA6311619EAA7DB00D56532 /* Animations */,
@@ -392,7 +433,11 @@
 				BD3BBAD919D701190006DE0F /* libPods-CTUtils.a */,
 				BD3BBADB19D701190006DE0F /* libPods-CTUtils-AFNetworking.a */,
 				BD3BBADD19D701190006DE0F /* libPods-CTUtils-AFOAuth2Client.a */,
+				6B5C66E01A0F950B000E99EA /* libPods-CTUtils-AYVibrantButton.a */,
+				6B5C66E21A0F950B000E99EA /* libPods-CTUtils-INTULocationManager.a */,
 				BD3BBADF19D701190006DE0F /* libPods-CTUtils-ISO8601DateFormatterValueTransformer.a */,
+				6B5C66E41A0F950B000E99EA /* libPods-CTUtils-JazzHands.a */,
+				6B5C66E61A0F950B000E99EA /* libPods-CTUtils-REComposeViewController.a */,
 				BD3BBAE119D701190006DE0F /* libPods-CTUtils-RKValueTransformers.a */,
 				BD3BBAE319D701190006DE0F /* libPods-CTUtils-Reachability.a */,
 				BD7AB20219E14DBB000D88AB /* libPods-CTUtils-ReactiveCocoa.a */,
@@ -516,6 +561,34 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		6B5C66E01A0F950B000E99EA /* libPods-CTUtils-AYVibrantButton.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-CTUtils-AYVibrantButton.a";
+			remoteRef = 6B5C66DF1A0F950B000E99EA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B5C66E21A0F950B000E99EA /* libPods-CTUtils-INTULocationManager.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-CTUtils-INTULocationManager.a";
+			remoteRef = 6B5C66E11A0F950B000E99EA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B5C66E41A0F950B000E99EA /* libPods-CTUtils-JazzHands.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-CTUtils-JazzHands.a";
+			remoteRef = 6B5C66E31A0F950B000E99EA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B5C66E61A0F950B000E99EA /* libPods-CTUtils-REComposeViewController.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-CTUtils-REComposeViewController.a";
+			remoteRef = 6B5C66E51A0F950B000E99EA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		6BA6310C19EAA68000D56532 /* libPods-CTUtils-iCarousel.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -672,6 +745,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BA6310F19EAA69600D56532 /* FolderPath.m in Sources */,
+				6B5C66E91A0F9578000E99EA /* UIView+UIView_Frame.m in Sources */,
 				6BB2AD6019E311D000525002 /* UIFactory.m in Sources */,
 				6BCDDFDE19E16600002599F4 /* CTBouncingAnimatedTransitioning.m in Sources */,
 				6BDCAFB619EC438200365D32 /* CTPassingViewNavigatingKey.m in Sources */,

@@ -13,6 +13,9 @@
 - (void) setUpTopLeftButtonWithTitle:(NSString*) title withSel:(SEL) selector;
 - (void) setUpTopRightButtonWithTitle:(NSString*) title withSel:(SEL) selector;
 
+- (void) startMiddleLoadingIndicator;
+- (void) stopMiddleLoadingIndicator;
+
 
 - (BOOL) isUserLoggedIn;
 - (void) showLogin;

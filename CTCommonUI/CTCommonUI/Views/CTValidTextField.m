@@ -8,7 +8,6 @@
 
 #import "CTValidTextField.h"
 
-#import "UIFactory.h"
 #import "CTColor.h"
 
 @interface CTValidTextField () {

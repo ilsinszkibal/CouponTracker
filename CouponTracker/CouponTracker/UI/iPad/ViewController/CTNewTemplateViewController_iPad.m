@@ -8,8 +8,6 @@
 
 #import "CTNewTemplateViewController_iPad.h"
 
-#import "UIFactory.h"
-
 #import "CardDrawingLayerView.h"
 #import "CardDrawingOperationView.h"
 #import "CardDrawingPresentView.h"

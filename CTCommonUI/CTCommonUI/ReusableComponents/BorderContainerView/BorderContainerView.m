@@ -8,8 +8,6 @@
 
 #import "BorderContainerView.h"
 
-#import "UIFactory.h"
-
 @interface BorderContainerView () {
     
     CGFloat _containerMargin;

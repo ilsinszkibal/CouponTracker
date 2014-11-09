@@ -8,8 +8,6 @@
 
 #import "CardDrawingOperationImageEditView.h"
 
-#import "UIFactory.h"
-
 #import "CouponDrawingImageLayer.h"
 
 @interface CardDrawingOperationImageEditView ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
