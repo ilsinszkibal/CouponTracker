@@ -8,15 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "CTWelcomeAnimationPosition.h"
+
 @interface CTWelcomeAnimationProperties : NSObject
 
 @property (nonatomic, readonly) CGSize imageSize;
 
-@property (nonatomic, readonly) CGPoint preAnimationOffset;
-@property (nonatomic, readonly) CGFloat preAnimationImagePercent;
-
-@property (nonatomic, readonly) CGPoint postAnimationOffset;
-@property (nonatomic, readonly) CGFloat postAnimationImagePercent;
+@property (nonatomic, readonly) CTWelcomeAnimationPosition* portraitPosition;
+@property (nonatomic, readonly) CTWelcomeAnimationPosition* landscapePosition;
 
 @property (nonatomic, readonly) CGFloat waitingBeforeAnimation;
 @property (nonatomic, readonly) CGFloat animationDuration;
@@ -30,12 +29,12 @@
 
 + (instancetype) createOpeningAnimationForImageSize:(CGSize)imageSize withDictionary:(NSDictionary*) dictionary;
 
-- (id) initWithImageSize:(CGSize) imageSize preOffset:(CGPoint) preOffset preImagePercent:(CGFloat) prePercent postOffset:(CGPoint) postOffset postImagePercent:(CGFloat) postPercent;
+- (id) initWithImageSize:(CGSize) imageSize portraitPosition:(CTWelcomeAnimationPosition*) portraitPosition landscapePosition:(CTWelcomeAnimationPosition*) landscapePosition;
 
-- (CGRect) preWelcomeAnimationImageRect:(CGSize) windowSize;
-- (CGRect) postWelcomeAnimationImageRect:(CGSize) windowSize;
+- (CGRect) preWelcomeAnimationImageRect:(CGSize) windowSize isPortrait:(BOOL) isPortrait;
+- (CGRect) postWelcomeAnimationImageRect:(CGSize) windowSize isPortrait:(BOOL) isPortrait;
 
-- (CGSize) preAnimationImageSize;
-- (CGSize) postAnimationImageSize;
+- (CGSize) preAnimationImageSizeIsPortrait:(BOOL) isPortrait;
+- (CGSize) postAnimationImageSizeIsPortrait:(BOOL) isPortrait;
 
 @end

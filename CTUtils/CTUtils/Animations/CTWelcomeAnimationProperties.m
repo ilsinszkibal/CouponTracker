@@ -39,17 +39,30 @@ struct AnimationDuration {
 
 + (instancetype) createOpeningAnimationForImageSize:(CGSize)imageSize withDictionary:(NSDictionary*) dictionary
 {    
-    struct AnimationPosition prePosition = [self animationPosition:dictionary[ [self preAnimationPositionKey] ] ];
-    struct AnimationPosition postPosition = [self animationPosition:dictionary[ [self postAnimationPosition] ] ];
+    struct AnimationPosition prePortraitPosition = [self animationPosition:dictionary[ [self preAnimationPortraitPositionKey] ] ];
+    struct AnimationPosition postPortraitPosition = [self animationPosition:dictionary[ [self postAnimationPortraitPosition] ] ];
     
     //Normalize because json is in pixels
-    prePosition.offset = CGPointMultiply(prePosition.offset, 1.0f / [DeviceInfo screenScale] );
-    postPosition.offset = CGPointMultiply(postPosition.offset, 1.0f / [DeviceInfo screenScale] );
+    prePortraitPosition.offset = CGPointMultiply(prePortraitPosition.offset, 1.0f / [DeviceInfo screenScale] );
+    postPortraitPosition.offset = CGPointMultiply(postPortraitPosition.offset, 1.0f / [DeviceInfo screenScale] );
+    
+    struct AnimationPosition preLandscapePosition = [self animationPosition:dictionary[ [self preAnimationLandscapePositionKey] ] ];
+    struct AnimationPosition postLandscapePosition = [self animationPosition:dictionary[ [self postAnimationLandscapePosition] ] ];
+    
+    //Normalize because json is in pixels
+    preLandscapePosition.offset = CGPointMultiply(preLandscapePosition.offset, 1.0f / [DeviceInfo screenScale] );
+    postLandscapePosition.offset = CGPointMultiply(postLandscapePosition.offset, 1.0f / [DeviceInfo screenScale] );
     
     struct AnimationDuration movingAnimation = [self animationDuration:dictionary[ [self moveAnimationDurationKey] ] ];
     struct AnimationDuration alphaAnimation = [self animationDuration:dictionary[ [self alphaAnimationDurationKey] ] ];
     
-    CTWelcomeAnimationProperties* animation = [[CTWelcomeAnimationProperties alloc] initWithImageSize:imageSize preOffset:prePosition.offset preImagePercent:prePosition.imagePercent postOffset:postPosition.offset postImagePercent:postPosition.imagePercent];
+    
+    //Create positions
+    CTWelcomeAnimationPosition* portraitPosition = [CTWelcomeAnimationPosition positionWithPreOffset:prePortraitPosition.offset withPrePercent:prePortraitPosition.imagePercent withPostOffset:postPortraitPosition.offset withPostPercent:postPortraitPosition.imagePercent];
+    CTWelcomeAnimationPosition* landscapePosition = [CTWelcomeAnimationPosition positionWithPreOffset:preLandscapePosition.offset withPrePercent:preLandscapePosition.imagePercent withPostOffset:postLandscapePosition.offset withPostPercent:postLandscapePosition.imagePercent];
+    
+    //Create animation
+    CTWelcomeAnimationProperties* animation = [[CTWelcomeAnimationProperties alloc] initWithImageSize:imageSize portraitPosition:portraitPosition landscapePosition:landscapePosition];
     
     animation.waitingBeforeAnimation = movingAnimation.waitBefore;
     animation.animationDuration = movingAnimation.duration;
@@ -123,14 +136,24 @@ struct AnimationDuration {
     return @"duration";
 }
 
-+ (NSString*) preAnimationPositionKey
++ (NSString*) preAnimationPortraitPositionKey
 {
-    return @"preAnimationPosition";
+    return @"preAnimationPositionPortrait";
 }
 
-+ (NSString*) postAnimationPosition
++ (NSString*) postAnimationPortraitPosition
 {
-    return @"postAnimationPosition";
+    return @"postAnimationPositionPortrait";
+}
+
++ (NSString*) preAnimationLandscapePositionKey
+{
+    return @"preAnimationPositionLandscape";
+}
+
++ (NSString*) postAnimationLandscapePosition
+{
+    return @"postAnimationPositionLandscape";
 }
 
 + (NSString*) offsetXKey
@@ -150,18 +173,16 @@ struct AnimationDuration {
 
 #pragma mark - Init
 
-- (id) initWithImageSize:(CGSize) imageSize preOffset:(CGPoint) preOffset preImagePercent:(CGFloat) prePercent postOffset:(CGPoint) postOffset postImagePercent:(CGFloat) postPercent
+- (id) initWithImageSize:(CGSize) imageSize portraitPosition:(CTWelcomeAnimationPosition*) portraitPosition landscapePosition:(CTWelcomeAnimationPosition*) landscapePosition;
 {
     self = [super init];
     
     if ( self ) {
         
         _imageSize = imageSize;
-        _preAnimationOffset = preOffset;
-        _preAnimationImagePercent = prePercent;
         
-        _postAnimationOffset = postOffset;
-        _postAnimationImagePercent = postPercent;
+        _portraitPosition = portraitPosition;
+        _landscapePosition = landscapePosition;
         
         _waitingBeforeAnimation = 0.9f;
         _animationDuration = 1.5f;
@@ -174,42 +195,50 @@ struct AnimationDuration {
 
 #pragma mark - Public
 
-- (CGRect) preWelcomeAnimationImageRect:(CGSize) windowSize
+- (CGRect) preWelcomeAnimationImageRect:(CGSize) windowSize isPortrait:(BOOL) isPortrait;
 {
+    
     CGRect rect = CGRectZero;
-    rect.origin = _preAnimationOffset;
-    rect.size = [self preAnimationImageSize];
+    rect.origin = [[self positionForIsPortrait:isPortrait] preAnimationOffset];
+    rect.size = [self preAnimationImageSizeIsPortrait:isPortrait];
     
     return rect;
 }
 
-- (CGRect) postWelcomeAnimationImageRect:(CGSize) windowSize
+- (CGRect) postWelcomeAnimationImageRect:(CGSize) windowSize isPortrait:(BOOL) isPortrait;
 {
     CGRect rect = CGRectZero;
-    rect.origin = _postAnimationOffset;
-    rect.size = [self postAnimationImageSize];
+    rect.origin = [[self positionForIsPortrait:isPortrait] postAnimationOffset];
+    rect.size = [self postAnimationImageSizeIsPortrait:isPortrait];
     
     return rect;
 }
 
-- (CGSize) preAnimationImageSize
+- (CGSize) preAnimationImageSizeIsPortrait:(BOOL) isPortrait;
 {
     CGSize size = _imageSize;
+    CGFloat percent = [[self positionForIsPortrait:isPortrait] preAnimationImagePercent];
     
-    size.width *= _preAnimationImagePercent;
-    size.height *= _preAnimationImagePercent;
+    size.width *= percent;
+    size.height *= percent;
     
     return size;
 }
 
-- (CGSize) postAnimationImageSize
+- (CGSize) postAnimationImageSizeIsPortrait:(BOOL) isPortrait;
 {
     CGSize size = _imageSize;
+    CGFloat percent = [[self positionForIsPortrait:isPortrait] postAnimationImagePercent];
     
-    size.width *= _postAnimationImagePercent;
-    size.height *= _postAnimationImagePercent;
+    size.width *= percent;
+    size.height *= percent;
     
     return size;
+}
+
+- (CTWelcomeAnimationPosition*) positionForIsPortrait:(BOOL) isPortrait
+{
+    return isPortrait ? _portraitPosition : _landscapePosition;
 }
 
 @end

@@ -108,8 +108,8 @@
 }
 
 - (void)showInstructions {
-    CTInstructionsViewController_iPhone* instructions = [[CTInstructionsViewController_iPhone alloc] init];
-    [self showViewController:instructions sender:self];
+    //CTInstructionsViewController_iPhone* instructions = [[CTInstructionsViewController_iPhone alloc] init];
+    //[self showViewController:instructions sender:self];
 }
 
 @end

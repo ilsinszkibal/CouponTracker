@@ -11,6 +11,7 @@
 @interface DeviceInfo : NSObject
 
 + (BOOL) isiPhone;
++ (BOOL) isPortrait;
 
 + (CGFloat) screenScale;
 + (CGSize) screenSize;

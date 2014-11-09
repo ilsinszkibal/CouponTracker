@@ -11,6 +11,8 @@
 #import "CTBackgroundService.h"
 #import "CTColor.h"
 
+#import "DeviceInfo.h"
+
 @interface CTWindow () {
     
     UIImageView* _backgroundImageView;
@@ -88,7 +90,7 @@
 
 - (void) setBackgroundImagePosition
 {
-    [_backgroundImageView setFrame:[_animationProperties postWelcomeAnimationImageRect:self.bounds.size] ];
+    [_backgroundImageView setFrame:[_animationProperties postWelcomeAnimationImageRect:self.bounds.size isPortrait:[DeviceInfo isPortrait] ] ];
 }
 
 #pragma mark - Public
@@ -115,6 +117,7 @@
 
 - (void) completedAnimation:(BOOL) finished
 {
+    [_animationProperties setIsAnimating:NO];
     [self setUpMotionEffects];
 }
 
@@ -125,7 +128,7 @@
     
     [self.rootViewController.view setAlpha:0.0f];
     
-    [_backgroundImageView setFrame:[_animationProperties preWelcomeAnimationImageRect:self.bounds.size] ];
+    [_backgroundImageView setFrame:[_animationProperties preWelcomeAnimationImageRect:self.bounds.size isPortrait:[DeviceInfo isPortrait] ] ];
     
     [NSTimer scheduledTimerWithTimeInterval:[_animationProperties waitingBeforeAnimation] target:self selector:@selector(presentAnimation) userInfo:nil repeats:NO];
     

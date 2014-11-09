@@ -1,8 +1,10 @@
 {
 	"epochtime" : 1413114906,
 	"imageName" : "14b8fb3887012686f0d6f33c160f71e4e726360a.jpeg",
-	"preAnimationPosition" : { "offsetX": -970, "offsetY": 0, "percent":0.308 },
-	"postAnimationPosition" : { "offsetX": -800, "offsetY": 0, "percent":0.3 },
+	"preAnimationPositionPortrait" : { "offsetX": -970, "offsetY": 0, "percent":0.308 },
+	"postAnimationPositionPortrait" : { "offsetX": -800, "offsetY": 0, "percent":0.3 },
+	"preAnimationPositionLandscape" : { "offsetX": -970, "offsetY": 0, "percent":0.308 },
+	"postAnimationPositionLandscape" : { "offsetX": -800, "offsetY": -200, "percent":0.3 },
 	"moveAnimationDuration" : { "waitingBefore":0.9, "duration":1.5 },
 	"alphaAnimationDuration" : { "waitingBefore":0.7, "duration":0.8 },
 	"backgroundColor" : { "r":0.05, "g":0.05, "b":0.05, "a":0.65 }

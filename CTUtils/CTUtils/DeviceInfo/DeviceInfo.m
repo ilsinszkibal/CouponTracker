@@ -15,6 +15,11 @@
     return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
 }
 
++ (BOOL) isPortrait
+{
+    return UIInterfaceOrientationIsPortrait( [[UIApplication sharedApplication] statusBarOrientation] );
+}
+
 + (CGFloat) screenScale
 {
     return [[UIScreen mainScreen] scale];
