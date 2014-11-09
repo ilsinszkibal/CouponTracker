@@ -45,10 +45,14 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
-     [super viewDidAppear:animated];
+    [super viewDidAppear:animated];
+    
+    [self startMiddleLoadingIndicator];
     
     [self getMyCards:^(NSArray *cards, NSError *error) {
         _myCards = cards;
+        
+        [self stopMiddleLoadingIndicator];
         
         [_carousel reloadData];
     }];
