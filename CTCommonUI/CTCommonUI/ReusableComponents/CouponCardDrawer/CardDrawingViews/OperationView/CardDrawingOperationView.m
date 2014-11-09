@@ -89,12 +89,12 @@
     
     [_showCardButton setFrame:CGRectMake(self.frame.size.width - 100, 0, 100, 45) ];
     [_createCardButton setFrame:_showCardButton.frame];
-    [_titleLabel setFrame:CGRectMake(10, 0, self.frame.size.width - _showCardButton.frame.size.width, 45)];
+    [_titleLabel setFrame:CGRectMake(10, 0, self.width - _showCardButton.width, 45)];
     
-    [_operationAddView setFrame:CGRectMake(0, subViewYOffset, self.frame.size.width, self.frame.size.height - subViewYOffset ) ];
-    [_operationRectView setFrame:CGRectMake(0, subViewYOffset, self.frame.size.width, self.frame.size.height - subViewYOffset ) ];
-    [_operationTextView setFrame:CGRectMake(0, subViewYOffset, self.frame.size.width, self.frame.size.height - subViewYOffset ) ];
-    [_operationImageView setFrame:CGRectMake(0, subViewYOffset, self.frame.size.width, self.frame.size.height - subViewYOffset ) ];
+    [_operationAddView setFrame:CGRectMake(0, subViewYOffset, self.width, self.height - subViewYOffset ) ];
+    [_operationRectView setFrame:CGRectMake(0, subViewYOffset, self.width, self.height - subViewYOffset ) ];
+    [_operationTextView setFrame:CGRectMake(0, subViewYOffset, self.width, self.height - subViewYOffset ) ];
+    [_operationImageView setFrame:CGRectMake(0, subViewYOffset, self.width, self.height - subViewYOffset ) ];
 }
 
 #pragma mark - Action

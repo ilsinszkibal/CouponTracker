@@ -146,8 +146,7 @@
     if ( [[key key] isEqualToString:[self printNavigationKey] ] )
     {
         CGFloat size = 430;
-        CGRect actFrame = self.view.frame;
-        return CGRectMake( ( actFrame.size.width - size ) / 2.0, ( actFrame.size.height - size ) / 2.0, size, size);
+        return CGRectMake( ( self.view.width - size ) / 2.0, ( self.view.height - size ) / 2.0, size, size);
     }
     
     return CGRectZero;

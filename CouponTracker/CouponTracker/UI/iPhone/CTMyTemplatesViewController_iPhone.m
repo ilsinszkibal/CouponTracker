@@ -166,8 +166,7 @@
     
     if ( [[key key] isEqualToString:[self printNavigationKey] ] )
     {
-        CGRect actFrame = self.view.frame;
-        return CGRectMake( ( actFrame.size.width - 230 ) / 2.0, ( actFrame.size.height - 130 ) / 2.0, 230, 130);
+        return CGRectMake( ( self.view.width - 230 ) / 2.0, ( self.view.height - 130 ) / 2.0, 230, 130);
     }
     
     return CGRectZero;

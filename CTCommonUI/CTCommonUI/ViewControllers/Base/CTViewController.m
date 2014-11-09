@@ -66,7 +66,7 @@
         [self setTopButtoniPadPositions];
     }
     
-    [_loadingIndicator setFrame: CGRectIntegral( CGRectMake(self.view.width / 2.0 - _loadingIndicator.width, 0, _loadingIndicator.frame.size.width, _loadingIndicator.frame.size.height) )];
+    [_loadingIndicator setFrame: CGRectIntegral( CGRectMake(self.view.width / 2.0 - _loadingIndicator.width, 0, _loadingIndicator.width, _loadingIndicator.height) )];
     
 }
 

@@ -78,8 +78,8 @@
     if ( touchAt.y < 0 )
         touchAt.y = 0;
     
-    CGFloat maxValidX = self.frame.size.width - _topLeftGrabber.frame.size.width;
-    CGFloat maxValidY = self.frame.size.height - _topLeftGrabber.frame.size.height;
+    CGFloat maxValidX = self.width - _topLeftGrabber.width;
+    CGFloat maxValidY = self.height - _topLeftGrabber.height;
     
     if ( maxValidX < touchAt.x )
         touchAt.x = maxValidX;

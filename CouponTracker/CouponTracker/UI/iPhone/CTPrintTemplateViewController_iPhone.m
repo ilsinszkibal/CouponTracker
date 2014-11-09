@@ -41,7 +41,7 @@
 
 - (CGRect) passingViewRectForKey:(CTPassingViewNavigatingKey*) key
 {
-    return CGRectMake(self.view.frame.size.width - 200, 85, 150, 100);
+    return CGRectMake(self.view.width - 200, 85, 150, 100);
 }
 
 - (void) receivingView:(UIView*) view forKey:(CTPassingViewNavigatingKey*) key
