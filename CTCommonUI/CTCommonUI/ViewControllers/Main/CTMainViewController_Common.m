@@ -32,6 +32,13 @@
 
 - (void) showMyTemplates:(CTMyTemplatesViewController_Common*) myTemplates
 {
+    
+    if ( [self isUserLoggedIn] == NO )
+    {
+        [self showLogin];
+        return;
+    }
+    
     _myTemplatesVC = myTemplates;
     [self navigateToViewController:_myTemplatesVC];
 }

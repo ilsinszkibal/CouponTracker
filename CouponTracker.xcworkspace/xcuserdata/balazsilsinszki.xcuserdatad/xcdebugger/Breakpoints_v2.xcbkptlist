@@ -126,28 +126,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CTCommonUI/CTCommonUI/ViewControllers/Base/CTViewController.m"
-            timestampString = "435831257.877209"
+            timestampString = "437228315.881837"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "-didReceiveMemoryWarning"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CTServices/CTServices/Networking/CTNetworkingManager.m"
-            timestampString = "435837423.316425"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
-            landmarkName = "-readCardWithCode:completion:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -186,53 +170,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CTCommonUI/CTCommonUI/ViewControllers/Login/CTLoginViewController_Common.m"
-            timestampString = "435958697.375948"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
-            landmarkName = "-actionButtonPressed:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[CTLoginViewController_Common actionButtonPressed:]"
-                  moduleName = "CouponTracker"
-                  urlString = "file:///Users/balazsilsinszki/Documents/Programming/iOS/GitHub/Skyscanner/CouponTracker/CTCommonUI/CTCommonUI/ViewControllers/Login/CTLoginViewController_Common.m"
-                  timestampString = "436630959.415504"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "202"
-                  endingLineNumber = "202"
-                  offsetFromSymbolStart = "2184">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__52-[CTLoginViewController_Common actionButtonPressed:]_block_invoke189"
-                  moduleName = "CouponTracker"
-                  urlString = "file:///Users/balazsilsinszki/Documents/Programming/iOS/GitHub/Skyscanner/CouponTracker/CTCommonUI/CTCommonUI/ViewControllers/Login/CTLoginViewController_Common.m"
-                  timestampString = "436630959.415649"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "202"
-                  endingLineNumber = "202"
-                  offsetFromSymbolStart = "72">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CTCommonUI/CTCommonUI/ViewControllers/Login/CTLoginViewController_Common.m"

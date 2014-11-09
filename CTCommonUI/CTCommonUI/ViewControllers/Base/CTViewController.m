@@ -14,6 +14,8 @@
 
 #import "CTSimpleAnimatedTransition.h"
 
+#import "CTUserManager.h"
+
 #import "CTBouncingAnimatedTransitioning.h"
 #import "CTLoginViewController_Common.h"
 
@@ -70,7 +72,6 @@
 
 #pragma mark - NavigationButtons
 
-
 - (void) setUpTopLeftButtonWithTitle:(NSString*) title withSel:(SEL) selector
 {
     [_topLeftButton removeFromSuperview];
@@ -102,6 +103,11 @@
 }
 
 #pragma mark - Login and registration
+
+- (BOOL) isUserLoggedIn
+{
+    return [[CTUserManager sharedManager] currentUser] != nil;
+}
 
 - (void) showLogin
 {
