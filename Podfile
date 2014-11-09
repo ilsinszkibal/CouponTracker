@@ -35,6 +35,7 @@ target :"CTUtils" do
     #UI
     pod 'REComposeViewController', "~> 2.3.2"
     pod 'AYVibrantButton'
+    pod 'JazzHands', "~> 0.1"
 
     xcodeproj "CTUtils/CTUtils"
 end

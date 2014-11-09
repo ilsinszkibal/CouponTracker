@@ -40,7 +40,7 @@
             
         }]];
         [self presentViewController:alert animated:YES completion:nil];
-    } else if (isClosed && isMine == NO) {
+    } else if (isClosed) {
         //Do nothing, present content, wait for handoff or back
     }
 }

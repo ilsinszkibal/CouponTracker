@@ -10,6 +10,7 @@
 #import "CTScanViewController_iPhone.h"
 #import "CTMyTemplatesViewController_iPhone.h"
 #import "CTCardsViewController_iPhone.h"
+#import "CTInstructionsViewController_iPhone.h"
 #import "UIFactory.h"
 #import "CTUserManager.h"
 #import "CTUser.h"
@@ -59,6 +60,12 @@
     [self.view addSubview:self.scanButton];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self showInstructions];
+}
+
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
@@ -99,6 +106,11 @@
 - (void)templatesButtonPressed:(UIButton*)button {
     UIViewController* login = [[CTMyTemplatesViewController_iPhone alloc] init];
     [self navigateToViewController:login];
+}
+
+- (void)showInstructions {
+    CTInstructionsViewController_iPhone* instructions = [[CTInstructionsViewController_iPhone alloc] init];
+    [self showViewController:instructions sender:self];
 }
 
 @end

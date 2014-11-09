@@ -24,6 +24,7 @@
 		6BA630FB19EAA66A00D56532 /* DefaultBackgroundiPad.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BA630FA19EAA66A00D56532 /* DefaultBackgroundiPad.json */; };
 		6BA6312419EAB94300D56532 /* DefaultBackgroundiPhone.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BA6312319EAB94300D56532 /* DefaultBackgroundiPhone.json */; };
 		6BA6312619EABB3800D56532 /* DefaultBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6BA6312519EABB3800D56532 /* DefaultBackground.jpg */; };
+		BD0638151A0692740087D42D /* CTInstructionsViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0638141A0692740087D42D /* CTInstructionsViewController_iPhone.m */; };
 		BD31F30E19F91EC500AF73D6 /* CTScanViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31F30D19F91EC500AF73D6 /* CTScanViewController_iPhone.m */; };
 		BD31F31B19F9417700AF73D6 /* CTCardsViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31F31A19F9417700AF73D6 /* CTCardsViewController_iPhone.m */; };
 		BD3BBB3B19D703760006DE0F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB3A19D703760006DE0F /* CoreData.framework */; };
@@ -98,6 +99,8 @@
 		6BA630FA19EAA66A00D56532 /* DefaultBackgroundiPad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DefaultBackgroundiPad.json; path = CouponTracker/Resources/DefaultBackgroundiPad.json; sourceTree = "<group>"; };
 		6BA6312319EAB94300D56532 /* DefaultBackgroundiPhone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DefaultBackgroundiPhone.json; path = CouponTracker/Resources/DefaultBackgroundiPhone.json; sourceTree = "<group>"; };
 		6BA6312519EABB3800D56532 /* DefaultBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = DefaultBackground.jpg; path = CouponTracker/Resources/DefaultBackground.jpg; sourceTree = "<group>"; };
+		BD0638131A0692740087D42D /* CTInstructionsViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTInstructionsViewController_iPhone.h; path = UI/iPhone/CTInstructionsViewController_iPhone.h; sourceTree = "<group>"; };
+		BD0638141A0692740087D42D /* CTInstructionsViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTInstructionsViewController_iPhone.m; path = UI/iPhone/CTInstructionsViewController_iPhone.m; sourceTree = "<group>"; };
 		BD31F30C19F91EC500AF73D6 /* CTScanViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTScanViewController_iPhone.h; path = UI/iPhone/CTScanViewController_iPhone.h; sourceTree = "<group>"; };
 		BD31F30D19F91EC500AF73D6 /* CTScanViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTScanViewController_iPhone.m; path = UI/iPhone/CTScanViewController_iPhone.m; sourceTree = "<group>"; };
 		BD31F31919F9417700AF73D6 /* CTCardsViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTCardsViewController_iPhone.h; path = UI/iPhone/CTCardsViewController_iPhone.h; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 				BD9D49841A001011001D2326 /* Template */,
 				BD9D49851A001019001D2326 /* Scan */,
 				BD9D49861A001023001D2326 /* Cards */,
+				BD0638131A0692740087D42D /* CTInstructionsViewController_iPhone.h */,
+				BD0638141A0692740087D42D /* CTInstructionsViewController_iPhone.m */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -469,6 +474,7 @@
 				BDBFC19A19FD33440072306F /* CTContentDetailsViewController_iPhone.m in Sources */,
 				6B5056E719E14D45006939CC /* CTNewTemplateViewController_iPhone.m in Sources */,
 				6B4C2AFC19E6F70100FB87DE /* CTMainViewController_iPad.m in Sources */,
+				BD0638151A0692740087D42D /* CTInstructionsViewController_iPhone.m in Sources */,
 				BD31F31B19F9417700AF73D6 /* CTCardsViewController_iPhone.m in Sources */,
 				BD9D498A1A001054001D2326 /* CTScanViewController_iPad.m in Sources */,
 				6B5056DD19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.m in Sources */,
