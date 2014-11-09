@@ -19,6 +19,9 @@
 + (NSString*) backgroundImagePath;
 + (NSString*) backgroundAnimationPath;
 
+//Last location
++ (NSString*) lastLocationPath;
+
 //Checked
 + (BOOL) checkIfFileExists:(NSString*) path;
 

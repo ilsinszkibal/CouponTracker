@@ -12,8 +12,9 @@
 #import "DeviceInfo.h"
 #import "CTUser.h"
 
+#import "CTLocationManager.h"
+
 #import <RestKit/RestKit.h>
-#import <INTULocationManager.h>
 
 @interface RKObjectRequestOperation (progress)
 
@@ -296,7 +297,7 @@
 }
 
 - (NSOperation*)readCardWithCode:(NSString*)code completion:(void(^)(Model_CardRead* read, NSError* error))completion {
-    [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyRoom timeout:15 delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+    [[CTLocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyRoom timeout:15 delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
         Model_CardRead* read = [[Model_CardRead alloc] init];
         [read setCode:code];
         
@@ -425,7 +426,14 @@
     
     CGFloat screenScale = [DeviceInfo screenScale];
     CGSize screenSize = [DeviceInfo screenSize];
-    NSDictionary* parameters = @{ @"screenWidth" : @(screenSize.width), @"screenHeight" : @(screenSize.height), @"screenScale" : @(screenScale) };
+    NSMutableDictionary* parameters = [@{ @"screenWidth" : @(screenSize.width), @"screenHeight" : @(screenSize.height), @"screenScale" : @(screenScale) } mutableCopy];
+    
+    CLLocation* lastLocation = [[CTLocationManager sharedInstance] lastLocation];
+    if ( lastLocation )
+    {
+        parameters[ @"longitude" ] = [NSNumber numberWithDouble:lastLocation.coordinate.longitude];
+        parameters[ @"latitude" ] = [NSNumber numberWithDouble:lastLocation.coordinate.latitude];
+    }
     
     return [self requestPath:@"settings/settingsID.json" method:RKRequestMethodGET object:nil parameters:parameters completion:^(NSArray *results, NSError *error) {
         if (completion) completion(results.firstObject, error);
@@ -437,7 +445,7 @@
 - (RKObjectMapping*) backgroundAnimationMapping
 {
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
-    [mapping addAttributeMappingsFromArray:@[@"epochtime", @"imageName", @"preAnimationPosition", @"postAnimationPosition", @"moveAnimationDuration", @"alphaAnimationDuration", @"backgroundColor", @"imagePath"]];
+    [mapping addAttributeMappingsFromArray:@[@"epochtime", @"imageName", @"preAnimationPositionPortrait", @"postAnimationPositionPortrait", @"preAnimationPositionLandscape", @"postAnimationPositionLandscape", @"moveAnimationDuration", @"alphaAnimationDuration", @"backgroundColor", @"imagePath"]];
     return mapping;
 }
 
@@ -452,7 +460,14 @@
     
     CGFloat screenScale = [DeviceInfo screenScale];
     CGSize screenSize = [DeviceInfo screenSize];
-    NSDictionary* parameters = @{ @"screenWidth" : @(screenSize.width), @"screenHeight" : @(screenSize.height), @"screenScale" : @(screenScale) };
+    NSMutableDictionary* parameters = [@{ @"screenWidth" : @(screenSize.width), @"screenHeight" : @(screenSize.height), @"screenScale" : @(screenScale) } mutableCopy];
+    
+    CLLocation* lastLocation = [[CTLocationManager sharedInstance] lastLocation];
+    if ( lastLocation )
+    {
+        parameters[ @"longitude" ] = [NSNumber numberWithDouble:lastLocation.coordinate.longitude];
+        parameters[ @"latitude" ] = [NSNumber numberWithDouble:lastLocation.coordinate.latitude];
+    }
 
     return [self requestPath:@"settings/backgroundAnimation.json" method:RKRequestMethodGET object:nil parameters:parameters completion:^(NSArray *results, NSError *error) {
         if (completion) completion(results.firstObject, error);

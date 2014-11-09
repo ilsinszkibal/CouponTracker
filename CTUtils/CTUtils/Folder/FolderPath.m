@@ -20,6 +20,8 @@
     return documentsDirectory;
 }
 
+#pragma mark - Background animation
+
 + (NSString*) defaultBackgroundImagePath
 {
     NSString* defaultBackground = [[NSBundle mainBundle] pathForResource:@"DefaultBackground" ofType:@"jpg"];
@@ -46,6 +48,16 @@
     NSString* animationPath = [NSString stringWithFormat:@"%@/%@", [self documentsFolderPath], @"backgroundAnimation.json" ];
     return animationPath;
 }
+
+#pragma mark - LastLocation
+
++ (NSString*) lastLocationPath
+{
+    NSString* lastLocationPath = [NSString stringWithFormat:@"%@/%@", [self documentsFolderPath], @"lastLocation" ];
+    return lastLocationPath;
+}
+
+#pragma mark - Checkers
 
 + (BOOL) checkIfFileExists:(NSString*) path
 {

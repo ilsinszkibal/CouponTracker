@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6B5C66E91A0F9578000E99EA /* UIView+UIView_Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5C66E81A0F9578000E99EA /* UIView+UIView_Frame.m */; };
 		6B5C66F31A0FA5E6000E99EA /* CTWelcomeAnimationPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5C66F21A0FA5E6000E99EA /* CTWelcomeAnimationPosition.m */; };
+		6B5C66F71A0FBE5B000E99EA /* CTLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5C66F61A0FBE5B000E99EA /* CTLocationManager.m */; };
 		6B77A80E19D6C4FA00FC0978 /* CTUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6B77A80D19D6C4FA00FC0978 /* CTUtils.h */; };
 		6B77A81019D6C4FA00FC0978 /* CTUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A80F19D6C4FA00FC0978 /* CTUtils.m */; };
 		6BA6310F19EAA69600D56532 /* FolderPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA6310E19EAA69600D56532 /* FolderPath.m */; };
@@ -188,6 +189,8 @@
 		6B5C66E81A0F9578000E99EA /* UIView+UIView_Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+UIView_Frame.m"; path = "Views/UIView+UIView_Frame.m"; sourceTree = "<group>"; };
 		6B5C66F11A0FA5E6000E99EA /* CTWelcomeAnimationPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTWelcomeAnimationPosition.h; path = Animations/CTWelcomeAnimationPosition.h; sourceTree = "<group>"; };
 		6B5C66F21A0FA5E6000E99EA /* CTWelcomeAnimationPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTWelcomeAnimationPosition.m; path = Animations/CTWelcomeAnimationPosition.m; sourceTree = "<group>"; };
+		6B5C66F51A0FBE5B000E99EA /* CTLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTLocationManager.h; path = CTLocationManager/CTLocationManager.h; sourceTree = "<group>"; };
+		6B5C66F61A0FBE5B000E99EA /* CTLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTLocationManager.m; path = CTLocationManager/CTLocationManager.m; sourceTree = "<group>"; };
 		6B77A80A19D6C4FA00FC0978 /* libCTUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCTUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B77A80D19D6C4FA00FC0978 /* CTUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTUtils.h; sourceTree = "<group>"; };
 		6B77A80F19D6C4FA00FC0978 /* CTUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTUtils.m; sourceTree = "<group>"; };
@@ -278,6 +281,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		6B5C66F41A0FBE44000E99EA /* CTLocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				6B5C66F51A0FBE5B000E99EA /* CTLocationManager.h */,
+				6B5C66F61A0FBE5B000E99EA /* CTLocationManager.m */,
+			);
+			name = CTLocationManager;
+			sourceTree = "<group>";
+		};
 		6B77A80119D6C4FA00FC0978 = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +314,7 @@
 		6B77A80C19D6C4FA00FC0978 /* CTUtils */ = {
 			isa = PBXGroup;
 			children = (
+				6B5C66F41A0FBE44000E99EA /* CTLocationManager */,
 				6B5C66CC1A0F950B000E99EA /* Views */,
 				6BA6311F19EAB50A00D56532 /* DeviceInfo */,
 				6BA6311B19EAB43500D56532 /* CGExtensions */,
@@ -758,6 +771,7 @@
 				6BDCAFB219EC428A00365D32 /* CTPassingViewNavigationAnimatedTransitioning.m in Sources */,
 				6BCDDFE119E1667D002599F4 /* CTNavigationAnimatedTransitioning.m in Sources */,
 				6B5C66F31A0FA5E6000E99EA /* CTWelcomeAnimationPosition.m in Sources */,
+				6B5C66F71A0FBE5B000E99EA /* CTLocationManager.m in Sources */,
 				6BB2AD4D19E30BA100525002 /* CTColor.m in Sources */,
 				6BA6311E19EAB45B00D56532 /* CGExtensions.m in Sources */,
 				6BCDDFDC19E16600002599F4 /* CTSimpleAnimatedTransition.m in Sources */,

@@ -40,14 +40,14 @@ struct AnimationDuration {
 + (instancetype) createOpeningAnimationForImageSize:(CGSize)imageSize withDictionary:(NSDictionary*) dictionary
 {    
     struct AnimationPosition prePortraitPosition = [self animationPosition:dictionary[ [self preAnimationPortraitPositionKey] ] ];
-    struct AnimationPosition postPortraitPosition = [self animationPosition:dictionary[ [self postAnimationPortraitPosition] ] ];
+    struct AnimationPosition postPortraitPosition = [self animationPosition:dictionary[ [self postAnimationPortraitPositionKey] ] ];
     
     //Normalize because json is in pixels
     prePortraitPosition.offset = CGPointMultiply(prePortraitPosition.offset, 1.0f / [DeviceInfo screenScale] );
     postPortraitPosition.offset = CGPointMultiply(postPortraitPosition.offset, 1.0f / [DeviceInfo screenScale] );
     
     struct AnimationPosition preLandscapePosition = [self animationPosition:dictionary[ [self preAnimationLandscapePositionKey] ] ];
-    struct AnimationPosition postLandscapePosition = [self animationPosition:dictionary[ [self postAnimationLandscapePosition] ] ];
+    struct AnimationPosition postLandscapePosition = [self animationPosition:dictionary[ [self postAnimationLandscapePositionKey] ] ];
     
     //Normalize because json is in pixels
     preLandscapePosition.offset = CGPointMultiply(preLandscapePosition.offset, 1.0f / [DeviceInfo screenScale] );
@@ -141,7 +141,7 @@ struct AnimationDuration {
     return @"preAnimationPositionPortrait";
 }
 
-+ (NSString*) postAnimationPortraitPosition
++ (NSString*) postAnimationPortraitPositionKey
 {
     return @"postAnimationPositionPortrait";
 }
@@ -151,7 +151,7 @@ struct AnimationDuration {
     return @"preAnimationPositionLandscape";
 }
 
-+ (NSString*) postAnimationLandscapePosition
++ (NSString*) postAnimationLandscapePositionKey
 {
     return @"postAnimationPositionLandscape";
 }
