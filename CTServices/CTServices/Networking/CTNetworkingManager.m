@@ -382,7 +382,7 @@
 }
 
 - (NSOperation*)getMyTemplates:(void(^)(NSArray* templates, NSError* error))completion {
-    return [self requestPath:@"templates.json" method:RKRequestMethodGET object:nil parameters:@{@"filter": @"user:me"} completion:completion];
+    return [self requestPath:@"templates.json" method:RKRequestMethodGET object:nil parameters:@{@"filter": @"createdBy:me"} completion:completion];
 }
 
 - (NSOperation*)getPopularTemplates:(void(^)(NSArray* templates, NSError* error))completion {

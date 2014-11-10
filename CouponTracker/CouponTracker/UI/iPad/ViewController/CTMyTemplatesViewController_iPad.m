@@ -21,7 +21,7 @@
     iCarousel* _carousel;
     NSUInteger _selectedIndex;
     
-    NSArray* _myCards;
+    NSArray* _myTemplates;
     
 }
 
@@ -49,12 +49,13 @@
     
     [self startMiddleLoadingIndicator];
     
-    [self getMyCards:^(NSArray *cards, NSError *error) {
-        _myCards = cards;
+    [self getMyTemplates:^(NSArray *templates, NSError *error) {
+        _myTemplates = templates;
         
         [self stopMiddleLoadingIndicator];
         
         [_carousel reloadData];
+        
     }];
     
 }
@@ -88,7 +89,7 @@
 
 - (NSUInteger) numberOfItemsInCarousel:(iCarousel *)carousel
 {
-    return [_myCards count];
+    return [_myTemplates count];
 }
 
 - (UIView*) carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
@@ -99,8 +100,7 @@
         borderContainer = [self createCellWithSize:CGSizeMake(400, 400) ];
     }
     
-    Model_PrintedCard* printedCard = [_myCards objectAtIndex:index];
-    Model_CardTemplate* templateCard = [printedCard template];
+    Model_CardTemplate* templateCard = [_myTemplates objectAtIndex:index];
     Model_Image* image = [templateCard image];
     
     [(UIImageView*)borderContainer.contentView sd_setImageWithURL:[NSURL URLWithString:image.url] ];

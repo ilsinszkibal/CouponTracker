@@ -75,9 +75,9 @@
     return nil;
 }
 
-- (NSOperation*) getMyCards:(void(^)(NSArray* cards, NSError* error))completion
+- (NSOperation*) getMyTemplates:(void(^)(NSArray* templates, NSError* error))completion
 {
-    return [[CTNetworkingManager sharedManager] getCards:completion];
+    return [[CTNetworkingManager sharedManager] getMyTemplates:completion];
 }
 
 @end
