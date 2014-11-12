@@ -137,6 +137,13 @@
     
 }
 
+#pragma mark - Public
+
+- (void) forceUpdateValidity
+{
+    [self updateValidity];
+}
+
 - (BOOL) isValid
 {
     return _isValid;

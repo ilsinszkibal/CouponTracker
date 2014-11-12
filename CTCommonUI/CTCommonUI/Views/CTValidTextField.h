@@ -24,6 +24,8 @@
 + (instancetype) createForDelegate:(id<CTTextFieldDelegate>) delegate placeHolder:(NSString*) placeHolder;
 + (instancetype) createForDelegate:(id<CTTextFieldDelegate>) delegate placeHolder:(NSString*) placeHolder isAutoCorrect:(BOOL) isAutoCorrect;
 
+- (void) forceUpdateValidity;
+
 - (BOOL) isValid;
 
 @end

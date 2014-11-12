@@ -141,22 +141,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CTCommonUI/CTCommonUI/ViewControllers/Login/CTLoginViewController_Common.m"
-            timestampString = "437230839.450181"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
-            landmarkName = "-actionButtonPressed:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "CTServices/CTServices/BackgroundService/CTBackgroundService.m"
             timestampString = "437243840.992619"
             startingColumnNumber = "9223372036854775807"
