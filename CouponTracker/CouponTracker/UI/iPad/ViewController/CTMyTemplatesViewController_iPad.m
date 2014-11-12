@@ -285,7 +285,7 @@
 
 - (void) dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:[Keys needTemplateReload] ];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     _carousel.delegate = nil;
     _carousel.dataSource = nil;

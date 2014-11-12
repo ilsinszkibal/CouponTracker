@@ -16,6 +16,9 @@
 		6B77A8CA19D6C9E200FC0978 /* CTCommonUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6B77A8C919D6C9E200FC0978 /* CTCommonUI.h */; };
 		6B77A8CC19D6C9E200FC0978 /* CTCommonUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B77A8CB19D6C9E200FC0978 /* CTCommonUI.m */; };
 		6B77A8E719D6CBC100FC0978 /* libCTServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77A8E619D6CBC100FC0978 /* libCTServices.a */; };
+		6BD769AD1A1408CC006362F2 /* CardMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD769AC1A1408CC006362F2 /* CardMapView.m */; };
+		6BD769B21A140976006362F2 /* CardMapLister.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD769B11A140976006362F2 /* CardMapLister.m */; };
+		6BD769B51A140992006362F2 /* CardMapListerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD769B41A140992006362F2 /* CardMapListerView.m */; };
 		6BDCAFB919EC44F700365D32 /* CTPassingViewNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BDCAFB819EC44F700365D32 /* CTPassingViewNavigationViewController.m */; };
 		BD31F30419F9170200AF73D6 /* CTScanViewController_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31F30319F9170200AF73D6 /* CTScanViewController_Common.m */; };
 		BD31F31819F9415000AF73D6 /* CTCardsViewController_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31F31719F9415000AF73D6 /* CTCardsViewController_Common.m */; };
@@ -101,6 +104,14 @@
 		6B77A8D419D6C9E200FC0978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B77A8E619D6CBC100FC0978 /* libCTServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCTServices.a; path = "../CTServices/build/Debug-iphoneos/libCTServices.a"; sourceTree = "<group>"; };
 		6BCB423319D7188C0091E870 /* CTServices.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CTServices.xcodeproj; path = ../CTServices/CTServices.xcodeproj; sourceTree = "<group>"; };
+		6BD769A91A1405AB006362F2 /* CardMapListerViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMapListerViewProtocol.h; path = CardMapLister/CardMapListerViewProtocol.h; sourceTree = "<group>"; };
+		6BD769AA1A14065C006362F2 /* CardMapViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMapViewProtocol.h; path = CardMapLister/CardMapViewProtocol.h; sourceTree = "<group>"; };
+		6BD769AB1A1408CC006362F2 /* CardMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMapView.h; path = CardMapLister/CardMapView.h; sourceTree = "<group>"; };
+		6BD769AC1A1408CC006362F2 /* CardMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMapView.m; path = CardMapLister/CardMapView.m; sourceTree = "<group>"; };
+		6BD769B01A140976006362F2 /* CardMapLister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMapLister.h; path = CardMapLister/CardMapLister.h; sourceTree = "<group>"; };
+		6BD769B11A140976006362F2 /* CardMapLister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMapLister.m; path = CardMapLister/CardMapLister.m; sourceTree = "<group>"; };
+		6BD769B31A140992006362F2 /* CardMapListerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMapListerView.h; path = CardMapLister/CardMapListerView.h; sourceTree = "<group>"; };
+		6BD769B41A140992006362F2 /* CardMapListerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMapListerView.m; path = CardMapLister/CardMapListerView.m; sourceTree = "<group>"; };
 		6BDCAFB719EC44F700365D32 /* CTPassingViewNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPassingViewNavigationViewController.h; sourceTree = "<group>"; };
 		6BDCAFB819EC44F700365D32 /* CTPassingViewNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPassingViewNavigationViewController.m; sourceTree = "<group>"; };
 		BD31F30219F9170200AF73D6 /* CTScanViewController_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTScanViewController_Common.h; sourceTree = "<group>"; };
@@ -301,6 +312,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		6BD769A01A14054E006362F2 /* CardMapLister */ = {
+			isa = PBXGroup;
+			children = (
+				6BD769A91A1405AB006362F2 /* CardMapListerViewProtocol.h */,
+				6BD769AA1A14065C006362F2 /* CardMapViewProtocol.h */,
+				6BD769AB1A1408CC006362F2 /* CardMapView.h */,
+				6BD769AC1A1408CC006362F2 /* CardMapView.m */,
+				6BD769B01A140976006362F2 /* CardMapLister.h */,
+				6BD769B11A140976006362F2 /* CardMapLister.m */,
+				6BD769B31A140992006362F2 /* CardMapListerView.h */,
+				6BD769B41A140992006362F2 /* CardMapListerView.m */,
+			);
+			name = CardMapLister;
+			sourceTree = "<group>";
+		};
 		BD31F2FF19F916E500AF73D6 /* Scan */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +348,7 @@
 		BD7AB19119E14A91000D88AB /* ReusableComponents */ = {
 			isa = PBXGroup;
 			children = (
+				6BD769A01A14054E006362F2 /* CardMapLister */,
 				6B4C2B0319E6FB4900FB87DE /* BorderContainerView */,
 				BD7AB19219E14A91000D88AB /* CouponCardDrawer */,
 			);
@@ -602,6 +629,7 @@
 				BD7AB1D719E14A91000D88AB /* CardDrawingOperationView.m in Sources */,
 				BD9D49E31A06753D001D2326 /* CTComposeViewController.m in Sources */,
 				6B4C2B0919E6FE7500FB87DE /* PreferredSizingImageView.m in Sources */,
+				6BD769AD1A1408CC006362F2 /* CardMapView.m in Sources */,
 				6BDCAFB919EC44F700365D32 /* CTPassingViewNavigationViewController.m in Sources */,
 				BD7AB1DF19E14A91000D88AB /* CTLoginViewController_Common.m in Sources */,
 				BD7AB1E319E14AB8000D88AB /* CTViewController.m in Sources */,
@@ -621,8 +649,10 @@
 				6B4C2B0619E6FB6D00FB87DE /* BorderContainerView.m in Sources */,
 				BDBFC19419FD330F0072306F /* CTContentDetailsViewController_Common.m in Sources */,
 				6B77A8CC19D6C9E200FC0978 /* CTCommonUI.m in Sources */,
+				6BD769B21A140976006362F2 /* CardMapLister.m in Sources */,
 				6B5056D219E14BCB006939CC /* CTMainViewController_Common.m in Sources */,
 				6B5056D619E14C92006939CC /* CTMyTemplatesViewController_Common.m in Sources */,
+				6BD769B51A140992006362F2 /* CardMapListerView.m in Sources */,
 				BDBFC19719FD331F0072306F /* CTNewContentViewController_Common.m in Sources */,
 				BD31F30419F9170200AF73D6 /* CTScanViewController_Common.m in Sources */,
 				BD7AB1D119E14A91000D88AB /* CouponDrawingTextLayer.m in Sources */,

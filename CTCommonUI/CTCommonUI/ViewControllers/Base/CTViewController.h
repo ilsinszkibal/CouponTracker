@@ -12,6 +12,8 @@
 
 - (void) setUpTopLeftButtonWithTitle:(NSString*) title withSel:(SEL) selector;
 - (void) setUpTopRightButtonWithTitle:(NSString*) title withSel:(SEL) selector;
+- (void) setUpBottomLeftButtonWithTitle:(NSString*) title withSel:(SEL) selector;
+- (void) setUpBottomRightButtonWithTitle:(NSString*) title withSel:(SEL) selector;
 
 - (void) startMiddleLoadingIndicator;
 - (void) stopMiddleLoadingIndicator;

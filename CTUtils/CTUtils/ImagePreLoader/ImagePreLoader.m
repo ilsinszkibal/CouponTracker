@@ -37,7 +37,7 @@
     }
     else
     {
-        [[operation imagePreLoading] imagesPreloadedFailedForKey:[operation key] ];
+        [imagePreLoading imagesPreloadedFailedForKey:key];
     }
     
 }
@@ -89,7 +89,9 @@
                 
                 //Preload other image
                 [operation setActImageUrlIndex:( actIndex + 1 ) ];
-                [strongSelf preLoadOperationCycle:operation];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [strongSelf preLoadOperationCycle:operation];
+                });
             }
             
             

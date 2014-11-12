@@ -24,6 +24,8 @@
    
     UIButton* _topLeftButton;
     UIButton* _topRightButton;
+    UIButton* _bottomLeftButton;
+    UIButton* _bottomRightButton;
     
     UIActivityIndicatorView* _loadingIndicator;
     
@@ -94,12 +96,28 @@
     [self.view addSubview:_topRightButton];
 }
 
+- (void) setUpBottomLeftButtonWithTitle:(NSString*) title withSel:(SEL) selector
+{
+    [_bottomLeftButton removeFromSuperview];
+    _bottomLeftButton = [UIFactory defaultButtonWithTitle:title target:self action:selector];
+    [self.view addSubview:_bottomLeftButton];
+}
+
+- (void) setUpBottomRightButtonWithTitle:(NSString*) title withSel:(SEL) selector
+{
+    [_bottomRightButton removeFromSuperview];
+    _bottomRightButton = [UIFactory defaultButtonWithTitle:title target:self action:selector];
+    [self.view addSubview:_bottomRightButton];
+}
+
 - (void) setTopButtoniPadPositions
 {
     CGFloat margin = 10;
     
     [_topLeftButton setFrame:CGRectMake(margin, 25, 150, 44) ];
     [_topRightButton setFrame:CGRectMake(self.view.frame.size.width - 150 - 10, 25, 150, 44) ];
+    [_bottomLeftButton setFrame:CGRectMake(margin, self.view.height - 25 - 44, 150, 44) ];
+    [_bottomRightButton setFrame:CGRectMake(self.view.width - 150 - 10, self.view.height - 25 - 44, 150, 44) ];
 }
 
 - (void) setTopButtoniPhonePositions
@@ -108,6 +126,8 @@
     
     [_topLeftButton setFrame:CGRectMake(margin, 25, 100, 44) ];
     [_topRightButton setFrame:CGRectMake(self.view.frame.size.width - 100 - 10, 25, 100, 44) ];
+    [_bottomLeftButton setFrame:CGRectMake(margin, self.view.height - 25 - 44, 100, 44) ];
+    [_bottomRightButton setFrame:CGRectMake(self.view.width - 100 - 10, self.view.height - 25 - 44, 100, 44) ];
 }
 
 #pragma mark - Loading indicator
