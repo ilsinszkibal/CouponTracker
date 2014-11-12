@@ -38,7 +38,7 @@
     imageViewRect.size = size;
     
     PreferredSizingImageView* imageView = [[PreferredSizingImageView alloc] initWithFrame:imageViewRect ];
-    [imageView setContentMode:UIViewContentModeScaleAspectFill];
+    [imageView setContentMode:UIViewContentModeScaleAspectFit];
     
     BorderContainerView* borderContainer = [[BorderContainerView alloc] initWithContentView:imageView];
     CGRect borderRect = CGRectZero;

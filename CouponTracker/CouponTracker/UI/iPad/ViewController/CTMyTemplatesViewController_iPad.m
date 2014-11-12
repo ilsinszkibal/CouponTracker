@@ -17,11 +17,20 @@
 #import "PreferredSizingImageView.h"
 #import "Model.h"
 
-@interface CTMyTemplatesViewController_iPad () <iCarouselDataSource, iCarouselDelegate> {
+#import "ImagePreLoader.h"
+#import "ImagePreLoadImageInfo.h"
+
+
+
+@interface CTMyTemplatesViewController_iPad () <iCarouselDataSource, iCarouselDelegate, ImagePreLoading> {
     iCarousel* _carousel;
     NSUInteger _selectedIndex;
     
     NSArray* _myTemplates;
+    NSArray* _templatePreLoadImageInfo;
+    
+    NSInteger _maxImageSize;
+    NSString* _imagePreLoadingKey;
     
 }
 
@@ -35,6 +44,8 @@
     [self setUpTopLeftButtonWithTitle:@"Back" withSel:@selector(backButtonAction:) ];
     
     [self setUpTopRightButtonWithTitle:@"New template" withSel:@selector(newTemplateButtonAction:) ];
+    
+    _maxImageSize = 400;
     
     _carousel = [[iCarousel alloc] init];
     _carousel.delegate = self;
@@ -51,10 +62,8 @@
     
     [self getMyTemplates:^(NSArray *templates, NSError *error) {
         _myTemplates = templates;
-        
-        [self stopMiddleLoadingIndicator];
-        
-        [_carousel reloadData];
+       
+        [self preLoadImages];
         
     }];
     
@@ -70,6 +79,58 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - PreLoadingImage
+
+- (void) preLoadImages
+{
+    
+    NSMutableArray* urlArray = [@[] mutableCopy];
+    
+    //Fill the urlArray
+    for (Model_CardTemplate* template in _myTemplates) {
+        Model_Image * image = [template image];
+        NSString* urlString = [image url];
+        NSURL* url;
+        
+        if ( urlString )
+        {
+            url = [NSURL URLWithString:urlString];
+        }
+        
+        if ( url )
+        {
+            [urlArray addObject:url];
+        }
+        
+    }
+    
+    NSDate* date = [NSDate date];
+    _imagePreLoadingKey = [NSString stringWithFormat:@"%@", date];
+    
+    //Pre load images
+    [[ImagePreLoader sharedInstance] preloadImages:urlArray imagePreLoading:self forKey:_imagePreLoadingKey];
+}
+
+- (void) imagesPreloadedForKey:(NSString*) key imageInfo:(NSArray *)imageInfo
+{
+    if ( [key isEqualToString:_imagePreLoadingKey] == NO )
+    {
+        return;
+    }
+    
+    _imagePreLoadingKey = nil;
+    
+    _templatePreLoadImageInfo = imageInfo;
+    
+    [self stopMiddleLoadingIndicator];
+    [_carousel reloadData];
+}
+
+- (void) imagesPreloadedFailedForKey:(NSString *)key
+{
+    
 }
 
 #pragma mark - Navigation
@@ -97,11 +158,35 @@
     BorderContainerView* borderContainer = (BorderContainerView*)view;
     if (  borderContainer == nil )
     {
-        borderContainer = [self createCellWithSize:CGSizeMake(400, 400) ];
+        borderContainer = [self createCellWithSize:CGSizeMake(_maxImageSize, _maxImageSize) ];
     }
     
     Model_CardTemplate* templateCard = [_myTemplates objectAtIndex:index];
     Model_Image* image = [templateCard image];
+    
+    ImagePreLoadImageInfo* imageInfo;
+    if ( index < [_templatePreLoadImageInfo count] )
+    {
+        imageInfo = _templatePreLoadImageInfo[ index ];
+    }
+    
+    if ( [[image url] isEqualToString:[[imageInfo url] absoluteString] ] && [imageInfo imageInfoState] == ImageInfoStateMeasured )
+    {
+        CGSize imageSize = [imageInfo imageSize];
+        CGFloat maxImageDimension = MAX(imageSize.width, imageSize.height);
+        
+        if ( _maxImageSize < maxImageDimension )
+        {
+            CGFloat scale = _maxImageSize / maxImageDimension;
+            imageSize.width *= scale;
+            imageSize.height *= scale;
+        }
+        
+        [(PreferredSizingImageView*)borderContainer.contentView setFrame:CGRectIntegral( CGRectMake(0, 0, imageSize.width, imageSize.height) ) ];
+        
+        CGSize borderContainerSize = [borderContainer preferredContainterViewSize];
+        [borderContainer setFrame:CGRectMake(0, 0, borderContainerSize.width, borderContainerSize.height) ];
+    }
     
     [(UIImageView*)borderContainer.contentView sd_setImageWithURL:[NSURL URLWithString:image.url] ];
     
