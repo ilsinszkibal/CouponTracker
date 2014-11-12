@@ -33,15 +33,17 @@
     
     if ( self ) {
         
-        UIColor* borderColor = [UIColor blackColor];
+        UIColor* borderColor = [UIColor whiteColor];
         
         //Text modification
         _textLabel = [[UILabel alloc] init];
-        [_textLabel setText:@"Text: "];
+        [_textLabel setText:@"Modify text: "];
+        [_textLabel setTextColor:[UIColor whiteColor] ];
         [self addSubview:_textLabel];
         
         _textField = [[UITextField alloc] init];
         [_textField setDelegate:self];
+        [_textField setTextColor:[UIColor whiteColor] ];
         _textField.returnKeyType = UIReturnKeyDone;
         [self addSubview:_textField];
         
@@ -67,7 +69,7 @@
             NSInteger fontSize = [CouponDrawingTextLayer fontSizeForIndex:actButtonIndex];
             NSString* fontSizeString = [NSString stringWithFormat:@"%ld", (long)fontSize ];
             [button setTitle:fontSizeString forState:UIControlStateNormal];
-            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             
             [button setTag:actButtonIndex];
             [button.layer setBorderColor:borderColor.CGColor ];
@@ -156,7 +158,7 @@
         }
         else
         {
-            [button.layer setBorderColor:[UIColor blackColor].CGColor ];
+            [button.layer setBorderColor:[UIColor whiteColor].CGColor ];
         }
         
     }
@@ -184,7 +186,7 @@
         }
         else
         {
-            [button.layer setBorderColor:[UIColor blackColor].CGColor ];
+            [button.layer setBorderColor:[UIColor whiteColor].CGColor ];
         }
         
     }

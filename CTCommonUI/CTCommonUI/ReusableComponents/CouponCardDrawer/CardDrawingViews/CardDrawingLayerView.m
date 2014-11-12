@@ -99,6 +99,15 @@
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ( editingStyle == UITableViewCellEditingStyleDelete )
+    {
+        [_drawingData removeLayerAtIndex:indexPath.row];
+        [self editRowOrderAction:_editButton];
+    }
+}
+
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
     
     CouponDrawingBaseLayer* layer = [_drawingData removeLayerAtIndex:sourceIndexPath.row];
@@ -135,6 +144,7 @@
     
     UIImage* imageToPresent = [self imageForIndex:indexPath.row];
     [cell.imageView setImage:imageToPresent ];
+    [cell.imageView setContentMode:UIViewContentModeScaleAspectFit];
     
     return cell;
 }

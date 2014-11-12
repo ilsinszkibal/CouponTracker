@@ -69,9 +69,12 @@
 {
     [super viewDidLayoutSubviews];
     
-    [_layerView setFrame:CGRectMake(0, 275, 80, 300)];
-    [_operationView setFrame:CGRectMake(80, 75, 600, 200)];
-    [_presentView setFrame:CGRectMake(80, 275, 600, 300)];
+    CGFloat yOffset = 150;
+    
+    [_presentView setFrame:CGRectMake(self.view.width / 2.0 - 600 / 2.0, self.view.height / 2.0 - 300 / 2.0 + yOffset, 600, 300)];
+    
+    [_layerView setFrame:CGRectMake(_presentView.x - 80, _presentView.y, 80, 300)];
+    [_operationView setFrame:CGRectMake(_presentView.x, _presentView.y - 200, 600, 200)];
 }
 
 - (void)didReceiveMemoryWarning {
