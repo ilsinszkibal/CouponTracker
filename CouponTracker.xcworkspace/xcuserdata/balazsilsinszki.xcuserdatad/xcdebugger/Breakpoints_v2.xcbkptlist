@@ -126,11 +126,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CTCommonUI/CTCommonUI/ViewControllers/NewTemplate/CTNewTemplateViewController_Common.m"
-            timestampString = "435857247.71051"
+            timestampString = "437517366.776558"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "-createTemplateWithName:withText:withImage:"
             landmarkType = "5">
          </BreakpointContent>

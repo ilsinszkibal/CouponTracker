@@ -54,6 +54,12 @@
 
 - (void) showMyTemplatesAction:(UIButton*) button
 {
+    if ( [self isUserLoggedIn] == NO )
+    {
+        [self showLogin];
+        return;
+    }
+    
     CTMyTemplatesViewController_iPad* myTemplates = [[CTMyTemplatesViewController_iPad alloc] init];
     [self showMyTemplates:myTemplates];
 }

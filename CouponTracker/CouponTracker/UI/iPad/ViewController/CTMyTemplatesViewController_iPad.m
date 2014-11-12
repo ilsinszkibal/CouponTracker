@@ -20,7 +20,7 @@
 #import "ImagePreLoader.h"
 #import "ImagePreLoadImageInfo.h"
 
-
+#import "Keys.h"
 
 @interface CTMyTemplatesViewController_iPad () <iCarouselDataSource, iCarouselDelegate, ImagePreLoading> {
     iCarousel* _carousel;
@@ -37,6 +37,22 @@
 @end
 
 @implementation CTMyTemplatesViewController_iPad
+
+- (id) init
+{
+    
+    self = [super init];
+    
+    if ( self ) {
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector( loadTemplates ) name:[Keys needTemplateReload] object:nil];
+        
+    }
+    
+    return self;
+}
+
+#pragma mark - View
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,12 +76,7 @@
     
     [self startMiddleLoadingIndicator];
     
-    [self getMyTemplates:^(NSArray *templates, NSError *error) {
-        _myTemplates = templates;
-       
-        [self preLoadImages];
-        
-    }];
+    [self loadTemplates];
     
 }
 
@@ -79,6 +90,20 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Load templates
+
+- (void) loadTemplates
+{
+    
+    [self getMyTemplates:^(NSArray *templates, NSError *error) {
+        _myTemplates = templates;
+       
+        [self preLoadImages];
+        
+    }];
+    
 }
 
 #pragma mark - PreLoadingImage
@@ -234,8 +259,12 @@
     
     if ( [[key key] isEqualToString:[self printNavigationKey] ] )
     {
-        CGFloat size = 430;
-        return CGRectMake( ( self.view.width - size ) / 2.0, ( self.view.height - size ) / 2.0, size, size);
+        NSNumber* selectedIndex = [key parameters][ [self selectedElemIndexKey] ];
+        BorderContainerView* selected = (BorderContainerView*)[_carousel itemViewAtIndex:[selectedIndex integerValue] ];
+        
+        CGSize selectedSize = selected.frame.size;
+        
+        return CGRectMake( ( self.view.width - selectedSize.width ) / 2.0, ( self.view.height - selectedSize.height ) / 2.0, selectedSize.width, selectedSize.height);
     }
     
     return CGRectZero;
@@ -256,6 +285,8 @@
 
 - (void) dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:[Keys needTemplateReload] ];
+    
     _carousel.delegate = nil;
     _carousel.dataSource = nil;
 }
