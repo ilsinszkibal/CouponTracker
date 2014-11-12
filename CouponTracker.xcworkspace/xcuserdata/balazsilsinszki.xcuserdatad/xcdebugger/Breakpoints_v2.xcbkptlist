@@ -78,11 +78,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CouponTracker/CouponTracker/UI/iPad/ViewController/CTPrintTemplateViewController_iPad.m"
-            timestampString = "437230839.450181"
+            timestampString = "437518600.311185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "-receivingView:forKey:"
             landmarkType = "5">
          </BreakpointContent>
@@ -212,6 +212,22 @@
             startingLineNumber = "126"
             endingLineNumber = "126"
             landmarkName = "-requestPath:method:object:parameters:completion:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CouponTracker/CouponTracker/UI/iPad/ViewController/CTPrintTemplateViewController_iPad.m"
+            timestampString = "437518600.311185"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "-viewDidLayoutSubviews"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
