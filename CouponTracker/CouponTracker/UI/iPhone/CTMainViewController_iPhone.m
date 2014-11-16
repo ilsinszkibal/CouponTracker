@@ -13,7 +13,6 @@
 #import "CTInstructionsViewController_iPhone.h"
 #import "CTUserManager.h"
 #import "CTUser.h"
-#import "CTSplashView.h"
 
 @interface CTMainViewController_iPhone ()
 
@@ -23,8 +22,6 @@
 @property (nonatomic, strong) UIButton* scanButton;
 @property (nonatomic, strong) UIButton* cardsButton;
 @property (nonatomic, strong) UIButton* templatesButton;
-
-@property (nonatomic, strong) CTSplashView* splashView;
 
 - (void)loginButtonPressed:(UIButton*)button;
 - (void)scanButtonPressed:(UIButton*)button;
@@ -60,9 +57,6 @@
     [self.scanButton setAlpha:0.65];
     [self.scanButton setImage:[UIImage imageNamed:@"scan"] forState:UIControlStateNormal];
     [self.view addSubview:self.scanButton];
-    
-//    self.splashView = [[CTSplashView alloc] initWithIconImage:[UIImage imageNamed:@"scan"] backgroundColor:[UIColor orangeColor]];
-//    [self.view addSubview:self.splashView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
