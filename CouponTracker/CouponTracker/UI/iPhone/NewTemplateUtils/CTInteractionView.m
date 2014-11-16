@@ -13,38 +13,27 @@
 
 @interface CTInteractionView ()
 
-@property (nonatomic, strong) UIView* contentView;
-@property (nonatomic, assign) CGSize contentViewSize;
-@property (nonatomic, assign) CGPoint contentViewOffset;
-
 @property (nonatomic, strong) UIImageView* dropDownImage;
 @property (nonatomic, strong) UILabel* titleLabel;
 
 @property (nonatomic, strong) UITapGestureRecognizer* tapGestureRecognizer;
 
+@property (nonatomic, weak) id<CTInteracting> delegate;
+
 @end
 
 @implementation CTInteractionView
 
-#pragma mark - Create and init
+#pragma mark - Init
 
-+ (instancetype) createWithContentView:(UIView*) contentView withTitle:(NSString*) title
-{
-    
-    if ( contentView == nil )
-        return nil;
-    
-    CTInteractionView* interactionView = [[CTInteractionView alloc] initWithTitle:title withContentView:contentView];
-    
-    return interactionView;
-}
-
-- (id) initWithTitle:(NSString*) title withContentView:(UIView*) contentView
+- (id) initWithTitle:(NSString*) title withDelegate:(id<CTInteracting>) delegate;
 {
     
     self = [super init];
     
     if ( self ) {
+        
+        _delegate = delegate;
         
         [self setClipsToBounds:NO];
         
@@ -64,11 +53,6 @@
         self.titleLabel.text = title;
         [self addSubview:self.titleLabel];
         
-        [self.contentView removeFromSuperview];
-        _contentView = contentView;
-        [_contentView setBackgroundColor:[CTColor viewControllerBackgroundColor] ];
-        [_contentView setHidden:YES];
-        [self addSubview:_contentView];
     }
     
     return self;
@@ -93,77 +77,7 @@
 
 - (void) handleTap:(UITapGestureRecognizer*) tapGesture
 {
-    
-    if ( [self isContentViewShown] )
-    {
-        [self closeContentView];
-    }
-    else
-    {
-        [self openContentView];
-    }
-    
-}
-
-- (void) closeContentView
-{
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        [self.contentView setAlpha:0.0f];
-        [self.contentView setFrame:[self contentViewFrameForShow:NO] ];
-    } completion:^(BOOL finished) {
-        [self.contentView setHidden:YES];
-    }];
-    
-}
-
-- (void) openContentView
-{
-    
-    [self.contentView setHidden:NO];
-    [self.contentView setAlpha:0.0f];
-    [self.contentView setFrame:[self contentViewFrameForShow:NO] ];
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        [self.contentView setAlpha:1.0f];
-        [self.contentView setFrame:[self contentViewFrameForShow:YES] ];
-    }];
-    
-}
-
-- (CGRect) contentViewFrameForShow:(BOOL) show
-{
-    CGRect frame = [self.contentView frame];
-    
-    frame.origin = self.contentViewOffset;
-    frame.size = self.contentViewSize;
-    
-    if ( show == NO )
-        frame.size.height = self.height;
-    
-    return frame;
-}
-
-#pragma mark - Public
-
-- (void) setContentOffset:(CGPoint) offset
-{
-    self.contentViewOffset = offset;
-}
-
-- (void) setContentSize:(CGSize) size
-{
-    self.contentViewSize = size;
-}
-
-- (BOOL) isContentViewShown
-{
-    return self.contentView.width == self.contentViewSize.width && self.contentView.height == self.contentViewSize.height;
-}
-
-- (void) closeContent
-{
-    [self closeContentView];
+    [self.delegate tapInteractionOnView:self];
 }
 
 @end

@@ -8,16 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class CTInteractionView;
+
+@protocol CTInteracting <NSObject>
+
+- (void) tapInteractionOnView:(CTInteractionView*) view;
+
+@end
+
 @interface CTInteractionView : UIView
 
-@property (nonatomic, readonly) UIView* contentView;
+- (id) initWithTitle:(NSString*) title withDelegate:(id<CTInteracting>) delegate;
 
-+ (instancetype) createWithContentView:(UIView*) contentView withTitle:(NSString*) title;
-
-- (void) setContentOffset:(CGPoint) offset;
-- (void) setContentSize:(CGSize) size;
-- (BOOL) isContentViewShown;
-
-- (void) closeContent;
+@property (nonatomic, weak, readonly) id<CTInteracting> delegate;
 
 @end
