@@ -11,10 +11,34 @@
 #import "CTMyTemplatesViewController_iPad.h"
 #import "CTScanViewController_iPad.h"
 
-@interface CTMainViewController_iPad () {
+#import "CardMapView.h"
+#import "CardMapLister.h"
+#import "CardMapListerView.h"
+
+#import "CTNetworkingManager.h"
+
+#import "Model_PrintedCard.h"
+#import "Model_CardTemplate.h"
+#import "Model_Image.h"
+
+#import "ImagePreLoader.h"
+#import "ImagePreLoadImageInfo.h"
+
+#import "BorderContainerView.h"
+
+@interface CTMainViewController_iPad ()<CardMapListing, ImagePreLoading> {
     
-    UIButton* _loginButton;
-    UIButton* _scanButton;
+    NSArray* _popularCards;
+    NSString* _preLoadingKey;
+    NSArray* _popularCardImageInfo;
+    
+    CardMapLister* _cardMapLister;
+    BorderContainerView* _cardMapBorderContainer;
+    
+    CardMapListerView* _cardMapListerView;
+    BorderContainerView* _cardMapListerBorderContainer;
+    
+    CardMapView* _cardMapView;
     
 }
 
@@ -27,12 +51,30 @@
     // Do any additional setup after loading the view.
     
     [self setUpTopRightButtonWithTitle:@"My templates" withSel:@selector(showMyTemplatesAction:) ];
+    [self setUpTopLeftButtonWithTitle:@"Login" withSel:@selector( loginButtonAction: ) ];
     
-    _loginButton = [UIFactory defaultButtonWithTitle:@"Login" target:self action:@selector(loginButtonAction:) ];
-    [self.view addSubview:_loginButton];
+    [self setUpBottomRightButtonWithTitle:@"Scan" withSel:@selector( scanButtonPressed: ) ];
     
-    _scanButton = [UIFactory defaultButtonWithTitle:@"Scan" target:self action:@selector(scanButtonPressed:)];
-    [self.view addSubview:_scanButton];
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if ( _cardMapLister == nil )
+    {
+        _cardMapListerView = [[CardMapListerView alloc] initWithFrame:CGRectMake(0, 0, 450, 100) ];
+        _cardMapListerBorderContainer = [[BorderContainerView alloc] initWithContentView:_cardMapListerView];
+        [self.view addSubview:_cardMapListerBorderContainer];
+        
+        _cardMapView = [[CardMapView alloc] initWithFrame:CGRectMake(0, 0, 450, 450) ];
+        _cardMapBorderContainer = [[BorderContainerView alloc] initWithContentView:_cardMapView];
+        [self.view addSubview:_cardMapBorderContainer];
+        
+        _cardMapLister = [[CardMapLister alloc] initWithListing:self withCardMapView:_cardMapView withMapCardLister:_cardMapListerView];
+    }
+    
+    [self loadPopularCards];
     
 }
 
@@ -40,8 +82,14 @@
 {
     [super viewDidLayoutSubviews];
     
-    [_loginButton setFrame:CGRectMake(200, 450, 150, 44) ];
-    [_scanButton setFrame:CGRectMake(200, 600, 150, 44)];
+    CGFloat yOffset = 100;
+    
+    CGSize cardMapBorderSize = [_cardMapBorderContainer preferredContainterViewSize];
+    [_cardMapBorderContainer setFrame:CGRectIntegral( CGRectMake(self.view.width / 2.0 - cardMapBorderSize.width / 2.0, self.view.height / 2.0 -  cardMapBorderSize.height / 2.0 + yOffset, cardMapBorderSize.width, cardMapBorderSize.height) ) ];
+    
+    CGSize cardMapListerBorderSize = [_cardMapListerBorderContainer preferredContainterViewSize];
+    [_cardMapListerBorderContainer setFrame:CGRectIntegral( CGRectMake(self.view.width / 2.0 - cardMapListerBorderSize.width / 2.0, _cardMapBorderContainer.y - cardMapListerBorderSize.height - 50, cardMapListerBorderSize.width, cardMapListerBorderSize.height) ) ];
+    
     
 }
 
@@ -50,10 +98,94 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Load cards
+
+- (void) loadPopularCards
+{
+    [_cardMapBorderContainer setHidden:YES];
+    [_cardMapListerBorderContainer setHidden:YES];
+    [self startMiddleLoadingIndicator];
+    
+    [[CTNetworkingManager sharedManager] getCards:^(NSArray *cards, NSError *error) {
+        _popularCards = cards;
+       
+        
+        [self preLoadImages];
+        
+    }];
+    
+}
+
+#pragma mark - Image preloading
+
+- (void) preLoadImages
+{
+    
+    NSMutableArray* urlCollection = [@[] mutableCopy];
+    
+    for (Model_PrintedCard* printedCard in _popularCards) {
+        Model_CardTemplate* template = [printedCard template];
+        Model_Image* image = [template image];
+        
+        NSString* urlString = [image url];
+        
+        NSURL* url;
+        if ( urlString )
+        {
+            url = [NSURL URLWithString:urlString];
+        }
+        else
+        {
+#warning TODO
+            url = [NSURL URLWithString:@"http://www.coupontracker.org/uploads/images/a1f0b04bea8329087ed4fd187f83354cc58d7e36.jpeg"];
+        }
+        
+        if ( url )
+        {
+            [urlCollection addObject:url];
+        }
+        
+    }
+    
+    NSDate* date = [NSDate date];
+    _preLoadingKey = [NSString stringWithFormat:@"%@", date];
+    
+    [[ImagePreLoader sharedInstance] preloadImages:urlCollection imagePreLoading:self forKey:_preLoadingKey];
+    
+}
+
+- (void) imagesPreloadedForKey:(NSString*) key imageInfo:(NSArray*) imageInfo
+{
+    
+    if ( [_preLoadingKey isEqualToString:key] == NO )
+        return;
+    
+    _popularCardImageInfo = imageInfo;
+    _preLoadingKey = nil;
+    
+    [_cardMapListerBorderContainer setHidden:NO];
+    [_cardMapBorderContainer setHidden:NO];
+    [self stopMiddleLoadingIndicator];
+    
+    [_cardMapLister startWithPrintedCards:_popularCards withPreLoadImageInfo:_popularCardImageInfo];
+    
+}
+
+- (void) imagesPreloadedFailedForKey:(NSString *)key
+{
+    [self stopMiddleLoadingIndicator];
+}
+
 #pragma mark - Public
 
 - (void) showMyTemplatesAction:(UIButton*) button
 {
+    if ( [self isUserLoggedIn] == NO )
+    {
+        [self showLogin];
+        return;
+    }
+    
     CTMyTemplatesViewController_iPad* myTemplates = [[CTMyTemplatesViewController_iPad alloc] init];
     [self showMyTemplates:myTemplates];
 }

@@ -8,8 +8,12 @@
 
 #import "CTPrintTemplateViewController_iPad.h"
 
+#import "UIFactory.h"
+
 @interface CTPrintTemplateViewController_iPad () {
     UIView* _passingView;
+    
+    UIButton* _printButton;
     
 }
 
@@ -21,6 +25,9 @@
     [super viewDidLoad];
     
     [self setUpTopLeftButtonWithTitle:@"Back" withSel:@selector( backButtonAction: ) ];
+    
+    _printButton = [UIFactory defaultButtonWithTitle:@"Print" target:self action:@selector(print)];
+    [self.view addSubview:_printButton];
     
 }
 
@@ -41,6 +48,11 @@
 - (void) viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
+    
+    [_passingView setFrame:[self passingViewRectForKey:nil] ];
+    
+    [_printButton setFrame:CGRectIntegral( CGRectMake(self.view.width / 2.0 - 150 / 2.0, self.view.height / 2.0 - 44 / 2.0, 150, 44) ) ];
+    
 }
 
 #pragma mark - Action

@@ -38,7 +38,7 @@
     imageViewRect.size = size;
     
     PreferredSizingImageView* imageView = [[PreferredSizingImageView alloc] initWithFrame:imageViewRect ];
-    [imageView setContentMode:UIViewContentModeScaleAspectFill];
+    [imageView setContentMode:UIViewContentModeScaleAspectFit];
     
     BorderContainerView* borderContainer = [[BorderContainerView alloc] initWithContentView:imageView];
     CGRect borderRect = CGRectZero;
@@ -75,9 +75,9 @@
     return nil;
 }
 
-- (NSOperation*) getMyCards:(void(^)(NSArray* cards, NSError* error))completion
+- (NSOperation*) getMyTemplates:(void(^)(NSArray* templates, NSError* error))completion
 {
-    return [[CTNetworkingManager sharedManager] getCards:completion];
+    return [[CTNetworkingManager sharedManager] getMyTemplates:completion];
 }
 
 @end

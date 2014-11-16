@@ -192,9 +192,17 @@
         user.username = [self.usernameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         user.password = [self.passwordField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         [[CTUserManager sharedManager] loginUser:user completion:^(CTUser *user, NSError *error) {
-            if (!error) {
+            
+            if (!error)
+            {
                 [self dismissViewControllerAnimated:YES completion:nil];
             }
+            else
+            {
+                [_passwordField setText:@""];
+                [_passwordField forceUpdateValidity];
+            }
+            
         }];
     } else if (self.currentState == CTLoginViewStateRegister) {
         CTUser* user = [[CTUser alloc] init];
@@ -203,8 +211,17 @@
         user.email = [self.emailField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         user.password = [self.passwordField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         [[CTUserManager sharedManager] signupUser:user completion:^(CTUser *user, NSError *error) {
-            if (!error) {
+            
+            if (!error)
+            {
                 [self dismissViewControllerAnimated:YES completion:nil];
+            }
+            else
+            {
+                [_passwordField setText:@""];
+                [_passwordField forceUpdateValidity];
+                [_passwordConfirmationField setText:@""];
+                [_passwordConfirmationField forceUpdateValidity];
             }
         }];
     }

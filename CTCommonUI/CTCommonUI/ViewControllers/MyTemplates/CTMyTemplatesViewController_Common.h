@@ -26,6 +26,6 @@
 - (void) showPrintTemplate:(CTPrintTemplateViewController_Common*)  printTemplateViewController forKey:(CTPassingViewNavigatingKey*) key;
 
 - (NSOperation*)uploadImage:(UIImage*)image completion:(void(^)(Model_Image* image, NSError* error))completion;
-- (NSOperation*) getMyCards:(void(^)(NSArray* cards, NSError* error))completion;
+- (NSOperation*) getMyTemplates:(void(^)(NSArray* templates, NSError* error))completion;
 
 @end

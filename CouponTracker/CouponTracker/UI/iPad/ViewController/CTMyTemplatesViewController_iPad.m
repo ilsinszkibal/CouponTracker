@@ -17,11 +17,20 @@
 #import "PreferredSizingImageView.h"
 #import "Model.h"
 
-@interface CTMyTemplatesViewController_iPad () <iCarouselDataSource, iCarouselDelegate> {
+#import "ImagePreLoader.h"
+#import "ImagePreLoadImageInfo.h"
+
+#import "Keys.h"
+
+@interface CTMyTemplatesViewController_iPad () <iCarouselDataSource, iCarouselDelegate, ImagePreLoading> {
     iCarousel* _carousel;
     NSUInteger _selectedIndex;
     
-    NSArray* _myCards;
+    NSArray* _myTemplates;
+    NSArray* _templatePreLoadImageInfo;
+    
+    NSInteger _maxImageSize;
+    NSString* _imagePreLoadingKey;
     
 }
 
@@ -29,12 +38,30 @@
 
 @implementation CTMyTemplatesViewController_iPad
 
+- (id) init
+{
+    
+    self = [super init];
+    
+    if ( self ) {
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector( loadTemplates ) name:[Keys needTemplateReload] object:nil];
+        
+    }
+    
+    return self;
+}
+
+#pragma mark - View
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     [self setUpTopLeftButtonWithTitle:@"Back" withSel:@selector(backButtonAction:) ];
     
     [self setUpTopRightButtonWithTitle:@"New template" withSel:@selector(newTemplateButtonAction:) ];
+    
+    _maxImageSize = 400;
     
     _carousel = [[iCarousel alloc] init];
     _carousel.delegate = self;
@@ -49,13 +76,7 @@
     
     [self startMiddleLoadingIndicator];
     
-    [self getMyCards:^(NSArray *cards, NSError *error) {
-        _myCards = cards;
-        
-        [self stopMiddleLoadingIndicator];
-        
-        [_carousel reloadData];
-    }];
+    [self loadTemplates];
     
 }
 
@@ -69,6 +90,72 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Load templates
+
+- (void) loadTemplates
+{
+    
+    [self getMyTemplates:^(NSArray *templates, NSError *error) {
+        _myTemplates = templates;
+       
+        [self preLoadImages];
+        
+    }];
+    
+}
+
+#pragma mark - PreLoadingImage
+
+- (void) preLoadImages
+{
+    
+    NSMutableArray* urlArray = [@[] mutableCopy];
+    
+    //Fill the urlArray
+    for (Model_CardTemplate* template in _myTemplates) {
+        Model_Image * image = [template image];
+        NSString* urlString = [image url];
+        NSURL* url;
+        
+        if ( urlString )
+        {
+            url = [NSURL URLWithString:urlString];
+        }
+        
+        if ( url )
+        {
+            [urlArray addObject:url];
+        }
+        
+    }
+    
+    NSDate* date = [NSDate date];
+    _imagePreLoadingKey = [NSString stringWithFormat:@"%@", date];
+    
+    //Pre load images
+    [[ImagePreLoader sharedInstance] preloadImages:urlArray imagePreLoading:self forKey:_imagePreLoadingKey];
+}
+
+- (void) imagesPreloadedForKey:(NSString*) key imageInfo:(NSArray *)imageInfo
+{
+    if ( [key isEqualToString:_imagePreLoadingKey] == NO )
+    {
+        return;
+    }
+    
+    _imagePreLoadingKey = nil;
+    
+    _templatePreLoadImageInfo = imageInfo;
+    
+    [self stopMiddleLoadingIndicator];
+    [_carousel reloadData];
+}
+
+- (void) imagesPreloadedFailedForKey:(NSString *)key
+{
+    
 }
 
 #pragma mark - Navigation
@@ -88,7 +175,7 @@
 
 - (NSUInteger) numberOfItemsInCarousel:(iCarousel *)carousel
 {
-    return [_myCards count];
+    return [_myTemplates count];
 }
 
 - (UIView*) carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
@@ -96,12 +183,35 @@
     BorderContainerView* borderContainer = (BorderContainerView*)view;
     if (  borderContainer == nil )
     {
-        borderContainer = [self createCellWithSize:CGSizeMake(400, 400) ];
+        borderContainer = [self createCellWithSize:CGSizeMake(_maxImageSize, _maxImageSize) ];
     }
     
-    Model_PrintedCard* printedCard = [_myCards objectAtIndex:index];
-    Model_CardTemplate* templateCard = [printedCard template];
+    Model_CardTemplate* templateCard = [_myTemplates objectAtIndex:index];
     Model_Image* image = [templateCard image];
+    
+    ImagePreLoadImageInfo* imageInfo;
+    if ( index < [_templatePreLoadImageInfo count] )
+    {
+        imageInfo = _templatePreLoadImageInfo[ index ];
+    }
+    
+    if ( [[image url] isEqualToString:[[imageInfo url] absoluteString] ] && [imageInfo imageInfoState] == ImageInfoStateMeasured )
+    {
+        CGSize imageSize = [imageInfo imageSize];
+        CGFloat maxImageDimension = MAX(imageSize.width, imageSize.height);
+        
+        if ( _maxImageSize < maxImageDimension )
+        {
+            CGFloat scale = _maxImageSize / maxImageDimension;
+            imageSize.width *= scale;
+            imageSize.height *= scale;
+        }
+        
+        [(PreferredSizingImageView*)borderContainer.contentView setFrame:CGRectIntegral( CGRectMake(0, 0, imageSize.width, imageSize.height) ) ];
+        
+        CGSize borderContainerSize = [borderContainer preferredContainterViewSize];
+        [borderContainer setFrame:CGRectMake(0, 0, borderContainerSize.width, borderContainerSize.height) ];
+    }
     
     [(UIImageView*)borderContainer.contentView sd_setImageWithURL:[NSURL URLWithString:image.url] ];
     
@@ -149,8 +259,12 @@
     
     if ( [[key key] isEqualToString:[self printNavigationKey] ] )
     {
-        CGFloat size = 430;
-        return CGRectMake( ( self.view.width - size ) / 2.0, ( self.view.height - size ) / 2.0, size, size);
+        NSNumber* selectedIndex = [key parameters][ [self selectedElemIndexKey] ];
+        BorderContainerView* selected = (BorderContainerView*)[_carousel itemViewAtIndex:[selectedIndex integerValue] ];
+        
+        CGSize selectedSize = selected.frame.size;
+        
+        return CGRectMake( ( self.view.width - selectedSize.width ) / 2.0, ( self.view.height - selectedSize.height ) / 2.0, selectedSize.width, selectedSize.height);
     }
     
     return CGRectZero;
@@ -171,6 +285,8 @@
 
 - (void) dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     _carousel.delegate = nil;
     _carousel.dataSource = nil;
 }

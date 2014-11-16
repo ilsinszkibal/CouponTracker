@@ -10,6 +10,8 @@
 
 #import "CTNetworkingManager.h"
 
+#import "Keys.h"
+
 @interface CTNewTemplateViewController_Common ()
 
 @end
@@ -21,6 +23,9 @@
     
     [[CTNetworkingManager sharedManager] createTemplateWithName:name text:text image:image completion:^(Model_CardTemplate *image, NSError *error) {
         NSLog(@"Template");
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:[Keys needTemplateReload] object:nil];
+        
     }];
     
 }

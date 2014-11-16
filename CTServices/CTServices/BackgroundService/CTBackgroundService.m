@@ -94,33 +94,40 @@
        
         if ( settingsID )
         {
-            //Save settingsId to backgroundAnimationPath
-            NSString* filePath = [FolderPath backgroundAnimationPath];
-            
-            NSError* error = nil;
-            NSData* data = [NSJSONSerialization dataWithJSONObject:settingsID options:NSJSONWritingPrettyPrinted error:&error];
-            [data writeToFile:filePath atomically:YES];
-           
-            //Set the flag to not sync for iCloud
-            if ( error == nil )
-            {
-                [FolderPath setURLIsExcludedFromBackupKeyForFilePath:filePath];
-            }
             
             NSString* imagePath = [FolderPath backgroundImagePath];
             NSString* imageServerPath =  settingsID[@"imagePath"];
             
             NSURL* imageURl = [NSURL URLWithString:imageServerPath];
             
+            if ( imageURl == nil )
+                return;
+            
             [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:imageURl options:SDWebImageDownloaderLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
             } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
                 NSLog(@"Completed");
                 if ( error == nil && image )
                 {
+                    
+                    //Save image
                     NSData* imageData = UIImageJPEGRepresentation(image, 0.0f);
                     [imageData writeToFile:imagePath atomically:YES];
                     
                     [FolderPath setURLIsExcludedFromBackupKeyForFilePath:imagePath];
+                    
+                    //Save settings ID
+                    NSString* filePath = [FolderPath backgroundAnimationPath];
+            
+                    NSError* error = nil;
+                    NSData* data = [NSJSONSerialization dataWithJSONObject:settingsID options:NSJSONWritingPrettyPrinted error:&error];
+                    [data writeToFile:filePath atomically:YES];
+           
+                    //Set the flag to not sync for iCloud
+                    if ( error == nil )
+                    {
+                        [FolderPath setURLIsExcludedFromBackupKeyForFilePath:filePath];
+                    }
+                    
                 }
                 
             }];

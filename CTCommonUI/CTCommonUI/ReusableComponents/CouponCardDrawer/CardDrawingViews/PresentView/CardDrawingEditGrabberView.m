@@ -24,6 +24,9 @@
         [self.layer setShadowColor:[UIColor grayColor].CGColor ];
         [self.layer setShadowRadius:2];
         
+        [self.layer setBorderColor:[UIColor blackColor].CGColor ];
+        [self.layer setBorderWidth:2];
+        
     }
     
     return self;

@@ -22,6 +22,10 @@
 		6BCDDFDD19E16600002599F4 /* CTPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCDDFD819E16600002599F4 /* CTPresentationController.m */; };
 		6BCDDFDE19E16600002599F4 /* CTBouncingAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCDDFDB19E16600002599F4 /* CTBouncingAnimatedTransitioning.m */; };
 		6BCDDFE119E1667D002599F4 /* CTNavigationAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCDDFE019E1667D002599F4 /* CTNavigationAnimatedTransitioning.m */; };
+		6BD769941A13EA26006362F2 /* ImagePreLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD769931A13EA26006362F2 /* ImagePreLoader.m */; };
+		6BD769971A13EA81006362F2 /* ImagePreLoadingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD769961A13EA81006362F2 /* ImagePreLoadingOperation.m */; };
+		6BD7699B1A13EB55006362F2 /* ImagePreLoadImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD7699A1A13EB55006362F2 /* ImagePreLoadImageInfo.m */; };
+		6BD7699F1A13FACD006362F2 /* Keys.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD7699E1A13FACD006362F2 /* Keys.m */; };
 		6BDCAFB219EC428A00365D32 /* CTPassingViewNavigationAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BDCAFB119EC428A00365D32 /* CTPassingViewNavigationAnimatedTransitioning.m */; };
 		6BDCAFB619EC438200365D32 /* CTPassingViewNavigatingKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BDCAFB519EC438200365D32 /* CTPassingViewNavigatingKey.m */; };
 		98DACD1BB3EA4D0D8EF9DEDA /* libPods-CTUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6829225D3E24D5A9558EED8 /* libPods-CTUtils.a */; };
@@ -216,6 +220,15 @@
 		6BCDDFDB19E16600002599F4 /* CTBouncingAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTBouncingAnimatedTransitioning.m; sourceTree = "<group>"; };
 		6BCDDFDF19E1667D002599F4 /* CTNavigationAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNavigationAnimatedTransitioning.h; sourceTree = "<group>"; };
 		6BCDDFE019E1667D002599F4 /* CTNavigationAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTNavigationAnimatedTransitioning.m; sourceTree = "<group>"; };
+		6BD769921A13EA26006362F2 /* ImagePreLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImagePreLoader.h; path = ImagePreLoader/ImagePreLoader.h; sourceTree = "<group>"; };
+		6BD769931A13EA26006362F2 /* ImagePreLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImagePreLoader.m; path = ImagePreLoader/ImagePreLoader.m; sourceTree = "<group>"; };
+		6BD769951A13EA81006362F2 /* ImagePreLoadingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImagePreLoadingOperation.h; path = ImagePreLoader/ImagePreLoadingOperation.h; sourceTree = "<group>"; };
+		6BD769961A13EA81006362F2 /* ImagePreLoadingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImagePreLoadingOperation.m; path = ImagePreLoader/ImagePreLoadingOperation.m; sourceTree = "<group>"; };
+		6BD769981A13EA96006362F2 /* ImagePreLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImagePreLoading.h; path = ImagePreLoader/ImagePreLoading.h; sourceTree = "<group>"; };
+		6BD769991A13EB55006362F2 /* ImagePreLoadImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImagePreLoadImageInfo.h; path = ImagePreLoader/ImagePreLoadImageInfo.h; sourceTree = "<group>"; };
+		6BD7699A1A13EB55006362F2 /* ImagePreLoadImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImagePreLoadImageInfo.m; path = ImagePreLoader/ImagePreLoadImageInfo.m; sourceTree = "<group>"; };
+		6BD7699D1A13FACD006362F2 /* Keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Keys.h; path = Keys/Keys.h; sourceTree = "<group>"; };
+		6BD7699E1A13FACD006362F2 /* Keys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Keys.m; path = Keys/Keys.m; sourceTree = "<group>"; };
 		6BDCAFB019EC428A00365D32 /* CTPassingViewNavigationAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTPassingViewNavigationAnimatedTransitioning.h; path = PassingViewNavigation/CTPassingViewNavigationAnimatedTransitioning.h; sourceTree = "<group>"; };
 		6BDCAFB119EC428A00365D32 /* CTPassingViewNavigationAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTPassingViewNavigationAnimatedTransitioning.m; path = PassingViewNavigation/CTPassingViewNavigationAnimatedTransitioning.m; sourceTree = "<group>"; };
 		6BDCAFB319EC431E00365D32 /* CTPassingViewNavigating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTPassingViewNavigating.h; path = PassingViewNavigation/CTPassingViewNavigating.h; sourceTree = "<group>"; };
@@ -314,6 +327,8 @@
 		6B77A80C19D6C4FA00FC0978 /* CTUtils */ = {
 			isa = PBXGroup;
 			children = (
+				6BD7699C1A13FAB6006362F2 /* Keys */,
+				6BD7697F1A13EA06006362F2 /* ImagePreLoader */,
 				6B5C66F41A0FBE44000E99EA /* CTLocationManager */,
 				6B5C66CC1A0F950B000E99EA /* Views */,
 				6BA6311F19EAB50A00D56532 /* DeviceInfo */,
@@ -431,6 +446,29 @@
 				6BCDDFE019E1667D002599F4 /* CTNavigationAnimatedTransitioning.m */,
 			);
 			path = Transitions;
+			sourceTree = "<group>";
+		};
+		6BD7697F1A13EA06006362F2 /* ImagePreLoader */ = {
+			isa = PBXGroup;
+			children = (
+				6BD769921A13EA26006362F2 /* ImagePreLoader.h */,
+				6BD769931A13EA26006362F2 /* ImagePreLoader.m */,
+				6BD769951A13EA81006362F2 /* ImagePreLoadingOperation.h */,
+				6BD769961A13EA81006362F2 /* ImagePreLoadingOperation.m */,
+				6BD769981A13EA96006362F2 /* ImagePreLoading.h */,
+				6BD769991A13EB55006362F2 /* ImagePreLoadImageInfo.h */,
+				6BD7699A1A13EB55006362F2 /* ImagePreLoadImageInfo.m */,
+			);
+			name = ImagePreLoader;
+			sourceTree = "<group>";
+		};
+		6BD7699C1A13FAB6006362F2 /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				6BD7699D1A13FACD006362F2 /* Keys.h */,
+				6BD7699E1A13FACD006362F2 /* Keys.m */,
+			);
+			name = Keys;
 			sourceTree = "<group>";
 		};
 		6BDCAFA119EC426400365D32 /* PassingViewNavigation */ = {
@@ -767,12 +805,16 @@
 				6BB2AD6019E311D000525002 /* UIFactory.m in Sources */,
 				6BCDDFDE19E16600002599F4 /* CTBouncingAnimatedTransitioning.m in Sources */,
 				6BDCAFB619EC438200365D32 /* CTPassingViewNavigatingKey.m in Sources */,
+				6BD7699F1A13FACD006362F2 /* Keys.m in Sources */,
 				6BA6312219EAB51D00D56532 /* DeviceInfo.m in Sources */,
 				6BDCAFB219EC428A00365D32 /* CTPassingViewNavigationAnimatedTransitioning.m in Sources */,
 				6BCDDFE119E1667D002599F4 /* CTNavigationAnimatedTransitioning.m in Sources */,
+				6BD7699B1A13EB55006362F2 /* ImagePreLoadImageInfo.m in Sources */,
+				6BD769971A13EA81006362F2 /* ImagePreLoadingOperation.m in Sources */,
 				6B5C66F31A0FA5E6000E99EA /* CTWelcomeAnimationPosition.m in Sources */,
 				6B5C66F71A0FBE5B000E99EA /* CTLocationManager.m in Sources */,
 				6BB2AD4D19E30BA100525002 /* CTColor.m in Sources */,
+				6BD769941A13EA26006362F2 /* ImagePreLoader.m in Sources */,
 				6BA6311E19EAB45B00D56532 /* CGExtensions.m in Sources */,
 				6BCDDFDC19E16600002599F4 /* CTSimpleAnimatedTransition.m in Sources */,
 				6BA6311919EAA7F400D56532 /* CTWelcomeAnimationProperties.m in Sources */,
