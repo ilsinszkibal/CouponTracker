@@ -22,7 +22,6 @@
 
 @property (nonatomic, strong) UIButton* backButton;
 
-@property (nonatomic, strong) CTInteractionView* layerInteractionView;
 @property (nonatomic, strong) CTInteractionView* operationInteractionView;
 
 @property (nonatomic, strong) CardDrawingLayerView* layerView;
@@ -50,15 +49,13 @@
         [self.view addSubview:_presentView];
     }
     
-    if ( _layerInteractionView == nil )
+    if ( _layerView == nil )
     {
         _layerView = [[CardDrawingLayerView alloc] init];
         [_layerView setBackgroundColor:[CTColor viewControllerBackgroundColor] ];
         [_layerView setHidden:YES];
         [self.view addSubview:_layerView];
         
-        _layerInteractionView = [[CTInteractionView alloc] initWithTitle:@"Layers" withDelegate:self];
-        [self.view addSubview:_layerInteractionView];
     }
     
     if ( _operationView == nil )
@@ -68,7 +65,10 @@
         [_operationView setBackgroundColor:[CTColor viewControllerBackgroundColor] ];
         [_operationView setHidden:YES];
         [self.view addSubview:_operationView];
-        
+    }
+    
+    if ( _operationInteractionView == nil )
+    {
         _operationInteractionView = [[CTInteractionView alloc] initWithTitle:@"Operations" withDelegate:self];
         [self.view addSubview:_operationInteractionView];
     }
@@ -100,24 +100,16 @@
 - (void) defaultLayout
 {
     CGFloat interactionHeight = 34;
-    CGFloat innerMargin = 16;
     
     CGFloat heightSize = MIN(self.view.height - interactionHeight, self.view.width / 2.0 );
     [_presentView setFrame:CGRectMake(self.view.width - 2 * heightSize, self.view.height - heightSize, heightSize * 2, heightSize)];
     
     [_backButton setFrame:CGRectMake(0, 0, 100, interactionHeight) ];
     
-    //[_operationInteractionView setContentSize:CGSizeMake(self.view.width, 200) ];
-    //[_operationInteractionView setFrame:CGRectMake(_backButton.maxX + innerMargin, 0, 150, interactionHeight)];
-    //[_layerInteractionView setContentSize:CGSizeMake(80, 300) ];
-    
-    
-    [_operationInteractionView setFrame:CGRectMake(_backButton.maxX + innerMargin, 0, 150, interactionHeight)];
-    //[_operationInteractionView setContentOffset:CGPointMake(_operationInteractionView.x * -1.0, 0) ];
-    [_layerInteractionView setFrame:CGRectMake(self.view.width - 120 - innerMargin, 0, 120, interactionHeight) ];
-    
-    [_operationView setFrame:CGRectMake(0, _operationInteractionView.maxY, self.view.width, 200) ];
-    [_layerView setFrame:CGRectMake(_layerInteractionView.x, _layerInteractionView.maxY, self.view.width - _layerInteractionView.x, self.view.height - _layerInteractionView.maxY) ];
+    [_operationInteractionView setFrame:CGRectMake(self.view.width - 150 - 10, 0, 150, interactionHeight)];
+
+    [_layerView setFrame:CGRectMake(0, _operationInteractionView.maxY, 90, self.view.height - _operationInteractionView.maxY) ];
+    [_operationView setFrame:CGRectMake(_layerView.maxX + 4, _operationInteractionView.maxY, self.view.width - 94, self.view.height - _operationInteractionView.maxY) ];
 }
 
 - (void) phone6plusLayout
@@ -140,67 +132,75 @@
 - (void) tapInteractionOnView:(CTInteractionView *)view
 {
     
-    UIView* targetView;
-    UIView* otherView;
-    
-    if ( view == _operationInteractionView )
+    if ( [_operationView isHidden] == NO || [_layerView isHidden] == NO )
     {
-        targetView = _operationView;
-        otherView = _layerView;
-    }
-    else if ( view == _layerInteractionView )
-    {
-        targetView = _layerView;
-        otherView = _operationView;
-    }
-
-    //Open or close view
-    if ( [otherView isHidden] == NO )
-    {
-        [self closeView:otherView];
-    }
-    else if ( [targetView isHidden] == NO )
-    {
-        [self closeView:targetView];
+        [self closeOptions];
     }
     else
     {
-        [self openView:targetView];
+        [self openOptions];
     }
     
 }
 
-- (void) openView:(UIView*) view
+- (void) openOptions
 {
-    CGRect originalViewRect = view.frame;
-    CGRect preOpenRect = originalViewRect;
-    preOpenRect.origin.y -= preOpenRect.size.height;
+    CGRect operationOriginalRect = _operationView.frame;
+    CGRect operationPreAnimationRect = operationOriginalRect;
+    operationPreAnimationRect.origin.y -= operationPreAnimationRect.size.height;
     
-    [view setFrame:preOpenRect];
-    [view setAlpha:0.0f];
-    [view setHidden:NO];
+    CGRect layerOriginalRect = _layerView.frame;
+    CGRect layerPreAnimationRect = layerOriginalRect;
+    layerPreAnimationRect.origin.y -= layerPreAnimationRect.size.height;
+    
+    [_operationView setFrame:operationPreAnimationRect];
+    [_operationView setAlpha:0.0f];
+    [_operationView setHidden:NO];
+    
+    [_layerView setFrame:layerPreAnimationRect];
+    [_layerView setAlpha:0.0f];
+    [_layerView setHidden:NO];
     
     [UIView animateWithDuration:0.3 animations:^{
-        [view setFrame:originalViewRect];
-        [view setAlpha:1.0f];
+        
+        [_operationView setFrame:operationOriginalRect];
+        [_operationView setAlpha:1.0f];
+        
+        [_layerView setFrame:layerOriginalRect];
+        [_layerView setAlpha:1.0f];
+        
     }];
+    
 }
 
-- (void) closeView:(UIView*) view
+- (void) closeOptions
 {
     
-    CGRect originalViewRect = view.frame;
-    CGRect postAnimationRect = originalViewRect;
-    postAnimationRect.origin.y -= originalViewRect.size.height;
+    CGRect operationOriginalRect = _operationView.frame;
+    CGRect operationPostAnimationRect = operationOriginalRect;
+    operationPostAnimationRect.origin.y -= operationPostAnimationRect.size.height;
+    
+    CGRect layerOriginalRect = _layerView.frame;
+    CGRect layerPostAnimationRect = layerOriginalRect;
+    layerPostAnimationRect.origin.y -= layerPostAnimationRect.size.height;
+    
     
     [UIView animateWithDuration:0.3 animations:^{
-        [view setFrame:postAnimationRect];
-        [view setAlpha:0.0f];
+        [_operationView setFrame:operationPostAnimationRect];
+        [_operationView setAlpha:0.0f];
+        
+        [_layerView setFrame:layerPostAnimationRect];
+        [_layerView setAlpha:0.0f];
+        
     } completion:^(BOOL finished) {
-        [view setHidden:YES];
-        [view setFrame:originalViewRect];
+        
+        [_operationView setFrame:operationOriginalRect];
+        [_operationView setHidden:YES];
+        
+        [_layerView setFrame:layerOriginalRect];
+        [_layerView setHidden:YES];
+        
     }];
-    
     
 }
 
