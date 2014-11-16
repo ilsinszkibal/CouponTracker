@@ -163,7 +163,7 @@
 - (void) newTemplateButtonAction:(UIButton*) button
 {
     CTNewTemplateViewController_iPad* newTemplate = [[CTNewTemplateViewController_iPad alloc] init];
-    [self showNewTemplate:newTemplate];
+    [self showNewTemplate:newTemplate defaultAnimation:NO];
 }
 
 - (void) backButtonAction:(UIButton*) backButton

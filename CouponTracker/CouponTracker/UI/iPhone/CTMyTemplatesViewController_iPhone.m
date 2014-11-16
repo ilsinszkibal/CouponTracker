@@ -118,7 +118,7 @@
 - (void) newTemplatePressed:(UIButton*) pressed
 {
     CTNewTemplateViewController_iPhone* newTemplate = [[CTNewTemplateViewController_iPhone alloc] init];
-    [self showNewTemplate:newTemplate];
+    [self showNewTemplate:newTemplate defaultAnimation:YES];
 }
 
 #pragma mark - iCarouselDataSource

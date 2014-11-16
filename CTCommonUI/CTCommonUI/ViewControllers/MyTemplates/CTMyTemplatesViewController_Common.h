@@ -22,7 +22,7 @@
 - (NSString*) selectedElemIndexKey;
 - (NSString*) printNavigationKey;
 
-- (void) showNewTemplate:(CTNewTemplateViewController_Common*) newTemplateViewController;
+- (void) showNewTemplate:(CTNewTemplateViewController_Common*) newTemplateViewController defaultAnimation:(BOOL) isDefaultAnimation;
 - (void) showPrintTemplate:(CTPrintTemplateViewController_Common*)  printTemplateViewController forKey:(CTPassingViewNavigatingKey*) key;
 
 - (NSOperation*)uploadImage:(UIImage*)image completion:(void(^)(Model_Image* image, NSError* error))completion;

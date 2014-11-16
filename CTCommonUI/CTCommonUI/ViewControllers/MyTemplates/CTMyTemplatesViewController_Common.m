@@ -58,10 +58,17 @@
     return @"PrintNavigationKey";
 }
 
-- (void) showNewTemplate:(CTNewTemplateViewController_Common*) newTemplateViewController
+- (void) showNewTemplate:(CTNewTemplateViewController_Common*) newTemplateViewController defaultAnimation:(BOOL) isDefaultAnimation
 {
     _newTemplateViewController = newTemplateViewController;
-    [self navigateToViewController:_newTemplateViewController];
+    if ( isDefaultAnimation )
+    {
+        [self presentViewController:newTemplateViewController animated:YES completion:nil];
+    }
+    else
+    {
+        [self navigateToViewController:_newTemplateViewController];
+    }
 }
 
 - (void) showPrintTemplate:(CTPrintTemplateViewController_Common*)  printTemplateViewController forKey:(CTPassingViewNavigatingKey*) key

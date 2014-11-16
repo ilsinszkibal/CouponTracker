@@ -60,10 +60,6 @@
 {
     [super viewDidLayoutSubviews];
     
-    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 20) ];
-    [view setBackgroundColor:[UIColor orangeColor] ];
-    [self.view addSubview:view];
-    
     [_presentView setFrame:CGRectMake(0, 20, self.view.width, self.view.height)];
     
     [_layerView setFrame:CGRectMake(0, _presentView.y, 80, 300)];
@@ -77,7 +73,7 @@
 
 - (UIInterfaceOrientation) preferredInterfaceOrientationForPresentation
 {
-    return UIInterfaceOrientationLandscapeLeft;
+    return UIInterfaceOrientationLandscapeRight;
 }
 
 #pragma mark - CardDrawingCreating
