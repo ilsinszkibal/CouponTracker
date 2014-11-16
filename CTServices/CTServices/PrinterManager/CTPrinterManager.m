@@ -21,7 +21,7 @@
         
         UIPrintInfo *printInfo = [UIPrintInfo printInfo];
         printInfo.outputType = UIPrintInfoOutputGeneral;
-        printInfo.jobName = @"Image print";
+        printInfo.jobName = @"CouponTracker coupon print";
         printInfo.duplex = UIPrintInfoDuplexLongEdge;
         pic.printInfo = printInfo;
         pic.showsPageRange = YES;
@@ -29,7 +29,7 @@
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *pic, BOOL completed, NSError *error) {
             if (!completed && error) {
-                NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                NSLog(@"FAILED! due to error %@", error);
             }
         };
         

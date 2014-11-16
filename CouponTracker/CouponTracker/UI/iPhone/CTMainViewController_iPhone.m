@@ -13,6 +13,7 @@
 #import "CTInstructionsViewController_iPhone.h"
 #import "CTUserManager.h"
 #import "CTUser.h"
+#import "CTSplashView.h"
 
 @interface CTMainViewController_iPhone ()
 
@@ -22,6 +23,8 @@
 @property (nonatomic, strong) UIButton* scanButton;
 @property (nonatomic, strong) UIButton* cardsButton;
 @property (nonatomic, strong) UIButton* templatesButton;
+
+@property (nonatomic, strong) CTSplashView* splashView;
 
 - (void)loginButtonPressed:(UIButton*)button;
 - (void)scanButtonPressed:(UIButton*)button;
@@ -57,12 +60,18 @@
     [self.scanButton setAlpha:0.65];
     [self.scanButton setImage:[UIImage imageNamed:@"scan"] forState:UIControlStateNormal];
     [self.view addSubview:self.scanButton];
+    
+//    self.splashView = [[CTSplashView alloc] initWithIconImage:[UIImage imageNamed:@"scan"] backgroundColor:[UIColor orangeColor]];
+//    [self.view addSubview:self.splashView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [self showInstructions];
+//    [self showInstructions];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self.splashView startAnimation];
+//    });
 }
 
 - (void)viewDidLayoutSubviews {
@@ -80,9 +89,21 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [[CTUserManager sharedManager] loginWithStoredCredentialsCompletion:^(CTUser *user, NSError *error) {
+        [self refreshStatusLabel];
+    }];
+    
+    [self refreshStatusLabel];    
+}
+
+- (void)refreshStatusLabel {
     CTUser* currentUser = [CTUserManager sharedManager].currentUser;
     if (currentUser) {
-        self.loginLabel.text = [NSString stringWithFormat:@"Welcome %@!", currentUser.name];
+        if (currentUser.name || currentUser.username) {
+            self.loginLabel.text = [NSString stringWithFormat:@"Welcome %@!", currentUser.name ?: currentUser.username];
+        } else {
+            self.loginLabel.text = @"Welcome!";
+        }
     } else {
         self.loginLabel.text = @"You are not logged in.\nAfter you are part of the CouponTracker community, you can create custom beautiful coupon cards and spread them to the world!";
     }
@@ -98,8 +119,12 @@
 }
 
 - (void)cardsButtonPressed:(UIButton*)button {
-    UIViewController* login = [[CTCardsViewController_iPhone alloc] init];
-    [self navigateToViewController:login];
+    if (self.isUserLoggedIn) {
+        UIViewController* cards = [[CTCardsViewController_iPhone alloc] init];
+        [self navigateToViewController:cards];
+    } else {
+        [self showLogin];
+    }
 }
 
 - (void)templatesButtonPressed:(UIButton*)button {

@@ -29,6 +29,13 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self print];
+}
+
 #pragma mark - LayoutSubviews
 
 - (void) viewDidLayoutSubviews

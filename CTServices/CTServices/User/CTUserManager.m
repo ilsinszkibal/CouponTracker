@@ -80,20 +80,22 @@
        if (!credential.isExpired) {
            NSLog(@"Successful relogin");
            [self setCredential:credential];
-           if (block) {
-               CTOauth2User* user = [[CTOauth2User alloc] init];//FIXME: get details
-               [user setCredential:credential];
-               block(user, nil);
-           }
+           
+           __block CTOauth2User* user = [[CTOauth2User alloc] init];
+           [user setCredential:credential];
+           self.currentUser = user;
+           
+          [self refreshCurrentUser:block];
        } else {
            [self.client authenticateUsingOAuthWithPath:@"/oauth/v2/token" refreshToken:credential.refreshToken success:^(AFOAuthCredential *credential) {
                NSLog(@"Successful relogin (with refresh)");
                [self setCredential:credential];
-               if (block) {
-                   CTOauth2User* user = [[CTOauth2User alloc] init];//FIXME: get details
-                   [user setCredential:credential];
-                   block(user, nil);
-               }
+               
+               __block CTOauth2User* user = [[CTOauth2User alloc] init];
+               [user setCredential:credential];
+               self.currentUser = user;
+               
+               [self refreshCurrentUser:block];
            } failure:^(NSError *error) {
                NSLog(@"Relogin token refresh failed");
                if (block) {
@@ -104,6 +106,20 @@
    } else {
        NSLog(@"No credentials found for automatic relogin");
    }
+}
+
+- (void)refreshCurrentUser:(void(^)(CTUser* user, NSError* error))block {
+    __block CTUser* user = self.currentUser;
+    [[CTNetworkingManager sharedManager] getCurrentUser:^(CTUser* detailedUser, NSError* error){
+        if (detailedUser) {
+            user.username = detailedUser.username;
+            user.name = detailedUser.name;
+            user.email = detailedUser.email;
+        }
+        if (block) {
+            block(user, error);
+        }
+    }];
 }
 
 - (void)logout {

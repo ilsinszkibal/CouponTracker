@@ -34,15 +34,16 @@
     self.composeViewController.text = @"Hi there!";
     __weak CTNewContentViewController_iPhone* weakSelf = self;
     self.composeViewController.completionHandler = ^(REComposeViewController *composeViewController, REComposeResult result) {
+        [composeViewController dismissViewControllerAnimated:YES completion:nil];
         if (result == REComposeResultCancelled) {
             [weakSelf backButtonPressed:nil];
-            [composeViewController dismissViewControllerAnimated:YES completion:nil];
         } else if (result == REComposeResultPosted) {
             [weakSelf.spinner startAnimating];
-            
-            [[CTNetworkingManager sharedManager] createContentWithCode:composeViewController.text completion:^(Model_CardContent *card, NSError *error) {
-                [weakSelf.spinner startAnimating];
-                [composeViewController dismissViewControllerAnimated:YES completion:nil];
+            [[CTNetworkingManager sharedManager] createContentWithCode:composeViewController.text completion:^(Model_CardContent *content, NSError *error) {
+                [weakSelf.spinner stopAnimating];
+                weakSelf.contentViewController.content = content;
+                weakSelf.contentViewController.handoffEnabled = NO;
+                [weakSelf backButtonPressed:nil];
             }];
         }
     };

@@ -51,18 +51,26 @@
         [self switchCamera];
         
         AVCaptureMetadataOutput *captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
-        [self.captureSession addOutput:captureMetadataOutput];
-        
-        dispatch_queue_t dispatchQueue;
-        dispatchQueue = dispatch_queue_create("CaptureQueue", NULL);
-        [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatchQueue];
-        [captureMetadataOutput setMetadataObjectTypes:self.availableCodeTypes];
-        
-        if (self.beepsWhenCodeIsFound && !self.audioPlayer) {
-            [self loadBeepSound];
+        @try {
+            [self.captureSession addOutput:captureMetadataOutput];
+            
+            dispatch_queue_t dispatchQueue;
+            dispatchQueue = dispatch_queue_create("CaptureQueue", NULL);
+            [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatchQueue];
+            [captureMetadataOutput setMetadataObjectTypes:self.availableCodeTypes];
+            
+            if (self.beepsWhenCodeIsFound && !self.audioPlayer) {
+                [self loadBeepSound];
+            }
+            
+            self.prepared = YES;
         }
-        
-        self.prepared = YES;
+        @catch (NSException *exception) {
+            
+        }
+        @finally {
+            
+        }
     }
     return YES;
 }

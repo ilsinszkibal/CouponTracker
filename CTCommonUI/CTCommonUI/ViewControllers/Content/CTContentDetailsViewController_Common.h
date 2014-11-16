@@ -16,6 +16,8 @@
 @property (nonatomic, strong) CTCardContentView* contentView;
 @property (nonatomic, strong) UIButton* handoffButton;
 
+@property (nonatomic, assign) BOOL handoffEnabled;
+
 - (void)navigateToHandoff;
 
 @end

@@ -22,6 +22,14 @@
     self.contentView = [[CTCardContentView alloc] init];
     self.contentView.content = self.content;
     [self.view addSubview:self.contentView];
+    
+    self.handoffEnabled = YES;
+}
+
+- (void)setHandoffEnabled:(BOOL)handoffEnabled
+{
+    _handoffEnabled = handoffEnabled;
+    self.handoffButton.enabled = handoffEnabled;
 }
 
 - (void)viewDidAppear:(BOOL)animated {

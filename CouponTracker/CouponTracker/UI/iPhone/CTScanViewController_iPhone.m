@@ -54,6 +54,7 @@
     [self.startStopButton setFrame:CGRectMake(60, 290, 200, 30)];
     [self.statusLabel setFrame:CGRectMake(60, 330, 200, 30)];
     [self.instructionLabel setFrame:CGRectMake(60, 150, 200, 40)];
+    [self.spinner setFrame:CGRectMake(120, 300, 50, 50)];
 }
 
 - (void)backButtonPressed:(UIButton*)backButton {

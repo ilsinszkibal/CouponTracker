@@ -21,6 +21,7 @@
 - (void)navigateToHandoff {
     CTNewContentViewController_iPhone* controller = [[CTNewContentViewController_iPhone alloc] init];
     controller.isHandoff = YES;
+    controller.contentViewController = self;
     [self navigateToViewController:controller];
 }
 

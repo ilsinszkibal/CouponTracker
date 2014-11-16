@@ -385,8 +385,8 @@
     return [self requestPath:@"templates.json" method:RKRequestMethodGET object:nil parameters:@{@"filter": @"user:me"} completion:completion];
 }
 
-- (NSOperation*)getPopularTemplates:(void(^)(NSArray* templates, NSError* error))completion {
-    return [self requestPath:@"templates.json" method:RKRequestMethodGET object:nil parameters:@{@"filter": @"popular", @"sort": @"popular"} completion:completion];
+- (NSOperation*)getLatestTemplates:(void(^)(NSArray* templates, NSError* error))completion {
+    return [self requestPath:@"templates.json" method:RKRequestMethodGET object:nil parameters:@{@"sort": @"createdAt"} completion:completion];
 }
 
 - (NSOperation*)createTemplateWithName:(NSString*)name text:(NSString*)text image:(UIImage*)image completion:(void(^)(Model_CardTemplate* template, NSError* error))completion {
@@ -497,6 +497,12 @@
 
 - (NSOperation*)signupUser:(CTUser*)user completion:(void(^)(CTUser* user, NSError* error))completion {
     return [self requestPath:@"users.json" method:RKRequestMethodPOST object:user parameters:@{} completion:^(NSArray *results, NSError *error) {
+        if (completion) completion(results.firstObject, error);
+    }];
+}
+
+- (NSOperation*)getCurrentUser:(void(^)(CTUser* user, NSError* error))completion {
+    return [self requestPath:@"users.json" method:RKRequestMethodGET object:nil parameters:@{@"filter": @"id:me"} completion:^(NSArray *results, NSError *error) {
         if (completion) completion(results.firstObject, error);
     }];
 }

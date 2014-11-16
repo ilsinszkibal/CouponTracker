@@ -10,4 +10,6 @@
 
 @interface CTMyTemplatesViewController_iPhone : CTMyTemplatesViewController_Common
 
+@property (nonatomic, strong) UIButton* retryButton;
+
 @end

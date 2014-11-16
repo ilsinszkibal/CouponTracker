@@ -35,10 +35,16 @@
     [CTQRCodeManager sharedManager].previewView = self.previewView;
     [self.view addSubview:self.previewView];
     
+    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.spinner setHidesWhenStopped:YES];
+    [self.view addSubview:self.spinner];
+    
     [self stop];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self.spinner stopAnimating];
+    
     BOOL suCTess = [[CTQRCodeManager sharedManager] prepareForReading];
     if (!suCTess) {
         [self disable];
@@ -85,7 +91,9 @@
     BOOL isValidUrl = [[CCValidator validatorWithConditions:@[[CCUrlCondition condition]]] validateValue:code errors:nil];
     if (isValidUrl) {
         self.statusLabel.text = [NSString stringWithFormat:@"%@ found: %@", type, code];
+        [self.spinner startAnimating];
         [[CTNetworkingManager sharedManager] readCardWithCode:code.lastPathComponent completion:^(Model_CardRead *read, NSError *error) {
+            [self.spinner stopAnimating];
             if (read.card) {
                 self.card = read.card;
                 

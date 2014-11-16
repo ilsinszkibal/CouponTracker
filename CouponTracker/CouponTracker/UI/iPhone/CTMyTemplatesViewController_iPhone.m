@@ -44,8 +44,18 @@
     _carousel = [[iCarousel alloc] init];
     _carousel.delegate = self;
     _carousel.dataSource = self;
-    _carousel.type = iCarouselTypeLinear;
+    _carousel.type = iCarouselTypeRotary;
     [self.view addSubview:_carousel];
+    
+    self.retryButton = [UIFactory defaultButtonWithTitle:@"Retry" target:self action:@selector(retryButtonPressed:)];
+    self.retryButton.hidden = YES;
+    [self.view addSubview:self.retryButton];
+}
+
+- (void)retryButtonPressed:(UIButton*)retryButton
+{
+    self.retryButton.hidden = YES;
+    [self switcherChanged:self.switcher];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -54,7 +64,7 @@
     
     if (!self.switcher)
     {
-        self.switcher = [[UISegmentedControl alloc] initWithItems:@[@"My templates", @"Popular templates"]];
+        self.switcher = [[UISegmentedControl alloc] initWithItems:@[@"Latest templates", @"My templates"]];
         [self.switcher addTarget:self action:@selector(switcherChanged:) forControlEvents:UIControlEventValueChanged];
         self.switcher.tintColor = [UIColor whiteColor];
         [self.view addSubview:self.switcher];
@@ -70,6 +80,7 @@
     [self.backButton setFrame:CGRectMake(10, 20, 60, 30)];
     [self.switcher setFrame:CGRectMake(20, 60, 280, 25)];
     [self.carousel setFrame:CGRectMake(20, 100, 280, 400)];
+    [self.retryButton setFrame:CGRectMake(120, 200, 80, 40)];
 }
 
 - (void)switcherChanged:(UISegmentedControl*)switcher {
@@ -77,18 +88,23 @@
     self.templates = nil;
     [self.carousel reloadData];
     
-    if ( switcher.selectedSegmentIndex == 0 )
+    if ( switcher.selectedSegmentIndex == 1 )
     {
-        [[CTNetworkingManager sharedManager] getMyTemplates:^(NSArray* templates, NSError* error){
-            if (!error) {
-                self.templates = templates.copy;
-            }
-            [self.carousel reloadData];
-        }];
+        if (self.isUserLoggedIn) {
+            [[CTNetworkingManager sharedManager] getMyTemplates:^(NSArray* templates, NSError* error){
+                if (!error) {
+                    self.templates = templates.copy;
+                }
+                [self.carousel reloadData];
+            }];
+        } else {
+            self.retryButton.hidden = NO;
+            [self showLogin];
+        }
     }
     else
     {
-        [[CTNetworkingManager sharedManager] getPopularTemplates:^(NSArray* templates, NSError* error){
+        [[CTNetworkingManager sharedManager] getLatestTemplates:^(NSArray* templates, NSError* error){
             if (!error) {
                 self.templates = templates.copy;
             }

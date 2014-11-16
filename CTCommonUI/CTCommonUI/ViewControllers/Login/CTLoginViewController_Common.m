@@ -148,7 +148,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[CTUserManager sharedManager] loginWithStoredCredentialsCompletion:nil];
+    [[CTUserManager sharedManager] loginWithStoredCredentialsCompletion:^(CTUser *user, NSError *error) {
+        if (user) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }];
 }
 
 - (void) viewDidLayoutSubviews

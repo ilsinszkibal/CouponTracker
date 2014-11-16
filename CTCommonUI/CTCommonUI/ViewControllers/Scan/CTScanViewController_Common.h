@@ -18,6 +18,8 @@
 @property (nonatomic, strong) UILabel* statusLabel;
 @property (nonatomic, strong) UILabel* instructionLabel;
 
+@property (nonatomic, strong) UIActivityIndicatorView* spinner;
+
 - (void)startStopButtonPressed:(UIButton*)button;
 
 - (void)showContentDetails:(Model_CardContent*)content;

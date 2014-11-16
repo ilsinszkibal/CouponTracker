@@ -37,6 +37,7 @@
         self.textView.textColor = [UIColor darkGrayColor];
         self.textView.font = [UIFont boldSystemFontOfSize:15];
         self.textView.alpha = 0.8;
+        self.textView.editable = NO;
         [self addSubview:self.textView];
     }
     return self;

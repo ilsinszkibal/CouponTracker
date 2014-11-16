@@ -7,6 +7,7 @@
 //
 
 #import "CTMainViewController_Common.h"
+#import "CTUserManager.h"
 
 @interface CTMainViewController_Common ()
 {
