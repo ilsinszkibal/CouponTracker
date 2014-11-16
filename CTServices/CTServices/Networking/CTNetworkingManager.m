@@ -209,12 +209,16 @@
 - (RKRequestDescriptor*)contentRequestDescriptor {
     RKObjectMapping* mapping = [RKObjectMapping requestMapping];
     [mapping addAttributeMappingsFromArray:@[@"text"]];
+    RKObjectMapping* cardMapping = [RKObjectMapping requestMapping];
+    [cardMapping addAttributeMappingsFromArray:@[@"id"]];
+    [mapping addRelationshipMappingWithSourceKeyPath:@"card" mapping:cardMapping];
     return [RKRequestDescriptor requestDescriptorWithMapping:mapping objectClass:[Model_CardContent class] rootKeyPath:nil method:RKRequestMethodPOST|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE];
 }
 
-- (NSOperation*)createContentWithCode:(NSString*)text completion:(void(^)(Model_CardContent* card, NSError* error))completion {
+- (NSOperation*)createContentForCard:(Model_PrintedCard*)card text:(NSString*)text completion:(void(^)(Model_CardContent* card, NSError* error))completion {
     Model_CardContent* content = [[Model_CardContent alloc] init];
     content.text = text;
+    content.card = card;
     return [self requestPath:@"contents.json" method:RKRequestMethodPOST object:content parameters:@{} completion:^(NSArray *results, NSError *error) {
         if (completion) {
             completion(results.lastObject, error);

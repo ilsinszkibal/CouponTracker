@@ -13,12 +13,6 @@
 #import "CTContentDetailsViewController_Common.h"
 #import "CTNewContentViewController_Common.h"
 
-@interface CTScanViewController_Common ()
-
-@property (nonatomic, strong) Model_PrintedCard* card;
-
-@end
-
 @implementation CTScanViewController_Common
 
 - (void)viewDidLoad

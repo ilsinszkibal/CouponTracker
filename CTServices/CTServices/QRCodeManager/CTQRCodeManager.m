@@ -48,6 +48,8 @@
 - (BOOL)prepareForReading {
     if (!self.isPrepared) {
         self.captureSession = [[AVCaptureSession alloc] init];
+        
+        self.frontCamera = YES;
         [self switchCamera];
         
         AVCaptureMetadataOutput *captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];

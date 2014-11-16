@@ -26,7 +26,7 @@
 - (NSOperation*)uploadImage:(UIImage*)image completion:(void(^)(Model_Image* image, NSError* error))completion;
 - (NSOperation*)readCardWithCode:(NSString*)code completion:(void(^)(Model_CardRead* card, NSError* error))completion;
 
-- (NSOperation*)createContentWithCode:(NSString*)text completion:(void(^)(Model_CardContent* card, NSError* error))completion;
+- (NSOperation*)createContentForCard:(Model_PrintedCard*)card text:(NSString*)text completion:(void(^)(Model_CardContent* card, NSError* error))completion;
 
 - (NSOperation*)ownCard:(Model_CardContent*)content completion:(void(^)(Model_CardContent* card, NSError* error))completion;
 

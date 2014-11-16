@@ -9,7 +9,7 @@
 #import "CTViewController.h"
 #import "CTQRCodeManager.h"
 
-@class Model_CardContent;
+@class Model_CardContent, Model_PrintedCard;
 
 @interface CTScanViewController_Common : CTViewController <CTCodeReaderDelegate>
 
@@ -19,6 +19,8 @@
 @property (nonatomic, strong) UILabel* instructionLabel;
 
 @property (nonatomic, strong) UIActivityIndicatorView* spinner;
+
+@property (nonatomic, strong) Model_PrintedCard* card;
 
 - (void)startStopButtonPressed:(UIButton*)button;
 

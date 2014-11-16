@@ -39,7 +39,10 @@
             [weakSelf backButtonPressed:nil];
         } else if (result == REComposeResultPosted) {
             [weakSelf.spinner startAnimating];
-            [[CTNetworkingManager sharedManager] createContentWithCode:composeViewController.text completion:^(Model_CardContent *content, NSError *error) {
+            [[CTNetworkingManager sharedManager] createContentForCard:weakSelf.card text:composeViewController.text completion:^(Model_CardContent *content, NSError *error) {
+                if (error) {
+                    //TODO: alertview
+                }
                 [weakSelf.spinner stopAnimating];
                 weakSelf.contentViewController.content = content;
                 weakSelf.contentViewController.handoffEnabled = NO;

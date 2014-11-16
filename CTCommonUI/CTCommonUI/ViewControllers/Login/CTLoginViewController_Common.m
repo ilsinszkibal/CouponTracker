@@ -124,35 +124,11 @@
    
     self.currentState = CTLoginViewStateLogin;
     [self switchToState:self.currentState];
-    
-//    [[CTUserManager sharedManager].userSignal subscribeNext:^(CTUser* user) {
-//        if (self.currentState == CTLoginViewStateLogin) {
-//            if (user) {
-//                self.statusLabel.text = @"Authenticated";
-//                [self.actionButton setTitle:@"Logout" forState:UIControlStateNormal];
-//            } else {
-//                self.statusLabel.text = @"Unauthenticated";
-//                [self.actionButton setTitle:@"Login" forState:UIControlStateNormal];
-//            }
-//        } else if (self.currentState == CTLoginViewStateRegister) {
-//            if (user) {
-//                self.statusLabel.text = @"Success";
-//                [self.actionButton setTitle:@"Logout" forState:UIControlStateNormal];
-//            } else {
-//                self.statusLabel.text = @"";
-//                [self.actionButton setTitle:@"Register" forState:UIControlStateNormal];
-//            }
-//        }
-//    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[CTUserManager sharedManager] loginWithStoredCredentialsCompletion:^(CTUser *user, NSError *error) {
-        if (user) {
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }
-    }];
+    [[CTUserManager sharedManager] loginWithStoredCredentialsCompletion:nil];
 }
 
 - (void) viewDidLayoutSubviews

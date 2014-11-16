@@ -22,14 +22,20 @@
         UIPrintInfo *printInfo = [UIPrintInfo printInfo];
         printInfo.outputType = UIPrintInfoOutputGeneral;
         printInfo.jobName = @"CouponTracker coupon print";
-        printInfo.duplex = UIPrintInfoDuplexLongEdge;
+        printInfo.duplex = UIPrintInfoDuplexNone;
+        UIPrintFormatter* formatter = [[UIPrintFormatter alloc] init];
+        formatter.maximumContentWidth = image.size.width;
+        formatter.maximumContentHeight = image.size.height;
         pic.printInfo = printInfo;
         pic.showsPageRange = YES;
         pic.printingItem = data;
+        pic.printFormatter = formatter;
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *pic, BOOL completed, NSError *error) {
             if (!completed && error) {
-                NSLog(@"FAILED! due to error %@", error);
+                NSLog(@"Printing failed due to error %@", error);
+            } else {
+                NSLog(@"Printing finished");
             }
         };
         

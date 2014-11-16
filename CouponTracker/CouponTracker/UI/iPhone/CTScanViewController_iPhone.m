@@ -54,7 +54,7 @@
     [self.startStopButton setFrame:CGRectMake(60, 290, 200, 30)];
     [self.statusLabel setFrame:CGRectMake(60, 330, 200, 30)];
     [self.instructionLabel setFrame:CGRectMake(60, 150, 200, 40)];
-    [self.spinner setFrame:CGRectMake(120, 300, 50, 50)];
+    [self.spinner setFrame:CGRectMake(140, 400, 50, 50)];
 }
 
 - (void)backButtonPressed:(UIButton*)backButton {
@@ -70,8 +70,14 @@
 }
 
 - (void)showNewContent {
-    UIViewController* viewController = [[CTNewContentViewController_iPhone alloc] init];
-    [self navigateToViewController:viewController];
+    if (self.isUserLoggedIn) {
+        CTNewContentViewController_iPhone* viewController = [[CTNewContentViewController_iPhone alloc] init];
+        viewController.card = self.card;
+        [self navigateToViewController:viewController];
+    } else {
+        [self showLogin];
+        [[[UIAlertView alloc] initWithTitle:@"Empty card" message:@"You need to be logged in to write somw content into the card. Log in antr try again later." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil] show];
+    }
 }
 
 @end
