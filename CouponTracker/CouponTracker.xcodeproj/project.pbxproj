@@ -24,6 +24,7 @@
 		6BA630FB19EAA66A00D56532 /* DefaultBackgroundiPad.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BA630FA19EAA66A00D56532 /* DefaultBackgroundiPad.json */; };
 		6BA6312419EAB94300D56532 /* DefaultBackgroundiPhone.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BA6312319EAB94300D56532 /* DefaultBackgroundiPhone.json */; };
 		6BA6312619EABB3800D56532 /* DefaultBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6BA6312519EABB3800D56532 /* DefaultBackground.jpg */; };
+		6BB28AE11A18E2E400827695 /* CTInteractionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB28AE01A18E2E400827695 /* CTInteractionView.m */; };
 		BD0638151A0692740087D42D /* CTInstructionsViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0638141A0692740087D42D /* CTInstructionsViewController_iPhone.m */; };
 		BD31F30E19F91EC500AF73D6 /* CTScanViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31F30D19F91EC500AF73D6 /* CTScanViewController_iPhone.m */; };
 		BD31F31B19F9417700AF73D6 /* CTCardsViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31F31A19F9417700AF73D6 /* CTCardsViewController_iPhone.m */; };
@@ -100,6 +101,8 @@
 		6BA630FA19EAA66A00D56532 /* DefaultBackgroundiPad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DefaultBackgroundiPad.json; path = CouponTracker/Resources/DefaultBackgroundiPad.json; sourceTree = "<group>"; };
 		6BA6312319EAB94300D56532 /* DefaultBackgroundiPhone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DefaultBackgroundiPhone.json; path = CouponTracker/Resources/DefaultBackgroundiPhone.json; sourceTree = "<group>"; };
 		6BA6312519EABB3800D56532 /* DefaultBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = DefaultBackground.jpg; path = CouponTracker/Resources/DefaultBackground.jpg; sourceTree = "<group>"; };
+		6BB28ADF1A18E2E400827695 /* CTInteractionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTInteractionView.h; path = UI/iPhone/NewTemplateUtils/CTInteractionView.h; sourceTree = "<group>"; };
+		6BB28AE01A18E2E400827695 /* CTInteractionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTInteractionView.m; path = UI/iPhone/NewTemplateUtils/CTInteractionView.m; sourceTree = "<group>"; };
 		BD0638131A0692740087D42D /* CTInstructionsViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTInstructionsViewController_iPhone.h; path = UI/iPhone/CTInstructionsViewController_iPhone.h; sourceTree = "<group>"; };
 		BD0638141A0692740087D42D /* CTInstructionsViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTInstructionsViewController_iPhone.m; path = UI/iPhone/CTInstructionsViewController_iPhone.m; sourceTree = "<group>"; };
 		BD31F30C19F91EC500AF73D6 /* CTScanViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTScanViewController_iPhone.h; path = UI/iPhone/CTScanViewController_iPhone.h; sourceTree = "<group>"; };
@@ -275,6 +278,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		6BB28ADD1A18E29A00827695 /* NewTemplateUtils */ = {
+			isa = PBXGroup;
+			children = (
+				6BB28ADF1A18E2E400827695 /* CTInteractionView.h */,
+				6BB28AE01A18E2E400827695 /* CTInteractionView.m */,
+			);
+			name = NewTemplateUtils;
+			sourceTree = "<group>";
+		};
 		BD3BBA0919D700070006DE0F /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +308,7 @@
 		BD9D49841A001011001D2326 /* Template */ = {
 			isa = PBXGroup;
 			children = (
+				6BB28ADD1A18E29A00827695 /* NewTemplateUtils */,
 				6B5056DB19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.h */,
 				6B5056DC19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.m */,
 				6B5056E519E14D45006939CC /* CTNewTemplateViewController_iPhone.h */,
@@ -479,6 +492,7 @@
 				BD0638151A0692740087D42D /* CTInstructionsViewController_iPhone.m in Sources */,
 				BD31F31B19F9417700AF73D6 /* CTCardsViewController_iPhone.m in Sources */,
 				BD9D498A1A001054001D2326 /* CTScanViewController_iPad.m in Sources */,
+				6BB28AE11A18E2E400827695 /* CTInteractionView.m in Sources */,
 				6B5056DD19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -56,6 +56,9 @@
     CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor );
     CGContextSetBlendMode(context, kCGBlendModeColorBurn);
     
+    CGAffineTransform flipVertical = CGAffineTransformMake( 1, 0, 0, -1, 0, imageSize.height );
+    CGContextConcatCTM(context, flipVertical);
+    
     CGRect rect = CGRectZero;
     rect.size = imageSize;
     

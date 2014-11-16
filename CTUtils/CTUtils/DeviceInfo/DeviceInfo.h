@@ -13,6 +13,9 @@
 + (BOOL) isiPhone;
 + (BOOL) isPortrait;
 
++(BOOL) isSmallerThanPhone6Form;
++(BOOL) isSmallerThanPhone6PlusForm;
+
 + (CGFloat) screenScale;
 + (CGSize) screenSize;
 

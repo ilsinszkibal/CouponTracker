@@ -68,8 +68,8 @@
 {
     [super layoutSubviews];
     
-    CGFloat qrCodeSize = 150;
-    CGFloat margin = 20;
+    CGFloat qrSize = self.height * 0.5;
+    CGFloat qrMargin = self.height * 5.0 / 100.0;
     
     CGRect selfBounds = self.bounds;
     
@@ -77,8 +77,7 @@
     [_editBoxPresentView setFrame:selfBounds];
     [_editTextPresentView setFrame:selfBounds];
     
-    [_qrCodeImageView setFrame:CGRectMake(selfBounds.size.width - qrCodeSize - margin, selfBounds.size.height - qrCodeSize - margin, qrCodeSize, qrCodeSize) ];
-    
+    [_qrCodeImageView setFrame:CGRectMake(self.width - qrSize - qrMargin, self.height - qrSize - qrMargin, qrSize, qrSize) ];
 }
 
 #pragma mark - CardDrawingEditPresentViewProtocol
