@@ -63,6 +63,7 @@
     {
         _drawerManager = [[CouponCardDrawerManager alloc] initWithPresentView:_presentView withLayerView:_layerView withOperationView:_operationView imagePickerDelegate:self];
     }
+    
 }
 
 - (void) viewDidLayoutSubviews

@@ -72,6 +72,23 @@
     
 }
 
+#pragma mark - Orientation
+
+- (BOOL) shouldAutorotate
+{
+    return YES;
+}
+
+- (NSUInteger) supportedInterfaceOrientations
+{
+    if ( [DeviceInfo isiPhone] )
+    {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+    
+    return UIInterfaceOrientationMaskAll;
+}
+
 #pragma mark - Setup
 
 - (void) setUpTransitioningDelegates
