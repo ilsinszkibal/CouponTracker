@@ -109,22 +109,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CTServices/CTServices/BackgroundService/CTBackgroundService.m"
-            timestampString = "435842569.518455"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "-performUpdate"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "CTCommonUI/CTCommonUI/ViewControllers/NewTemplate/CTNewTemplateViewController_Common.m"
             timestampString = "437517366.776558"
             startingColumnNumber = "9223372036854775807"
