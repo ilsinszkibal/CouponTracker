@@ -58,6 +58,7 @@
 - (void)showContentDetails:(Model_CardContent*)content {
     CTContentDetailsViewController_Common* viewController = [[CTContentDetailsViewController_Common alloc] init];
     viewController.content = content;
+    viewController.card = self.card;
     [self navigateToViewController:viewController];
 }
 

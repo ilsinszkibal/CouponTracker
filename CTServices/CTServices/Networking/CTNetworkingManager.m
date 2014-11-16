@@ -192,9 +192,8 @@
     [mapping addAttributeMappingsFromArray:@[@"id", @"createdAt", @"updatedAt", @"deleted", @"text", @"images", @"videos", @"urls"]];
     [mapping addAttributeMappingsFromDictionary:@{@"latitude": @"locationLatitude",
                                                   @"longitude": @"locationLongitude"}];
-    //[mapping addRelationshipMappingWithSourceKeyPath:@"card" mapping:self.cardMapping];//causes reference loop
-    [mapping addRelationshipMappingWithSourceKeyPath:@"senderUser" mapping:self.userMapping];
-    [mapping addRelationshipMappingWithSourceKeyPath:@"receiverUser" mapping:self.userMapping];
+    [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"sender_user" toKeyPath:@"senderUser" withMapping:self.userMapping]];
+    [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"receiver_user" toKeyPath:@"receiverUser" withMapping:self.userMapping]];
     return mapping;
 }
 
@@ -219,19 +218,37 @@
     Model_CardContent* content = [[Model_CardContent alloc] init];
     content.text = text;
     content.card = card;
-    return [self requestPath:@"contents.json" method:RKRequestMethodPOST object:content parameters:@{} completion:^(NSArray *results, NSError *error) {
-        if (completion) {
-            completion(results.lastObject, error);
+    [[CTLocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyRoom timeout:15 delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+        
+        if (status == INTULocationStatusSuccess) {
+            [content setLocationLatitude:[NSString stringWithFormat:@"%f", currentLocation.coordinate.latitude]];
+            [content setLocationLongitude:[NSString stringWithFormat:@"%f", currentLocation.coordinate.longitude]];
         }
+        
+        [self requestPath:@"contents.json" method:RKRequestMethodPOST object:content parameters:@{} completion:^(NSArray *results, NSError *error) {
+            if (completion) {
+                completion(results.lastObject, error);
+            }
+        }];
     }];
+    return nil;
 }
 
 - (NSOperation*)ownCard:(Model_CardContent*)content completion:(void(^)(Model_CardContent* card, NSError* error))completion {
-    return [self requestPath:[NSString stringWithFormat:@"contents/takeownership/%@.json", content.id] method:RKRequestMethodPUT object:content parameters:@{} completion:^(NSArray *results, NSError *error) {
-        if (completion) {
-            completion(results.lastObject, error);
+    [[CTLocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyRoom timeout:15 delayUntilAuthorized:YES block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+        
+        if (status == INTULocationStatusSuccess) {
+            [content setLocationLatitude:[NSString stringWithFormat:@"%f", currentLocation.coordinate.latitude]];
+            [content setLocationLongitude:[NSString stringWithFormat:@"%f", currentLocation.coordinate.longitude]];
         }
+        
+        [self requestPath:[NSString stringWithFormat:@"contents/takeownership/%@.json", content.id] method:RKRequestMethodPUT object:content parameters:@{} completion:^(NSArray *results, NSError *error) {
+            if (completion) {
+                completion(results.lastObject, error);
+            }
+        }];
     }];
+    return nil;
 }
 
 #pragma mark - Card
