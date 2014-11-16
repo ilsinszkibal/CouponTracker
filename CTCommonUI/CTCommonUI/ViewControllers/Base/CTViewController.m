@@ -124,10 +124,10 @@
 {
     CGFloat margin = 10;
     
-    [_topLeftButton setFrame:CGRectMake(margin, 25, 100, 44) ];
-    [_topRightButton setFrame:CGRectMake(self.view.frame.size.width - 100 - 10, 25, 100, 44) ];
-    [_bottomLeftButton setFrame:CGRectMake(margin, self.view.height - 25 - 44, 100, 44) ];
-    [_bottomRightButton setFrame:CGRectMake(self.view.width - 100 - 10, self.view.height - 25 - 44, 100, 44) ];
+    [_topLeftButton setFrame:CGRectMake(margin, 25, 100, 30) ];
+    [_topRightButton setFrame:CGRectMake(self.view.frame.size.width - 100 - 10, 25, 100, 30) ];
+    [_bottomLeftButton setFrame:CGRectMake(margin, self.view.height - 25 - 44, 100, 30) ];
+    [_bottomRightButton setFrame:CGRectMake(self.view.width - 100 - 10, self.view.height - 25 - 44, 100, 30) ];
 }
 
 #pragma mark - Loading indicator

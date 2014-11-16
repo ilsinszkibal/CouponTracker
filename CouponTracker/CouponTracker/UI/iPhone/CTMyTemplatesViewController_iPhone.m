@@ -13,6 +13,7 @@
 #import "CTNetworkingManager.h"
 
 #import "CTMyTemplatesViewController_iPhone.h"
+#import "CTNewTemplateViewController_iPhone.h"
 
 #import <iCarousel/iCarousel.h>
 #import "UIImageView+WebCache.h"
@@ -24,7 +25,6 @@
 @property (nonatomic, assign) NSUInteger selectedIndex;
 
 @property (nonatomic, strong) UISegmentedControl* switcher;
-@property (nonatomic, strong) UIButton* backButton;
 
 - (void)switcherChanged:(UISegmentedControl*)switcher;
 - (void)backButtonPressed:(UIButton*)backButton;
@@ -38,8 +38,8 @@
     
     self.view.clipsToBounds = YES;
     
-    self.backButton = [UIFactory defaultButtonWithTitle:@"Back" target:self action:@selector(backButtonPressed:)];
-    [self.view addSubview:self.backButton];
+    [self setUpTopLeftButtonWithTitle:@"Back" withSel:@selector(backButtonPressed:) ];
+    [self setUpTopRightButtonWithTitle:@"New template" withSel:@selector(newTemplatePressed:) ];
     
     _carousel = [[iCarousel alloc] init];
     _carousel.delegate = self;
@@ -67,7 +67,6 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
-    [self.backButton setFrame:CGRectMake(10, 20, 60, 30)];
     [self.switcher setFrame:CGRectMake(20, 60, 280, 25)];
     [self.carousel setFrame:CGRectMake(20, 100, 280, 400)];
 }
@@ -96,6 +95,14 @@
         }];
     }
     
+}
+
+#pragma mark - New template
+
+- (void) newTemplatePressed:(UIButton*) pressed
+{
+    CTNewTemplateViewController_iPhone* newTemplate = [[CTNewTemplateViewController_iPhone alloc] init];
+    [self showNewTemplate:newTemplate];
 }
 
 #pragma mark - iCarouselDataSource
