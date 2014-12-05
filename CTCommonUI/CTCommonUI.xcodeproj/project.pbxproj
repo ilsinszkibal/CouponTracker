@@ -68,6 +68,13 @@
 			remoteGlobalIDString = 6B77A8B119D6C9C000FC0978;
 			remoteInfo = CTServicesTests;
 		};
+		6BDFBCAB1A324690006EAE61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BCB423319D7188C0091E870 /* CTServices.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B77A8A519D6C9BF00FC0978;
+			remoteInfo = CTServices;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -533,6 +540,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6BDFBCAC1A324690006EAE61 /* PBXTargetDependency */,
 			);
 			name = CTCommonUI;
 			productName = CTCommonUI;
@@ -682,6 +690,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6BDFBCAC1A324690006EAE61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CTServices;
+			targetProxy = 6BDFBCAB1A324690006EAE61 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6B77A8D519D6C9E200FC0978 /* Debug */ = {
