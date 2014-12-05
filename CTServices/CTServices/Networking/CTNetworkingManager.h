@@ -15,6 +15,7 @@
 @interface CTNetworkingManager : CTBaseManager
 
 - (NSOperation*)getCards:(void(^)(NSArray* cards, NSError* error))completion;
+- (NSOperation*)getPromotedCards:(void(^)(NSArray* cards, NSError* error))completion;
 - (NSOperation*)createPrintedCardFromTemplate:(Model_CardTemplate*)template completion:(void(^)(Model_PrintedCard* card, NSError* error))completion;
 
 

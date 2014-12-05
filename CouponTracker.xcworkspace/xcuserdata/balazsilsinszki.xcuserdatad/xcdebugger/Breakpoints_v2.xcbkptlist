@@ -29,54 +29,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CTUtils/CTUtils/TransitioningDelegate/Transitions/PassingViewNavigation/CTPassingViewNavigationAnimatedTransitioning.m"
-            timestampString = "434918675.77136"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-presentAnimation:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CTUtils/CTUtils/TransitioningDelegate/Transitions/PassingViewNavigation/CTPassingViewNavigationAnimatedTransitioning.m"
-            timestampString = "434919702.099017"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "-presentAnimation:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CTUtils/CTUtils/TransitioningDelegate/Transitions/PassingViewNavigation/CTPassingViewNavigationAnimatedTransitioning.m"
-            timestampString = "434920404.361136"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "-presentAnimation:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "CouponTracker/CouponTracker/UI/iPad/ViewController/CTPrintTemplateViewController_iPad.m"
             timestampString = "437518600.311185"
             startingColumnNumber = "9223372036854775807"
@@ -142,12 +94,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CTServices/CTServices/Networking/CTNetworkingManager.m"
-            timestampString = "437247393.334244"
+            timestampString = "437858450.25189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "401"
-            endingLineNumber = "401"
-            landmarkName = "-createTemplateWithName:text:image:completion:"
+            startingLineNumber = "402"
+            endingLineNumber = "402"
+            landmarkName = "-templateResponseDescriptors"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -212,6 +164,38 @@
             startingLineNumber = "288"
             endingLineNumber = "288"
             landmarkName = "-dealloc"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CouponTracker/CouponTracker/UI/iPad/ViewController/CTMainViewController_iPad.m"
+            timestampString = "437858481.435333"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "-loadPopularCards"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CTCommonUI/CTCommonUI/ReusableComponents/CardMapLister/CardMapLister.m"
+            timestampString = "438039336.538299"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "-presentCardAtIndex:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

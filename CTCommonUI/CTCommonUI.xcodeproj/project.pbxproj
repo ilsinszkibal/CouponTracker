@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B072E6C1A1BEA040018F86D /* CardMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B072E6B1A1BEA040018F86D /* CardMapAnnotation.m */; };
 		6B4C2B0619E6FB6D00FB87DE /* BorderContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B4C2B0519E6FB6D00FB87DE /* BorderContainerView.m */; };
 		6B4C2B0919E6FE7500FB87DE /* PreferredSizingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B4C2B0819E6FE7500FB87DE /* PreferredSizingImageView.m */; };
 		6B5056D219E14BCB006939CC /* CTMainViewController_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5056D119E14BCB006939CC /* CTMainViewController_Common.m */; };
@@ -83,6 +84,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6B072E6A1A1BEA040018F86D /* CardMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMapAnnotation.h; path = CardMapLister/CardMapAnnotation.h; sourceTree = "<group>"; };
+		6B072E6B1A1BEA040018F86D /* CardMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMapAnnotation.m; path = CardMapLister/CardMapAnnotation.m; sourceTree = "<group>"; };
 		6B4C2B0419E6FB6D00FB87DE /* BorderContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BorderContainerView.h; path = BorderContainerView/BorderContainerView.h; sourceTree = "<group>"; };
 		6B4C2B0519E6FB6D00FB87DE /* BorderContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BorderContainerView.m; path = BorderContainerView/BorderContainerView.m; sourceTree = "<group>"; };
 		6B4C2B0719E6FE7500FB87DE /* PreferredSizingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferredSizingImageView.h; path = BorderContainerView/PreferredSizingImageView.h; sourceTree = "<group>"; };
@@ -323,6 +326,8 @@
 				6BD769B11A140976006362F2 /* CardMapLister.m */,
 				6BD769B31A140992006362F2 /* CardMapListerView.h */,
 				6BD769B41A140992006362F2 /* CardMapListerView.m */,
+				6B072E6A1A1BEA040018F86D /* CardMapAnnotation.h */,
+				6B072E6B1A1BEA040018F86D /* CardMapAnnotation.m */,
 			);
 			name = CardMapLister;
 			sourceTree = "<group>";
@@ -663,6 +668,7 @@
 				BD7AB1CE19E14A91000D88AB /* CouponDrawingBoxBaseLayer.m in Sources */,
 				BD9D49D61A063B13001D2326 /* CTCardContentView.m in Sources */,
 				6B5056EB19E14D65006939CC /* CTPrintTemplateViewController_Common.m in Sources */,
+				6B072E6C1A1BEA040018F86D /* CardMapAnnotation.m in Sources */,
 				BD7AB1CD19E14A91000D88AB /* CouponDrawingBaseLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

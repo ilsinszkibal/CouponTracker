@@ -46,6 +46,8 @@
 
 @implementation CTMainViewController_iPad
 
+#pragma mark - View cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -85,11 +87,10 @@
     CGFloat yOffset = 100;
     
     CGSize cardMapBorderSize = [_cardMapBorderContainer preferredContainterViewSize];
-    [_cardMapBorderContainer setFrame:CGRectIntegral( CGRectMake(self.view.width / 2.0 - cardMapBorderSize.width / 2.0, self.view.height / 2.0 -  cardMapBorderSize.height / 2.0 + yOffset, cardMapBorderSize.width, cardMapBorderSize.height) ) ];
+    [_cardMapBorderContainer setFrame:CGRectMake(self.view.width / 2.0 - cardMapBorderSize.width / 2.0, self.view.height / 2.0 -  cardMapBorderSize.height / 2.0 + yOffset, cardMapBorderSize.width, cardMapBorderSize.height) ];
     
     CGSize cardMapListerBorderSize = [_cardMapListerBorderContainer preferredContainterViewSize];
-    [_cardMapListerBorderContainer setFrame:CGRectIntegral( CGRectMake(self.view.width / 2.0 - cardMapListerBorderSize.width / 2.0, _cardMapBorderContainer.y - cardMapListerBorderSize.height - 50, cardMapListerBorderSize.width, cardMapListerBorderSize.height) ) ];
-    
+    [_cardMapListerBorderContainer setFrame:CGRectMake(self.view.width / 2.0 - cardMapListerBorderSize.width / 2.0, _cardMapBorderContainer.y - cardMapListerBorderSize.height - 50, cardMapListerBorderSize.width, cardMapListerBorderSize.height) ];
     
 }
 
@@ -106,9 +107,8 @@
     [_cardMapListerBorderContainer setHidden:YES];
     [self startMiddleLoadingIndicator];
     
-    [[CTNetworkingManager sharedManager] getCards:^(NSArray *cards, NSError *error) {
+    [[CTNetworkingManager sharedManager] getPromotedCards:^(NSArray *cards, NSError *error) {
         _popularCards = cards;
-       
         
         [self preLoadImages];
         
@@ -133,11 +133,6 @@
         if ( urlString )
         {
             url = [NSURL URLWithString:urlString];
-        }
-        else
-        {
-#warning TODO
-            url = [NSURL URLWithString:@"http://www.coupontracker.org/uploads/images/a1f0b04bea8329087ed4fd187f83354cc58d7e36.jpeg"];
         }
         
         if ( url )

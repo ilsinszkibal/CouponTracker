@@ -11,6 +11,8 @@
 #import "CardMapViewProtocol.h"
 #import "CardMapListerViewProtocol.h"
 
+#import <MapKit/MapKit.h>
+
 @protocol CardMapListing <NSObject>
 
 @end
@@ -24,9 +26,9 @@
 
 @property (nonatomic, weak, readonly) id<CardMapListing> cardMapListing;
 @property (nonatomic, weak, readonly) UIView<CardMapListerViewProtocol>* cardMapListingView;
-@property (nonatomic, weak, readonly) UIView<CardMapViewProtocol>* cardMapView;
+@property (nonatomic, weak, readonly) MKMapView<CardMapViewProtocol>* cardMapView;
 
-- (id) initWithListing:(id<CardMapListing>) cardMapListing withCardMapView:(UIView<CardMapViewProtocol>*) cardMapView withMapCardLister:(UIView<CardMapListerViewProtocol>*) cardMapLister;
+- (id) initWithListing:(id<CardMapListing>) cardMapListing withCardMapView:(MKMapView<CardMapViewProtocol>*) cardMapView withMapCardLister:(UIView<CardMapListerViewProtocol>*) cardMapLister;
 
 - (void) startWithPrintedCards:(NSArray*) printedCards withPreLoadImageInfo:(NSArray*) preLoadImageInfo;
 

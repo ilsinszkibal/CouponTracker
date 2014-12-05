@@ -72,8 +72,8 @@
     CGSize preferredContentViewSize = [self preferredContentViewSize];
     CGFloat containerMargin = [self containerMargin];
     
-    preferredContentViewSize.width += containerMargin;
-    preferredContentViewSize.height += containerMargin;
+    preferredContentViewSize.width += containerMargin * 2;
+    preferredContentViewSize.height += containerMargin * 2;
     
     return preferredContentViewSize;
 }

@@ -257,6 +257,7 @@
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[Model_PrintedCard class]];
     [mapping addAttributeMappingsFromArray:@[@"id", @"createdAt", @"updatedAt", @"deleted", @"code"]];
     [mapping addRelationshipMappingWithSourceKeyPath:@"template" mapping:self.templateMapping];
+    [mapping addRelationshipMappingWithSourceKeyPath:@"contents" mapping:self.contentMapping];
     return mapping;
 }
 
@@ -265,7 +266,9 @@
     
     RKResponseDescriptor *singleResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.cardMapping method:RKRequestMethodGET|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE pathPattern:@"cards/:id.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
-    return @[allResponseDescriptor, singleResponseDescriptor];
+    RKResponseDescriptor *promotedResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:self.cardMapping method:RKRequestMethodGET|RKRequestMethodPUT|RKRequestMethodPATCH|RKRequestMethodDELETE pathPattern:@"cards/promoted.json" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
+    return @[allResponseDescriptor, singleResponseDescriptor, promotedResponseDescriptor];
 }
 
 - (RKRequestDescriptor*)cardRequestDescriptor {
@@ -279,6 +282,12 @@
 - (RKObjectRequestOperation*)getCards:(void(^)(NSArray* cards, NSError* error))completion {
     NSDictionary* parameters = @{@"fields": @" ,template.cardType.localizations.name,template.cardType.localizations.language.name"};
     return [self requestPath:@"cards.json" method:RKRequestMethodGET object:nil parameters:parameters completion:completion];
+}
+
+- (NSOperation*)getPromotedCards:(void(^)(NSArray* cards, NSError* error))completion
+{
+    NSDictionary* parameters = @{@"fields": @"all"};
+    return [self requestPath:@"cards/promoted.json" method:RKRequestMethodGET object:nil parameters:parameters completion:completion];
 }
 
 - (NSOperation*)createPrintedCardFromTemplate:(Model_CardTemplate*)template completion:(void(^)(Model_PrintedCard* card, NSError* error))completion {
