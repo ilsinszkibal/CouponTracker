@@ -13,6 +13,15 @@
 #import "Model_PrintedCard.h"
 #import "Model_CardContent.h"
 
+@interface CardMapLister () {
+    
+    NSUInteger _actCardIndex;
+    NSTimer* _updateTimer;
+    
+}
+
+@end
+
 @implementation CardMapLister
 
 #pragma mark - Init
@@ -37,7 +46,11 @@
 
 - (void) presentCardAtIndex:(NSUInteger) index
 {
-    Model_PrintedCard* printedCard = _printedCards[ index ];
+    
+    [self restartTimerForIndex:index];
+    
+    //Present actual card
+    Model_PrintedCard* printedCard = _printedCards[ _actCardIndex ];
     
     NSMutableArray* annotationCollection = [@[] mutableCopy];
     
@@ -99,6 +112,33 @@
     
 }
 
+- (void) restartTimerForIndex:(NSUInteger) index
+{
+    [_updateTimer invalidate];
+    _updateTimer = nil;
+    
+    _actCardIndex = index;
+    if ( [_printedCards count] <= _actCardIndex )
+    {
+        _actCardIndex = 0;
+    }
+    
+    if ( 0 < [_printedCards count] )
+    {
+        _updateTimer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(fireUpdateTimer) userInfo:nil repeats:NO];
+    }
+    
+}
+
+- (void) fireUpdateTimer
+{
+    [_updateTimer invalidate];
+    _updateTimer = nil;
+    
+    [self presentCardAtIndex:( _actCardIndex + 1 ) ];
+    
+}
+
 - (BOOL) hasContentLocation:(Model_CardContent*) content
 {
     
@@ -121,6 +161,11 @@
             if ( [self hasContentLocation:content] )
             {
                 [cardsWithValidCollection addObject:card];
+                break;
+            }
+            
+            if ( 10 < [cardsWithValidCollection count] )
+            {
                 break;
             }
             
