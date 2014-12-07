@@ -95,6 +95,8 @@
     MKCoordinateRegion region = MKCoordinateRegionMake(center, span);
     [_cardMapView setRegion:region animated:YES];
     
+    [_cardMapListingView presentPrintedCard:printedCard];
+    
 }
 
 - (BOOL) hasContentLocation:(Model_CardContent*) content
