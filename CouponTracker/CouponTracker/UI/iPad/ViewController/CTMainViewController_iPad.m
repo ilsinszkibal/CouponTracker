@@ -65,11 +65,11 @@
     
     if ( _cardMapLister == nil )
     {
-        _cardMapListerView = [[CardMapListerView alloc] initWithFrame:CGRectMake(0, 0, 450, 100) ];
+        _cardMapListerView = [[CardMapListerView alloc] initWithFrame:CGRectMake(0, 0, 350, 80) ];
         _cardMapListerBorderContainer = [[BorderContainerView alloc] initWithContentView:_cardMapListerView];
         [self.view addSubview:_cardMapListerBorderContainer];
         
-        _cardMapView = [[CardMapView alloc] initWithFrame:CGRectMake(0, 0, 450, 450) ];
+        _cardMapView = [[CardMapView alloc] initWithFrame:CGRectMake(0, 0, 350, 350) ];
         _cardMapBorderContainer = [[BorderContainerView alloc] initWithContentView:_cardMapView];
         [self.view addSubview:_cardMapBorderContainer];
         
@@ -84,14 +84,16 @@
 {
     [super viewDidLayoutSubviews];
     
-    CGFloat yOffset = 100;
+    CGFloat marginBetweenMapViews = 50;
     
     CGSize cardMapBorderSize = [_cardMapBorderContainer preferredContainterViewSize];
-    [_cardMapBorderContainer setFrame:CGRectMake(self.view.width / 2.0 - cardMapBorderSize.width / 2.0, self.view.height / 2.0 -  cardMapBorderSize.height / 2.0 + yOffset, cardMapBorderSize.width, cardMapBorderSize.height) ];
-    
     CGSize cardMapListerBorderSize = [_cardMapListerBorderContainer preferredContainterViewSize];
-    [_cardMapListerBorderContainer setFrame:CGRectMake(self.view.width / 2.0 - cardMapListerBorderSize.width / 2.0, _cardMapBorderContainer.y - cardMapListerBorderSize.height - 50, cardMapListerBorderSize.width, cardMapListerBorderSize.height) ];
     
+    CGFloat yOffset = ( self.view.maxY - cardMapBorderSize.height - cardMapListerBorderSize.height - marginBetweenMapViews ) / 2.0;
+    
+    [_cardMapListerBorderContainer setFrame:CGRectMake(self.view.width / 2.0 - cardMapListerBorderSize.width / 2.0, yOffset, cardMapListerBorderSize.width, cardMapListerBorderSize.height) ];
+    
+    [_cardMapBorderContainer setFrame:CGRectMake(self.view.width / 2.0 - cardMapBorderSize.width / 2.0, _cardMapListerBorderContainer.maxY + marginBetweenMapViews, cardMapBorderSize.width, cardMapBorderSize.height) ];
 }
 
 - (void)didReceiveMemoryWarning {
