@@ -12,6 +12,7 @@
 @interface CTMainViewController_Common ()
 {
     CTMyTemplatesViewController_Common* _myTemplatesVC;
+    CTPrintedCardViewController_Common* _printedCardVC;
 }
 
 @end
@@ -42,6 +43,12 @@
     
     _myTemplatesVC = myTemplates;
     [self navigateToViewController:_myTemplatesVC];
+}
+
+- (void) showPrintedCard:(CTPrintedCardViewController_Common*) printedCard
+{
+    _printedCardVC = printedCard;
+    [self navigateToViewController:_printedCardVC];
 }
 
 #pragma mark Handling navigation

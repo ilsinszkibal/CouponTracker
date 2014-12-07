@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B072E6C1A1BEA040018F86D /* CardMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B072E6B1A1BEA040018F86D /* CardMapAnnotation.m */; };
+		6B386F321A344E5C00A69E9B /* CTPrintedCardViewController_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B386F311A344E5C00A69E9B /* CTPrintedCardViewController_Common.m */; };
 		6B4C2B0619E6FB6D00FB87DE /* BorderContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B4C2B0519E6FB6D00FB87DE /* BorderContainerView.m */; };
 		6B4C2B0919E6FE7500FB87DE /* PreferredSizingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B4C2B0819E6FE7500FB87DE /* PreferredSizingImageView.m */; };
 		6B5056D219E14BCB006939CC /* CTMainViewController_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5056D119E14BCB006939CC /* CTMainViewController_Common.m */; };
@@ -93,6 +94,9 @@
 /* Begin PBXFileReference section */
 		6B072E6A1A1BEA040018F86D /* CardMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMapAnnotation.h; path = CardMapLister/CardMapAnnotation.h; sourceTree = "<group>"; };
 		6B072E6B1A1BEA040018F86D /* CardMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMapAnnotation.m; path = CardMapLister/CardMapAnnotation.m; sourceTree = "<group>"; };
+		6B386F301A344E5C00A69E9B /* CTPrintedCardViewController_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTPrintedCardViewController_Common.h; path = PrintedCard/CTPrintedCardViewController_Common.h; sourceTree = "<group>"; };
+		6B386F311A344E5C00A69E9B /* CTPrintedCardViewController_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTPrintedCardViewController_Common.m; path = PrintedCard/CTPrintedCardViewController_Common.m; sourceTree = "<group>"; };
+		6B386F371A34543C00A69E9B /* CardMapListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMapListing.h; path = CardMapLister/CardMapListing.h; sourceTree = "<group>"; };
 		6B4C2B0419E6FB6D00FB87DE /* BorderContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BorderContainerView.h; path = BorderContainerView/BorderContainerView.h; sourceTree = "<group>"; };
 		6B4C2B0519E6FB6D00FB87DE /* BorderContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BorderContainerView.m; path = BorderContainerView/BorderContainerView.m; sourceTree = "<group>"; };
 		6B4C2B0719E6FE7500FB87DE /* PreferredSizingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferredSizingImageView.h; path = BorderContainerView/PreferredSizingImageView.h; sourceTree = "<group>"; };
@@ -207,6 +211,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B386F2B1A344E0400A69E9B /* PrintedCard */ = {
+			isa = PBXGroup;
+			children = (
+				6B386F301A344E5C00A69E9B /* CTPrintedCardViewController_Common.h */,
+				6B386F311A344E5C00A69E9B /* CTPrintedCardViewController_Common.m */,
+			);
+			name = PrintedCard;
+			sourceTree = "<group>";
+		};
 		6B4C2B0319E6FB4900FB87DE /* BorderContainerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +348,7 @@
 				6BD769B41A140992006362F2 /* CardMapListerView.m */,
 				6B072E6A1A1BEA040018F86D /* CardMapAnnotation.h */,
 				6B072E6B1A1BEA040018F86D /* CardMapAnnotation.m */,
+				6B386F371A34543C00A69E9B /* CardMapListing.h */,
 			);
 			name = CardMapLister;
 			sourceTree = "<group>";
@@ -467,6 +481,7 @@
 		BD7AB1C319E14A91000D88AB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6B386F2B1A344E0400A69E9B /* PrintedCard */,
 				BDBFC18F19FD32FA0072306F /* Content */,
 				BD31F31519F9415000AF73D6 /* Cards */,
 				BD31F2FF19F916E500AF73D6 /* Scan */,
@@ -665,6 +680,7 @@
 				6BD769B21A140976006362F2 /* CardMapLister.m in Sources */,
 				6B5056D219E14BCB006939CC /* CTMainViewController_Common.m in Sources */,
 				6B5056D619E14C92006939CC /* CTMyTemplatesViewController_Common.m in Sources */,
+				6B386F321A344E5C00A69E9B /* CTPrintedCardViewController_Common.m in Sources */,
 				6BD769B51A140992006362F2 /* CardMapListerView.m in Sources */,
 				BDBFC19719FD331F0072306F /* CTNewContentViewController_Common.m in Sources */,
 				BD31F30419F9170200AF73D6 /* CTScanViewController_Common.m in Sources */,

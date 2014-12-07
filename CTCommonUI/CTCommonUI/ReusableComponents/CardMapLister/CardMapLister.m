@@ -34,8 +34,11 @@
     if ( self ) {
         
         _cardMapListing = cardMapListing;
+        
         _cardMapListingView = cardMapLister;
-        _cardMapView = cardMapView;
+        [_cardMapListingView setCardMapListing:cardMapListing];
+        
+         _cardMapView = cardMapView;
         
     }
     

@@ -13,4 +13,6 @@
 
 @interface CardMapListerView : UIView<CardMapListerViewProtocol, PreferredViewSizing>
 
+@property (nonatomic, weak) id<CardMapListing> cardMapListing;
+
 @end

@@ -10,6 +10,7 @@
 
 #import "CTMyTemplatesViewController_iPad.h"
 #import "CTScanViewController_iPad.h"
+#import "CTPrintedCardViewController_iPad.h"
 
 #import "CardMapView.h"
 #import "CardMapLister.h"
@@ -171,6 +172,16 @@
 - (void) imagesPreloadedFailedForKey:(NSString *)key
 {
     [self stopMiddleLoadingIndicator];
+}
+
+#pragma mark - CardMapListing
+
+- (void) navigateToPrintedCard:(Model_PrintedCard*) printedCard
+{
+    CTPrintedCardViewController_iPad* printedCardVC = [[CTPrintedCardViewController_iPad alloc] init];
+    [printedCardVC setPrintedCard:printedCard];
+    
+    [self showPrintedCard:printedCardVC];
 }
 
 #pragma mark - Public

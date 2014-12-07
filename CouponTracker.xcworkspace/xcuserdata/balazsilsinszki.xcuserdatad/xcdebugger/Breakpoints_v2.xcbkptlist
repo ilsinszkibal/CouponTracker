@@ -35,7 +35,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
             endingLineNumber = "73"
-            landmarkName = "-receivingView:forKey:"
+            landmarkName = "-passingViewRectForKey:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -174,11 +174,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CouponTracker/CouponTracker/UI/iPad/ViewController/CTMainViewController_iPad.m"
-            timestampString = "439630899.192106"
+            timestampString = "439637392.375083"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "-loadPopularCards"
             landmarkType = "5">
          </BreakpointContent>

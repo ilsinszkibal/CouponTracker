@@ -12,6 +12,8 @@
 #import "Model_CardTemplate.h"
 #import "Model_Image.h"
 
+#import "UIFactory.h"
+
 #import "UIImageView+WebCache.h"
 
 @interface CardMapListerView () {
@@ -19,6 +21,8 @@
     UIActivityIndicatorView* _imageViewActivity;
     UIImageView* _imageView;
     UILabel* _numberOfPassesLabel;
+    
+    UIButton* _navigateToPrintedCard;
     
 }
 
@@ -49,9 +53,20 @@
         [_numberOfPassesLabel setNumberOfLines:0];
         [self addSubview:_numberOfPassesLabel];
         
+        UIImage* buttonImage = [UIFactory image:[UIImage imageNamed:@"NavigateRight"] withColor:[UIColor whiteColor] ];
+        _navigateToPrintedCard = [UIFactory defaultButtonWithTitle:nil target:self action:@selector(navigateToCard:)];
+        [_navigateToPrintedCard setTintColor:[UIColor whiteColor] ];
+        [_navigateToPrintedCard setImage:buttonImage forState:UIControlStateNormal ];
+        [self addSubview:_navigateToPrintedCard];
+        
     }
     
     return self;
+}
+                                  
+- (void) navigateToCard:(UIButton*) button
+{
+    [_cardMapListing navigateToPrintedCard:_printedCard];
 }
 
 - (void) layoutSubviews
@@ -61,10 +76,15 @@
     CGFloat margin = 5;
     CGFloat imageViewSize = self.maxY - 2 * margin;
     
+    CGFloat buttonSize = 40;
+    
     [_imageView setFrame:CGRectMake(margin, margin, imageViewSize, imageViewSize) ];
     [_imageViewActivity setFrame:_imageView.frame];
     
-    [_numberOfPassesLabel setFrame:CGRectMake(_imageView.maxX + margin * 3, _imageView.y, self.maxX - _imageView.maxX - margin, imageViewSize) ];
+    [_navigateToPrintedCard setFrame:CGRectMake(self.width - buttonSize, self.height - buttonSize, buttonSize, buttonSize) ];
+    
+    [_numberOfPassesLabel setFrame:CGRectMake(_imageView.maxX + margin * 3, _imageView.y, self.maxX - _imageView.maxX - margin, imageViewSize - _navigateToPrintedCard.height) ];
+    
     
 }
 

@@ -10,12 +10,12 @@
 
 #import "CardMapViewProtocol.h"
 #import "CardMapListerViewProtocol.h"
+#import "CardMapListing.h"
+
+#import "Model_PrintedCard.h"
 
 #import <MapKit/MapKit.h>
 
-@protocol CardMapListing <NSObject>
-
-@end
 
 @interface CardMapLister : NSObject {
     
