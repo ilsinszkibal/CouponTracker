@@ -194,6 +194,7 @@
                                                   @"longitude": @"locationLongitude"}];
     [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"sender_user" toKeyPath:@"senderUser" withMapping:self.userMapping]];
     [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"receiver_user" toKeyPath:@"receiverUser" withMapping:self.userMapping]];
+    
     return mapping;
 }
 

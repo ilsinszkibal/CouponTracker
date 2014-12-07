@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class Model_PrintedCard;
+
 @protocol CardMapViewProtocol <NSObject>
+
+- (void) presentAnnotationsForPrintedCard:(Model_PrintedCard*) printedCard;
 
 @end

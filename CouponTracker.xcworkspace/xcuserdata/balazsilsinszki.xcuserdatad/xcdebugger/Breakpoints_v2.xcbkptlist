@@ -94,11 +94,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CTServices/CTServices/Networking/CTNetworkingManager.m"
-            timestampString = "437858450.25189"
+            timestampString = "439640937.025073"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "402"
-            endingLineNumber = "402"
+            startingLineNumber = "403"
+            endingLineNumber = "403"
             landmarkName = "-templateResponseDescriptors"
             landmarkType = "5">
          </BreakpointContent>
@@ -180,6 +180,22 @@
             startingLineNumber = "116"
             endingLineNumber = "116"
             landmarkName = "-loadPopularCards"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CouponTracker/CouponTracker/UI/iPad/ViewController/CTPrintedCardViewController_iPad.m"
+            timestampString = "439640292.142959"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "-viewDidAppear:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
