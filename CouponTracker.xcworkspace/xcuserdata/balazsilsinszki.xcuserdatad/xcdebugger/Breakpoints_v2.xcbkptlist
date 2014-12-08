@@ -46,11 +46,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CTCommonUI/CTCommonUI/ViewControllers/Base/CTViewController.m"
-            timestampString = "437520506.660994"
+            timestampString = "439726708.616883"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "-didReceiveMemoryWarning"
             landmarkType = "5">
          </BreakpointContent>
@@ -158,11 +158,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CouponTracker/CouponTracker/UI/iPad/ViewController/CTMyTemplatesViewController_iPad.m"
-            timestampString = "437523957.535014"
+            timestampString = "439726261.295534"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
             landmarkName = "-dealloc"
             landmarkType = "5">
          </BreakpointContent>

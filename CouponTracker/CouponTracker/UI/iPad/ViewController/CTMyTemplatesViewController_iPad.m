@@ -74,6 +74,7 @@
 {
     [super viewDidAppear:animated];
     
+    [self hideMiddleTextLabel];
     [self startMiddleLoadingIndicator];
     
     [self loadTemplates];
@@ -110,6 +111,13 @@
 
 - (void) preLoadImages
 {
+    
+    if ( [_myTemplates count] == 0 )
+    {
+        [self stopMiddleLoadingIndicator];
+        [self showMiddleTextLabel:@"You don't have any templates!"];
+    }
+    
     
     NSMutableArray* urlArray = [@[] mutableCopy];
     
@@ -150,6 +158,7 @@
     _templatePreLoadImageInfo = imageInfo;
     
     [self stopMiddleLoadingIndicator];
+    [self hideMiddleTextLabel];
     [_carousel reloadData];
 }
 

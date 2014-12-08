@@ -17,6 +17,8 @@
 
 - (void) startMiddleLoadingIndicator;
 - (void) stopMiddleLoadingIndicator;
+- (void) showMiddleTextLabel:(NSString*) text;
+- (void) hideMiddleTextLabel;
 
 
 - (BOOL) isUserLoggedIn;

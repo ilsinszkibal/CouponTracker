@@ -27,6 +27,7 @@
     UIButton* _bottomLeftButton;
     UIButton* _bottomRightButton;
     
+    UILabel* _middleLabel;
     UIActivityIndicatorView* _loadingIndicator;
     
 }
@@ -45,9 +46,16 @@
     
     [self setUpTransitioningDelegates];
     
+    [_loadingIndicator removeFromSuperview];
     _loadingIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [_loadingIndicator setHidden:YES];
     [self.view addSubview:_loadingIndicator];
+    
+    [_middleLabel removeFromSuperview];
+    _middleLabel = [[UILabel alloc] init];
+    [_middleLabel setTextColor:[UIColor whiteColor] ];
+    [_middleLabel setHidden:YES];
+    [self.view addSubview:_middleLabel];
     
 }
 
@@ -66,6 +74,12 @@
     else
     {
         [self setTopButtoniPadPositions];
+    }
+    
+    if ( [_middleLabel isHidden] == NO )
+    {
+        [_middleLabel sizeToFit];
+        [_middleLabel setFrame:CGRectIntegral( CGRectMake(self.view.width / 2.0 - _middleLabel.width / 2.0, self.view.height / 2.0 - _middleLabel.height / 2.0, _middleLabel.width, _middleLabel.height) ) ];
     }
     
     [_loadingIndicator setFrame: CGRectIntegral( CGRectMake(self.view.width / 2.0 - _loadingIndicator.width / 2.0, self.view.height / 2.0 - _loadingIndicator.height / 2.0, _loadingIndicator.width, _loadingIndicator.height) )];
@@ -159,6 +173,21 @@
 {
     [_loadingIndicator setHidden:YES];
     [_loadingIndicator stopAnimating];
+}
+
+- (void) showMiddleTextLabel:(NSString*) text;
+{
+    [_middleLabel setText:text];
+    [_middleLabel setHidden:NO];
+    
+    [self.view setNeedsLayout];
+    [self.view layoutIfNeeded];
+}
+
+- (void) hideMiddleTextLabel;
+{
+    [_middleLabel setText:@""];
+    [_middleLabel setHidden:YES];
 }
 
 #pragma mark - Login and registration
