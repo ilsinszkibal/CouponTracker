@@ -23,6 +23,9 @@
 #import "Keys.h"
 
 @interface CTMyTemplatesViewController_iPad () <iCarouselDataSource, iCarouselDelegate, ImagePreLoading> {
+    
+    UILabel* _hintLabel;
+    
     iCarousel* _carousel;
     NSUInteger _selectedIndex;
     
@@ -63,6 +66,12 @@
     
     _maxImageSize = 400;
     
+    _hintLabel = [[UILabel alloc] init];
+    [_hintLabel setTextColor:[UIColor whiteColor] ];
+    [_hintLabel setText:@"Select a card to print it!"];
+    [_hintLabel setHidden:YES];
+    [self.view addSubview:_hintLabel];
+    
     _carousel = [[iCarousel alloc] init];
     _carousel.delegate = self;
     _carousel.dataSource = self;
@@ -76,6 +85,7 @@
     
     [self hideMiddleTextLabel];
     [self startMiddleLoadingIndicator];
+    [_hintLabel setHidden:YES];
     
     [self loadTemplates];
     
@@ -85,7 +95,13 @@
 {
     [super viewDidLayoutSubviews];
     
-    [_carousel setFrame:CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.height - 100) ];
+    CGFloat topMargin = 300;
+    CGFloat bottomMargin = 200;
+    
+    [_carousel setFrame:CGRectMake(0, topMargin, self.view.frame.size.width, self.view.frame.size.height - topMargin - bottomMargin) ];
+    
+    [_hintLabel sizeToFit];
+    [_hintLabel setFrame:CGRectMake(self.view.width / 2.0 - _hintLabel.width / 2.0, _carousel.y - _hintLabel.height, _hintLabel.width, _hintLabel.height) ];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -159,6 +175,10 @@
     
     [self stopMiddleLoadingIndicator];
     [self hideMiddleTextLabel];
+    
+    if ( 0 < [_myTemplates count] )
+        [_hintLabel setHidden:NO];
+    
     [_carousel reloadData];
 }
 
