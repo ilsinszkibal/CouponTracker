@@ -171,7 +171,8 @@
                              [dismissingView setFrame:dismissingFinalRect];
                              [originalView setFrame:originalFinalRect];
                              
-                             [passingView setFrame:[originalViewController passingViewRectForKey:_navigationKey] ];
+                             CGRect passingRect = [originalViewController passingViewRectForKey:_navigationKey];
+                             [passingView setFrame:passingRect];
                          }
                          completion:^(BOOL finished){
                              

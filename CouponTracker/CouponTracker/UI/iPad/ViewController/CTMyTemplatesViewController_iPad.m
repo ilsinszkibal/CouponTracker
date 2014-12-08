@@ -68,7 +68,7 @@
     
     _hintLabel = [[UILabel alloc] init];
     [_hintLabel setTextColor:[UIColor whiteColor] ];
-    [_hintLabel setText:@"Select a card to print it!"];
+    [_hintLabel setText:@"Tap on a template to print it!"];
     [_hintLabel setHidden:YES];
     [self.view addSubview:_hintLabel];
     
@@ -293,7 +293,11 @@
         
         CGSize selectedSize = selected.frame.size;
         
-        return CGRectMake( ( self.view.width - selectedSize.width ) / 2.0, ( self.view.height - selectedSize.height ) / 2.0, selectedSize.width, selectedSize.height);
+        CGRect rect = CGRectMake(_carousel.width / 2.0 - selectedSize.width / 2.0, _carousel.height / 2.0 - selectedSize.height / 2.0, selectedSize.width, selectedSize.height);
+        rect.origin.x += _carousel.x;
+        rect.origin.y += _carousel.y;
+        
+        return rect;
     }
     
     return CGRectZero;

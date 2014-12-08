@@ -158,11 +158,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CouponTracker/CouponTracker/UI/iPad/ViewController/CTMyTemplatesViewController_iPad.m"
-            timestampString = "439727436.217277"
+            timestampString = "439728204.600103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317"
+            startingLineNumber = "321"
+            endingLineNumber = "321"
             landmarkName = "-dealloc"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,16 +202,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CouponTracker/CouponTracker/UI/iPad/ViewController/CTMyTemplatesViewController_iPad.m"
-            timestampString = "439727508.497445"
+            timestampString = "439728204.600103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
-            landmarkName = "-passingViewRectForKey:"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
+            landmarkName = "-receivingView:forKey:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
