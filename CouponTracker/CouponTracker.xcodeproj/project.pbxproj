@@ -210,13 +210,13 @@
 		6B77A86519D6C5AE00FC0978 = {
 			isa = PBXGroup;
 			children = (
-				BD3BBA0819D700070006DE0F /* CTCommonUI.xcodeproj */,
 				6B5C66ED1A0F9A84000E99EA /* Prefix.pch */,
 				6BA630F819EAA5A400D56532 /* Resources */,
 				6B77A8E919D6CC0B00FC0978 /* framework */,
 				6B77A87019D6C5AE00FC0978 /* CouponTracker */,
 				6B77A88A19D6C5AE00FC0978 /* CouponTrackerTests */,
 				6B77A86F19D6C5AE00FC0978 /* Products */,
+				BD3BBA0819D700070006DE0F /* CTCommonUI.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};

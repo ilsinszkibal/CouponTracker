@@ -272,12 +272,12 @@
 		6B77A8BD19D6C9E200FC0978 = {
 			isa = PBXGroup;
 			children = (
-				6BCB423319D7188C0091E870 /* CTServices.xcodeproj */,
 				6B5C66EE1A0F9BED000E99EA /* Prefix.pch */,
 				6B77A8E819D6CBC600FC0978 /* framework */,
 				6B77A8C819D6C9E200FC0978 /* CTCommonUI */,
 				6B77A8D219D6C9E200FC0978 /* CTCommonUITests */,
 				6B77A8C719D6C9E200FC0978 /* Products */,
+				6BCB423319D7188C0091E870 /* CTServices.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};

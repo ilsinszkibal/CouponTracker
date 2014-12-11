@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <GoogleAnalytics-iOS-SDK/GAITrackedViewController.h>
 
-@interface CTViewController : GAITrackedViewController
+@interface CTViewController : UIViewController
 
 - (void) setUpTopLeftButtonWithTitle:(NSString*) title withSel:(SEL) selector;
 - (void) setUpTopRightButtonWithTitle:(NSString*) title withSel:(SEL) selector;
