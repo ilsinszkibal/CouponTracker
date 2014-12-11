@@ -13,6 +13,7 @@
 #import "CTInstructionsViewController_iPhone.h"
 #import "CTUserManager.h"
 #import "CTUser.h"
+#import "CTAnalytics.h"
 
 @interface CTMainViewController_iPhone ()
 
@@ -34,6 +35,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[CTAnalytics new] logScreenEvent:NSStringFromClass([self class])];
     
     self.loginLabel = [[UILabel alloc] init];
     self.loginLabel.backgroundColor = [UIColor clearColor];

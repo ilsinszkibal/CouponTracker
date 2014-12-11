@@ -7,6 +7,7 @@
 //
 
 #import "CTPrintTemplateViewController_iPhone.h"
+#import "CTAnalytics.h"
 
 @interface CTPrintTemplateViewController_iPhone ()
 
@@ -18,6 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[CTAnalytics new] logScreenEvent:NSStringFromClass([self class])];
     
     [self setUpTopLeftButtonWithTitle:@"Back" withSel:@selector(backButtonPressed:)];
 }

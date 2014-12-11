@@ -34,6 +34,12 @@
 		BD3BBB3B19D703760006DE0F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB3A19D703760006DE0F /* CoreData.framework */; };
 		BD3BBB4019D703990006DE0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB3F19D703990006DE0F /* SystemConfiguration.framework */; };
 		BD3BBB4219D703E30006DE0F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3BBB4119D703E30006DE0F /* MobileCoreServices.framework */; };
+		BD6394DB1A3A582400CB0411 /* CTAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6394DA1A3A582400CB0411 /* CTAnalytics.m */; };
+		BD6395361A3A584C00CB0411 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6395151A3A584C00CB0411 /* libGoogleAnalyticsServices.a */; };
+		BD6395A71A3A589F00CB0411 /* libAdIdAccess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD63957B1A3A589F00CB0411 /* libAdIdAccess.a */; };
+		BD6395AD1A3A596F00CB0411 /* CTTrackedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6395AC1A3A596F00CB0411 /* CTTrackedViewController.m */; };
+		BD6395AF1A3A59D300CB0411 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6395AE1A3A59D300CB0411 /* libz.dylib */; };
+		BD6395B11A3A59D700CB0411 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6395B01A3A59D700CB0411 /* libsqlite3.dylib */; };
 		BD89C38B19FD09F20005A9B2 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BD89C38A19FD09F20005A9B2 /* beep.mp3 */; };
 		BD9D498A1A001054001D2326 /* CTScanViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9D49891A001054001D2326 /* CTScanViewController_iPad.m */; };
 		BDBFC19A19FD33440072306F /* CTContentDetailsViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBFC19919FD33440072306F /* CTContentDetailsViewController_iPhone.m */; };
@@ -123,6 +129,29 @@
 		BD3BBB3D19D703880006DE0F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BD3BBB3F19D703990006DE0F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		BD3BBB4119D703E30006DE0F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		BD6394D91A3A582400CB0411 /* CTAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAnalytics.h; sourceTree = "<group>"; };
+		BD6394DA1A3A582400CB0411 /* CTAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAnalytics.m; sourceTree = "<group>"; };
+		BD63950A1A3A584C00CB0411 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		BD63950B1A3A584C00CB0411 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		BD63950C1A3A584C00CB0411 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
+		BD63950D1A3A584C00CB0411 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		BD63950E1A3A584C00CB0411 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		BD63950F1A3A584C00CB0411 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		BD6395101A3A584C00CB0411 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		BD6395111A3A584C00CB0411 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		BD6395121A3A584C00CB0411 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		BD6395131A3A584C00CB0411 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		BD6395151A3A584C00CB0411 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		BD6395751A3A589F00CB0411 /* TAGContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAGContainer.h; sourceTree = "<group>"; };
+		BD6395761A3A589F00CB0411 /* TAGContainerOpener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAGContainerOpener.h; sourceTree = "<group>"; };
+		BD6395771A3A589F00CB0411 /* TAGDataLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAGDataLayer.h; sourceTree = "<group>"; };
+		BD6395781A3A589F00CB0411 /* TAGLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAGLogger.h; sourceTree = "<group>"; };
+		BD6395791A3A589F00CB0411 /* TAGManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAGManager.h; sourceTree = "<group>"; };
+		BD63957B1A3A589F00CB0411 /* libAdIdAccess.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdIdAccess.a; sourceTree = "<group>"; };
+		BD6395AB1A3A596F00CB0411 /* CTTrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTTrackedViewController.h; sourceTree = "<group>"; };
+		BD6395AC1A3A596F00CB0411 /* CTTrackedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTTrackedViewController.m; sourceTree = "<group>"; };
+		BD6395AE1A3A59D300CB0411 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		BD6395B01A3A59D700CB0411 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		BD89C38A19FD09F20005A9B2 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = beep.mp3; path = CouponTracker/Resources/beep.mp3; sourceTree = "<group>"; };
 		BD9D49881A001054001D2326 /* CTScanViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTScanViewController_iPad.h; sourceTree = "<group>"; };
 		BD9D49891A001054001D2326 /* CTScanViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTScanViewController_iPad.m; sourceTree = "<group>"; };
@@ -137,9 +166,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD6395B11A3A59D700CB0411 /* libsqlite3.dylib in Frameworks */,
+				BD6395AF1A3A59D300CB0411 /* libz.dylib in Frameworks */,
 				BD3BBB4219D703E30006DE0F /* MobileCoreServices.framework in Frameworks */,
+				BD6395A71A3A589F00CB0411 /* libAdIdAccess.a in Frameworks */,
 				BD3BBB4019D703990006DE0F /* SystemConfiguration.framework in Frameworks */,
 				BD3BBB3B19D703760006DE0F /* CoreData.framework in Frameworks */,
+				BD6395361A3A584C00CB0411 /* libGoogleAnalyticsServices.a in Frameworks */,
 				6B77A8E219D6CAB500FC0978 /* libCTCommonUI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,6 +215,8 @@
 			children = (
 				6B6053BB19E1459D0047293F /* iPhone */,
 				6B6053BA19E145960047293F /* iPad */,
+				BD6395AB1A3A596F00CB0411 /* CTTrackedViewController.h */,
+				BD6395AC1A3A596F00CB0411 /* CTTrackedViewController.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -210,6 +245,8 @@
 		6B77A86519D6C5AE00FC0978 = {
 			isa = PBXGroup;
 			children = (
+				BD6395B01A3A59D700CB0411 /* libsqlite3.dylib */,
+				BD6395AE1A3A59D300CB0411 /* libz.dylib */,
 				6B5C66ED1A0F9A84000E99EA /* Prefix.pch */,
 				6BA630F819EAA5A400D56532 /* Resources */,
 				6B77A8E919D6CC0B00FC0978 /* framework */,
@@ -232,6 +269,12 @@
 		6B77A87019D6C5AE00FC0978 /* CouponTracker */ = {
 			isa = PBXGroup;
 			children = (
+				BD63953A1A3A589F00CB0411 /* GoogleTagManager */,
+				BD63957B1A3A589F00CB0411 /* libAdIdAccess.a */,
+				BD6394DD1A3A584C00CB0411 /* GoogleAnalytics */,
+				BD6395151A3A584C00CB0411 /* libGoogleAnalyticsServices.a */,
+				BD6394D91A3A582400CB0411 /* CTAnalytics.h */,
+				BD6394DA1A3A582400CB0411 /* CTAnalytics.m */,
 				6B6053B819E1458F0047293F /* UI */,
 				6B77A87519D6C5AE00FC0978 /* AppDelegate.h */,
 				6B77A87619D6C5AE00FC0978 /* AppDelegate.m */,
@@ -317,6 +360,51 @@
 				BD3BBA6919D700070006DE0F /* CTCommonUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		BD6394DD1A3A584C00CB0411 /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				BD6395091A3A584C00CB0411 /* Library */,
+			);
+			path = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
+		BD6395091A3A584C00CB0411 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				BD63950A1A3A584C00CB0411 /* GAI.h */,
+				BD63950B1A3A584C00CB0411 /* GAIDictionaryBuilder.h */,
+				BD63950C1A3A584C00CB0411 /* GAIEcommerceFields.h */,
+				BD63950D1A3A584C00CB0411 /* GAIEcommerceProduct.h */,
+				BD63950E1A3A584C00CB0411 /* GAIEcommerceProductAction.h */,
+				BD63950F1A3A584C00CB0411 /* GAIEcommercePromotion.h */,
+				BD6395101A3A584C00CB0411 /* GAIFields.h */,
+				BD6395111A3A584C00CB0411 /* GAILogger.h */,
+				BD6395121A3A584C00CB0411 /* GAITrackedViewController.h */,
+				BD6395131A3A584C00CB0411 /* GAITracker.h */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		BD63953A1A3A589F00CB0411 /* GoogleTagManager */ = {
+			isa = PBXGroup;
+			children = (
+				BD6395741A3A589F00CB0411 /* Library */,
+			);
+			path = GoogleTagManager;
+			sourceTree = "<group>";
+		};
+		BD6395741A3A589F00CB0411 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				BD6395751A3A589F00CB0411 /* TAGContainer.h */,
+				BD6395761A3A589F00CB0411 /* TAGContainerOpener.h */,
+				BD6395771A3A589F00CB0411 /* TAGDataLayer.h */,
+				BD6395781A3A589F00CB0411 /* TAGLogger.h */,
+				BD6395791A3A589F00CB0411 /* TAGManager.h */,
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 		BD9D49821A001003001D2326 /* Main */ = {
@@ -504,6 +592,7 @@
 				BD31F30E19F91EC500AF73D6 /* CTScanViewController_iPhone.m in Sources */,
 				6B386F351A344ED600A69E9B /* CTPrintedCardViewController_iPad.m in Sources */,
 				6BECE53E1A3A2964001033C7 /* CTCardContentCell.m in Sources */,
+				BD6395AD1A3A596F00CB0411 /* CTTrackedViewController.m in Sources */,
 				6B5056F119E14D86006939CC /* CTPrintTemplateViewController_iPhone.m in Sources */,
 				6B77A87719D6C5AE00FC0978 /* AppDelegate.m in Sources */,
 				6B6053C119E1462A0047293F /* CTMainViewController_iPhone.m in Sources */,
@@ -520,6 +609,7 @@
 				BD9D498A1A001054001D2326 /* CTScanViewController_iPad.m in Sources */,
 				6BB28AE11A18E2E400827695 /* CTInteractionView.m in Sources */,
 				6B5056DD19E14CBE006939CC /* CTMyTemplatesViewController_iPhone.m in Sources */,
+				BD6394DB1A3A582400CB0411 /* CTAnalytics.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +736,7 @@
 					"$(PROJECT_DIR)/../**",
 					"$(PROJECT_DIR)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/CouponTracker-acwfmdgdbdhriieqrdcaxmyadjae/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)/CouponTracker",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -678,6 +769,7 @@
 					"$(PROJECT_DIR)/../**",
 					"$(PROJECT_DIR)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/CouponTracker-acwfmdgdbdhriieqrdcaxmyadjae/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)/CouponTracker",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",

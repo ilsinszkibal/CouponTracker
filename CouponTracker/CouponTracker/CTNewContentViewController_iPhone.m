@@ -9,6 +9,7 @@
 #import "CTNewContentViewController_iPhone.h"
 #import "CTComposeViewController.h"
 #import "CTNetworkingManager.h"
+#import "CTAnalytics.h"
 
 @interface CTNewContentViewController_iPhone ()
 
@@ -21,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[CTAnalytics new] logScreenEvent:NSStringFromClass([self class])];
     
     self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     self.spinner.hidesWhenStopped = YES;

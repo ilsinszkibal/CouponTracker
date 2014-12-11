@@ -17,6 +17,7 @@
 #import "CardDrawingOperationView.h"
 #import "CardDrawingPresentView.h"
 #import "CouponCardDrawerManager.h"
+#import "CTAnalytics.h"
 
 @interface CTNewTemplateViewController_iPhone ()<CouponDrawerManagerImagePickerDelegate, CardDrawingCreating, CTInteracting>
 
@@ -35,6 +36,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[CTAnalytics new] logScreenEvent:NSStringFromClass([self class])];
+    
     // Do any additional setup after loading the view.
     
     if ( _backButton == nil )

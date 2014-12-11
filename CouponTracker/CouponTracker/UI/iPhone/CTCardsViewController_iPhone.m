@@ -14,6 +14,7 @@
 #import "CTPassingViewNavigatingKey.h"
 #import "Model.h"
 #import "PreferredSizingImageView.h"
+#import "CTAnalytics.h"
 
 @interface CTCardsViewController_iPhone () <UICollectionViewDelegate, iCarouselDataSource, iCarouselDelegate>
 
@@ -29,6 +30,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[CTAnalytics new] logScreenEvent:NSStringFromClass([self class])];
     
     self.view.clipsToBounds = YES;
     

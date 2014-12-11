@@ -9,8 +9,16 @@
 #import "CTContentDetailsViewController_iPhone.h"
 #import "CTNewContentViewController_iPhone.h"
 #import "CTCardContentView.h"
+#import "CTAnalytics.h"
 
 @implementation CTContentDetailsViewController_iPhone
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [[CTAnalytics new] logScreenEvent:NSStringFromClass([self class])];
+}
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];

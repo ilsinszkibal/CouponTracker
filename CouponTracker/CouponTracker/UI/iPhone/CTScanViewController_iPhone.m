@@ -10,6 +10,7 @@
 
 #import "CTContentDetailsViewController_iPhone.h"
 #import "CTNewContentViewController_iPhone.h"
+#import "CTAnalytics.h"
 
 @interface CTScanViewController_iPhone ()
 
@@ -23,6 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[CTAnalytics new] logScreenEvent:NSStringFromClass([self class])];
     
     self.backButton = [UIFactory defaultButtonWithTitle:@"Back" target:self action:@selector(backButtonPressed:)];
     [self.view addSubview:self.backButton];

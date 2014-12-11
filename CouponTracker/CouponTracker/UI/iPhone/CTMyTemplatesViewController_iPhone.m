@@ -17,6 +17,7 @@
 
 #import <iCarousel/iCarousel.h>
 #import "UIImageView+WebCache.h"
+#import "CTAnalytics.h"
 
 @interface CTMyTemplatesViewController_iPhone () <UICollectionViewDelegate, iCarouselDataSource, iCarouselDelegate>
 
@@ -35,6 +36,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[CTAnalytics new] logScreenEvent:NSStringFromClass([self class])];
     
     self.view.clipsToBounds = YES;
     
