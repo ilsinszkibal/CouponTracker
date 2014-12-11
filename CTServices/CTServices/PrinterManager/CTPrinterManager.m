@@ -8,9 +8,12 @@
 
 #import "CTPrinterManager.h"
 
+#import "DeviceInfo.h"
+
 @implementation CTPrinterManager
 
-- (void)printImage:(UIImage*)image {
+- (void)printImage:(UIImage*)image withButton:(UIButton*) button
+{
     UIPrintInteractionController *pic = [UIPrintInteractionController sharedPrintController];
     
     NSData* data = UIImageJPEGRepresentation(image, 1);
@@ -39,7 +42,15 @@
             }
         };
         
-        [pic presentAnimated:YES completionHandler:completionHandler];
+        if ( [DeviceInfo isiPhone] )
+        {
+            [pic presentAnimated:YES completionHandler:completionHandler];
+        }
+        else
+        {
+            [pic presentFromRect:CGRectZero inView:button animated:YES completionHandler:completionHandler];
+        }
+        
     }
 }
 

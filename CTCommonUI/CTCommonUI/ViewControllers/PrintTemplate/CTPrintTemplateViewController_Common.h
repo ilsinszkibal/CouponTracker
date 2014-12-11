@@ -15,5 +15,6 @@
 @property (nonatomic, strong) Model_CardTemplate* template;
 
 - (void)print;
+- (void)print:(UIButton*) button;
 
 @end

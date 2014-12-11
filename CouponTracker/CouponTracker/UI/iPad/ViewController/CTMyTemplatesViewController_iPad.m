@@ -257,6 +257,7 @@
     CTPassingViewNavigatingKey* key = [CTPassingViewNavigatingKey createNavigationWithKey:[self printNavigationKey] withParameters:@{ [self selectedElemIndexKey] : @(index) } ];
     
     CTPrintTemplateViewController_iPad* printTemplate = [[CTPrintTemplateViewController_iPad alloc] init];
+    printTemplate.template = _myTemplates[index];
     [self passingViewNavigateToViewController:printTemplate forKey:key];
 }
 

@@ -11,6 +11,6 @@
 
 @interface CTPrinterManager : CTBaseManager <UIPrintInteractionControllerDelegate>
 
-- (void)printImage:(UIImage*)image;
+- (void)printImage:(UIImage*)image withButton:(UIButton*) button;
 
 @end

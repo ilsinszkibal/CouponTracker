@@ -26,7 +26,7 @@
     
     [self setUpTopLeftButtonWithTitle:@"Back" withSel:@selector( backButtonAction: ) ];
     
-    _printButton = [UIFactory defaultButtonWithTitle:@"Print" target:self action:@selector(print)];
+    _printButton = [UIFactory defaultButtonWithTitle:@"Print" target:self action:@selector(print:)];
     [self.view addSubview:_printButton];
     
 }

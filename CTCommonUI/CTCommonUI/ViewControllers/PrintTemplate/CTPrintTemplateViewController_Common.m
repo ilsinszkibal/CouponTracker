@@ -20,6 +20,11 @@
 @implementation CTPrintTemplateViewController_Common
 
 - (void)print {
+    [self print:nil];
+}
+
+- (void)print:(UIButton*) button
+{
     [[CTNetworkingManager sharedManager] createPrintedCardFromTemplate:self.template completion:^(Model_PrintedCard* card, NSError* error){
         if (error) {
             //TODO: show popup
@@ -32,7 +37,7 @@
                     UIImage* resizedImage = [self resizeImage:finalImage toWidth:300];
                     UIImage* framedImage = [self frameImage:resizedImage withColor:[UIColor whiteColor] toSize:CGSizeMake(600, 800)];
                     
-                    [[CTPrinterManager sharedManager] printImage:framedImage];
+                    [[CTPrinterManager sharedManager] printImage:framedImage withButton:button];
                 }
             }];
         }
