@@ -18,6 +18,7 @@
 
 #import "CTNetworkingManager.h"
 
+#import "CTUserManager.h"
 #import "Model_PrintedCard.h"
 #import "Model_CardTemplate.h"
 #import "Model_Image.h"
@@ -78,6 +79,17 @@
     }
     
     [self loadPopularCards];
+    
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if ( [self isUserLoggedIn] == NO )
+    {
+        [[CTUserManager sharedManager] loginWithStoredCredentialsCompletion:NULL];
+    }
     
 }
 
