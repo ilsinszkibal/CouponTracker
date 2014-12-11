@@ -44,7 +44,7 @@
     
     self.loginButton = [UIFactory defaultButtonWithTitle:@"Login" target:self action:@selector(loginButtonPressed:) ];
     [self.view addSubview:self.loginButton];
-    
+   
     self.cardsButton = [UIFactory defaultButtonWithTitle:@"My coupons" target:self action:@selector(cardsButtonPressed:) ];
     [self.view addSubview:self.cardsButton];
     
@@ -74,8 +74,8 @@
     [self.loginLabel setFrame:CGRectMake(20, 30, 280, 100)];
     
     [self.loginButton setFrame:CGRectMake(200, 20, 100, 40)];
-    [self.cardsButton setFrame:CGRectMake(20, 460, 100, 40)];
-    [self.templatesButton setFrame:CGRectMake(200, 460, 100, 40)];
+    [self.cardsButton setFrame:CGRectMake(20, 500, 100, 40)];
+    [self.templatesButton setFrame:CGRectMake(200, 500, 100, 40)];
     
     [self.scanButton setFrame:CGRectMake(110, 200, 100, 100)];
 }

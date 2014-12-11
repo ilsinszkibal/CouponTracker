@@ -36,6 +36,9 @@ target :"CTUtils" do
     pod 'REComposeViewController', "~> 2.3.2"
     pod 'AYVibrantButton'
     pod 'JazzHands', "~> 0.1"
+    
+    #Analytics
+    pod 'GoogleAnalytics-iOS-SDK', "~> 3.10"
 
     xcodeproj "CTUtils/CTUtils"
 end

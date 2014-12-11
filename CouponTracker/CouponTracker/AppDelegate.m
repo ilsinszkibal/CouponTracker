@@ -12,6 +12,7 @@
 
 #import "CTMainViewController_iPhone.h"
 #import "CTMainViewController_iPad.h"
+#import <CTAnalytics.h>
 
 @interface AppDelegate ()
 
@@ -22,6 +23,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    [[CTAnalytics new] logEvent:@"AppOpened"];
+    
     CTWindow* window = [[CTWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds] ];
     self.window = window;
     

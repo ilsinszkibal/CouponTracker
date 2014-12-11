@@ -41,6 +41,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.screenName = NSStringFromClass([self class]);
 
     [self.view setBackgroundColor:[CTColor viewControllerBackgroundColor] ];
     
