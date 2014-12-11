@@ -27,6 +27,7 @@
 		6BA6312419EAB94300D56532 /* DefaultBackgroundiPhone.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BA6312319EAB94300D56532 /* DefaultBackgroundiPhone.json */; };
 		6BA6312619EABB3800D56532 /* DefaultBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6BA6312519EABB3800D56532 /* DefaultBackground.jpg */; };
 		6BB28AE11A18E2E400827695 /* CTInteractionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB28AE01A18E2E400827695 /* CTInteractionView.m */; };
+		6BECE53E1A3A2964001033C7 /* CTCardContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BECE53D1A3A2964001033C7 /* CTCardContentCell.m */; };
 		BD0638151A0692740087D42D /* CTInstructionsViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0638141A0692740087D42D /* CTInstructionsViewController_iPhone.m */; };
 		BD31F30E19F91EC500AF73D6 /* CTScanViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31F30D19F91EC500AF73D6 /* CTScanViewController_iPhone.m */; };
 		BD31F31B19F9417700AF73D6 /* CTCardsViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31F31A19F9417700AF73D6 /* CTCardsViewController_iPhone.m */; };
@@ -109,6 +110,8 @@
 		6BA6312519EABB3800D56532 /* DefaultBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = DefaultBackground.jpg; path = CouponTracker/Resources/DefaultBackground.jpg; sourceTree = "<group>"; };
 		6BB28ADF1A18E2E400827695 /* CTInteractionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTInteractionView.h; path = UI/iPhone/NewTemplateUtils/CTInteractionView.h; sourceTree = "<group>"; };
 		6BB28AE01A18E2E400827695 /* CTInteractionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTInteractionView.m; path = UI/iPhone/NewTemplateUtils/CTInteractionView.m; sourceTree = "<group>"; };
+		6BECE53C1A3A2964001033C7 /* CTCardContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTCardContentCell.h; sourceTree = "<group>"; };
+		6BECE53D1A3A2964001033C7 /* CTCardContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTCardContentCell.m; sourceTree = "<group>"; };
 		BD0638131A0692740087D42D /* CTInstructionsViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTInstructionsViewController_iPhone.h; path = UI/iPhone/CTInstructionsViewController_iPhone.h; sourceTree = "<group>"; };
 		BD0638141A0692740087D42D /* CTInstructionsViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTInstructionsViewController_iPhone.m; path = UI/iPhone/CTInstructionsViewController_iPhone.m; sourceTree = "<group>"; };
 		BD31F30C19F91EC500AF73D6 /* CTScanViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTScanViewController_iPhone.h; path = UI/iPhone/CTScanViewController_iPhone.h; sourceTree = "<group>"; };
@@ -154,6 +157,7 @@
 		6B4C2AF319E6F70100FB87DE /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6BECE53A1A3A2949001033C7 /* Utils */,
 				6B4C2AF419E6F70100FB87DE /* CTMainViewController_iPad.h */,
 				6B4C2AF519E6F70100FB87DE /* CTMainViewController_iPad.m */,
 				6B4C2AF619E6F70100FB87DE /* CTMyTemplatesViewController_iPad.h */,
@@ -295,6 +299,15 @@
 				6BB28AE01A18E2E400827695 /* CTInteractionView.m */,
 			);
 			name = NewTemplateUtils;
+			sourceTree = "<group>";
+		};
+		6BECE53A1A3A2949001033C7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6BECE53C1A3A2964001033C7 /* CTCardContentCell.h */,
+				6BECE53D1A3A2964001033C7 /* CTCardContentCell.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		BD3BBA0919D700070006DE0F /* Products */ = {
@@ -490,6 +503,7 @@
 				BDBFC19E19FD33530072306F /* CTNewContentViewController_iPhone.m in Sources */,
 				BD31F30E19F91EC500AF73D6 /* CTScanViewController_iPhone.m in Sources */,
 				6B386F351A344ED600A69E9B /* CTPrintedCardViewController_iPad.m in Sources */,
+				6BECE53E1A3A2964001033C7 /* CTCardContentCell.m in Sources */,
 				6B5056F119E14D86006939CC /* CTPrintTemplateViewController_iPhone.m in Sources */,
 				6B77A87719D6C5AE00FC0978 /* AppDelegate.m in Sources */,
 				6B6053C119E1462A0047293F /* CTMainViewController_iPhone.m in Sources */,
