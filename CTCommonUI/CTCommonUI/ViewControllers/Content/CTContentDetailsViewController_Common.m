@@ -20,6 +20,8 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     [self setUpTopLeftButtonWithTitle:@"Back" withSel:@selector(backButtonPressed:)];
     
     [self setUpTopRightButtonWithTitle:@"Hand off" withSel:@selector(handoffButtonPressed:)];

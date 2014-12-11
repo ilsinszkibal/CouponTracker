@@ -205,6 +205,12 @@
 
 - (void) scanButtonPressed:(UIButton*) button
 {
+    if ( [self isUserLoggedIn] == NO )
+    {
+        [self showLogin];
+        return;
+    }
+    
     CTScanViewController_iPad* scan = [[CTScanViewController_iPad alloc] init];
     [self navigateToViewController:scan];
 }

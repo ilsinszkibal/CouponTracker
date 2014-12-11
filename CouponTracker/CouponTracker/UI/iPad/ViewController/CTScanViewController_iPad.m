@@ -8,7 +8,7 @@
 
 #import "CTScanViewController_iPad.h"
 
-#import "CTContentDetailsViewController_Common.h"
+#import "CTContentDetailsViewController_iPad.h"
 #import "CTNewContentViewController_Common.h"
 
 @interface CTScanViewController_iPad ()
@@ -47,6 +47,8 @@
     [self.startStopButton setFrame:CGRectMake(200, 650, 300, 30)];
     [self.statusLabel setFrame:CGRectMake(100, 750, 500, 44)];
     [self.instructionLabel setFrame:CGRectMake(100, 350, 500, 100)];
+    
+    [self.spinner setFrame:CGRectMake(self.view.width / 2.0 - self.spinner.width / 2.0, self.statusLabel.maxY + 10, self.spinner.width, self.spinner.height) ];
 }
 
 - (void)backButtonPressed:(UIButton*)backButton {
@@ -56,7 +58,7 @@
 #pragma mark - Navigation
 
 - (void)showContentDetails:(Model_CardContent*)content {
-    CTContentDetailsViewController_Common* viewController = [[CTContentDetailsViewController_Common alloc] init];
+    CTContentDetailsViewController_iPad* viewController = [[CTContentDetailsViewController_iPad alloc] init];
     viewController.content = content;
     viewController.card = self.card;
     [self navigateToViewController:viewController];
